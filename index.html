@@ -10,16 +10,286 @@
     <link rel="stylesheet" href="./public/css/style.css">
 
     <!-- GOOGLE FONTS  -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 
 
     <!-- JAVASCRIPT -->
+    <script src="./public/javascript/app.js"></script>
+
 
     <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./public/javascript/jquery.js"></script>
 
 
     <title>Photo at Discharge</title>
 </head>
 <body>
+
+    <nav>
+        <div class="nav-logo">
+            <a href="">logo</a>
+        </div>
+
+
+    </nav>
+
+    <div class="main-content-wrapper">
+
+        <div class="main-content">
+        <div class="main-content-title">
+            <h1>
+                Information Entry
+            </h1>
+        </div>
+        <div class="m-c-info-text">
+            <p>
+                Note: This webpage contains content that is for demonstration.
+            </p>
+        </div>
+        <div class="save-button-div">
+            <button id="save-button" class="save-button">Save & Exit</button>
+        </div>
+
+        <div class="database-table">
+            <div class="database-table-content">
+                <table>
+                    <tr>
+                        <th colspan="2">
+                            Photo at Discharge
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="width: 30%; border: none;"></th>
+                        <th style="width: 70%; border: none;"></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Date of Discharge
+                        </td>
+                        <td>
+                            Date - include Calendar
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ward of Discharge
+                        </td>
+                        <td>
+                            <form action="">
+                                <input type="text" name="ward name" id="" class="large-textbox">
+                            </form>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Category
+                        </td>
+                        <td>
+                            <select name="category" id="category-dropdown" class="small-dropdown">
+                                <option value="select">--select--</option>
+                                <option value="">Cardiac (Surgical)</option>
+                                <option value="">Paediatric (Cardiac)</option>
+                                <option value="">Thoracic (Surgical)</option>
+                                <option value="">Drain management only</option>
+                                <option value="">Other</option>
+                                <option value="">Cardiac (Invasive cardiology)</option>
+                                <option value="">Cardiac (Transplant)</option>
+                                <option value="">Thoriac (Transplant)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Sternal wound
+                        </td>
+                        <td>
+                            <select name="sternal wound" id="sternal-wound-dropdown" class="large-dropdown">
+                                <option value="select">--select--</option>
+                                <option value="">Sternal wound dry and exposed on day of planned discharge</option>
+                                <option value="">Dissolvable suture(s)</option>
+                                <option value="">Surgical clips</option>
+                                <option value="">Steri-strips</option>
+                                <option value="">No-absorbable sutures</option>
+                                <option value="">Minimally invasive left-sided thoracotomy wound</option>
+                                <option value="">Minimally invasive right-sided thoracotomy wound</option>
+                                <option value="">Minimally invasive sternal wound (shorter; central chest incision)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td>
+                            Removal date
+                        </td>
+                        <td>
+                            Date - include Calendar
+                        </td>
+                    </tr> -->
+                    <tr>
+                        <td>
+                            Sternal wound assessment
+                        </td>
+                        <td>
+                            <!-- <form action="">
+                                <input type="text" name="ward name" id="" class="scrollable-textbox">
+                            </form> -->
+                            <textarea name="" id="" cols="30" rows="10" class="scrollable-textbox"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Micro for sternal wound
+                        </td>
+                        <!-- TODO: MAKE RADIO FORMS CLICK ONLY ONE OPTION -->
+                        <td>
+                            <form action="">
+                                <input type="radio" name="foo" id="">There are no outstanding sternal swabs <br>
+                                <input type="radio" name="foo" id="">Antibiotics are prescribed to cover the sternal wound swab results <br>
+                                <input type="radio" name="foo" id="">There are pending sternal wound swabs. We will follow up these results and will inform your GP to action necessary
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Drain sites
+                        </td>
+                        <td>
+                            <select name="" id="" class="large-dropdown">
+                                <option value="">--select--</option>
+                                <option value="">Dry and exposed with sutures removed</option>
+                                <option value="">Sutures (dark thread appearance) to be removed by your GP practice or district nurse</option>
+                                <option value="">Drain site sutures removed - some oozing</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Removal date
+                        </td>
+                        <td>
+                            Date - include calendar
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Drain sites TEXT
+                        </td>
+                        <td>
+                            <textarea name="" id="" cols="30" rows="10" class="scrollable-textbox"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Leg wounds
+                        </td>
+                        <td>
+                            <select name="" id="" class="large-dropdown">
+                                <option value="">--select--</option>
+                                <option value="">Leg wound(s) dry and intact. Surgical clips to be removed by your GP practice or district nurse.</option>
+                                <option value="">Leg wound(s) are dry and intact. Clips were removed.</option>
+                                <option value="">Leg wound(s) are oozing and still healing. No signs of infection.</option>
+                                <option value="">Absorbable sutures at leg wound site. These do not need to be trimmed or removed.</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Leg wound assessment
+                        </td>
+                        <td>
+                            <textarea name="" id="" cols="30" rows="10" class="scrollable-textbox"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Arm wounds (CABG)
+                        </td>
+                        <td>
+                            <select name="" id="" class="large-dropdown">
+                                <option value="">--select--</option>
+                                <option value="">No</option>
+                                <option value="">Radical (arm) wound(s) are dry and intact. Surgical clips to be removed by your GP practice or district nurse.</option>
+                                <option value="">Radial (arm) wound(s) are dry and intact. Clips were removed.</option>
+                                <option value="">Radial (arm) wound(s) are oozing and still healing. No signs of infection.</option>
+                                <option value="">Absorbable sutures at the arm wound site. These do not need to be trimmed or removed.</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td>
+                            Radial removal date
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr> -->
+                    <tr>
+                        <td>
+                            Brompton Harefield infection score BHIS
+                        </td>
+                        <td>
+                            <form action="">
+                                <input type="text" name="ward name" id="" class="small-textbox">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Additional resources provided at discharge
+                        </td>
+                        <td>
+                            <form action="">
+                                <input type="checkbox" name="" id="">Hibiscrub Plus (antimicrobial wash) for morning shower. <br>
+                                <input type="checkbox" name="" id="">Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse. <br>
+                                <input type="checkbox" name="" id="">Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed. <br>
+                                <input type="checkbox" name="" id="">Additional surgical bra provided. <br>
+                                <input type="checkbox" name="" id="">Guaze pack(s) provided for under bra band. <br>
+                                <input type="checkbox" name="" id="">Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.
+
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Photo
+                        </td>
+                        <td>
+                            include option to upload photo here
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Responsible consultant
+                        </td>
+                        <td>
+                            <select name="" id="" class="small-dropdown">
+                                <option value="">--select--</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Staff providing PaD
+                        </td>
+                        <td>
+                            <form action="">
+                                <input type="text" name="ward name" id="" class="small-textbox"><a href="/csp/brompton/cbd/photo/reports/PAD.csp" target="_blank">Generate Letter</a>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        </div>
+
+
+        
+
+
+    </div>
     
 </body>
 </html>
