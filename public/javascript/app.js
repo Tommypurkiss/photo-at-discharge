@@ -37,17 +37,19 @@ function woundPhotoCheck() {
     } 
     else if (document.getElementById('wound-photo-two').checked == true) {
         photoValue = document.getElementById('wound-photo-two').value;
+        alert(photoValue);
     } 
     else if (document.getElementById('wound-photo-three').checked == true) {
         photoValue = document.getElementById('wound-photo-three').value;
+        alert(photoValue);
     }
     else if (document.getElementById('wound-photo-four').checked == true) {
         photoValue = document.getElementById('wound-photo-four').value;
+        alert(photoValue);
     }
     else if (document.getElementById('wound-photo-five').checked == true) {
         photoValue = document.getElementById('wound-photo-five').value;
+        alert(photoValue);
     }
-
-
     //document.getElementById('wound-photo-answer').innerHTML = "" + photoValue;
 }
