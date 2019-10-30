@@ -15,10 +15,13 @@
 
     <!-- JAVASCRIPT -->
     <script src="./public/javascript/app.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-1.7-development-only.js"></script>
 
 
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./public/javascript/jquery.js"></script>
 
 
@@ -60,18 +63,19 @@
                         </th>
                     </tr>
                     <tr>
-                        <th style="width: 30%; border: none;"></th>
-                        <th style="width: 70%; border: none;"></th>
+                        <th style="width: 25%; border: none;"></th>
+                        <th style="width: 75%; border: none;"></th>
                     </tr>
                     <tr>
                         <td>
                             Date of Discharge
                         </td>
                         <td>
-                            <form action="">
-                                <input type="date" name="bday">
+                            <!-- <form action=""> -->
+                                <!-- <input type="date" name="" class="date-picker" id="date-picker" /> -->
                                 <!-- <input type="submit"> -->
-                            </form>
+                            <!-- </form> -->
+                            <input type="date" class="date-picker" />
                         </td>
                     </tr>
                     <tr>
@@ -79,10 +83,15 @@
                             Ward of Discharge
                         </td>
                         <td>
-                            <form action="">
-                                <input type="text" name="ward name" id="" class="large-textbox">
-                            </form>
                             
+                            <select name="" id="" class="small-dropdown">
+                                <option value="select">--select--</option>
+                                <option value="">Maple</option>
+                                <option value="">Cedar</option>
+                                <option value="">Juniper</option>
+                                <option value="">HDU</option>
+
+                            </select>
                         </td>
                     </tr>
                     <tr>
@@ -96,10 +105,11 @@
                                 <option value="">Paediatric (Cardiac)</option>
                                 <option value="">Thoracic (Surgical)</option>
                                 <option value="">Drain management only</option>
-                                <option value="">Other</option>
                                 <option value="">Cardiac (Invasive cardiology)</option>
                                 <option value="">Cardiac (Transplant)</option>
                                 <option value="">Thoriac (Transplant)</option>
+                                <option value="">Other</option>
+
                             </select>
                         </td>
                     </tr>
@@ -144,7 +154,6 @@
                         <td>
                             Micro for sternal wound
                         </td>
-                        <!-- TODO: MAKE RADIO FORMS CLICK ONLY ONE OPTION -->
                         <td>
                             <form action="">
                                 <input type="radio" name="foo" id="">There are no outstanding sternal swabs <br>
@@ -172,7 +181,7 @@
                         </td>
                         <td>
                             <form action="">
-                                <input type="date" name="bday">
+                                <input type="date" name="" class="date-picker">
                                 <!-- <input type="submit"> -->
                             </form>
                         </td>
@@ -262,10 +271,48 @@
                         </td>
                         <td>
                             <!-- include option to upload photo here -->
-                            <input type="file" name="" id="">
+                            <!-- <input type="file" name="" id="">
                             <br>
-                            <img id="wound-img" src="#" alt="your image will appear here once chosen    " height=200 width=100>
+                            <img id="wound-img" src="#" alt="your image will appear here once chosen    " height=200 width=100> -->
 
+                            <form action="" class="wound-photo-form">
+                                <!-- <input type="radio" name="foo" id=""> <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (wrong angle).jpg" alt="">
+                                <input type="radio" name="foo" id=""> <img src="" alt="">
+
+                                <input type="radio" name="foo" id=""> <img src="" alt=""> -->
+                                <div class="row">
+                                    <div class="wound-photo photo-one column">
+                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (wrong angle).jpg" alt="" height="300" width="200"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-one" value="incorrect - wrong angle" onclick="woundPhotoCheck()"> 
+                                    </div>
+                                    
+                                    <div class="wound-photo photo-two column">
+                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (too close).JPG" alt="" height="300" width="200"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-two" value="inccorect - too close" onclick="woundPhotoCheck()"> 
+                                    </div>
+    
+                                    <div class="wound-photo photo-three column">
+                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (shadow).JPG" alt="" height="300" width="200"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-three" value="incorrect - shadow present on image" onclick="woundPhotoCheck()"> 
+                                    </div>
+    
+                                    <div class="wound-photo photo-four column">
+                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (perfect).jpg" alt="" height="300" width="200"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-four" value="correct - this is the perfect image" onclick="woundPhotoCheck()"> 
+                                    </div>
+    
+                                    <div class="wound-photo photo-five column">
+                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (blurred).jpg" alt="" height="300" width="200"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-five" value="incorrect - blurred image" onclick="woundPhotoCheck()"> 
+                                    </div>
+
+                                </div>
+                            </form>
+                            <div class="wound-photo-answer" >
+                                <p id="wound-photo-answer">
+                                    Choose an image
+                                </p>
+                            </div>
                         </td>
                     </tr>
                     <tr>

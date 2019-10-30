@@ -1,0 +1,57 @@
+@media screen and (max-width: 768px) {
+
+    .main-content-wrapper {
+
+        .main-content {
+
+            width: 80% !important;
+
+            .database-table {
+
+                .database-table-content {
+
+                    table {
+                    
+
+                        th {
+                            font-size: 24px !important;
+                            padding: 0px;
+                        }
+    
+                        td {
+                            padding: 0px;
+                        }
+
+
+
+
+                        .wound-photo-form {
+
+                            
+
+                            .row {
+                                // flex-flow: column wrap;
+                                // margin: 0 auto;
+
+                                .column {
+
+                                    flex: 100% !important;
+                                    max-width: 100% !important;
+                                
+                                    .wound-photo {
+
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        
+    }
+
+
+}

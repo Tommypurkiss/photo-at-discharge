@@ -1,0 +1,46 @@
+
+
+
+@media screen and (max-width: 1600px) {
+    
+    // .column {
+    // //-ms-flex: 50%;
+    // flex: 50%;
+    // max-width: 50%;
+    // }
+
+    .main-content-wrapper {
+
+        .main-content {
+
+            .database-table {
+
+                .database-table-content {
+
+                    table {
+
+                        padding: 0px !important;
+
+                        .wound-photo-form {
+
+                            .row {
+
+                                .column {
+
+                                    flex: 50% !important;
+                                    max-width: 50% !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+
+
+}
