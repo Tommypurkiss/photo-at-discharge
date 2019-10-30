@@ -33,6 +33,7 @@ function woundPhotoCheck() {
 
     if (document.getElementById('wound-photo-one').checked == true) {
         photoValue = document.getElementById('wound-photo-one').value;
+        alert(photoValue);
     } 
     else if (document.getElementById('wound-photo-two').checked == true) {
         photoValue = document.getElementById('wound-photo-two').value;
@@ -48,5 +49,5 @@ function woundPhotoCheck() {
     }
 
 
-    document.getElementById('wound-photo-answer').innerHTML = "" + photoValue;
+    //document.getElementById('wound-photo-answer').innerHTML = "" + photoValue;
 }
