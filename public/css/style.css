@@ -133,6 +133,10 @@ nav .nav-logo a {
   background-color: #bbbbbb;
 }
 
+.main-content-wrapper .main-content .database-table .database-table-content table .form-bg-colour {
+  background-color: #bbbbbb;
+}
+
 .main-content-wrapper .main-content .database-table .database-table-content table tr th {
   font-size: 32px;
   padding: 8px;
