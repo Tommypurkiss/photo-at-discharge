@@ -1,33 +1,3 @@
-// function radioOptionsValue() {
-
-//     if (document.getElementById('radio-option-one').checked == true) {
-//         radioValue = document.getElementById('radio-option-one').value;
-//     } else if (document.getElementById('radio-option-two').checked == true) {
-//         radioValue = document.getElementById('radio-option-two').value;
-//     } else if (document.getElementById('radio-option-three').checked == true) {
-//         radioValue = document.getElementById('radio-option-three').value;
-//     }
-//     document.getElementById('radio-option').innerHTML = "" + radioValue;
-// }
-
-
-// function woundPhotoCheck() {
-//     // wound photos
-//     var woundPhotoOne = document.getElementById('wound-photo-one');
-
-//     // answer message
-//     var answerMessage = document.getElementById('wound-photo-answer');
-//     var correctAnswer = "correct";
-//     var incorrectAnswer = "";
-
-//     if ((woundPhotoOne).checked == true) {
-//         answerMessage.innerHTML == correctAnswer;
-//         console.log(correctAnswer);
-//     }
-
-
-// }
-
 
 function woundPhotoCheck() {
 
@@ -52,4 +22,30 @@ function woundPhotoCheck() {
         alert(photoValue);
     }
     //document.getElementById('wound-photo-answer').innerHTML = "" + photoValue;
+}
+
+
+
+
+// PDF
+
+function generatePDF() {
+
+    var test = document.getElementById('maple-ward').value;
+
+    var testImg = document.getElementById('wound-photo-one-img');
+    // var img1 = document.createElement("img");
+    // img1.src = "public\assets\img\wound-imgs\Mr M. Abbass 4074554 (blurred).jpg";
+
+    var options = {unit: 'px', format: 'a4'};
+
+    var doc = new jsPDF(options);
+
+    doc.text('Hello world!', 20, 100);
+    //doc.addPage(); //generates a new page
+    doc.text(test, 10, 20);
+    doc.addImage(testImg, 'JPEG', 100 , 120, 200, 300); //works kinda
+    //doc.viewerPreferences({'FitWindow': true}, true) //probs dont need
+
+    doc.save('Photo-at-Discharge.pdf');
 }

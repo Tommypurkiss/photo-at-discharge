@@ -24,28 +24,9 @@
 
 // DATE PICKER COMPATIBILITY FOR SAFARI AND IE
 $(document).ready(function(){
-    // if ( $('[type="date"]').prop('type') != 'date' ) {
-    //     $('[type="date"]').datepicker();
-    // }
-
-    // if ( $('.date-picker')[0].type != 'date' ) {
-    //     $('.date-picker').datepicker();
-    // }
-    
-    // if ( $('#date-picker')[0].type != 'date' ) $('#date-picker').datepicker();
 
     if ( $('.date-picker').prop('type') != 'date' ) {
         $('.date-picker').datepicker();
     }
 });
 
-// $( function() {
-//     // $( ".date-picker" ).datepicker();
-//     if ( $('.date-picker').prop('type') != 'date' ) {
-//         $('.date-picker').datepicker();
-//     }
-// });
-
-// if ( $('.date-picker').prop('type') != 'date' ) {
-//     $('.date-picker').datepicker();
-// }

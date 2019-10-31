@@ -24,6 +24,10 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./public/javascript/jquery.js"></script>
 
+    <!-- JSPDF -->
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
 
     <title>Photo at Discharge</title>
 </head>
@@ -50,9 +54,13 @@
                 Note: This webpage contains content that is for demonstration.
             </p>
         </div>
+
+
         <div class="save-button-div">
             <button id="save-button" class="save-button">Save & Exit</button>
         </div>
+
+
 
         <div class="database-table">
             <div class="database-table-content">
@@ -86,10 +94,10 @@
                             
                             <select name="" id="" class="small-dropdown">
                                 <option value="select">--select--</option>
-                                <option value="">Maple</option>
-                                <option value="">Cedar</option>
-                                <option value="">Juniper</option>
-                                <option value="">HDU</option>
+                                <option value="Maple" id="maple-ward">Maple</option>
+                                <option value="Cedar">Cedar</option>
+                                <option value="Juniper">Juniper</option>
+                                <option value="HDU">HDU</option>
 
                             </select>
                         </td>
@@ -282,28 +290,28 @@
                                 <input type="radio" name="foo" id=""> <img src="" alt=""> -->
                                 <div class="row">
                                     <div class="wound-photo photo-one column">
-                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (wrong angle).jpg" alt="" height="300" width="200"> <br>
-                                        <input type="radio" name="foo" id="wound-photo-one" value="incorrect - wrong angle" onclick="woundPhotoCheck()"> 
+                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (wrong angle).jpg" alt="" height="300" width="200" id="wound-photo-one-img"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-one" value="Incorrect - wrong angle" onclick="woundPhotoCheck()"> 
                                     </div>
                                     
                                     <div class="wound-photo photo-two column">
                                         <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (too close).JPG" alt="" height="300" width="200"> <br>
-                                        <input type="radio" name="foo" id="wound-photo-two" value="inccorect - too close" onclick="woundPhotoCheck()"> 
+                                        <input type="radio" name="foo" id="wound-photo-two" value="Inccorect - too close" onclick="woundPhotoCheck()"> 
                                     </div>
     
                                     <div class="wound-photo photo-three column">
                                         <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (shadow).JPG" alt="" height="300" width="200"> <br>
-                                        <input type="radio" name="foo" id="wound-photo-three" value="incorrect - shadow present on image" onclick="woundPhotoCheck()"> 
+                                        <input type="radio" name="foo" id="wound-photo-three" value="Incorrect - shadow present on image" onclick="woundPhotoCheck()"> 
                                     </div>
     
                                     <div class="wound-photo photo-four column">
                                         <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (perfect).jpg" alt="" height="300" width="200"> <br>
-                                        <input type="radio" name="foo" id="wound-photo-four" value="correct - this is the perfect image" onclick="woundPhotoCheck()"> 
+                                        <input type="radio" name="foo" id="wound-photo-four" value="Correct - this is the perfect image" onclick="woundPhotoCheck()"> 
                                     </div>
     
                                     <div class="wound-photo photo-five column">
                                         <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (blurred).jpg" alt="" height="300" width="200"> <br>
-                                        <input type="radio" name="foo" id="wound-photo-five" value="incorrect - blurred image" onclick="woundPhotoCheck()"> 
+                                        <input type="radio" name="foo" id="wound-photo-five" value="Incorrect - blurred image" onclick="woundPhotoCheck()"> 
                                     </div>
 
                                 </div>
@@ -331,7 +339,12 @@
                         </td>
                         <td>
                             <form action="">
-                                <input type="text" name="ward name" id="" class="small-textbox"><a href="/csp/brompton/cbd/photo/reports/PAD.csp" target="_blank">Generate Letter</a>
+                                <input type="text" name="ward name" id="" class="small-textbox">
+                                <!-- <a href="#" target="_blank" >Generate Letter</a> -->
+                                <a href="javascript:generatePDF()"> Download</a>
+                                <!-- /csp/brompton/cbd/photo/reports/PAD.csp -->
+                                <!-- <input type="button" id="create_pdf" value="Generate PDF" onclick="genertePDF()">   -->
+
                             </form>
                         </td>
                     </tr>
