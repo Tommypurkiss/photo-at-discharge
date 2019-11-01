@@ -56,9 +56,13 @@ nav {
 
 
 .main-content-wrapper {
-    border: $blackBorder;
+    //border: $blackBorder;
     position: absolute;
     width: 100%;
+
+    .hidden {
+        display: none;
+    }
 
     .main-content {
         width: 90%;
@@ -224,4 +228,21 @@ nav {
 
     }
 
+}
+
+.pdf {
+    height: 800px;
+		//width: 600px;
+		margin: 0px auto;
+
+    .left-text {
+        float: left;
+        //height: 400px;
+		width: 48%;
+    } 
+    .right-img {
+        float: right;
+        //height: 400px;
+		width: 48%;
+    }
 }

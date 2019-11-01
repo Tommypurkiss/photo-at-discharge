@@ -92,7 +92,7 @@
                         </td>
                         <td>
                             
-                            <select name="" id="" class="small-dropdown">
+                            <select name="" id="ward-options" class="small-dropdown">
                                 <option value="select">--select--</option>
                                 <option value="Maple" id="maple-ward">Maple</option>
                                 <option value="Cedar">Cedar</option>
@@ -283,7 +283,7 @@
                             <br>
                             <img id="wound-img" src="#" alt="your image will appear here once chosen    " height=200 width=100> -->
 
-                            <form action="" class="wound-photo-form">
+                            <form action="" class="wound-photo-form" id="wound-photo-form">
                                 <!-- <input type="radio" name="foo" id=""> <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (wrong angle).jpg" alt="">
                                 <input type="radio" name="foo" id=""> <img src="" alt="">
 
@@ -295,22 +295,22 @@
                                     </div>
                                     
                                     <div class="wound-photo photo-two column">
-                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (too close).JPG" alt="" height="300" width="200"> <br>
+                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (too close).JPG" alt="" height="300" width="200" id="wound-photo-two-img"> <br>
                                         <input type="radio" name="foo" id="wound-photo-two" value="Inccorect - too close" onclick="woundPhotoCheck()"> 
                                     </div>
     
                                     <div class="wound-photo photo-three column">
-                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (shadow).JPG" alt="" height="300" width="200"> <br>
+                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (shadow).JPG" alt="" height="300" width="200" id="wound-photo-three-img"> <br>
                                         <input type="radio" name="foo" id="wound-photo-three" value="Incorrect - shadow present on image" onclick="woundPhotoCheck()"> 
                                     </div>
     
                                     <div class="wound-photo photo-four column">
-                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (perfect).jpg" alt="" height="300" width="200"> <br>
+                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (perfect).jpg" alt="" height="300" width="200" id="wound-photo-four-img"> <br>
                                         <input type="radio" name="foo" id="wound-photo-four" value="Correct - this is the perfect image" onclick="woundPhotoCheck()"> 
                                     </div>
     
                                     <div class="wound-photo photo-five column">
-                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (blurred).jpg" alt="" height="300" width="200"> <br>
+                                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (blurred).jpg" alt="" height="300" width="200" id="wound-photo-five-img"> <br>
                                         <input type="radio" name="foo" id="wound-photo-five" value="Incorrect - blurred image" onclick="woundPhotoCheck()"> 
                                     </div>
 
@@ -355,11 +355,89 @@
 
         </div>
 
+        <div class="pdf hidden" id="pdf" style="padding: 0px; font-size: 14px;" >
+                <div class="left-text" id="left-text">
+                    <p id="p1" >
+                        <i>
+                            19/7/2015 no outstanding sternal swabs at discharge. Normal swelling
+                            at the top of wound which will resolve over a few weeks. Sternal wound
+                            is clean and dry on the day of discharge. Drain sutures to be removed
+                            DD/MM/YY and clips to legs to be removed DD/MM/YY.
+                        </i>
+                    </p>
+                    <p style="text-decoration: underline;">
+                        <u>Advice to Mr Blogg</u>
+                    </p>
+                    <p id="p2">
+                            *Full, daily shower with liquid soap. Water and liquid soap is fine to
+                            roll over wound bed, but avoid very hot water and/or soaking the wound
+                            and do not rub wound (there is a bit of dried blood/scab, which will
+                            come away over time). Pat the sternal wound dry with clean towel
+                            gently first, then dry rest of body. If present, incision(s) on the leg are
+                            also surgical wounds and need to be treated in the same manner, using a
+                            separate towel to dry.
+                    </p>
+                    <p id="p3">
+                            *Support your wound when coughing and if possible, turn your head so
+                            that coughing directly over the wound is avoided.
+                    </p>
+                    <p id="p4">
+                            *The bottom of the wound is particularly vulnerable. Good posture and
+                            regularly standing will reduce pressure on the area.
+                    </p>
+                    <p id="p5">
+                            *Protect the sternal wound with careful movement; when possible
+                            please sleep on your back, avoid over-reaching/stretching (including
+                            during hair wash) and use your arms for balance when moving to
+                            standing position, rather than pushing /supporting weight.
+                    </p>
+                    <p id="p6">
+                            *Wash hands frequently and avoid touching wound. A healing
+                            wound may be itchy (especially if there is hair regrowth) but avoid urge
+                            to scratch. Regular hand washing will reduce the risk of infection
+                    </p>
+                    <p id="p7">
+                        <b>
+                            PLEASE USE THIS PHOTO TO MONITOR for any signs of
+                            infection,  including  new  or  increasing  heat,  redness,  pain  or
+                            swelling around the wound or any gaping or fluid leaking from the
+                            wound. Sternal 'clicking' or high temperature should also  be
+                            reported.
+                        </b>
+                    </p>
 
-        
+                    
+                </div>
+                <div class="right-img">
+                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (perfect).jpg" alt="" height="300" width="200" id="wound-photo-four-img">
+                </div>
 
+                <div class="bottom-text" id="bottom-text">
+                    <p>
+                            If you receive treatment for a wound problem and the wound does not
+                            start to show clear improvement after one week, please contact your hospital surgical team because you may
+                            need antibiotics given in another way (i.e.  intravenously) and/or wound revision. Cardiac surgery is
+                            considered 'implant surgery and for this reason, referral back to the surgical team in a timely manner is very
+                            important.
+                    </p>
+                    <p>
+                            Please contact your GP or Mr Surgeons' secretary (XXXXXXX XXXX) immediately if you think your
+                            wound might be infected. Treating an infection early helps stop it from becoming worse or lasting longer than
+                            it should. This information does not replace advice or assessment by your surgical team.  Colour copy of this
+                            information to the patient. Electronic copy on EPR.
+                    </p>
+                </div>
+
+                <div class="bottom-sign" id="bottom-sign">
+                    <p>
+                        Consent for photo .................................................................. (patient or guardian signature)
+                    </p>
+                </div>
+            </div>
 
     </div>
+
+    
     
 </body>
 </html>
