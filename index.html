@@ -57,7 +57,7 @@
 
 
         <div class="save-button-div">
-            <button id="save-button" class="save-button">Save & Exit</button>
+            <button id="save-button" class="save-button" onclick="saveAndExit()">Save & Exit</button>
         </div>
 
 
@@ -84,7 +84,7 @@
                                 <!-- <input type="submit"> -->
                             <!-- </form> -->
                             <input type="date" class="date-picker" id="start-date" value=""/>
-                            <input type="submit" id="start-date-submit" value="Set Date">
+                            <input type="submit" id="start-date-submit" value="Set Start Date">
                         </td>
                     </tr>
                     <tr>
@@ -97,7 +97,7 @@
                                 <option value="select">--select--</option>
                                 <option value="Maple" id="maple-ward">Maple</option>
                                 <option value="Cedar">Cedar</option>
-                                <option value="Juniper">Juniper</option>
+                                <option value="Juniper" >Juniper</option> <!-- correct ward -->
                                 <option value="HDU">HDU</option>
 
                             </select>
@@ -136,7 +136,7 @@
                                 <option value="">No-absorbable sutures</option>
                                 <option value="">Minimally invasive left-sided thoracotomy wound</option>
                                 <option value="">Minimally invasive right-sided thoracotomy wound</option>
-                                <option value="">Minimally invasive sternal wound (shorter; central chest incision)</option>
+                                <option value="">Minimally invasive wound (shorter; central chest incision)</option>
                             </select>
                         </td>
                     </tr>
@@ -156,18 +156,18 @@
                             <!-- <form action="">
                                 <input type="text" name="ward name" id="" class="scrollable-textbox">
                             </form> -->
-                            <textarea name="" id="" cols="30" rows="10" class="scrollable-textbox"></textarea>
+                            <textarea name="" id="wound-assessment-text" cols="30" rows="10" class="scrollable-textbox"></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Micro for sternal wound
+                            Micro for wound
                         </td>
                         <td>
                             <form action="">
-                                <input type="radio" name="foo" id="">There are no outstanding sternal swabs <br>
-                                <input type="radio" name="foo" id="">Antibiotics are prescribed to cover the sternal wound swab results <br>
-                                <input type="radio" name="foo" id="">There are pending sternal wound swabs. We will follow up these results and will inform your GP to action necessary
+                                <input type="radio" name="foo" id="">There are no outstanding swabs <br>
+                                <input type="radio" name="foo" id="">Antibiotics are prescribed to cover the wound swab results <br>
+                                <input type="radio" name="foo" id="">There are pending wound swabs. We will follow up these results and will inform your GP to action necessary
                             </form>
                         </td>
                     </tr>
@@ -179,7 +179,7 @@
                             <select name="" id="" class="large-dropdown">
                                 <option value="">--select--</option>
                                 <option value="">Dry and exposed with sutures removed</option>
-                                <option value="">Sutures (dark thread appearance) to be removed by your GP practice or district nurse</option>
+                                <option value="">Sutures (dark thread appearance) to be removed by your GP practice or district nurse</option> <!-- correct option -->
                                 <option value="">Drain site sutures removed - some oozing</option>
                             </select>
                         </td>
@@ -189,10 +189,11 @@
                             Removal date
                         </td>
                         <td>
-                            <form action="">
-                                <input type="date" name="" class="date-picker">
-                                <!-- <input type="submit"> -->
-                            </form>
+                            <!-- <form action=""> -->
+                                <input type="date" name="" class="date-picker"  id="end-date" value="">
+                                <input type="submit" id="end-date-submit" value="Set End Date">
+
+                            <!-- </form> -->
                         </td>
                     </tr>
                     <tr>
@@ -225,7 +226,7 @@
                             <textarea name="" id="" cols="30" rows="10" class="scrollable-textbox"></textarea>
                         </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>
                             Arm wounds (CABG)
                         </td>
@@ -239,7 +240,7 @@
                                 <option value="">Absorbable sutures at the arm wound site. These do not need to be trimmed or removed.</option>
                             </select>
                         </td>
-                    </tr>
+                    </tr> -->
                     <!-- <tr>
                         <td>
                             Radial removal date
@@ -360,7 +361,7 @@
                 <div class="left-text" id="left-text">
                     <p id="p1" >
                         <i>
-                            19/7/2015 no outstanding sternal swabs at discharge. Normal swelling
+                            19/7/2015 no outstanding swabs at discharge. Normal swelling
                             at the top of wound which will resolve over a few weeks. Sternal wound
                             is clean and dry on the day of discharge. Drain sutures to be removed
                             DD/MM/YY and clips to legs to be removed DD/MM/YY.
