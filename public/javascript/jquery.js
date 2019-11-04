@@ -30,3 +30,39 @@ $(document).ready(function(){
     }
 });
 
+
+
+// RETRIEVE DATE VALUE FROM DATE PICKER
+
+$(document).ready(function(){
+    $('#start-date-submit').on('click', function(){
+
+        // the set date from input 
+        var date = new Date($('#start-date').val());
+        day = date.getDate();
+        month = date.getMonth() + 1;
+        year = date.getFullYear();
+        var setDate = day + "/" + month + "/" + year
+        console.log(setDate)
+        //alert([day, month, year].join('/'));
+
+
+
+        // the current date
+        var currentDate = new Date();
+
+        var dd = String(currentDate.getDate())
+        var mm = String(currentDate.getMonth() + 1) //January is 0!
+        var yyyy = currentDate.getFullYear();
+
+        currentDate = dd + '/' + mm + '/' + yyyy;
+        console.log(currentDate)
+
+        if (setDate != currentDate) {
+            alert("Please choose todays date")
+            $('#start-date').val("");
+        }
+
+    });
+});
+
