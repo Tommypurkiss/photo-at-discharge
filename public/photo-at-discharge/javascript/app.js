@@ -52,11 +52,50 @@ function saveAndExit() {
     // document.getElementById('#wound-assessment-text').innerHTML = scratchWord;
 
     // // if ()
+
+
+    //checkDrName(); //works
+
+    checkWord()
 }
 
 
+function checkWord() {
+
+    //let scratchWord = "scratch"
+
+    // let woundAssessmentText = document.getElementById('wound-assessment-text')
+
+    // // woundAssessmentText == scratchWord.includes("scratch")
+
+    // // scratchWord.includes
+
+    // woundAssessmentText.includes("scratch")
+
+    // console.log(woundAssessmentText)
 
 
+    let str = "scratch"
+
+    let str2 = str.includes("scratch")
+
+    let textbox = document.getElementById("wound-assessment-text").innerHTML
+
+
+    if(textbox != str2) {
+        alert("change your answer")
+    } 
+
+    // document.getElementById("wound-assessment-text").innerHTML = str2
+
+
+    // Test code
+    // var str = "Hello world, welcome to the universe.";
+    // var n = str.includes("world");
+    // document.getElementById("wound-assessment-text").innerHTML = n;
+
+
+}
 
 
 // PDF
@@ -125,5 +164,17 @@ function generatePDF() {
     // Save pdf
     doc.save('Photo-at-Discharge.pdf');
 }
+// End PDF
 
 
+
+//works - TODO: might not be necessary 
+function checkDrName() {
+
+    let docTextbox = document.getElementById('doctor-name')
+
+    if ((docTextbox).value == "") {
+        alert('Please enter a doctors name')
+    }
+
+}

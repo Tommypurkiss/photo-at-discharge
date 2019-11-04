@@ -124,6 +124,19 @@ nav .nav-logo a {
   padding: 5px 30px;
 }
 
+.main-content-wrapper .main-content .trial-button-div {
+  padding: 20px 0px;
+}
+
+.main-content-wrapper .main-content .trial-button-div .trial-button {
+  padding: 5px 30px;
+}
+
+.main-content-wrapper .main-content .trial-button-div .trial-button a {
+  text-decoration: none;
+  color: black;
+}
+
 .main-content-wrapper .main-content .database-table {
   width: 100%;
 }

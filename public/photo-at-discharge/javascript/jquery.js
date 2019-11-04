@@ -236,3 +236,13 @@ $(document).ready(function(){
 //     var scratchWord = "scratch"
 
 // });
+
+
+// For validating and making sure there is a docotors name in the text box before saving or generating a letter
+$(document).ready(function(){
+
+    if ($('#doctor-name').val = "") {
+        alert("Please enter a doctors name")
+    }
+
+});

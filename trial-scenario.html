@@ -7,14 +7,14 @@
 
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./public/photo-at-discharge/css/style.css">
+    <link rel="stylesheet" href="./public/trial-scenario/css/style.css">
 
     <!-- GOOGLE FONTS  -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 
 
     <!-- JAVASCRIPT -->
-    <script src="./public/photo-at-discharge/javascript/app.js"></script>
+    <script src="./public/trial-scenario/javascript/app.js"></script>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-1.7-development-only.js"></script>
 
 
@@ -22,7 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="./public/photo-at-discharge/javascript/jquery.js"></script>
+    <script src="./public/trial-scenario/javascript/jquery.js"></script>
 
     <!-- JSPDF -->
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
@@ -56,18 +56,28 @@
         </div>
 
 
-        
+        <div class="save-button-div">
+            <button id="save-button" class="save-button" onclick="saveAndExit()">Save & Exit</button>
+        </div>
 
-        <div class="trial-button-div">
+        <!-- <div class="trial-button-div">
             <button id="trial-button" class="trial-button">
             <a href="trial-scenario.html" target="_blank">Trial Scenario</a>
             </button>   
             Click here to test yourself
+        </div> -->
+
+        <div class="starter-info">
+            <h1>
+                Scenario: To create photo at discharge (PaD)
+            </h1>
+            <p>
+                You are discharging Mr Joe Blogg today from Juniper Ward. You have taken a series of photos so you can select the best option. 
+                Mr Blogg needs his drain sutures removed in 7 days time, and you should add a comment about the small scratches evident next to his surgical incision. He has a sternal wound swab pending.
+                The database will automatically add details for Mr Blogg and advice. Generate form after you are done.
+            </p>
         </div>
 
-        <div class="save-button-div">
-            <button id="save-button" class="save-button" onclick="saveAndExit()">Save & Exit</button>
-        </div>
 
         <div class="database-table">
             <div class="database-table-content">
