@@ -86,10 +86,6 @@
                             Date of Discharge
                         </td>
                         <td>
-                            <!-- <form action=""> -->
-                                <!-- <input type="date" name="" class="date-picker" id="date-picker" /> -->
-                                <!-- <input type="submit"> -->
-                            <!-- </form> -->
                             <input type="date" class="date-picker" id="start-date" value=""/>
                             <input type="submit" id="start-date-submit" value="Set Start Date">
                         </td>
@@ -117,14 +113,14 @@
                         <td>
                             <select name="category" id="category-dropdown" class="small-dropdown">
                                 <!-- <option value="select">--select--</option> -->
-                                <option value="">Cardiac (Surgical)</option>
-                                <option value="">Paediatric (Cardiac)</option>
-                                <option value="">Thoracic (Surgical)</option>
-                                <option value="">Drain management only</option>
-                                <option value="">Cardiac (Invasive cardiology)</option>
-                                <option value="">Cardiac (Transplant)</option>
-                                <option value="">Thoriac (Transplant)</option>
-                                <option value="">Other</option>
+                                <option value="Cardiac (Surgical)">Cardiac (Surgical)</option>
+                                <option value="Paediatric (Cardiac)">Paediatric (Cardiac)</option>
+                                <option value="Thoracic (Surgical)">Thoracic (Surgical)</option>
+                                <option value="Drain management only">Drain management only</option>
+                                <option value="Cardiac (Invasive cardiology)">Cardiac (Invasive cardiology)</option>
+                                <option value="Cardiac (Transplant)">Cardiac (Transplant)</option>
+                                <option value="Thoriac (Transplant)">Thoriac (Transplant)</option>
+                                <option value="Other">Other</option>
 
                             </select>
                         </td>
@@ -136,14 +132,14 @@
                         <td>
                             <select name="wound" id="wound-dropdown" class="large-dropdown">
                                 <option value="select">--select--</option>
-                                <option value="">Wound dry and exposed on day of planned discharge</option>
-                                <option value="">Dissolvable suture(s)</option>
-                                <option value="">Surgical clips</option>
-                                <option value="">Steri-strips</option>
-                                <option value="">No-absorbable sutures</option>
-                                <option value="">Minimally invasive left-sided thoracotomy wound</option>
-                                <option value="">Minimally invasive right-sided thoracotomy wound</option>
-                                <option value="">Minimally invasive wound (shorter; central chest incision)</option>
+                                <option class="wound-option" value="Wound dry and exposed on day of planned discharge.">Wound dry and exposed on day of planned discharge</option>
+                                <option class="wound-option" value="Dissolvable suture(s)">Dissolvable suture(s)</option>
+                                <option class="wound-option" value="Surgical clips">Surgical clips</option>
+                                <option class="wound-option" value="Steri-strips">Steri-strips</option>
+                                <option class="wound-option" value="No-absorbable sutures">No-absorbable sutures</option>
+                                <option class="wound-option" value="Minimally invasive left-sided thoracotomy wound">Minimally invasive left-sided thoracotomy wound</option>
+                                <option class="wound-option" value="Minimally invasive right-sided thoracotomy wound">Minimally invasive right-sided thoracotomy wound</option>
+                                <option class="wound-option" value="Minimally invasive wound (shorter; central chest incision)">Minimally invasive wound (shorter; central chest incision)</option>
                             </select>
                         </td>
                     </tr>
@@ -171,10 +167,10 @@
                             Micro for wound
                         </td>
                         <td>
-                            <form action="">
-                                <input type="radio" name="foo" id="">There are no outstanding swabs <br>
-                                <input type="radio" name="foo" id="">Antibiotics are prescribed to cover the wound swab results <br>
-                                <input type="radio" name="foo" id="">There are pending wound swabs. We will follow up these results and will inform your GP to action necessary <!-- correct answer -->
+                            <form action="" id="micro-form">
+                                <input type="radio" name="foo" onclick="checkMicroForm()" id="micro-one" value="There are no outstanding swabs.">There are no outstanding swabs <br>
+                                <input type="radio" name="foo" id="micro-two" value="Antibiotics are prescribed to cover the wound swab results.">Antibiotics are prescribed to cover the wound swab results <br>
+                                <input type="radio" name="foo" id="micro-three" value="There are pending wound swabs. We will follow up these results and will inform your GP to action necessary.">There are pending wound swabs. We will follow up these results and will inform your GP to action necessary <!-- correct answer -->
                             </form>
                         </td>
                     </tr>
@@ -183,11 +179,11 @@
                             Drain sites
                         </td>
                         <td>
-                            <select name="" id="" class="large-dropdown">
-                                <option value="">--select--</option>
-                                <option value="">Dry and exposed with sutures removed</option>
-                                <option value="">Sutures (dark thread appearance) to be removed by your GP practice or district nurse</option> <!-- correct option -->
-                                <option value="">Drain site sutures removed - some oozing</option>
+                            <select name="" id="drain-sites-dropdown" class="large-dropdown">
+                                <option value="select">--select--</option>
+                                <option value="Dry and exposed with sutures removed.">Dry and exposed with sutures removed</option>
+                                <option value="Sutures (dark thread appearance) to be removed by your GP practice or district nurse.">Sutures (dark thread appearance) to be removed by your GP practice or district nurse</option> <!-- correct option -->
+                                <option value="Drain site sutures removed - some oozing.">Drain site sutures removed - some oozing</option>
                             </select>
                         </td>
                     </tr>
@@ -197,7 +193,7 @@
                         </td>
                         <td>
                             <!-- <form action=""> -->
-                                <input type="date" name="" class="date-picker"  id="end-date" value="">
+                                <input type="date" name="" class="date-picker" id="end-date" value="">
                                 <input type="submit" id="end-date-submit" value="Set End Date">
 
                             <!-- </form> -->
@@ -216,12 +212,12 @@
                             Leg wounds
                         </td>
                         <td>
-                            <select name="" id="" class="large-dropdown">
-                                <option value="">--select--</option>
-                                <option value="">Leg wound(s) dry and intact. Surgical clips to be removed by your GP practice or district nurse.</option>
-                                <option value="">Leg wound(s) are dry and intact. Clips were removed.</option>
-                                <option value="">Leg wound(s) are oozing and still healing. No signs of infection.</option>
-                                <option value="">Absorbable sutures at leg wound site. These do not need to be trimmed or removed.</option>
+                            <select name="" id="leg-wounds-dropdown" class="large-dropdown">
+                                <option value="select">--select--</option>
+                                <option value="Leg wound(s) dry and intact. Surgical clips to be removed by your GP practice or district nurse.">Leg wound(s) dry and intact. Surgical clips to be removed by your GP practice or district nurse.</option>
+                                <option value="Leg wound(s) are dry and intact. Clips were removed.">Leg wound(s) are dry and intact. Clips were removed.</option>
+                                <option value="Leg wound(s) are oozing and still healing. No signs of infection.">Leg wound(s) are oozing and still healing. No signs of infection.</option>
+                                <option value="Absorbable sutures at leg wound site. These do not need to be trimmed or removed.">Absorbable sutures at leg wound site. These do not need to be trimmed or removed.</option>
                             </select>
                         </td>
                     </tr>
@@ -230,7 +226,7 @@
                             Leg wound assessment
                         </td>
                         <td>
-                            <textarea name="" id="" cols="30" rows="10" class="scrollable-textbox"></textarea>
+                            <textarea name="" id="" value="" cols="30" rows="10" class="scrollable-textbox"></textarea>
                         </td>
                     </tr>
                     <!-- <tr>
@@ -256,30 +252,30 @@
 
                         </td>
                     </tr> -->
-                    <tr>
+                    <!-- <tr>
                         <td>
                             Brompton Harefield infection score BHIS
                         </td>
                         <td>
                             <form action="">
-                                <input type="text" name="ward name" id="" class="small-textbox">
+                                <input type="text" value="" name="ward name" id="" class="small-textbox">
                             </form>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td>
                             Additional resources provided at discharge
                         </td>
                         <td>
-                            <form action="">
-                                <input type="checkbox" name="" id="">Hibiscrub Plus (antimicrobial wash) for morning shower. <br>
-                                <input type="checkbox" name="" id="">Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse. <br>
-                                <input type="checkbox" name="" id="">Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed. <br>
-                                <input type="checkbox" name="" id="">Additional surgical bra provided. <br>
-                                <input type="checkbox" name="" id="">Guaze pack(s) provided for under bra band. <br>
-                                <input type="checkbox" name="" id="">Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.
+                            <!-- <form action=""> -->
+                                <input type="checkbox" name="" id="" value="Hibiscrub Plus (antimicrobial wash) for morning shower.">Hibiscrub Plus (antimicrobial wash) for morning shower. <br>
+                                <input type="checkbox" name="" id="" value="Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse.">Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse. <br>
+                                <input type="checkbox" name="" id="" value="Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed.">Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed. <br>
+                                <input type="checkbox" name="" id="" value="Additional surgical bra provided.">Additional surgical bra provided. <br>
+                                <input type="checkbox" name="" id="" value="Guaze pack(s) provided for under bra band.">Guaze pack(s) provided for under bra band. <br>
+                                <input type="checkbox" name="" id="" value="Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.">Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.
 
-                            </form>
+                            <!-- </form> -->
                         </td>
                     </tr>
                     <tr>
@@ -338,7 +334,13 @@
                         </td>
                         <td>
                             <select name="" id="" class="small-dropdown">
-                                <option value="">--select--</option>
+                                <option value="select">--select--</option>
+                                <option value="Mr T Stark">Mr T Stark</option>
+                                <option value="Mrs C Halsey">Mrs C Halsey</option>
+                                <option value="Mr A Johnson">Mr A Johnson</option>
+                                <option value="Mrs M Keyes">Mrs M Keyes</option>
+                                <option value="Mr E buck">Mr E buck</option>
+
                             </select>
                         </td>
                     </tr>
@@ -370,10 +372,11 @@
                 <div class="left-text" id="left-text">
                     <p id="p1" >
                         <i>
-                            19/7/2015 no outstanding swabs at discharge. Normal swelling
+                            <!-- 19/7/2015 no outstanding swabs at discharge. Normal swelling
                             at the top of wound which will resolve over a few weeks. Sternal wound
                             is clean and dry on the day of discharge. Drain sutures to be removed
-                            DD/MM/YY and clips to legs to be removed DD/MM/YY.
+                            DD/MM/YY and clips to legs to be removed DD/MM/YY. -->
+
                         </i>
                     </p>
                     <p style="text-decoration: underline;">

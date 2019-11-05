@@ -132,13 +132,13 @@ $(document).ready(function(){
         currentDate = dd + '/' + mm + '/' + yyyy;
         console.log(currentDate)
 
-        if (setDate != currentDate) {
-            alert("Please choose todays date")
-            $('#start-date').val("");
-        }
-        else {
-            alert("Today's date has been set")
-        }
+        // if (setDate != currentDate) {
+        //     //alert("Please choose todays date")
+        //     $('#start-date').val("");
+        // }
+        // else {
+        //     //alert("Today's date has been set")
+        // }
 
     });
 
@@ -183,13 +183,13 @@ $(document).ready(function(){
         currentDate = dd + '/' + mm + '/' + yyyy;
         console.log(currentDate)
 
-        if (setDate != currentDate) {
-            alert("Please choose the starting date first. The end date should be a week after the starting set date")
-            $('#end-date').val("");
-        }
-        else {
-            alert("End date has been set")
-        }
+        // if (setDate != currentDate) {
+        //     //alert("Please choose the starting date first. The end date should be a week after the starting set date")
+        //     $('#end-date').val("");
+        // }
+        // else {
+        //     //alert("End date has been set")
+        // }
         
 
 

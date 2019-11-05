@@ -137,6 +137,14 @@ nav .nav-logo a {
   color: black;
 }
 
+.main-content-wrapper .main-content .starter-info p {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+}
+
 .main-content-wrapper .main-content .database-table {
   width: 100%;
 }

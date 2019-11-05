@@ -75,16 +75,19 @@ function checkWord() {
     // console.log(woundAssessmentText)
 
 
-    let str = "scratch"
+    // FIXME: look for scratch word
 
-    let str2 = str.includes("scratch")
+    
+    // let str = "scratch"
 
-    let textbox = document.getElementById("wound-assessment-text").innerHTML
+    // let str2 = str.includes("scratch")
+
+    // let textbox = document.getElementById("wound-assessment-text").innerHTML
 
 
-    if(textbox != str2) {
-        alert("change your answer")
-    } 
+    // if(textbox != str2) {
+    //     alert("change your answer")
+    // } 
 
     // document.getElementById("wound-assessment-text").innerHTML = str2
 

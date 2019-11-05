@@ -2,13 +2,13 @@
 
 
 
-// var today = new Date();
-// var dd = String(today.getDate())
-// var mm = String(today.getMonth() + 1) //January is 0!
-// var yyyy = today.getFullYear();
+var today = new Date();
+var dd = String(today.getDate())
+var mm = String(today.getMonth() + 1) //January is 0!
+var yyyy = today.getFullYear();
 
-// today = dd + '/' + mm + '/' + yyyy;
-// console.log(today)
+today = dd + '/' + mm + '/' + yyyy;
+console.log(today)
 
 
 // checking which photo is chosen
@@ -102,7 +102,8 @@ function checkWord() {
 
 function generatePDF() {
     //doc.addPage(); //generates a new page
-
+    checkWoundImages() //function for checking wound images
+    checkMicroForm() //function for checking micro wound radio options
 
     // New Doc
     var options = {unit: 'px', format: 'a4'};
@@ -114,51 +115,75 @@ function generatePDF() {
     // doc.text(ward, 10, 20);
 
     // NHS title logo
-    //doc.text('Royal Brompton & Harefield | NHS', 245, 30);
+    // doc.text('Royal Brompton & Harefield | NHS', 245, 30);
 
-    // Wound photo img
-    // if (document.getElementById('wound-photo-one').checked == true) {
-    //     var checkedImg = document.getElementById('wound-photo-one-img');
-    //     doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
-    // } 
-    // else if (document.getElementById('wound-photo-two').checked == true) {
-    //     var checkedImg = document.getElementById('wound-photo-two-img');
-    //     doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
-    // } 
-    // else if (document.getElementById('wound-photo-three').checked == true) {
-    //     checkedImg = document.getElementById('wound-photo-three-img');
-    //     doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
-    // }
-    // else if (document.getElementById('wound-photo-four').checked == true) {
-    //     checkedImg = document.getElementById('wound-photo-four-img');
-    //     doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
-    // }
-    // else if (document.getElementById('wound-photo-five').checked == true) {
-    //     checkedImg = document.getElementById('wound-photo-five-img');
-    //     doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+    // TODO: sort out date format
+    // let day = dischargeDate.getDate()
+    // let month = dischargeDate.getMonth()
+    // let year = dischargeDate.getFullYear()
+
+
+    let p1 = document.getElementById('p1');
+
+    let dischargeDate = document.getElementById('start-date').value
+    console.log("dischargeDate", dischargeDate)
+    
+    let normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
+    console.log("normalSwellingText", normalSwellingText)
+
+    let woundDropdown = document.getElementById('wound-dropdown').value
+    console.log("woundDropdown", woundDropdown)
+    let woundOption = document.getElementsByClassName('wound-option')
+    
+
+    let drainSitesDropdown = document.getElementById('drain-sites-dropdown').value
+    console.log("drainSitesDropdown", drainSitesDropdown)
+
+    let removalDate = document.getElementById('end-date').value
+    console.log("removalDate", removalDate)
+
+    let legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
+    console.log("legWoundsDropdown", legWoundsDropdown)
+
+    p1.innerHTML = dischargeDate + " " + microValue 
+            + " " + normalSwellingText + " " + woundDropdown 
+            + " " + drainSitesDropdown + " " + removalDate
+            + " " + legWoundsDropdown + " " + removalDate
+
+
+    // if ((dischargeDate == "") || (woundDropdown.value == "select") ) {
+    //     alert("please enter a discharge date")
+        
+    //     alert("please enter a wound dropdown")
+        
+    // } else {
+
+    //     p1.innerHTML = dischargeDate + " " + microValue 
+    //     + " " + normalSwellingText + " " + woundDropdown 
+    //     + " " + drainSitesDropdown + " " + removalDate
+    //     + " " + legWoundsDropdown + " " + removalDate
+
     // }
 
-    // Correct img 
-    checkedImg = document.getElementById('wound-photo-four-img');
-    doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
 
 
     doc.text('Mr J Blogg XX-XXX', 20, 80);
     doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
 
+
+    doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+
+
     doc.fromHTML($('#left-text').get(0), 20, 92, {
-        'width': 250,
-        
+        'width': 250,        
     });
 
     doc.fromHTML($('#bottom-text').get(0), 20, 410, {
         'width': 400,
-        
     });
 
     doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
         'width': 400,
-        
     });
 
     // Save pdf
@@ -176,5 +201,56 @@ function checkDrName() {
     if ((docTextbox).value == "") {
         alert('Please enter a doctors name')
     }
+}
+
+function checkWoundImages() {
+
+    if (document.getElementById('wound-photo-one').checked == true) {
+        checkedImg = document.getElementById('wound-photo-one-img');
+        // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+    } 
+    else if (document.getElementById('wound-photo-two').checked == true) {
+        checkedImg = document.getElementById('wound-photo-two-img');
+        // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+    } 
+    else if (document.getElementById('wound-photo-three').checked == true) {
+        checkedImg = document.getElementById('wound-photo-three-img');
+        // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+    }
+    else if (document.getElementById('wound-photo-four').checked == true) {
+        checkedImg = document.getElementById('wound-photo-four-img');
+        // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+    }
+    else if (document.getElementById('wound-photo-five').checked == true) {
+        checkedImg = document.getElementById('wound-photo-five-img');
+        // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+    }
+
+}
+
+
+
+
+function checkMicroForm() {
+
+    if (document.getElementById('micro-one').checked == true) {
+        // var checkedImg = document.getElementById('wound-photo-one-img');
+        // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+        microValue = document.getElementById('micro-one').value
+        console.log(microValue)
+    } 
+    else if (document.getElementById('micro-two').checked == true) {
+        // var checkedImg = document.getElementById('wound-photo-two-img');
+        // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+        microValue = document.getElementById('micro-two').value
+
+    } 
+    else if (document.getElementById('micro-three').checked == true) {
+        // checkedImg = document.getElementById('wound-photo-three-img');
+        // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+        microValue = document.getElementById('micro-two').value
+
+    }
+
 
 }
