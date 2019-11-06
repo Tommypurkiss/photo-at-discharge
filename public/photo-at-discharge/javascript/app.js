@@ -60,9 +60,18 @@ function generatePDF() {
     surgeon = document.getElementById('surgeon')
 
 
-    dischargeDate = document.getElementById('start-date').value
-    // .required makes it undefined
-    console.log("dischargeDate", dischargeDate)
+    var dischargeDate = new Date(document.getElementById('start-date').value);
+    var dd = String(dischargeDate.getDate())
+    var mm = String(dischargeDate.getMonth() + 1) //January is 0!
+    var yyyy = dischargeDate.getFullYear();
+
+    dischargeDate = dd + '/' + mm + '/' + yyyy;
+    console.log("start Date", dischargeDate)
+
+
+    // dischargeDate = document.getElementById('start-date').value
+    // // .required makes it undefined
+    // console.log("dischargeDate", dischargeDate)
     
     normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
     console.log("normalSwellingText", normalSwellingText)

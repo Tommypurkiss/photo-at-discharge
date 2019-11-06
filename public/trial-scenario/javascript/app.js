@@ -51,10 +51,26 @@ function generatePDF() {
     p1 = document.getElementById('p1');
     surgeon = document.getElementById('surgeon')
 
+    var dischargeDate = new Date(document.getElementById('start-date').value);
+    var dd = String(dischargeDate.getDate())
+    var mm = String(dischargeDate.getMonth() + 1) //January is 0!
+    var yyyy = dischargeDate.getFullYear();
 
-    dischargeDate = document.getElementById('start-date').value
-    // .required makes it undefined
-    console.log("dischargeDate", dischargeDate)
+    dischargeDate = dd + '/' + mm + '/' + yyyy;
+    console.log("start Date", dischargeDate)
+
+    
+    var removalDate = new Date(document.getElementById('end-date').value);
+    var dd2 = String(removalDate.getDate() + 7)
+    var mm2 = String(removalDate.getMonth() + 1) //January is 0!
+    var yyyy2 = removalDate.getFullYear();
+
+    removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
+    console.log("removal  Date", removalDate)
+
+    // dischargeDate = document.getElementById('start-date').value
+    // // .required makes it undefined
+    // console.log("dischargeDate", dischargeDate)
     
     normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
     console.log("normalSwellingText", normalSwellingText)
@@ -65,8 +81,8 @@ function generatePDF() {
     drainSitesDropdown = document.getElementById('drain-sites-dropdown').value
     console.log("drainSitesDropdown", drainSitesDropdown)
 
-    removalDate = document.getElementById('end-date').value
-    console.log("removalDate", removalDate)
+    // removalDate = document.getElementById('end-date').value
+    // console.log("removalDate", removalDate)
 
     legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
     console.log("legWoundsDropdown", legWoundsDropdown)
@@ -74,9 +90,12 @@ function generatePDF() {
     surgeonName = document.getElementById('doctor-name').value
     console.log("surgeon name", surgeonName)
 
-    if (dischargeDate == "") {
+    if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
         alert("please enter a date")
     }
+    // if (startDate == "") {
+    //     alert("please enter a date")
+    // }
     // else if causes the alerts to come one at a time
     // if just if, and one of the answers are atleast corrct it will stll go to download
     
@@ -89,7 +108,8 @@ function generatePDF() {
     else if (drainSitesDropdown != document.getElementById('drain-sites-dropdown-correct').value) {
         alert("enter correct drain sites drop down")
     }
-    else if (removalDate == "") {
+    else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
+        // removalDate != dischargeDate
         alert("please enter a removal date")
     }
     else if (checkedImg != document.getElementById('wound-photo-four-img')) {

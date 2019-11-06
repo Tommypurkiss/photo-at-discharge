@@ -75,13 +75,17 @@ nav {
     .m-c-info-text {
         padding: 10px 0;
         //border: $blackBorder;
+        margin: 0 auto;
+
 
         #intro {
-            width: 80%;        
-                    margin: 0 auto;
-                    //text-align: left;
-                    padding: 20px;
-                    font-size: 18px;
+            
+            margin: 0 auto;
+            //text-align: left;
+            //border: $blackBorder;
+
+            padding: 20px;
+            font-size: 18px;
         }
     }
 
@@ -105,6 +109,19 @@ nav {
                 text-decoration: none;
                 color: $blackFontColour;
             }
+        }
+    }
+
+    .scenario-para {
+        //border: $blackBorder;
+
+        p {
+            width: 80%;        
+            margin: 0 auto;
+            text-align: center;
+            padding: 25px;
+            font-size: 18px;
+
         }
     }
 

@@ -114,10 +114,10 @@ nav .nav-logo a {
 
 .main-content-wrapper .main-content .m-c-info-text {
   padding: 10px 0;
+  margin: 0 auto;
 }
 
 .main-content-wrapper .main-content .m-c-info-text #intro {
-  width: 80%;
   margin: 0 auto;
   padding: 20px;
   font-size: 18px;
@@ -142,6 +142,14 @@ nav .nav-logo a {
 .main-content-wrapper .main-content .trial-button-div .trial-button a {
   text-decoration: none;
   color: black;
+}
+
+.main-content-wrapper .main-content .scenario-para p {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 25px;
+  font-size: 18px;
 }
 
 .main-content-wrapper .main-content .div-filler {
