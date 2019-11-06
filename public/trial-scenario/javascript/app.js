@@ -104,17 +104,11 @@ function generatePDF() {
     console.log("surgeon name", surgeonName)
 
 
-    // var str = "Hello, welcome to the universe.";
-    // var n = str.includes("world");
-    // document.getElementById("demo").innerHTML = n;
-
-
-
-    // woundTextBox = document.getElementById('wound-assessment-textbox')
-    // woundTextBox = ""
-    // console.log("wound tb", woundTextBox.value)
-    // str = woundTextBox.includes("scratch")
-    // console.log("scratch str", str.value)
+    woundTextBox = document.getElementById('wound-assessment-text').value
+    //woundTextBox = ""
+    console.log("wound tb", woundTextBox.value)
+    str = woundTextBox.includes("scratch")
+    console.log("scratch str", str.value)
 
 
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
@@ -126,16 +120,10 @@ function generatePDF() {
     // else if causes the alerts to come one at a time
     // if just if, and one of the answers are atleast corrct it will stll go to download
 
-    // else if (woundTextBox.innerHTML != str) {
-    //     alert("sctrach not included in text box")
-    // }
-    // else if (str == true) {
-    //     alert("scratch not included in text box")
-    // }
 
-    // else if (str == false) {
-    //     alert("scratch not included in text box")
-    // }
+    else if (str == false) {
+        alert("scratch not included in text box")
+    }
 
  
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
@@ -153,7 +141,24 @@ function generatePDF() {
         alert("Please enter a removal date")
     }
     else if (checkedImg != document.getElementById('wound-photo-four-img')) {
-        alert("Incorrect answer: please try again and choose the correct image")
+        //alert("Incorrect answer: please try again and choose the correct image")
+        if (document.getElementById('wound-photo-one').checked == true) {
+            photoValue = document.getElementById('wound-photo-one').value;
+            alert(photoValue);
+        } 
+        else if (document.getElementById('wound-photo-two').checked == true) {
+            photoValue = document.getElementById('wound-photo-two').value;
+            alert(photoValue);
+        } 
+        else if (document.getElementById('wound-photo-three').checked == true) {
+            photoValue = document.getElementById('wound-photo-three').value;
+            alert(photoValue);
+        }
+
+        else if (document.getElementById('wound-photo-five').checked == true) {
+            photoValue = document.getElementById('wound-photo-five').value;
+            alert(photoValue);
+        }
     }
     else if (surgeonName == "") {
         alert("Please enter your name")
