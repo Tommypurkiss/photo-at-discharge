@@ -74,20 +74,31 @@ function generatePDF() {
     if (dischargeDate == "") {
         alert("please enter a date")
     }
-    if (removalDate == "") {
-        alert("please enter a removal date")
-    }
-    if (microValue != document.getElementById('micro-three').value) {
+    // else if causes the alerts to come one at a time
+    // if just if, and one of the answers are atleast corrct it will stll go to download
+    
+    else if (microValue != document.getElementById('micro-three').value) {
         alert("please enter the correct value")
     }
-    
-    
+    else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
+        alert("Choose the correct wound dropdown")
+    }
+    else if (drainSitesDropdown != document.getElementById('drain-sites-dropdown-correct').value) {
+        alert("enter correct drain sites drop down")
+    }
+    else if (removalDate == "") {
+        alert("please enter a removal date")
+    }
+    // else if () {
+
+    // }
+
     else {
 
         p1.innerHTML = dischargeDate + " " + microValue 
         + " " + normalSwellingText + " " + woundDropdown 
         + " " + drainSitesDropdown + " " + removalDate
-        + " " + legWoundsDropdown + " " + removalDate
+        // + " " + legWoundsDropdown + " " + removalDate
 
         // New Doc
         var options = {unit: 'px', format: 'a4'};
