@@ -89,9 +89,10 @@ function generatePDF() {
     else if (removalDate == "") {
         alert("please enter a removal date")
     }
-    // else if () {
+    else if (checkedImg != document.getElementById('wound-photo-four-img')) {
+        alert("choose the correct image")
+    }
 
-    // }
 
     else {
 
