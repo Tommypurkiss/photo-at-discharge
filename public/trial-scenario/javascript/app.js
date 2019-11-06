@@ -16,23 +16,23 @@ function woundPhotoCheck() {
 
     if (document.getElementById('wound-photo-one').checked == true) {
         photoValue = document.getElementById('wound-photo-one').value;
-        alert(photoValue);
+        //alert(photoValue);
     } 
     else if (document.getElementById('wound-photo-two').checked == true) {
         photoValue = document.getElementById('wound-photo-two').value;
-        alert(photoValue);
+        //alert(photoValue);
     } 
     else if (document.getElementById('wound-photo-three').checked == true) {
         photoValue = document.getElementById('wound-photo-three').value;
-        alert(photoValue);
+        //alert(photoValue);
     }
     else if (document.getElementById('wound-photo-four').checked == true) {
         photoValue = document.getElementById('wound-photo-four').value;
-        alert(photoValue);
+        //alert(photoValue);
     }
     else if (document.getElementById('wound-photo-five').checked == true) {
         photoValue = document.getElementById('wound-photo-five').value;
-        alert(photoValue);
+        //alert(photoValue);
     }
     //document.getElementById('wound-photo-answer').innerHTML = "" + photoValue;
 }
@@ -45,11 +45,13 @@ function generatePDF() {
     checkWoundImages() //function for checking wound images
     checkMicroForm() //function for checking micro wound radio options
     //pdfValues()
+    //getStartDate()
 
 
     p1 = document.getElementById('p1');
 
-    dischargeDate = document.getElementById('start-date').required.value
+    dischargeDate = document.getElementById('start-date').value
+    // .required makes it undefined
     console.log("dischargeDate", dischargeDate)
     
     normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
@@ -68,50 +70,81 @@ function generatePDF() {
     console.log("legWoundsDropdown", legWoundsDropdown)
 
 
-    if ((dischargeDate == "Nan/NaN/NaN") ) {
-        alert("Please enter a date")
-        console.log(" date undefined", dischargeDate)
+
+    if (dischargeDate == "") {
+        alert("please enter a date")
+    }
+    if (removalDate == "") {
+        alert("please enter a removal date")
+    }
+    if (microValue != document.getElementById('micro-three').value) {
+        alert("please enter the correct value")
+    }
+    
+    
+    else {
+
+        p1.innerHTML = dischargeDate + " " + microValue 
+        + " " + normalSwellingText + " " + woundDropdown 
+        + " " + drainSitesDropdown + " " + removalDate
+        + " " + legWoundsDropdown + " " + removalDate
+
+        // New Doc
+        var options = {unit: 'px', format: 'a4'};
+        var doc = new jsPDF(options);
+        doc.setFontSize(10);
+
+        doc.text('Mr J Blogg XX-XXX', 20, 80);
+        doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
+
+        doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+
+        doc.fromHTML($('#left-text').get(0), 20, 92, {
+            'width': 250,        
+        });
+
+        doc.fromHTML($('#bottom-text').get(0), 20, 410, {
+            'width': 400,
+        });
+
+        doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
+            'width': 400,
+        });
+
+        // Save pdf
+        doc.save('Photo-at-Discharge.pdf');
     }
 
-    // if ((dischargeDate === undefined) ) {
-    //     alert("Please enter a date")
-    //     console.log(" date undefined", dischargeDate)
-    // }
-    // else {
-    //     return true
-    //     //generatePDF()
-    // }
 
+    // p1.innerHTML = dischargeDate + " " + microValue 
+    //         + " " + normalSwellingText + " " + woundDropdown 
+    //         + " " + drainSitesDropdown + " " + removalDate
+    //         + " " + legWoundsDropdown + " " + removalDate
 
-    p1.innerHTML = dischargeDate + " " + microValue 
-            + " " + normalSwellingText + " " + woundDropdown 
-            + " " + drainSitesDropdown + " " + removalDate
-            + " " + legWoundsDropdown + " " + removalDate
+    // // New Doc
+    // var options = {unit: 'px', format: 'a4'};
+    // var doc = new jsPDF(options);
+    // doc.setFontSize(10);
 
-    // New Doc
-    var options = {unit: 'px', format: 'a4'};
-    var doc = new jsPDF(options);
-    doc.setFontSize(10);
+    // doc.text('Mr J Blogg XX-XXX', 20, 80);
+    // doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
 
-    doc.text('Mr J Blogg XX-XXX', 20, 80);
-    doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
+    // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
 
-    doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+    // doc.fromHTML($('#left-text').get(0), 20, 92, {
+    //     'width': 250,        
+    // });
 
-    doc.fromHTML($('#left-text').get(0), 20, 92, {
-        'width': 250,        
-    });
+    // doc.fromHTML($('#bottom-text').get(0), 20, 410, {
+    //     'width': 400,
+    // });
 
-    doc.fromHTML($('#bottom-text').get(0), 20, 410, {
-        'width': 400,
-    });
+    // doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
+    //     'width': 400,
+    // });
 
-    doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
-        'width': 400,
-    });
-
-    // Save pdf
-    doc.save('Photo-at-Discharge.pdf');
+    // // Save pdf
+    // doc.save('Photo-at-Discharge.pdf');
 }
 // End PDF
 
@@ -154,13 +187,31 @@ function checkMicroForm() {
         microValue = document.getElementById('micro-two').value
     } 
     else if (document.getElementById('micro-three').checked == true) {
-        microValue = document.getElementById('micro-two').value
+        microValue = document.getElementById('micro-three').value
     }
 }
 
 
 
+// function getStartDate() {
 
+
+
+
+
+//     dischargeDate = document.getElementById('start-date').value.required
+//     // .required
+//     console.log("dischargeDate value: ", dischargeDate)
+
+//     if (dischargeDate === undefined) {
+//         alert("undefined")
+//     }
+//     else {
+//         let dischargeDateFinal == dischargeDate
+//     }
+
+
+// }
 
 
 
