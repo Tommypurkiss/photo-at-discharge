@@ -144,8 +144,8 @@ nav .nav-logo a {
   color: black;
 }
 
-.main-content-wrapper .main-content .scenario-para p {
-  width: 80%;
+.main-content-wrapper .main-content .scenario-para {
+  width: 90%;
   margin: 0 auto;
   text-align: center;
   padding: 25px;

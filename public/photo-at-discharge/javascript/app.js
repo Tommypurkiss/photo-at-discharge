@@ -85,8 +85,8 @@ function generatePDF() {
     removalDate = document.getElementById('end-date').value
     console.log("removalDate", removalDate)
 
-    legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
-    console.log("legWoundsDropdown", legWoundsDropdown)
+    // legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
+    // console.log("legWoundsDropdown", legWoundsDropdown)
 
     surgeonName = document.getElementById('doctor-name').value
     console.log("surgeon name", surgeonName)

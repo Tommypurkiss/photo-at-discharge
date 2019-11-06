@@ -11,6 +11,8 @@ today = dd + '/' + mm + '/' + yyyy;
 console.log(today)
 
 
+
+
 // checking which photo is chosen for displaying correct answer - important
 function woundPhotoCheck() {
 
@@ -59,14 +61,25 @@ function generatePDF() {
     dischargeDate = dd + '/' + mm + '/' + yyyy;
     console.log("start Date", dischargeDate)
 
-    
+
     var removalDate = new Date(document.getElementById('end-date').value);
-    var dd2 = String(removalDate.getDate() + 7)
+    var dd2 = String(removalDate.getDate())
     var mm2 = String(removalDate.getMonth() + 1) //January is 0!
     var yyyy2 = removalDate.getFullYear();
 
     removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
     console.log("removal  Date", removalDate)
+
+
+    
+    
+    // var removalDate = new Date(document.getElementById('end-date').value);
+    // var dd2 = String(removalDate.getDate() + 7)
+    // var mm2 = String(removalDate.getMonth() + 1) //January is 0!
+    // var yyyy2 = removalDate.getFullYear();
+
+    // removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
+    // console.log("removal  Date", removalDate)
 
     // dischargeDate = document.getElementById('start-date').value
     // // .required makes it undefined
@@ -84,39 +97,52 @@ function generatePDF() {
     // removalDate = document.getElementById('end-date').value
     // console.log("removalDate", removalDate)
 
-    legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
-    console.log("legWoundsDropdown", legWoundsDropdown)
+    // legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
+    // console.log("legWoundsDropdown", legWoundsDropdown)
 
     surgeonName = document.getElementById('doctor-name').value
     console.log("surgeon name", surgeonName)
 
+
+
+    woundTextBox = document.getElementById('wound-assessment-textbox')
+    console.log("wound tb", woundTextBox)
+    var str = woundTextBox.value.includes("scratch")
+    console.log("scratch str", str)
+
+
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
-        alert("please enter a date")
+        alert("Please enter a date of discharge")
     }
     // if (startDate == "") {
     //     alert("please enter a date")
     // }
     // else if causes the alerts to come one at a time
     // if just if, and one of the answers are atleast corrct it will stll go to download
-    
-    else if (microValue != document.getElementById('micro-three').value) {
-        alert("please enter the correct value")
+
+    else if (str = false) {
+        alert("sctrach not included in text box")
     }
+ 
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
-        alert("Choose the correct wound dropdown")
+        alert("Incorrect answer: please try again and choose the correct answer from the Wound dropdown menu")
     }
+    else if (microValue != document.getElementById('micro-three').value) {
+        alert("Incorrect answer: please try again and choose the correct answer from the Micro for wound radio buttons")
+    }
+
     else if (drainSitesDropdown != document.getElementById('drain-sites-dropdown-correct').value) {
-        alert("enter correct drain sites drop down")
+        alert("Incorrect answer: please try again and choose the correct answer from the Drain sites dropdown menu")
     }
     else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
         // removalDate != dischargeDate
-        alert("please enter a removal date")
+        alert("Please enter a removal date")
     }
     else if (checkedImg != document.getElementById('wound-photo-four-img')) {
-        alert("choose the correct image")
+        alert("Incorrect answer: please try again and choose the correct image")
     }
     else if (surgeonName == "") {
-        alert("please enter a surgeon name")
+        alert("Please enter a surgeon name")
     }
 
 
