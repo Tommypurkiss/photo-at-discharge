@@ -121,13 +121,14 @@ function generatePDF() {
     // if just if, and one of the answers are atleast corrct it will stll go to download
 
 
-    else if (str == false) {
-        alert("scratch not included in text box")
-    }
+
 
  
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
         alert("Incorrect answer: please try again and choose the correct answer from the Wound dropdown menu")
+    }
+    else if (str == false) {
+        alert("scratch not included in text box")
     }
     else if (microValue != document.getElementById('micro-three').value) {
         alert("Incorrect answer: please try again and choose the correct answer from the Micro for wound radio buttons")
