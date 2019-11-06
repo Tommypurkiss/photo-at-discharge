@@ -69,6 +69,16 @@ function generatePDF() {
     console.log("start Date", dischargeDate)
 
 
+
+    var removalDate = new Date(document.getElementById('end-date').value);
+    var dd2 = String(removalDate.getDate())
+    var mm2 = String(removalDate.getMonth() + 1) //January is 0!
+    var yyyy2 = removalDate.getFullYear();
+
+    removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
+    console.log("removal  Date", removalDate)
+
+
     // dischargeDate = document.getElementById('start-date').value
     // // .required makes it undefined
     // console.log("dischargeDate", dischargeDate)
@@ -82,8 +92,8 @@ function generatePDF() {
     drainSitesDropdown = document.getElementById('drain-sites-dropdown').value
     console.log("drainSitesDropdown", drainSitesDropdown)
 
-    removalDate = document.getElementById('end-date').value
-    console.log("removalDate", removalDate)
+    // removalDate = document.getElementById('end-date').value
+    // console.log("removalDate", removalDate)
 
     // legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
     // console.log("legWoundsDropdown", legWoundsDropdown)
@@ -91,11 +101,20 @@ function generatePDF() {
     surgeonName = document.getElementById('doctor-name').value
     console.log("surgeon name", surgeonName)
 
-    if (dischargeDate == "") {
+    // if (dischargeDate == "") {
+    //     alert("Please enter a date of discharge")
+    // }
+    if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
         alert("Please enter a date of discharge")
     }
-    else if (removalDate == "") {
-        alert("please enter a removal date")
+
+    // else if (removalDate == "") {
+    //     alert("please enter a removal date")
+    // }
+
+        else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
+        // removalDate != dischargeDate
+        alert("Please enter a removal date")
     }
 
     else if (surgeonName == "") {
