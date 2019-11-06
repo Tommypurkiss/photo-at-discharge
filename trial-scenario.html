@@ -70,7 +70,7 @@
             <h1>
                     Scenario: To create photo at discharge (PaD)
                 </h1>
-                <p>
+                <p id="intro">
                     You are discharging Mr Joe Blogg today from Juniper Ward. You have taken a series of photos so you can select the best option. 
                     Mr Blogg needs his drain sutures removed in 7 days time, and you should add a comment about the small scratches evident next to his surgical incision. He has a sternal wound swab pending.
                     The database will automatically add details for Mr Blogg and advice. Generate form after you are done.
@@ -477,7 +477,12 @@
                             important.
                     </p>
                     <p>
-                            Please contact your GP or Mr Surgeons' secretary (XXXXXXX XXXX) immediately if you think your
+                            Please contact your GP or 
+                            <!-- Mr Surgeons'  -->
+                            <span id="surgeon">
+                                
+                            </span>
+                            secretary (XXXXXXX XXXX) immediately if you think your
                             wound might be infected. Treating an infection early helps stop it from becoming worse or lasting longer than
                             it should. This information does not replace advice or assessment by your surgical team.  Colour copy of this
                             information to the patient. Electronic copy on EPR.

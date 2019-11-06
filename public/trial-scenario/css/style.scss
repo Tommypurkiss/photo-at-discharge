@@ -70,11 +70,19 @@ nav {
         padding: 0px;
 
     .main-content-title {
-        padding: 100px 0px 50px;
+        padding: 100px 0px 0px;
     }
     .m-c-info-text {
         padding: 10px 0;
         //border: $blackBorder;
+
+        #intro {
+            width: 80%;        
+                    margin: 0 auto;
+                    //text-align: left;
+                    padding: 20px;
+                    font-size: 18px;
+        }
     }
 
     .save-button-div {
@@ -100,21 +108,21 @@ nav {
         }
     }
 
-    .starter-info {
-        //border: $blackBorder;
+    // .starter-info {
+    //     //border: $blackBorder;
 
 
-        p {
-            //border: $blackBorder;
-            width: 80%;        
-            margin: 0 auto;
-            text-align: center;
-            padding: 20px;
-            font-size: 18px;
+    //     p {
+    //         //border: $blackBorder;
+    //         width: 80%;        
+    //         margin: 0 auto;
+    //         text-align: center;
+    //         padding: 20px;
+    //         font-size: 18px;
 
 
-        }
-    }
+    //     }
+    // }
 
     .div-filler {
         height: 80px;

@@ -49,6 +49,8 @@ function generatePDF() {
 
 
     p1 = document.getElementById('p1');
+    surgeon = document.getElementById('surgeon')
+
 
     dischargeDate = document.getElementById('start-date').value
     // .required makes it undefined
@@ -69,7 +71,8 @@ function generatePDF() {
     legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
     console.log("legWoundsDropdown", legWoundsDropdown)
 
-
+    surgeonName = document.getElementById('doctor-name').value
+    console.log("surgeon name", surgeonName)
 
     if (dischargeDate == "") {
         alert("please enter a date")
@@ -92,6 +95,9 @@ function generatePDF() {
     else if (checkedImg != document.getElementById('wound-photo-four-img')) {
         alert("choose the correct image")
     }
+    else if (surgeonName == "") {
+        alert("please enter a surgeon name")
+    }
 
 
     else {
@@ -100,6 +106,8 @@ function generatePDF() {
         + " " + normalSwellingText + " " + woundDropdown 
         + " " + drainSitesDropdown + " " + removalDate
         // + " " + legWoundsDropdown + " " + removalDate
+
+        surgeon.innerHTML = surgeonName
 
         // New Doc
         var options = {unit: 'px', format: 'a4'};

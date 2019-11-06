@@ -57,8 +57,11 @@ function generatePDF() {
 
 
     p1 = document.getElementById('p1');
+    surgeon = document.getElementById('surgeon')
 
-    dischargeDate = document.getElementById('start-date').required.value
+
+    dischargeDate = document.getElementById('start-date').value
+    // .required makes it undefined
     console.log("dischargeDate", dischargeDate)
     
     normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
@@ -76,26 +79,29 @@ function generatePDF() {
     legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
     console.log("legWoundsDropdown", legWoundsDropdown)
 
+    surgeonName = document.getElementById('doctor-name').value
+    console.log("surgeon name", surgeonName)
 
-    if ((dischargeDate == "Nan/NaN/NaN") ) {
-        alert("Please enter a date")
-        console.log(" date undefined", dischargeDate)
+    if (dischargeDate == "") {
+        alert("please enter a date")
+    }
+    else if (removalDate == "") {
+        alert("please enter a removal date")
     }
 
-    // if ((dischargeDate === undefined) ) {
-    //     alert("Please enter a date")
-    //     console.log(" date undefined", dischargeDate)
-    // }
-    // else {
-    //     return true
-    //     //generatePDF()
-    // }
+    else if (surgeonName == "") {
+        alert("please enter a surgeon name")
+    }
 
+else {
 
     p1.innerHTML = dischargeDate + " " + microValue 
-            + " " + normalSwellingText + " " + woundDropdown 
-            + " " + drainSitesDropdown + " " + removalDate
-            + " " + legWoundsDropdown + " " + removalDate
+    + " " + normalSwellingText + " " + woundDropdown 
+    + " " + drainSitesDropdown + " " + removalDate
+    // + " " + legWoundsDropdown + " " + removalDate
+
+    surgeon.innerHTML = surgeonName
+
 
     // New Doc
     var options = {unit: 'px', format: 'a4'};
@@ -108,20 +114,85 @@ function generatePDF() {
     doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
 
     doc.fromHTML($('#left-text').get(0), 20, 92, {
-        'width': 250,        
+    'width': 250,        
     });
 
     doc.fromHTML($('#bottom-text').get(0), 20, 410, {
-        'width': 400,
+    'width': 400,
     });
 
     doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
-        'width': 400,
+    'width': 400,
     });
 
     // Save pdf
     doc.save('Photo-at-Discharge.pdf');
+
 }
+
+    // p1.innerHTML = dischargeDate + " " + microValue 
+    // + " " + normalSwellingText + " " + woundDropdown 
+    // + " " + drainSitesDropdown + " " + removalDate
+    // + " " + legWoundsDropdown + " " + removalDate
+
+    // // New Doc
+    // var options = {unit: 'px', format: 'a4'};
+    // var doc = new jsPDF(options);
+    // doc.setFontSize(10);
+
+    // doc.text('Mr J Blogg XX-XXX', 20, 80);
+    // doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
+
+    // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+
+    // doc.fromHTML($('#left-text').get(0), 20, 92, {
+    // 'width': 250,        
+    // });
+
+    // doc.fromHTML($('#bottom-text').get(0), 20, 410, {
+    // 'width': 400,
+    // });
+
+    // doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
+    // 'width': 400,
+    // });
+
+    // // Save pdf
+    // doc.save('Photo-at-Discharge.pdf');
+
+    }
+
+
+    // p1.innerHTML = dischargeDate + " " + microValue 
+    //         + " " + normalSwellingText + " " + woundDropdown 
+    //         + " " + drainSitesDropdown + " " + removalDate
+    //         + " " + legWoundsDropdown + " " + removalDate
+
+    // // New Doc
+    // var options = {unit: 'px', format: 'a4'};
+    // var doc = new jsPDF(options);
+    // doc.setFontSize(10);
+
+    // doc.text('Mr J Blogg XX-XXX', 20, 80);
+    // doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
+
+    // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+
+    // doc.fromHTML($('#left-text').get(0), 20, 92, {
+    //     'width': 250,        
+    // });
+
+    // doc.fromHTML($('#bottom-text').get(0), 20, 410, {
+    //     'width': 400,
+    // });
+
+    // doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
+    //     'width': 400,
+    // });
+
+    // // Save pdf
+    // doc.save('Photo-at-Discharge.pdf');
+
 // End PDF
 
 

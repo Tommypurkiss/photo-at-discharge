@@ -76,9 +76,9 @@
             Click here to test yourself
         </div>
 
-        <div class="save-button-div">
+        <!-- <div class="save-button-div">
             <button id="save-button" class="save-button" onclick="saveAndExit()">Save & Exit</button>
-        </div>
+        </div> -->
 
 
 
@@ -103,8 +103,8 @@
                                     <input type="date" class="date-picker" id="start-date"  required />
                                     <input type="submit" id="start-date-submit" value="Set Start Date">
                             </form> -->
-                            <input type="date" class="date-picker" id="start-date"  required />
-                            <input type="submit" id="start-date-submit" value="Set Start Date">
+                            <input type="date" class="date-picker" id="start-date" />
+                            <!-- <input type="submit" id="start-date-submit" value="Set Start Date"> -->
                         </td>
                     </tr>
                     <tr>
@@ -211,7 +211,7 @@
                         <td>
                             <!-- <form action=""> -->
                                 <input type="date" name="" class="date-picker" id="end-date" value="">
-                                <input type="submit" id="end-date-submit" value="Set End Date">
+                                <!-- <input type="submit" id="end-date-submit" value="Set End Date"> -->
 
                             <!-- </form> -->
                         </td>
@@ -454,7 +454,12 @@
                             important.
                     </p>
                     <p>
-                            Please contact your GP or Mr Surgeons' secretary (XXXXXXX XXXX) immediately if you think your
+                            Please contact your GP or 
+                            <!-- Mr Surgeons'  -->
+                            <span id="surgeon">
+                                
+                            </span>
+                            secretary (XXXXXXX XXXX) immediately if you think your
                             wound might be infected. Treating an infection early helps stop it from becoming worse or lasting longer than
                             it should. This information does not replace advice or assessment by your surgical team.  Colour copy of this
                             information to the patient. Electronic copy on EPR.
