@@ -58,6 +58,11 @@
             <p>
                 Note: This webpage contains content that is for demonstration.
             </p>
+            <p>
+                <i>
+                    Photos used with kind permission from the patient
+                </i>
+            </p>
         </div>
 
 
@@ -74,6 +79,8 @@
         <div class="save-button-div">
             <button id="save-button" class="save-button" onclick="saveAndExit()">Save & Exit</button>
         </div>
+
+
 
         <div class="database-table">
             <div class="database-table-content">
@@ -92,7 +99,11 @@
                             Date of Discharge
                         </td>
                         <td>
-                            <input type="date" class="date-picker" id="start-date" value=""/>
+                            <!-- <form action="">
+                                    <input type="date" class="date-picker" id="start-date"  required />
+                                    <input type="submit" id="start-date-submit" value="Set Start Date">
+                            </form> -->
+                            <input type="date" class="date-picker" id="start-date"  required />
                             <input type="submit" id="start-date-submit" value="Set Start Date">
                         </td>
                     </tr>
@@ -103,7 +114,7 @@
                         <td>
                             
                             <select name="" id="ward-options" class="small-dropdown">
-                                <option value="select">--select--</option>
+                                <!-- <option value="select">--select--</option> -->
                                 <option value="Maple" id="maple-ward">Maple</option>
                                 <option value="Cedar">Cedar</option>
                                 <option value="Juniper" >Juniper</option> <!-- correct ward -->
@@ -137,7 +148,7 @@
                         </td>
                         <td>
                             <select name="wound" id="wound-dropdown" class="large-dropdown">
-                                <option value="select">--select--</option>
+                                <!-- <option value="select">--select--</option> -->
                                 <option class="wound-option" value="Wound dry and exposed on day of planned discharge.">Wound dry and exposed on day of planned discharge</option>
                                 <option class="wound-option" value="Dissolvable suture(s)">Dissolvable suture(s)</option>
                                 <option class="wound-option" value="Surgical clips">Surgical clips</option>
@@ -174,7 +185,7 @@
                         </td>
                         <td>
                             <form action="" id="micro-form">
-                                <input type="radio" name="foo" onclick="checkMicroForm()" id="micro-one" value="There are no outstanding swabs.">There are no outstanding swabs <br>
+                                <input type="radio" name="foo" id="micro-one" value="There are no outstanding swabs." checked="checked">There are no outstanding swabs <br>
                                 <input type="radio" name="foo" id="micro-two" value="Antibiotics are prescribed to cover the wound swab results.">Antibiotics are prescribed to cover the wound swab results <br>
                                 <input type="radio" name="foo" id="micro-three" value="There are pending wound swabs. We will follow up these results and will inform your GP to action necessary.">There are pending wound swabs. We will follow up these results and will inform your GP to action necessary <!-- correct answer -->
                             </form>
@@ -186,7 +197,7 @@
                         </td>
                         <td>
                             <select name="" id="drain-sites-dropdown" class="large-dropdown">
-                                <option value="select">--select--</option>
+                                <!-- <option value="select">--select--</option> -->
                                 <option value="Dry and exposed with sutures removed.">Dry and exposed with sutures removed</option>
                                 <option value="Sutures (dark thread appearance) to be removed by your GP practice or district nurse.">Sutures (dark thread appearance) to be removed by your GP practice or district nurse</option> <!-- correct option -->
                                 <option value="Drain site sutures removed - some oozing.">Drain site sutures removed - some oozing</option>
@@ -219,7 +230,7 @@
                         </td>
                         <td>
                             <select name="" id="leg-wounds-dropdown" class="large-dropdown">
-                                <option value="select">--select--</option>
+                                <!-- <option value="select">--select--</option> -->
                                 <option value="Leg wound(s) dry and intact. Surgical clips to be removed by your GP practice or district nurse.">Leg wound(s) dry and intact. Surgical clips to be removed by your GP practice or district nurse.</option>
                                 <option value="Leg wound(s) are dry and intact. Clips were removed.">Leg wound(s) are dry and intact. Clips were removed.</option>
                                 <option value="Leg wound(s) are oozing and still healing. No signs of infection.">Leg wound(s) are oozing and still healing. No signs of infection.</option>
@@ -302,7 +313,7 @@
                                 <div class="row">
                                     <div class="wound-photo photo-one column">
                                         <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (wrong angle).jpg" alt="" height="300" width="200" id="wound-photo-one-img"> <br>
-                                        <input type="radio" name="foo" id="wound-photo-one" value="Incorrect - wrong angle" onclick="woundPhotoCheck()"> 
+                                        <input type="radio" name="foo" id="wound-photo-one" value="Incorrect - wrong angle" onclick="woundPhotoCheck()" checked="checked"> 
                                     </div>
                                     
                                     <div class="wound-photo photo-two column">
@@ -340,11 +351,11 @@
                         </td>
                         <td>
                             <select name="" id="" class="small-dropdown">
-                                <option value="select">--select--</option>
+                                <!-- <option value="select">--select--</option> -->
                                 <option value="Mr T Stark">Mr T Stark</option>
-                                <option value="Mrs C Halsey">Mrs C Halsey</option>
+                                <option value="Ms C Halsey">Ms C Halsey</option>
                                 <option value="Mr A Johnson">Mr A Johnson</option>
-                                <option value="Mrs M Keyes">Mrs M Keyes</option>
+                                <option value="Ms M Keyes">Ms M Keyes</option>
                                 <option value="Mr E buck">Mr E buck</option>
 
                             </select>
@@ -358,6 +369,7 @@
                             <!-- <form action=""> -->
                                 <input type="text" name="doctor name" id="doctor-name" class="small-textbox" value="" required>
                                 <!-- <a href="#" target="_blank" >Generate Letter</a> -->
+                                <br>
                                 <a href="javascript:generatePDF()">Generate Letter</a>
                                 <!-- /csp/brompton/cbd/photo/reports/PAD.csp -->
                                 <!-- <input type="button" id="create_pdf" value="Generate PDF" onclick="genertePDF()">   -->
@@ -368,6 +380,7 @@
                 </table>
             </div>
         </div>
+        <div class="div-filler"></div>
 
 
         </div>
