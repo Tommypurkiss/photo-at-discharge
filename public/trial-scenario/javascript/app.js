@@ -105,10 +105,10 @@ function generatePDF() {
 
 
 
-    woundTextBox = document.getElementById('wound-assessment-textbox')
-    console.log("wound tb", woundTextBox)
-    var str = woundTextBox.value.includes("scratch")
-    console.log("scratch str", str)
+    // woundTextBox = document.getElementById('wound-assessment-textbox')
+    // console.log("wound tb", woundTextBox)
+    // var str = woundTextBox.value.includes("scratch")
+    // console.log("scratch str", str)
 
 
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
@@ -120,9 +120,9 @@ function generatePDF() {
     // else if causes the alerts to come one at a time
     // if just if, and one of the answers are atleast corrct it will stll go to download
 
-    else if (str = false) {
-        alert("sctrach not included in text box")
-    }
+    // else if (str = false) {
+    //     alert("sctrach not included in text box")
+    // }
  
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
         alert("Incorrect answer: please try again and choose the correct answer from the Wound dropdown menu")
