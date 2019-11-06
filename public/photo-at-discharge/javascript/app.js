@@ -133,7 +133,7 @@ function generatePDF() {
 
     let woundDropdown = document.getElementById('wound-dropdown').value
     console.log("woundDropdown", woundDropdown)
-    let woundOption = document.getElementsByClassName('wound-option')
+    // let woundOption = document.getElementsByClassName('wound-option')
     
 
     let drainSitesDropdown = document.getElementById('drain-sites-dropdown').value
@@ -145,25 +145,25 @@ function generatePDF() {
     let legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
     console.log("legWoundsDropdown", legWoundsDropdown)
 
-    p1.innerHTML = dischargeDate + " " + microValue 
-            + " " + normalSwellingText + " " + woundDropdown 
-            + " " + drainSitesDropdown + " " + removalDate
-            + " " + legWoundsDropdown + " " + removalDate
+    // p1.innerHTML = dischargeDate + " " + microValue 
+    //         + " " + normalSwellingText + " " + woundDropdown 
+    //         + " " + drainSitesDropdown + " " + removalDate
+    //         + " " + legWoundsDropdown + " " + removalDate
 
 
-    // if ((dischargeDate == "") || (woundDropdown.value == "select") ) {
-    //     alert("please enter a discharge date")
+    if ((dischargeDate == "") || (woundDropdown.value == "select") ) {
+        alert("please enter the required fields")
         
-    //     alert("please enter a wound dropdown")
         
-    // } else {
+        
+    } else {
 
-    //     p1.innerHTML = dischargeDate + " " + microValue 
-    //     + " " + normalSwellingText + " " + woundDropdown 
-    //     + " " + drainSitesDropdown + " " + removalDate
-    //     + " " + legWoundsDropdown + " " + removalDate
+        p1.innerHTML = dischargeDate + " " + microValue 
+        + " " + normalSwellingText + " " + woundDropdown 
+        + " " + drainSitesDropdown + " " + removalDate
+        + " " + legWoundsDropdown + " " + removalDate
 
-    // }
+    }
 
 
 

@@ -27,9 +27,7 @@
 $(document).ready(function(){
 
     if ( $('.date-picker').prop('type') != 'date' ) {
-        $('.date-picker').datepicker({
-            dateFormat: 'dd-mm-yy'
-        });
+        $('.date-picker').datepicker();
     }
 });
 
