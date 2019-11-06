@@ -104,11 +104,17 @@ function generatePDF() {
     console.log("surgeon name", surgeonName)
 
 
+    // var str = "Hello, welcome to the universe.";
+    // var n = str.includes("world");
+    // document.getElementById("demo").innerHTML = n;
+
+
 
     // woundTextBox = document.getElementById('wound-assessment-textbox')
-    // console.log("wound tb", woundTextBox)
-    // var str = woundTextBox.value.includes("scratch")
-    // console.log("scratch str", str)
+    // woundTextBox = ""
+    // console.log("wound tb", woundTextBox.value)
+    // str = woundTextBox.includes("scratch")
+    // console.log("scratch str", str.value)
 
 
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
@@ -120,9 +126,17 @@ function generatePDF() {
     // else if causes the alerts to come one at a time
     // if just if, and one of the answers are atleast corrct it will stll go to download
 
-    // else if (str = false) {
+    // else if (woundTextBox.innerHTML != str) {
     //     alert("sctrach not included in text box")
     // }
+    // else if (str == true) {
+    //     alert("scratch not included in text box")
+    // }
+
+    // else if (str == false) {
+    //     alert("scratch not included in text box")
+    // }
+
  
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
         alert("Incorrect answer: please try again and choose the correct answer from the Wound dropdown menu")
@@ -142,7 +156,7 @@ function generatePDF() {
         alert("Incorrect answer: please try again and choose the correct image")
     }
     else if (surgeonName == "") {
-        alert("Please enter a surgeon name")
+        alert("Please enter your name")
     }
 
 

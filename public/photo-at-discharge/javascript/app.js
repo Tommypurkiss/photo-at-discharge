@@ -92,14 +92,14 @@ function generatePDF() {
     console.log("surgeon name", surgeonName)
 
     if (dischargeDate == "") {
-        alert("please enter a date")
+        alert("Please enter a date of discharge")
     }
     else if (removalDate == "") {
         alert("please enter a removal date")
     }
 
     else if (surgeonName == "") {
-        alert("please enter a surgeon name")
+        alert("Please enter your name")
     }
 
 else {
