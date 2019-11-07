@@ -103,12 +103,32 @@ function generatePDF() {
     surgeonName = document.getElementById('doctor-name').value
     console.log("surgeon name", surgeonName)
 
+    consultantName = document.getElementById('consultant-dropdown').value
+
 
     woundTextBox = document.getElementById('wound-assessment-text').value
     //woundTextBox = ""
     console.log("wound tb", woundTextBox.value)
-    str = woundTextBox.includes("scratch")
+    str = woundTextBox.includes("scratch", "Scratch", "scratches", "scratched", "scratching")
+    // || "Scratch" kinda worked if both were added in the textbox
     console.log("scratch str", str.value)
+
+    // var i = 0
+    // var character=''
+    // while (i <= str.length){
+    //     character = str.charAt(i);
+    //     // if (!isNaN(character * 1)){
+    //     //     alert('character is numeric');
+    //     // }else{
+    //         if (character == character.toUpperCase()) {
+    //             alert ('upper case true');
+    //         }
+    //         if (character == character.toLowerCase()){
+    //             alert ('lower case true');
+    //         }
+    //     // }
+    //     i++;
+    // }
 
 
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
@@ -121,14 +141,18 @@ function generatePDF() {
     // if just if, and one of the answers are atleast corrct it will stll go to download
 
 
-
-
- 
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
         alert("Incorrect answer: please try again and choose the correct answer from the Wound dropdown menu")
     }
+    // str
     else if (str == false) {
         alert("scratch not included in text box")
+        // if (str == str.toUpperCase()) {
+        //     alert ('upper case true');
+        // }
+        // if (str == str.toLowerCase()){
+        //     alert ('lower case true');
+        // }
     }
     else if (microValue != document.getElementById('micro-three').value) {
         alert("Incorrect answer: please try again and choose the correct answer from the Micro for wound radio buttons")
@@ -137,10 +161,12 @@ function generatePDF() {
     else if (drainSitesDropdown != document.getElementById('drain-sites-dropdown-correct').value) {
         alert("Incorrect answer: please try again and choose the correct answer from the Drain sites dropdown menu")
     }
+
     else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
         // removalDate != dischargeDate
         alert("Please enter a removal date")
     }
+
     else if (checkedImg != document.getElementById('wound-photo-four-img')) {
         //alert("Incorrect answer: please try again and choose the correct image")
         if (document.getElementById('wound-photo-one').checked == true) {
@@ -161,7 +187,11 @@ function generatePDF() {
             alert(photoValue);
         }
     }
-    else if (surgeonName == "") {
+
+    // else if (surgeonName == "") {
+    //     alert("Please enter your name")
+    // }
+    else if (consultantName == "") {
         alert("Please enter your name")
     }
 
@@ -173,7 +203,8 @@ function generatePDF() {
         + " " + drainSitesDropdown + " " + removalDate
         // + " " + legWoundsDropdown + " " + removalDate
 
-        surgeon.innerHTML = surgeonName
+        //surgeon.innerHTML = surgeonName
+        consultant.innerHTML = consultantName
 
         // New Doc
         var options = {unit: 'px', format: 'a4'};
