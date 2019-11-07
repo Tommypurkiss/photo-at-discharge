@@ -146,7 +146,7 @@ function generatePDF() {
     }
     // str
     else if (str == false) {
-        alert("scratch not included in text box")
+        alert("This text box should include the word scratch. Please ensure all spelling is correct.")
         // if (str == str.toUpperCase()) {
         //     alert ('upper case true');
         // }
