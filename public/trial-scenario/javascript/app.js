@@ -109,7 +109,7 @@ function generatePDF() {
     woundTextBox = document.getElementById('wound-assessment-text').value
     //woundTextBox = ""
     console.log("wound tb", woundTextBox.value)
-    str = woundTextBox.includes("scratch", "Scratch", "scratches", "scratched", "scratching")
+    str = woundTextBox.includes("scratch", "Scratch", "scratches", "Scratches", "scratched", "Scratched", "scratching", "Scratching")
     // || "Scratch" kinda worked if both were added in the textbox
     console.log("scratch str", str.value)
 
