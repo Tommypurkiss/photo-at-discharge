@@ -51,6 +51,7 @@ function generatePDF() {
 
 
     p1 = document.getElementById('p1');
+    woundTbComments = document.getElementById('wound-tb-comments')
     surgeon = document.getElementById('surgeon')
 
     var dischargeDate = new Date(document.getElementById('start-date').value);
@@ -109,7 +110,8 @@ function generatePDF() {
     woundTextBox = document.getElementById('wound-assessment-text').value
     //woundTextBox = ""
     console.log("wound tb", woundTextBox.value)
-    str = woundTextBox.includes("scratch", "Scratch", "scratches", "Scratches", "scratched", "Scratched", "scratching", "Scratching")
+    str = woundTextBox.includes("scratch", "Scratch", "scratches", 
+    "Scratches", "scratched", "Scratched", "scratching", "Scratching")
     // || "Scratch" kinda worked if both were added in the textbox
     console.log("scratch str", str.value)
 
@@ -122,38 +124,70 @@ function generatePDF() {
     //     // }else{
     //         if (character == character.toUpperCase()) {
     //             alert ('upper case true');
+    //                 console.log('to upper',character)
+
     //         }
     //         if (character == character.toLowerCase()){
     //             alert ('lower case true');
+    //             console.log('to lower',character)
+
     //         }
     //     // }
+    //     console.log(character)
+
     //     i++;
+    //     console.log(character)
     // }
+
 
 
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
         alert("Please enter a date of discharge")
     }
-    // if (startDate == "") {
-    //     alert("please enter a date")
-    // }
-    // else if causes the alerts to come one at a time
-    // if just if, and one of the answers are atleast corrct it will stll go to download
-
 
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
         alert("Incorrect answer: please try again and choose the correct answer from the Wound dropdown menu")
     }
-    // str
-    else if (str == false) {
-        alert("This text box should include the word scratch. Please ensure all spelling is correct.")
-        // if (str == str.toUpperCase()) {
-        //     alert ('upper case true');
-        // }
-        // if (str == str.toLowerCase()){
-        //     alert ('lower case true');
-        // }
+
+
+    // Works in some way
+    else if(str == false && woundTextBox != "") {
+
+        alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
+        console.log('str value', str.value && 'wound tb', woundTextBox.value)
+
     }
+
+
+    // else if(str == false && woundTextBox != "") {
+
+    //     alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
+    //     console.log('str value', str.value && 'wound tb', woundTextBox.value)
+
+    //     if (woundTextBox != "") {
+    //         console.log("wound tb !=", woundTextBox)
+    //     } else {
+    //         woundTextBox = "No additional comments."
+    //         console.log("wound tb no addit", woundTextBox)
+    //     }
+    // }
+
+    // else if (woundTextBox === undefined) {
+
+    //     woundTextBox.innerHTML == "No additional comments."
+    //     console.log("wound tb value = ", woundTextBox.value)
+
+        
+    // }
+    // else if (str == false && woundTextBox != "") {
+
+    //     woundTextBox.value == "No additional comments."
+    //     alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
+    //     console.log('str value', str.value && 'wound tb', woundTextBox.value)
+    // }
+
+
+
     else if (microValue != document.getElementById('micro-three').value) {
         alert("Incorrect answer: please try again and choose the correct answer from the Micro for wound radio buttons")
     }
@@ -198,10 +232,18 @@ function generatePDF() {
 
     else {
 
+        //woundTextBox = "No additional comments."
+
+
         p1.innerHTML = dischargeDate + " " + microValue 
         + " " + normalSwellingText + " " + woundDropdown 
         + " " + drainSitesDropdown + " " + removalDate
         // + " " + legWoundsDropdown + " " + removalDate
+
+
+        woundTbComments.innerHTML = woundTextBox
+        
+
 
         //surgeon.innerHTML = surgeonName
         consultant.innerHTML = consultantName
