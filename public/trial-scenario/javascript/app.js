@@ -47,8 +47,7 @@ function generatePDF() {
 
     checkWoundImages() //function for checking wound images
     checkMicroForm() //function for checking micro wound radio options
-    //pdfValues()
-    //getStartDate()
+
 
     testComment = "Comment"
 
@@ -74,9 +73,6 @@ function generatePDF() {
     removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
     console.log("removal  Date", removalDate)
 
-
-    
-    
     // var removalDate = new Date(document.getElementById('end-date').value);
     // var dd2 = String(removalDate.getDate() + 7)
     // var mm2 = String(removalDate.getMonth() + 1) //January is 0!
@@ -109,13 +105,9 @@ function generatePDF() {
 
     consultantName = document.getElementById('consultant-dropdown').value
 
-
-    // woundTextBox = document.getElementById('wound-assessment-text').value
-    //woundTextBox = ""
     console.log("wound tb", woundTextBox)
     str = woundTextBox.includes("scratch", "Scratch", "scratches", 
     "Scratches", "scratched", "Scratched", "scratching", "Scratching")
-    // || "Scratch" kinda worked if both were added in the textbox
     console.log("scratch str", str.value)
 
     // var i = 0
@@ -154,62 +146,30 @@ function generatePDF() {
 
 
     // Works in some way
-    else if(str == false && woundTextBox != "") {
-
-        alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
-
-        console.log('str value', str.value && 'wound tb', woundTextBox.value)
-
-    }
-//woundTextBox = "comment"
-
-
-
-    // if (str == false || woundTextBox == "") {
-    //             alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
-    //             // woundTextBox == woundTextBox.value
-    //     // if (woundTextBox == "") {
-
-    //     //     woundTextBox == woundTextBox.value
-
-    //     //     return true
-    //     // }
-        
-    // }
-
     // else if(str == false && woundTextBox != "") {
 
-    //     woundTextBox == woundTextBox.value
-
-    //     //alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
+    //     alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
 
     //     console.log('str value', str.value && 'wound tb', woundTextBox.value)
-    //     //return true
-    // }
-    // else {
-    //     woundTextBox = "comment"
 
     // }
 
+    //this finally bloody works
+    if (woundTextBox != "" && str == false){
+        alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
 
-    // FIXME: this is almost there
-    // if (woundTextBox == "") {
+        console.log("enter if 1 ", woundTextBox.value)
+        return false
+    }
+    else if (woundTextBox != "" && str == true) {
 
-        
-    //     console.log("enter if 1 ", woundTextBox.value)
-
-    //     if (woundTextBox != "" && str == true) {
-
-    //         woundTextBox = woundTextBox.value
-    //     } else if (woundTextBox != "" && str == false){
-    //         alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
-    //     }
-    //     else {
-    //                 woundTextBox = "comment"
-    //             }
-
-        
-    // }
+        woundTextBox == woundTextBox
+        console.log("enter if 2 ", woundTextBox)
+    }
+    else {
+        woundTextBox = "No additional comments."
+        console.log("enter if 3 ", woundTextBox.value)
+    }   
 
 
     if (microValue != document.getElementById('micro-three').value) {
