@@ -1,7 +1,5 @@
 
 
-
-
 var today = new Date();
 var dd = String(today.getDate())
 var mm = String(today.getMonth() + 1) //January is 0!
@@ -11,7 +9,10 @@ today = dd + '/' + mm + '/' + yyyy;
 console.log(today)
 
 
-
+// woundTextBox = document.getElementById('wound-assessment-text')
+// p1 = document.getElementById('p1');
+// woundTbComments = document.getElementById('wound-tb-comments')
+// surgeon = document.getElementById('surgeon')
 
 // checking which photo is chosen for displaying correct answer - important
 function woundPhotoCheck() {
@@ -49,7 +50,9 @@ function generatePDF() {
     //pdfValues()
     //getStartDate()
 
+    testComment = "Comment"
 
+    woundTextBox = document.getElementById('wound-assessment-text').value
     p1 = document.getElementById('p1');
     woundTbComments = document.getElementById('wound-tb-comments')
     surgeon = document.getElementById('surgeon')
@@ -107,9 +110,9 @@ function generatePDF() {
     consultantName = document.getElementById('consultant-dropdown').value
 
 
-    woundTextBox = document.getElementById('wound-assessment-text').value
+    // woundTextBox = document.getElementById('wound-assessment-text').value
     //woundTextBox = ""
-    console.log("wound tb", woundTextBox.value)
+    console.log("wound tb", woundTextBox)
     str = woundTextBox.includes("scratch", "Scratch", "scratches", 
     "Scratches", "scratched", "Scratched", "scratching", "Scratching")
     // || "Scratch" kinda worked if both were added in the textbox
@@ -154,41 +157,62 @@ function generatePDF() {
     else if(str == false && woundTextBox != "") {
 
         alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
+
         console.log('str value', str.value && 'wound tb', woundTextBox.value)
 
     }
+//woundTextBox = "comment"
 
+
+
+    // if (str == false || woundTextBox == "") {
+    //             alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
+    //             // woundTextBox == woundTextBox.value
+    //     // if (woundTextBox == "") {
+
+    //     //     woundTextBox == woundTextBox.value
+
+    //     //     return true
+    //     // }
+        
+    // }
 
     // else if(str == false && woundTextBox != "") {
 
-    //     alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
-    //     console.log('str value', str.value && 'wound tb', woundTextBox.value)
+    //     woundTextBox == woundTextBox.value
 
-    //     if (woundTextBox != "") {
-    //         console.log("wound tb !=", woundTextBox)
-    //     } else {
-    //         woundTextBox = "No additional comments."
-    //         console.log("wound tb no addit", woundTextBox)
-    //     }
+    //     //alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
+
+    //     console.log('str value', str.value && 'wound tb', woundTextBox.value)
+    //     //return true
+    // }
+    // else {
+    //     woundTextBox = "comment"
+
     // }
 
-    // else if (woundTextBox === undefined) {
 
-    //     woundTextBox.innerHTML == "No additional comments."
-    //     console.log("wound tb value = ", woundTextBox.value)
+    // FIXME: this is almost there
+    // if (woundTextBox == "") {
+
+        
+    //     console.log("enter if 1 ", woundTextBox.value)
+
+    //     if (woundTextBox != "" && str == true) {
+
+    //         woundTextBox = woundTextBox.value
+    //     } else if (woundTextBox != "" && str == false){
+    //         alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
+    //     }
+    //     else {
+    //                 woundTextBox = "comment"
+    //             }
 
         
     // }
-    // else if (str == false && woundTextBox != "") {
-
-    //     woundTextBox.value == "No additional comments."
-    //     alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
-    //     console.log('str value', str.value && 'wound tb', woundTextBox.value)
-    // }
 
 
-
-    else if (microValue != document.getElementById('micro-three').value) {
+    if (microValue != document.getElementById('micro-three').value) {
         alert("Incorrect answer: please try again and choose the correct answer from the Micro for wound radio buttons")
     }
 
@@ -262,7 +286,7 @@ function generatePDF() {
             'width': 250,        
         });
 
-        doc.fromHTML($('#bottom-text').get(0), 20, 410, {
+        doc.fromHTML($('#bottom-text').get(0), 20, 470, {
             'width': 400,
         });
 
@@ -274,36 +298,6 @@ function generatePDF() {
         doc.save('Photo-at-Discharge.pdf');
     }
 
-
-    // p1.innerHTML = dischargeDate + " " + microValue 
-    //         + " " + normalSwellingText + " " + woundDropdown 
-    //         + " " + drainSitesDropdown + " " + removalDate
-    //         + " " + legWoundsDropdown + " " + removalDate
-
-    // // New Doc
-    // var options = {unit: 'px', format: 'a4'};
-    // var doc = new jsPDF(options);
-    // doc.setFontSize(10);
-
-    // doc.text('Mr J Blogg XX-XXX', 20, 80);
-    // doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
-
-    // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
-
-    // doc.fromHTML($('#left-text').get(0), 20, 92, {
-    //     'width': 250,        
-    // });
-
-    // doc.fromHTML($('#bottom-text').get(0), 20, 410, {
-    //     'width': 400,
-    // });
-
-    // doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
-    //     'width': 400,
-    // });
-
-    // // Save pdf
-    // doc.save('Photo-at-Discharge.pdf');
 }
 // End PDF
 
