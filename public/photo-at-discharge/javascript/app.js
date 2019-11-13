@@ -136,6 +136,9 @@ function generatePDF() {
     surgeonName = document.getElementById('doctor-name').value
     console.log("surgeon name", surgeonName)
 
+    consultantName = document.getElementById('consultant-dropdown').value
+
+
     // if (dischargeDate == "") {
     //     alert("Please enter a date of discharge")
     // }
@@ -152,9 +155,9 @@ function generatePDF() {
         alert("Please enter a removal date")
     }
 
-    else if (surgeonName == "") {
-        alert("Please enter your name")
-    }
+    // else if (surgeonName == "") {
+    //     alert("Please enter your name")
+    // }
 
 else {
 
@@ -166,8 +169,12 @@ else {
 
     // p1.innerHTML = dischargeDate + " " + normalSwellingText + " " + removalDate
 
-    surgeon.innerHTML = surgeonName
+    //surgeon.innerHTML = surgeonName
 
+    consultant.innerHTML = consultantName
+
+
+    //var test = document.getElementById('#left-text');
 
     // New Doc
     var options = {unit: 'px', format: 'a4'};
@@ -184,7 +191,6 @@ else {
     });
 
 
-
     doc.fromHTML($('#bottom-text').get(0), 20, 410, {
     'width': 400,
     });
@@ -198,6 +204,16 @@ else {
     // Save pdf
     doc.save('Photo-at-Discharge.pdf');
 
+
+
+
+
+
+
+
+
+
+
 }
 
 
@@ -208,7 +224,25 @@ else {
 
 
 
-
+// Downloadify.create('downloadify',{
+//     filename: 'Example.pdf',
+//     data: function(){ 
+//         var doc = new jsPDF();
+//         doc.text(20, 20, 'PDF Generation using client-side Javascript');
+//         doc.addPage();
+//         doc.text(20, 20, 'Do you like that?');
+//         return doc.output();
+//     },
+//     onComplete: function(){ alert('Your File Has Been Saved!'); },
+//     onCancel: function(){ alert('You have cancelled the saving of this file.'); },
+//     onError: function(){ alert('You must put something in the File Contents or there will be nothing to save!'); },
+//     swf: '../libs/downloadify/media/downloadify.swf',
+//     downloadImage: '../libs/downloadify/images/download.png',
+//     width: 100,
+//     height: 30,
+//     transparent: true,
+//     append: false
+// });
 
 
 
