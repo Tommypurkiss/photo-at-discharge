@@ -9,37 +9,59 @@ today = dd + '/' + mm + '/' + yyyy;
 console.log(today)
 
 
-// woundTextBox = document.getElementById('wound-assessment-text')
-// p1 = document.getElementById('p1');
-// woundTbComments = document.getElementById('wound-tb-comments')
-// surgeon = document.getElementById('surgeon')
+
 
 // checking which photo is chosen for displaying correct answer - important
 function woundPhotoCheck() {
 
     if (document.getElementById('wound-photo-one').checked == true) {
         photoValue = document.getElementById('wound-photo-one').value;
-        //alert(photoValue);
     } 
     else if (document.getElementById('wound-photo-two').checked == true) {
         photoValue = document.getElementById('wound-photo-two').value;
-        //alert(photoValue);
     } 
     else if (document.getElementById('wound-photo-three').checked == true) {
         photoValue = document.getElementById('wound-photo-three').value;
-        //alert(photoValue);
     }
     else if (document.getElementById('wound-photo-four').checked == true) {
         photoValue = document.getElementById('wound-photo-four').value;
-        //alert(photoValue);
     }
     else if (document.getElementById('wound-photo-five').checked == true) {
         photoValue = document.getElementById('wound-photo-five').value;
-        //alert(photoValue);
     }
-    //document.getElementById('wound-photo-answer').innerHTML = "" + photoValue;
 }
 
+
+
+
+function checkBHIS() {
+
+    var bhisOption = document.getElementById('bhis-option')
+
+    if(bhisOption.checked == true) {
+        alert("Please make sure this is correct, the surgical bra is for female patients only.")
+        console.log(bhisOption)
+
+    }   else if (bhisOption.checked == false) {
+        console.log(bhisOption)
+
+    }
+    
+
+}
+
+
+// function isLetter(str) {
+//     return str.length === 1 && str.match(/[a-z]/i);
+//   }
+
+
+// function hasLowerCase(str) {
+//     if(str.toUpperCase() != str) {
+//         return true;
+//     }
+//     return false;
+// }
 
 
 // Generate the PDF
@@ -49,7 +71,6 @@ function generatePDF() {
     checkMicroForm() //function for checking micro wound radio options
 
 
-    testComment = "Comment"
 
     woundTextBox = document.getElementById('wound-assessment-text').value
     p1 = document.getElementById('p1');
@@ -73,17 +94,7 @@ function generatePDF() {
     removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
     console.log("removal  Date", removalDate)
 
-    // var removalDate = new Date(document.getElementById('end-date').value);
-    // var dd2 = String(removalDate.getDate() + 7)
-    // var mm2 = String(removalDate.getMonth() + 1) //January is 0!
-    // var yyyy2 = removalDate.getFullYear();
 
-    // removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
-    // console.log("removal  Date", removalDate)
-
-    // dischargeDate = document.getElementById('start-date').value
-    // // .required makes it undefined
-    // console.log("dischargeDate", dischargeDate)
     
     normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
     console.log("normalSwellingText", normalSwellingText)
@@ -94,45 +105,21 @@ function generatePDF() {
     drainSitesDropdown = document.getElementById('drain-sites-dropdown').value
     console.log("drainSitesDropdown", drainSitesDropdown)
 
-    // removalDate = document.getElementById('end-date').value
-    // console.log("removalDate", removalDate)
-
-    // legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
-    // console.log("legWoundsDropdown", legWoundsDropdown)
-
     surgeonName = document.getElementById('doctor-name').value
     console.log("surgeon name", surgeonName)
 
     consultantName = document.getElementById('consultant-dropdown').value
 
     console.log("wound tb", woundTextBox)
-    str = woundTextBox.includes("scratch", "Scratch", "scratches", 
-    "Scratches", "scratched", "Scratched", "scratching", "Scratching")
+    var str = woundTextBox.includes("scratch", "scratches", "scratched", "scratching")
+    // str.length === [] && str.match(/[a-zA-Z]/i);
+    //str === str.length.match(/[a-zA-Z]/i);
+    //var str2 = ""
+
+
+
     console.log("scratch str", str.value)
 
-    // var i = 0
-    // var character=''
-    // while (i <= str.length){
-    //     character = str.charAt(i);
-    //     // if (!isNaN(character * 1)){
-    //     //     alert('character is numeric');
-    //     // }else{
-    //         if (character == character.toUpperCase()) {
-    //             alert ('upper case true');
-    //                 console.log('to upper',character)
-
-    //         }
-    //         if (character == character.toLowerCase()){
-    //             alert ('lower case true');
-    //             console.log('to lower',character)
-
-    //         }
-    //     // }
-    //     console.log(character)
-
-    //     i++;
-    //     console.log(character)
-    // }
 
 
 
@@ -145,31 +132,65 @@ function generatePDF() {
     }
 
 
-    // Works in some way
-    // else if(str == false && woundTextBox != "") {
 
-    //     alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
 
-    //     console.log('str value', str.value && 'wound tb', woundTextBox.value)
 
-    // }
+
+
+
+
+
 
     //this finally bloody works
     if (woundTextBox != "" && str == false){
-        alert('Unless there are no additional comments to be made, this text box should include the word scratch. Please ensure all spelling is correct.')
-
+        // && str == false
+    alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
         console.log("enter if 1 ", woundTextBox.value)
         return false
+
     }
     else if (woundTextBox != "" && str == true) {
 
-        woundTextBox == woundTextBox
-        console.log("enter if 2 ", woundTextBox)
+    woundTextBox == woundTextBox
+    console.log("enter if 2 ", woundTextBox)
     }
+
     else {
         woundTextBox = "No additional comments."
         console.log("enter if 3 ", woundTextBox.value)
     }   
+
+
+// !=
+// if(woundTextBox != "") {
+
+//     for (i = 0; i <= str.length; i++) {
+
+//         if(str.charAt(i) >= "a" && str.charAt(i) <= "z") {
+//             woundTextBox == str
+            
+//         }
+//         if (str.charAt(i) >= "A" && str.charAt(i) <= "Z") {
+//             woundTextBox == str
+//         }
+//         // else {
+//         //     // if(str == false)
+            
+//         //     alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
+//         //     return true
+//         // }
+//     }
+// }
+// else if(woundTextBox == ""){
+//     woundTextBox = "No additional comments."
+
+// }
+// else if(woundTextBox != "" && str == false) {
+//     // if(str == false)
+    
+//     alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
+//     return true
+// }
 
 
     if (microValue != document.getElementById('micro-three').value) {
@@ -206,9 +227,6 @@ function generatePDF() {
         }
     }
 
-    // else if (surgeonName == "") {
-    //     alert("Please enter your name")
-    // }
     else if (consultantName == "") {
         alert("Please enter your name")
     }
@@ -216,20 +234,17 @@ function generatePDF() {
 
     else {
 
-        //woundTextBox = "No additional comments."
 
 
         p1.innerHTML = dischargeDate + " " + microValue 
         + " " + normalSwellingText + " " + woundDropdown 
         + " " + drainSitesDropdown + " " + removalDate
-        // + " " + legWoundsDropdown + " " + removalDate
 
 
         woundTbComments.innerHTML = woundTextBox
         
 
 
-        //surgeon.innerHTML = surgeonName
         consultant.innerHTML = consultantName
 
         // New Doc

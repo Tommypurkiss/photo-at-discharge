@@ -91,12 +91,13 @@ nav {
         padding: 20px 0px;
 
         .trial-button {
-            padding: 5px 30px;
+            padding: 2px 30px;
+            background-color: gray;
+            border-radius: 5px;
+            text-decoration: none;
+            color: $blackFontColour;
 
-            a {
-                text-decoration: none;
-                color: $blackFontColour;
-            }
+            
         }
     }
 

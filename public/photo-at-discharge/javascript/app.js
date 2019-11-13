@@ -48,6 +48,41 @@ console.log(today)
 
 // }
 
+
+    // window.onload = function() {
+
+    //     var bhisOption = document.getElementById('bhis-option')
+
+    //         if(bhisOption.checked = true) {
+    //             alert("mmm")
+    //             console.log(bhisOption)
+    //         }
+            
+
+
+
+    // }
+
+    function checkBHIS() {
+
+        var bhisOption = document.getElementById('bhis-option')
+
+        if(bhisOption.checked == true) {
+            alert("Please make sure this is correct, the surgical bra is for female patients only.")
+            console.log(bhisOption)
+
+        }   else if (bhisOption.checked == false) {
+            console.log(bhisOption)
+        }
+        
+
+    }
+
+
+    
+
+
+
 // Generate the PDF
 function generatePDF() {
 
@@ -128,6 +163,9 @@ else {
     + " " + drainSitesDropdown + " " + removalDate
     // + " " + legWoundsDropdown + " " + removalDate
 
+
+    // p1.innerHTML = dischargeDate + " " + normalSwellingText + " " + removalDate
+
     surgeon.innerHTML = surgeonName
 
 
@@ -145,6 +183,8 @@ else {
     'width': 250,        
     });
 
+
+
     doc.fromHTML($('#bottom-text').get(0), 20, 410, {
     'width': 400,
     });
@@ -153,10 +193,34 @@ else {
     'width': 400,
     });
 
+
+
     // Save pdf
     doc.save('Photo-at-Discharge.pdf');
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // p1.innerHTML = dischargeDate + " " + microValue 
     // + " " + normalSwellingText + " " + woundDropdown 
