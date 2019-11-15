@@ -78,8 +78,9 @@ console.log(today)
 
     }
 
-
     
+
+
 
 
 
@@ -88,11 +89,27 @@ function generatePDF() {
 
     checkWoundImages() //function for checking wound images
     checkMicroForm() //function for checking micro wound radio options
-    //pdfValues()
 
 
     p1 = document.getElementById('p1');
     surgeon = document.getElementById('surgeon')
+
+    woundTextBox = document.getElementById('wound-assessment-text').value
+    woundTbComments = document.getElementById('wound-tb-comments')
+
+    checkedValue = document.getElementsByClassName('addit-resources').value
+    additionalResources = document.getElementById('additional-resources')
+
+
+    //works but only adds one of the ticked
+    // var checkedValue = null; 
+    // var inputElements = document.getElementsByClassName('addit-resources');
+    //     for(var i=0; inputElements[i]; i++){
+    //         if(inputElements[i].checked){
+    //             checkedValue = inputElements[i].value;
+    //             //break;
+    //         }
+    //     }
 
 
     var dischargeDate = new Date(document.getElementById('start-date').value);
@@ -103,8 +120,6 @@ function generatePDF() {
     dischargeDate = dd + '/' + mm + '/' + yyyy;
     console.log("start Date", dischargeDate)
 
-
-
     var removalDate = new Date(document.getElementById('end-date').value);
     var dd2 = String(removalDate.getDate())
     var mm2 = String(removalDate.getMonth() + 1) //January is 0!
@@ -113,10 +128,6 @@ function generatePDF() {
     removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
     console.log("removal  Date", removalDate)
 
-
-    // dischargeDate = document.getElementById('start-date').value
-    // // .required makes it undefined
-    // console.log("dischargeDate", dischargeDate)
     
     normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
     console.log("normalSwellingText", normalSwellingText)
@@ -127,11 +138,7 @@ function generatePDF() {
     drainSitesDropdown = document.getElementById('drain-sites-dropdown').value
     console.log("drainSitesDropdown", drainSitesDropdown)
 
-    // removalDate = document.getElementById('end-date').value
-    // console.log("removalDate", removalDate)
 
-    // legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
-    // console.log("legWoundsDropdown", legWoundsDropdown)
 
     surgeonName = document.getElementById('doctor-name').value
     console.log("surgeon name", surgeonName)
@@ -139,187 +146,58 @@ function generatePDF() {
     consultantName = document.getElementById('consultant-dropdown').value
 
 
-    // if (dischargeDate == "") {
-    //     alert("Please enter a date of discharge")
-    // }
+    // Beginning of table validation
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
         alert("Please enter a date of discharge")
     }
 
-    // else if (removalDate == "") {
-    //     alert("please enter a removal date")
-    // }
-
-        else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
-        // removalDate != dischargeDate
+    else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
         alert("Please enter a removal date")
     }
 
-    // else if (surgeonName == "") {
-    //     alert("Please enter your name")
-    // }
+    else {
 
-else {
+        p1.innerHTML = dischargeDate + " " + microValue 
+        + " " + normalSwellingText + " " + woundDropdown 
+        + " " + drainSitesDropdown + " " + removalDate
+        
+        woundTbComments.innerHTML = woundTextBox
 
-    p1.innerHTML = dischargeDate + " " + microValue 
-    + " " + normalSwellingText + " " + woundDropdown 
-    + " " + drainSitesDropdown + " " + removalDate
-    // + " " + legWoundsDropdown + " " + removalDate
+        consultant.innerHTML = consultantName
+        additionalResources.innerHTML = checkedValue
 
+        // New Doc
+        var options = {unit: 'px', format: 'a4'};
+        var doc = new jsPDF(options);
+        doc.setFontSize(10);
 
-    // p1.innerHTML = dischargeDate + " " + normalSwellingText + " " + removalDate
+        doc.text('Mr J Blogg XX-XXX', 20, 80);
+        doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
 
-    //surgeon.innerHTML = surgeonName
+        doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
 
-    consultant.innerHTML = consultantName
-
-
-    //var test = document.getElementById('#left-text');
-
-    // New Doc
-    var options = {unit: 'px', format: 'a4'};
-    var doc = new jsPDF(options);
-    doc.setFontSize(10);
-
-    doc.text('Mr J Blogg XX-XXX', 20, 80);
-    doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
-
-    doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
-
-    doc.fromHTML($('#left-text').get(0), 20, 92, {
-    'width': 250,        
-    });
+        doc.fromHTML($('#left-text').get(0), 20, 92, {
+        'width': 250,        
+        });
 
 
-    doc.fromHTML($('#bottom-text').get(0), 20, 410, {
-    'width': 400,
-    });
+        doc.fromHTML($('#bottom-text').get(0), 20, 470, {
+        'width': 400,
+        });
 
-    doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
-    'width': 400,
-    });
+        doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
+        'width': 400,
+        });
 
 
 
-    // Save pdf
-    doc.save('Photo-at-Discharge.pdf');
-
-
-
-
-
-
-
-
-
-
-
+        // Save pdf
+        doc.save('Photo-at-Discharge.pdf');
+    }
 }
 
 
 
-
-
-
-
-
-
-// Downloadify.create('downloadify',{
-//     filename: 'Example.pdf',
-//     data: function(){ 
-//         var doc = new jsPDF();
-//         doc.text(20, 20, 'PDF Generation using client-side Javascript');
-//         doc.addPage();
-//         doc.text(20, 20, 'Do you like that?');
-//         return doc.output();
-//     },
-//     onComplete: function(){ alert('Your File Has Been Saved!'); },
-//     onCancel: function(){ alert('You have cancelled the saving of this file.'); },
-//     onError: function(){ alert('You must put something in the File Contents or there will be nothing to save!'); },
-//     swf: '../libs/downloadify/media/downloadify.swf',
-//     downloadImage: '../libs/downloadify/images/download.png',
-//     width: 100,
-//     height: 30,
-//     transparent: true,
-//     append: false
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // p1.innerHTML = dischargeDate + " " + microValue 
-    // + " " + normalSwellingText + " " + woundDropdown 
-    // + " " + drainSitesDropdown + " " + removalDate
-    // + " " + legWoundsDropdown + " " + removalDate
-
-    // // New Doc
-    // var options = {unit: 'px', format: 'a4'};
-    // var doc = new jsPDF(options);
-    // doc.setFontSize(10);
-
-    // doc.text('Mr J Blogg XX-XXX', 20, 80);
-    // doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
-
-    // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
-
-    // doc.fromHTML($('#left-text').get(0), 20, 92, {
-    // 'width': 250,        
-    // });
-
-    // doc.fromHTML($('#bottom-text').get(0), 20, 410, {
-    // 'width': 400,
-    // });
-
-    // doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
-    // 'width': 400,
-    // });
-
-    // // Save pdf
-    // doc.save('Photo-at-Discharge.pdf');
-
-    }
-
-
-    // p1.innerHTML = dischargeDate + " " + microValue 
-    //         + " " + normalSwellingText + " " + woundDropdown 
-    //         + " " + drainSitesDropdown + " " + removalDate
-    //         + " " + legWoundsDropdown + " " + removalDate
-
-    // // New Doc
-    // var options = {unit: 'px', format: 'a4'};
-    // var doc = new jsPDF(options);
-    // doc.setFontSize(10);
-
-    // doc.text('Mr J Blogg XX-XXX', 20, 80);
-    // doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
-
-    // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
-
-    // doc.fromHTML($('#left-text').get(0), 20, 92, {
-    //     'width': 250,        
-    // });
-
-    // doc.fromHTML($('#bottom-text').get(0), 20, 410, {
-    //     'width': 400,
-    // });
-
-    // doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
-    //     'width': 400,
-    // });
-
-    // // Save pdf
-    // doc.save('Photo-at-Discharge.pdf');
-
-// End PDF
 
 
 //works - TODO: might not be necessary 
@@ -363,8 +241,6 @@ function checkMicroForm() {
         microValue = document.getElementById('micro-two').value
     }
 }
-
-
 
 
 

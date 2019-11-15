@@ -59,17 +59,18 @@
         <div class="main-content">
         <div class="main-content-title">
             <h1>
-                Information Entry
+                Practice Database
             </h1>
         </div>
         <div class="m-c-info-text">
             <p>
-                Note: This webpage contains content that is for demonstration.
+                <!-- Note: This webpage contains content that is for demonstration. -->
+                For demonstration purposes only.
             </p>
             <p>
-                <i>
-                    Photos used with kind permission from the patient
-                </i>
+                
+                    Photos used with kind permission from the patient.
+                
             </p>
         </div>
 
@@ -82,7 +83,7 @@
             <a href="trial-scenario.html" target="_blank">Trial Scenario</a>
             </button>    -->
             <a href="trial-scenario.html" target="_blank" class="trial-button">Trial Scenario</a>
-            Please click here for scenario so that you can complete the PaD form
+            Please click here for scenario so that you can complete the Photo at Discharge (PaD) form 
         </div>
 
         <!-- <div class="save-button-div">
@@ -96,7 +97,7 @@
                 <table>
                     <tr>
                         <th colspan="2">
-                            Photo at Discharge
+                            Photo at Discharge (PaD)
                         </th>
                     </tr>
                     <tr>
@@ -228,14 +229,14 @@
                             <!-- </form> -->
                         </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>
                             Drain sites TEXT
                         </td>
                         <td>
                             <textarea name="" id="" cols="30" rows="10" class="scrollable-textbox"></textarea>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td>
                             Leg wounds
@@ -298,12 +299,12 @@
                         </td>
                         <td>
                             <!-- <form action=""> -->
-                                <input type="checkbox" name="" id="" value="Hibiscrub Plus (antimicrobial wash) for morning shower.">Hibiscrub Plus (antimicrobial wash) for morning shower. <br>
-                                <input type="checkbox" name="" id="" value="Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse.">Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse. <br>
-                                <input type="checkbox" name="" id="" value="Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed.">Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed. <br>
-                                <input type="checkbox" name="" id="bhis-option" value="Additional surgical bra provided." onclick="checkBHIS()">Additional BHIS<sup>TM</sup> surgical bra provided. <br>
-                                <input type="checkbox" name="" id="" value="Gauze pack(s) provided for under bra band.">Gauze pack(s) provided for under bra band. <br>
-                                <input type="checkbox" name="" id="" value="Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.">Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.
+                                <input type="checkbox" class="addit-resources" name="resources" id="" value="Hibiscrub Plus (antimicrobial wash) for morning shower.">Hibiscrub Plus (antimicrobial wash) for morning shower. <br>
+                                <input type="checkbox" class="addit-resources" name="resources" id="" value="Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse.">Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse. <br>
+                                <input type="checkbox" class="addit-resources" name="resources" id="" value="Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed.">Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed. <br>
+                                <input type="checkbox" class="addit-resources" name="resources" id="bhis-option" value="Additional Additional BHIS surgical bra provided." onclick="checkBHIS()">Additional BHIS<sup>TM</sup> surgical bra provided. <br>
+                                <!-- <input type="checkbox" name="" id="" value="Gauze pack(s) provided for under bra band.">Gauze pack(s) provided for under bra band. <br> -->
+                                <input type="checkbox" class="addit-resources" name="resources" id="" value="Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.">Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.
 
                             <!-- </form> -->
                         </td>
@@ -383,7 +384,7 @@
                                 <input type="text" name="doctor name" id="doctor-name" class="small-textbox" value="" required>
                                 <!-- <a href="#" target="_blank" >Generate Letter</a> -->
                                 <br>
-                                <a href="javascript:generatePDF()">Generate Letter</a>
+                                <a href="javascript:generatePDF()">Generate Form</a>
                                 <!-- /csp/brompton/cbd/photo/reports/PAD.csp -->
                                 <!-- <input type="button" id="create_pdf" value="Generate PDF" onclick="genertePDF()">   -->
 
@@ -410,8 +411,14 @@
 
                         </i>
                     </p>
-                    <p style="text-decoration: underline;">
-                        <u>Advice to Mr Blogg</u>
+                    <p>
+                        <b>Additional comments:</b>
+                    </p>
+                    <p id="wound-tb-comments">
+
+                    </p>
+                    <p>
+                        <b>Advice to Mr Blogg</b>
                     </p>
                     <p id="p2">
                             *Full, daily shower with liquid soap. Water and liquid soap is fine to
@@ -432,12 +439,11 @@
                     </p>
                     <p id="p5">
                             *Protect the sternal wound with careful movement; when possible
-                            please sleep on your back, avoid over-reaching/stretching (including
-                            during hair wash) and use your arms for balance when moving to
+                            please sleep on your back, avoid over-reaching/stretching and use your arms for balance when moving to
                             standing position, rather than pushing /supporting weight.
                     </p>
                     <p id="p6">
-                            *Wash hands frequently and avoid touching wound. A healing
+                            *Wash hands frequently and avoid touching the wound. A healing
                             wound may be itchy (especially if there is hair regrowth) but avoid urge
                             to scratch. Regular hand washing will reduce the risk of infection
                     </p>
@@ -449,6 +455,15 @@
                             wound. Sternal 'clicking' or high temperature should also  be
                             reported.
                         </b>
+                    </p>
+                    <p id="p8">
+                        <b>Additional Resources </b>
+                        <!-- <span >
+
+                        </span> -->
+                    </p>
+                    <p id="additional-resources">
+
                     </p>
 
                     
@@ -474,7 +489,7 @@
                             <span id="consultant">
 
                             </span>
-                            secretary (XXXXXXX XXXX) immediately if you think your
+                            secretary (1234 123 4567) immediately if you think your
                             wound might be infected. Treating an infection early helps stop it from becoming worse or lasting longer than
                             it should. This information does not replace advice or assessment by your surgical team.  Colour copy of this
                             information to the patient. Electronic copy on EPR.

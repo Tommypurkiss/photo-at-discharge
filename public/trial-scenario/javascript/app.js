@@ -128,7 +128,8 @@ function generatePDF() {
     }
 
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
-        alert("Incorrect answer: please try again and choose the correct answer from the Wound dropdown menu")
+        //alert("Incorrect answer: please try again and choose the correct answer from the Wound dropdown menu")
+        alert("Please indicate that the wound is dry and exposed on the day of discharge.")
     }
 
 

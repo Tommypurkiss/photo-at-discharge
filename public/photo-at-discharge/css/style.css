@@ -129,9 +129,9 @@ nav .nav-logo a {
 }
 
 .main-content-wrapper .main-content .trial-button-div .trial-button {
-  padding: 2px 30px;
-  background-color: gray;
-  border-radius: 5px;
+  padding: 8px 30px;
+  background-color: #a8a8a8;
+  border-radius: 12px;
   text-decoration: none;
   color: black;
 }

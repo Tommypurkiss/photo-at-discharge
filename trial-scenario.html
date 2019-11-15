@@ -51,7 +51,7 @@
         <div class="main-content">
         <div class="main-content-title">
             <h1>
-                Information Entry
+                Practice Database
             </h1>
             <h3>
                 Trial Scenario
@@ -59,19 +59,18 @@
         </div>
         <div class="m-c-info-text">
             <p>
-                Note: This webpage contains content that is for demonstration.
+                <!-- Note: This webpage contains content that is for demonstration. -->
+                For demonstration purposes only.
             </p>
             <p>
-                <i>
-                    Photos used with kind permission from the patient
-                </i>
+                Photos used with kind permission from the patient.
             </p>
                 
         </div>
 
         <div class="scenario-para">
             <h1>
-                Scenario: To create a photo at discharge (PaD)
+                Scenario: To create a Photo at Discharge (PaD)
             </h1>
 
             <!-- <p>
@@ -81,9 +80,11 @@
                 The database will automatically add details for Mr Blogg and advice. Generate form after you are done.
             </p>     -->
             <p>
-                You are discharging Mr Joe Blogg today from Juniper Ward. The consultant responsible is Ms C Halsey. You have taken a series of photos so you can select the best option.
+                Today you are discharging Mr Joe Blogg today from Juniper Ward. Mr Blogg has had cardiac surgery under Ms C Halsey. His wound is dry and exposed on the day of discharge. You have taken a series of photos so you can select the best picture.
                 Mr Blogg needs his drain sutures removed in 7 days time, and you should add a comment about the small scratches evident next to his surgical incision. He has a sternal wound swab pending.
-                He does not have any leg wounds. The database will automatically add details for Mr Blogg and advice. Generate form after you have done.
+                He does not have any leg wounds. Complete the form based on the information in this scenario. The database will automatically add details for Mr Blogg and advice. Generate the form after you are done.
+
+                
             </p>               
         </div>
 
@@ -107,7 +108,7 @@
                 <table>
                     <tr>
                         <th colspan="2">
-                            Photo at Discharge
+                            Photo at Discharge (PaD)
                         </th>
                     </tr>
                     <tr>
@@ -242,14 +243,14 @@
                             <!-- </form> -->
                         </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>
                             Drain sites TEXT
                         </td>
                         <td>
                             <textarea name="" id="" cols="30" rows="10" class="scrollable-textbox"></textarea>
                         </td>
-                    </tr>
+                    </tr> -->
                     <!-- <tr>
                         <td>
                             Leg wounds
@@ -315,7 +316,7 @@
                                 <input type="checkbox" name="" id="" value="Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse.">Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse. <br>
                                 <input type="checkbox" name="" id="" value="Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed.">Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed. <br>
                                 <input type="checkbox" name="" id="bhis-option" value="Additional surgical bra provided." onclick="checkBHIS()">Additional BHIS<sup>TM</sup> surgical bra provided. <br>
-                                <input type="checkbox" name="" id="" value="Gauze pack(s) provided for under bra band.">Gauze pack(s) provided for under bra band. <br>
+                                <!-- <input type="checkbox" name="" id="" value="Gauze pack(s) provided for under bra band.">Gauze pack(s) provided for under bra band. <br> -->
                                 <input type="checkbox" name="" id="" value="Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.">Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.
 
                             <!-- </form> -->
@@ -359,7 +360,7 @@
     
                                     <div class="wound-photo photo-five column">
                                         <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (blurred).jpg" alt="" height="300" width="200" id="wound-photo-five-img"> <br>
-                                        <input type="radio" name="foo" id="wound-photo-five" value="Incorrect - blurred image" onclick="woundPhotoCheck()"> 
+                                        <input type="radio" name="foo" id="wound-photo-five" value="Incorrect - image is not as sharp as an alternative" onclick="woundPhotoCheck()"> 
                                     </div>
 
                                 </div>
@@ -399,7 +400,7 @@
                                     Ensure all fields are filled out and all options are chosen before generating the letter
                                 </p> -->
                                 <br>
-                                <a href="javascript:generatePDF()">Generate Letter</a>
+                                <a href="javascript:generatePDF()">Generate Form</a>
                                 <!-- /csp/brompton/cbd/photo/reports/PAD.csp -->
                                 <!-- <input type="button" id="create_pdf" value="Generate PDF" onclick="genertePDF()">   -->
 
@@ -428,14 +429,15 @@
                         </i>
                     </p>
                     <p>
-                        Additional comments:
+                        <b>Additional comments:</b>
+                        
                     </p>
                     <p id="wound-tb-comments">
                         
                     </p>
 
-                    <p style="text-decoration: underline;">
-                        <u>Advice to Mr Blogg</u>
+                    <p>
+                        <b>Advice to Mr Blogg</b>
                     </p>
                     <p id="p2">
                             *Full, daily shower with liquid soap. Water and liquid soap is fine to
@@ -456,12 +458,11 @@
                     </p>
                     <p id="p5">
                             *Protect the sternal wound with careful movement; when possible
-                            please sleep on your back, avoid over-reaching/stretching (including
-                            during hair wash) and use your arms for balance when moving to
+                            please sleep on your back, avoid over-reaching/stretching and use your arms for balance when moving to
                             standing position, rather than pushing /supporting weight.
                     </p>
                     <p id="p6">
-                            *Wash hands frequently and avoid touching wound. A healing
+                            *Wash hands frequently and avoid touching the wound. A healing
                             wound may be itchy (especially if there is hair regrowth) but avoid urge
                             to scratch. Regular hand washing will reduce the risk of infection
                     </p>
@@ -498,7 +499,7 @@
                             <span id="consultant">
 
                             </span>
-                            secretary (XXXXXXX XXXX) immediately if you think your
+                            secretary (1234 123 4567) immediately if you think your
                             wound might be infected. Treating an infection early helps stop it from becoming worse or lasting longer than
                             it should. This information does not replace advice or assessment by your surgical team.  Colour copy of this
                             information to the patient. Electronic copy on EPR.
