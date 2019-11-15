@@ -77,6 +77,28 @@ function generatePDF() {
     woundTbComments = document.getElementById('wound-tb-comments')
     surgeon = document.getElementById('surgeon')
 
+
+    additionalResources = document.getElementById('additional-resources')
+
+    // For getting the values of the additional resources checkboxes
+    var checkboxes = document.getElementsByName('resources');
+    var vals = "";
+    for (var i=0, n=checkboxes.length;i<n;i++) 
+    {
+        if (checkboxes[i].checked) 
+        {
+            vals += " " + checkboxes[i].value;
+        }
+    }
+    if (vals) vals = vals.substring(1);
+
+
+    if (vals == null) {
+        vals = "No additional resources given"
+    }
+
+
+
     var dischargeDate = new Date(document.getElementById('start-date').value);
     var dd = String(dischargeDate.getDate())
     var mm = String(dischargeDate.getMonth() + 1) //January is 0!
@@ -243,10 +265,9 @@ function generatePDF() {
 
 
         woundTbComments.innerHTML = woundTextBox
-        
-
 
         consultant.innerHTML = consultantName
+        additionalResources.innerHTML = vals
 
         // New Doc
         var options = {unit: 'px', format: 'a4'};
@@ -262,7 +283,7 @@ function generatePDF() {
             'width': 250,        
         });
 
-        doc.fromHTML($('#bottom-text').get(0), 20, 470, {
+        doc.fromHTML($('#bottom-text').get(0), 20, 515, {
             'width': 400,
         });
 

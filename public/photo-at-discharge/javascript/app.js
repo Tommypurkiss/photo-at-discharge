@@ -97,19 +97,21 @@ function generatePDF() {
     woundTextBox = document.getElementById('wound-assessment-text').value
     woundTbComments = document.getElementById('wound-tb-comments')
 
-    checkedValue = document.getElementsByClassName('addit-resources').value
     additionalResources = document.getElementById('additional-resources')
 
+    // For getting the values of the additional resources checkboxes
+    var checkboxes = document.getElementsByName('resources');
+    var vals = "";
+    for (var i=0, n=checkboxes.length;i<n;i++) 
+    {
+        if (checkboxes[i].checked) 
+        {
+            vals += " " + checkboxes[i].value;
+        }
+    }
+    if (vals) vals = vals.substring(1);
 
-    //works but only adds one of the ticked
-    // var checkedValue = null; 
-    // var inputElements = document.getElementsByClassName('addit-resources');
-    //     for(var i=0; inputElements[i]; i++){
-    //         if(inputElements[i].checked){
-    //             checkedValue = inputElements[i].value;
-    //             //break;
-    //         }
-    //     }
+
 
 
     var dischargeDate = new Date(document.getElementById('start-date').value);
@@ -151,6 +153,10 @@ function generatePDF() {
         alert("Please enter a date of discharge")
     }
 
+    // else if (checkedValue === undefined) {
+    //     checkedValue = "No additional resources at this time."
+    // }
+
     else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
         alert("Please enter a removal date")
     }
@@ -164,7 +170,7 @@ function generatePDF() {
         woundTbComments.innerHTML = woundTextBox
 
         consultant.innerHTML = consultantName
-        additionalResources.innerHTML = checkedValue
+        additionalResources.innerHTML = vals
 
         // New Doc
         var options = {unit: 'px', format: 'a4'};
@@ -181,7 +187,7 @@ function generatePDF() {
         });
 
 
-        doc.fromHTML($('#bottom-text').get(0), 20, 470, {
+        doc.fromHTML($('#bottom-text').get(0), 20, 515, {
         'width': 400,
         });
 
