@@ -10,6 +10,12 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .main-content-wrapper .main-content br {
+    display: block !important;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .main-content-wrapper .main-content {
     width: 95% !important;

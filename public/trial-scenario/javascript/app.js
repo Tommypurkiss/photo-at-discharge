@@ -70,8 +70,7 @@ function generatePDF() {
     checkWoundImages() //function for checking wound images
     checkMicroForm() //function for checking micro wound radio options
 
-
-
+    
     woundTextBox = document.getElementById('wound-assessment-text').value
     p1 = document.getElementById('p1');
     woundTbComments = document.getElementById('wound-tb-comments')
@@ -92,9 +91,9 @@ function generatePDF() {
     }
     if (vals) vals = vals.substring(1);
 
-
-    if (vals == null) {
-        vals = "No additional resources given"
+    else if (vals == "") {
+        vals = "No additional resources."
+        console.log("vals != value",vals)
     }
 
 
@@ -152,6 +151,7 @@ function generatePDF() {
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
         //alert("Incorrect answer: please try again and choose the correct answer from the Wound dropdown menu")
         alert("Please indicate that the wound is dry and exposed on the day of discharge.")
+        return false
     }
 
 
@@ -167,7 +167,7 @@ function generatePDF() {
     //this finally bloody works
     if (woundTextBox != "" && str == false){
         // && str == false
-    alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
+        alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
         console.log("enter if 1 ", woundTextBox.value)
         return false
 
@@ -180,6 +180,7 @@ function generatePDF() {
 
     else {
         woundTextBox = "No additional comments."
+        //alert("Are you sure you wish to continue without entering any additional comments in the wound text box")
         console.log("enter if 3 ", woundTextBox.value)
     }   
 
@@ -283,11 +284,11 @@ function generatePDF() {
             'width': 250,        
         });
 
-        doc.fromHTML($('#bottom-text').get(0), 20, 515, {
+        doc.fromHTML($('#bottom-text').get(0), 20, 520, {
             'width': 400,
         });
 
-        doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
+        doc.fromHTML($('#bottom-sign').get(0), 20, 595, {
             'width': 400,
         });
 

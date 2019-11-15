@@ -97,6 +97,13 @@ function generatePDF() {
     woundTextBox = document.getElementById('wound-assessment-text').value
     woundTbComments = document.getElementById('wound-tb-comments')
 
+    if (woundTextBox == "") {
+        woundTextBox = "No additional comments."
+        console.log("woundtb no addit comments", woundTextBox)
+        //return true
+    }
+
+
     additionalResources = document.getElementById('additional-resources')
 
     // For getting the values of the additional resources checkboxes
@@ -111,8 +118,13 @@ function generatePDF() {
     }
     if (vals) vals = vals.substring(1);
 
+    else if (vals == "") {
+        vals = "No additional resources."
+        console.log("vals != value",vals)
+    }
 
 
+    drainSites = document.getElementById('drain-sites-dropdown-correct')
 
     var dischargeDate = new Date(document.getElementById('start-date').value);
     var dd = String(dischargeDate.getDate())
@@ -153,13 +165,48 @@ function generatePDF() {
         alert("Please enter a date of discharge")
     }
 
-    // else if (checkedValue === undefined) {
-    //     checkedValue = "No additional resources at this time."
+    // else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
+    //     alert("Please enter a removal date")
+
     // }
 
-    else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
+
+
+    // if (woundTextBox != "") {
+    //     woundTextBox == woundTextBox
+    //     console.log("wountb 2 wountb")
+    //     return false    
+    // }
+    // else if (woundTextBox == "") {
+    //     woundTextBox = "No additional comments."
+    //     console.log("woundtb no addit comments")
+        
+    // }
+
+    // else if (woundTextBox == "") {
+    //         woundTextBox = "No additional comments."
+    //         console.log("woundtb no addit comments", woundTextBox)
+    //         //return true
+    //     }
+    // if (woundTextBox != "") {
+    //     woundTextBox == woundTextBox
+    //     console.log("wountb 2 wountb")
+    //     return false    
+    // }
+    
+
+
+
+    // this checks if the correct drain site dropdown option has been chosen and if the removal date is not yet set
+    // will then ask for a removal date if generate form is clicked
+    // if both are fine then it will return false and continue
+    else if (drainSitesDropdown == document.getElementById('drain-sites-dropdown-correct').value && removalDate == "NaN/NaN/NaN") {
         alert("Please enter a removal date")
+        return false
     }
+
+
+
 
     else {
 
@@ -187,11 +234,11 @@ function generatePDF() {
         });
 
 
-        doc.fromHTML($('#bottom-text').get(0), 20, 515, {
+        doc.fromHTML($('#bottom-text').get(0), 20, 520, {
         'width': 400,
         });
 
-        doc.fromHTML($('#bottom-sign').get(0), 20, 590, {
+        doc.fromHTML($('#bottom-sign').get(0), 20, 595, {
         'width': 400,
         });
 

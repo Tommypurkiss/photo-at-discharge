@@ -86,7 +86,7 @@
             <a href="trial-scenario.html" target="_blank">Trial Scenario</a>
             </button>    -->
             <a href="trial-scenario.html" target="_blank" class="trial-button">Trial Scenario</a>
-            Please click here for scenario so that you can complete the Photo at Discharge (PaD) form 
+            <br class="hidden"><br class="hidden"> <span id="trial-click-text"> Please click here for scenario so that you can complete the Photo at Discharge (PaD) form. </span>
         </div>
 
         <!-- <div class="save-button-div">
@@ -214,9 +214,9 @@
                         <td>
                             <select name="" id="drain-sites-dropdown" class="large-dropdown">
                                 <!-- <option value="select">--select--</option> -->
-                                <option value="Dry and exposed with sutures removed.">Dry and exposed with sutures removed</option>
-                                <option value="Sutures (dark thread appearance) to be removed by your GP practice or district nurse.">Sutures (dark thread appearance) to be removed by your GP practice or district nurse</option> <!-- correct option -->
-                                <option value="Drain site sutures removed - some oozing.">Drain site sutures removed - some oozing</option>
+                                <option class="drain-incorrect" value="Dry and exposed with sutures removed.">Dry and exposed with sutures removed</option>
+                                <option id="drain-sites-dropdown-correct" value="Sutures (dark thread appearance) to be removed by your GP practice or district nurse.">Sutures (dark thread appearance) to be removed by your GP practice or district nurse</option> <!-- correct option -->
+                                <option class="drain-incorrect" value="Drain site sutures removed - some oozing.">Drain site sutures removed - some oozing</option>
                             </select>
                         </td>
                     </tr>
@@ -460,7 +460,7 @@
                         </b>
                     </p>
                     <p id="p8">
-                        <b>Additional Resources </b>
+                        <b>Additional Resources: </b>
                         <!-- <span >
 
                         </span> -->
