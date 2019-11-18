@@ -138,10 +138,9 @@ nav .nav-logo img {
 }
 
 .main-content-wrapper .main-content .scenario-para {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   text-align: left;
-  padding: 25px;
   font-size: 18px;
 }
 

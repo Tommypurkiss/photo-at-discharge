@@ -123,6 +123,9 @@ function generatePDF() {
     woundDropdown = document.getElementById('wound-dropdown').value
     console.log("woundDropdown", woundDropdown)
 
+    woundClosureMaterialDropdown = document.getElementById('wound-closure-material-dropdown').value
+    console.log("woundClosureMaterialDropdown", woundClosureMaterialDropdown)
+
     drainSitesDropdown = document.getElementById('drain-sites-dropdown').value
     console.log("drainSitesDropdown", drainSitesDropdown)
 
@@ -154,12 +157,10 @@ function generatePDF() {
         return false
     }
 
-
-
-
-
-
-
+    else if (woundClosureMaterialDropdown != document.getElementById('wound-closure-correct').value) {
+        alert("Please indicate what type of wound closure material is being used in this scenario.")
+        return false
+    }
 
 
 
@@ -262,7 +263,7 @@ function generatePDF() {
 
         p1.innerHTML = dischargeDate + " " + microValue 
         + " " + normalSwellingText + " " + woundDropdown 
-        + " " + drainSitesDropdown + " " + removalDate
+        + " " + "Wound is closed using: " + woundClosureMaterialDropdown + " along the central incision." + " " + drainSitesDropdown + " " + removalDate
 
 
         woundTbComments.innerHTML = woundTextBox

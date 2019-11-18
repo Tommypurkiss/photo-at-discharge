@@ -75,14 +75,8 @@
                 Scenario: To create a Photo at Discharge (PaD)
             </h1>
 
-            <!-- <p>
-                You are dischargin Mr Joe Blogg today from Juniper Ward. You have taken a series of photos so you can select the best option.
-                Mr Blogg needs his drain sutues removed in 7 days time, and you should add a comment about the small scratches evident next to his surgical incision.
-                He has a sternal wound swab pending.
-                The database will automatically add details for Mr Blogg and advice. Generate form after you are done.
-            </p>     -->
             <p>
-                Today you are discharging Mr Joe Blogg today from Juniper Ward. Mr Blogg has had cardiac surgery under Ms C Halsey. His wound is dry and exposed on the day of discharge. You have taken a series of photos so you can select the best picture.
+                Today you are discharging Mr Joe Blogg today from Juniper Ward. Mr Blogg has had cardiac surgery under Ms C Halsey. His wound is dry and exposed on the day of discharge with absorbable sutures. You have taken a series of photos so you can select the best picture.
                 Mr Blogg needs his drain sutures removed in 7 days time, and you should add a comment about the small scratches evident next to his surgical incision. He has a sternal wound swab pending.
                 He does not have any leg wounds. Complete the form based on the information in this scenario. The database will automatically add details for Mr Blogg and advice. Generate the form after you are done.
 
@@ -175,14 +169,31 @@
                         <td>
                             <select name="wound" id="wound-dropdown" class="large-dropdown">
                                 <option value="select">--select--</option>
-                                <option class="wound-option" id="wound-dropdown-correct" value="Wound dry and exposed on day of planned discharge.">Wound dry and exposed on day of planned discharge</option>
-                                <option class="wound-option" value="Dissolvable suture(s)">Dissolvable suture(s)</option>
+                                <option class="wound-option" id="wound-dropdown-correct" value="Wound dry and exposed on day of planned discharge.">Wound dry and exposed on day of planned discharge.</option>
+                                <!-- <option class="wound-option" value="Absorbable suture(s)">Absorbable suture(s)</option> -->
+                                <!-- <option class="wound-option" value="Surgical clips">Surgical clips</option>
+                                <option class="wound-option" value="Steri-strips">Steri-strips</option> -->
+                                <!-- <option class="wound-option" value="Non-absorbable sutures">Non-absorbable sutures</option> -->
+                                <option class="wound-option" value="Minimally invasive left-sided thoracotomy wound.">Minimally invasive left-sided thoracotomy wound.</option>
+                                <option class="wound-option" value="Minimally invasive right-sided thoracotomy wound.">Minimally invasive right-sided thoracotomy wound.</option>
+                                <option class="wound-option" value="Minimally invasive wound (shorter; central chest incision).">Minimally invasive wound (shorter; central chest incision).</option>
+                                <!-- <option class="wound-option" value="Dermabond">Dermabond</option>
+                                <option class="wound-option" value="Deep tension suture(s)">Deep tension suture(s)</option> -->
+                                <option class="wound-option" value="Other.">Other.</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Wound closure Material
+                        </td>
+                        <td>
+                            <select name="wound closure material" id="wound-closure-material-dropdown" class="large-dropdown">
+                                <option value="select">--select--</option>
+                                <option class="wound-option" value="Absorbable suture(s)" id="wound-closure-correct">Absorbable suture(s)</option>
                                 <option class="wound-option" value="Surgical clips">Surgical clips</option>
                                 <option class="wound-option" value="Steri-strips">Steri-strips</option>
                                 <option class="wound-option" value="Non-absorbable sutures">Non-absorbable sutures</option>
-                                <option class="wound-option" value="Minimally invasive left-sided thoracotomy wound">Minimally invasive left-sided thoracotomy wound</option>
-                                <option class="wound-option" value="Minimally invasive right-sided thoracotomy wound">Minimally invasive right-sided thoracotomy wound</option>
-                                <option class="wound-option" value="Minimally invasive wound (shorter; central chest incision)">Minimally invasive wound (shorter; central chest incision)</option>
                                 <option class="wound-option" value="Dermabond">Dermabond</option>
                                 <option class="wound-option" value="Deep tension suture(s)">Deep tension suture(s)</option>
                                 <option class="wound-option" value="Other">Other</option>
