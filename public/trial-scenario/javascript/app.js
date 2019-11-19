@@ -90,7 +90,13 @@ function generatePDF() {
         if (checkboxes[i].checked) 
         {
             // vals += " " + checkboxes[i].value;
-            vals += " " + checkboxes[i].value;
+            // vals += " " + checkboxes[i].value;
+            // else if (checkboxes.checked == true) {
+            //     alert("No additional resources should be checked at this time.")
+            // }
+
+            alert("No additional resources should be checked at this time.")
+            return false
 
             console.log("vals value?", vals)
         }
@@ -111,6 +117,8 @@ function generatePDF() {
 
     dischargeDate = dd + '/' + mm + '/' + yyyy;
     console.log("start Date", dischargeDate)
+
+    wardOfDischarge = document.getElementById('ward-options').value
 
 
     var removalDate = new Date(document.getElementById('end-date').value);
@@ -158,6 +166,10 @@ function generatePDF() {
         alert("Please enter a date of discharge")
     }
 
+    else if (wardOfDischarge != document.getElementById('juniper-ward-correct').value ) {
+        alert("Please ensure the ward chosen is correct")
+    }
+
     else if(categoryDropdown != document.getElementById('category-cardiac-surgical-correct').value) {
         alert("Please ensure you have chosen the correct category")
     }
@@ -197,36 +209,6 @@ function generatePDF() {
     }   
 
 
-// !=
-// if(woundTextBox != "") {
-
-//     for (i = 0; i <= str.length; i++) {
-
-//         if(str.charAt(i) >= "a" && str.charAt(i) <= "z") {
-//             woundTextBox == str
-            
-//         }
-//         if (str.charAt(i) >= "A" && str.charAt(i) <= "Z") {
-//             woundTextBox == str
-//         }
-//         // else {
-//         //     // if(str == false)
-            
-//         //     alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
-//         //     return true
-//         // }
-//     }
-// }
-// else if(woundTextBox == ""){
-//     woundTextBox = "No additional comments."
-
-// }
-// else if(woundTextBox != "" && str == false) {
-//     // if(str == false)
-    
-//     alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
-//     return true
-// }
 
 
     if (microValue != document.getElementById('micro-three').value) {
@@ -241,6 +223,10 @@ function generatePDF() {
         // removalDate != dischargeDate
         alert("Please enter a removal date")
     }
+
+    // else if (checkboxes.checked == true) {
+    //     alert("No additional resources should be checked at this time.")
+    // }
 
     else if (checkedImg != document.getElementById('wound-photo-four-img')) {
         //alert("Incorrect answer: please try again and choose the correct image")
@@ -262,10 +248,6 @@ function generatePDF() {
             alert(photoValue);
         }
     }
-
-    // else if (consultantName == "") {
-    //     alert("Please enter your name")
-    // }
 
     else if (consultantName != document.getElementById('consultant-correct').value) {
         alert("Please enter the correct consultant")
@@ -399,6 +381,36 @@ function checkMicroForm() {
 
 
 
+// !=
+// if(woundTextBox != "") {
+
+//     for (i = 0; i <= str.length; i++) {
+
+//         if(str.charAt(i) >= "a" && str.charAt(i) <= "z") {
+//             woundTextBox == str
+            
+//         }
+//         if (str.charAt(i) >= "A" && str.charAt(i) <= "Z") {
+//             woundTextBox == str
+//         }
+//         // else {
+//         //     // if(str == false)
+            
+//         //     alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
+//         //     return true
+//         // }
+//     }
+// }
+// else if(woundTextBox == ""){
+//     woundTextBox = "No additional comments."
+
+// }
+// else if(woundTextBox != "" && str == false) {
+//     // if(str == false)
+    
+//     alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
+//     return true
+// }
 
 
 function saveAndExit() {

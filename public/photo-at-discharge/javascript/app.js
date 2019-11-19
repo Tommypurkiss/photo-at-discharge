@@ -119,7 +119,7 @@ function generatePDF() {
 
             // vals += " " + checkboxes[i].value;
 
-            vals += " " + checkboxes[i].innerText;
+            vals += " " + checkboxes[i].value;
 
 
             //vals += " " + checkboxes.options[i.selectedIndex].text;
@@ -160,7 +160,7 @@ function generatePDF() {
     var yyyy2 = removalDate.getFullYear();
 
     removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
-    console.log("removal  Date", removalDate)
+    console.log("removal Date", removalDate)
 
     
     normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
@@ -224,6 +224,10 @@ function generatePDF() {
     else if (drainSitesDropdown == document.getElementById('drain-sites-dropdown-correct').value && removalDate == "NaN/NaN/NaN") {
         alert("Please enter a removal date")
         return false
+    }
+    else if (removalDate === "undefined") {
+        removalDate == "No removal date entered."
+        console.log("remov date", removalDate.value)
     }
 
 
