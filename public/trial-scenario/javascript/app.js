@@ -168,6 +168,7 @@ function generatePDF() {
 
     else if (wardOfDischarge != document.getElementById('juniper-ward-correct').value ) {
         alert("Please ensure the ward chosen is correct")
+        return false
     }
 
     else if(categoryDropdown != document.getElementById('category-cardiac-surgical-correct').value) {
