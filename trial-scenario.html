@@ -41,7 +41,7 @@
     <nav>
         <div class="nav-logo">
             <!-- <a href="">logo</a> -->
-            <a href=""><img src="./public/assets/img/logo/BHISLOGO.jpg" alt=""></a>
+            <a href=""><img src="./public/assets/img/logo/BHISLOGO.jpg" alt="" id="logo"></a>
 
         </div>
 
@@ -78,7 +78,7 @@
             <p>
                 Today you are discharging Mr Joe Blogg today from Juniper Ward. Mr Blogg has had cardiac surgery under Ms C Halsey. His wound is dry and exposed on the day of discharge with absorbable sutures. You have taken a series of photos so you can select the best picture.
                 Mr Blogg needs his drain sutures removed in 7 days time, and you should add a comment about the small scratches evident next to his surgical incision. He has a sternal wound swab pending.
-                He does not have any leg wounds. Complete the form based on the information in this scenario. The database will automatically add details for Mr Blogg and advice. Generate the form after you are done.
+                He does not have any leg wounds. Complete the form based on the information in this scenario. The database will automatically add details for Mr Blogg and advice. Please click on Generate Form (blue link at the bottom of the page) once you are finished.
 
                 
             </p>               
@@ -135,9 +135,9 @@
                             
                             <select name="" id="ward-options" class="small-dropdown">
                                 <option value="select">--select--</option>
-                                <option value="Maple" id="maple-ward">Maple</option>
+                                <option value="Maple">Maple</option>
                                 <option value="Cedar">Cedar</option>
-                                <option value="Juniper" >Juniper</option> <!-- correct ward -->
+                                <option value="Juniper" id="juniper-ward-correct">Juniper</option> <!-- correct ward -->
                                 <option value="HDU">HDU</option>
 
                             </select>
@@ -150,7 +150,7 @@
                         <td>
                             <select name="category" id="category-dropdown" class="small-dropdown">
                                 <!-- <option value="select">--select--</option> -->
-                                <option value="Cardiac (Surgical)">Cardiac (Surgical)</option>
+                                <option value="Cardiac (Surgical)" id="category-cardiac-surgical-correct">Cardiac (Surgical)</option>
                                 <option value="Paediatric (Cardiac)">Paediatric (Cardiac)</option>
                                 <option value="Thoracic (Surgical)">Thoracic (Surgical)</option>
                                 <option value="Drain management only">Drain management only</option>
@@ -194,7 +194,7 @@
                                 <option class="wound-option" value="Surgical clips">Surgical clips</option>
                                 <option class="wound-option" value="Steri-strips">Steri-strips</option>
                                 <option class="wound-option" value="Non-absorbable sutures">Non-absorbable sutures</option>
-                                <option class="wound-option" value="Dermabond">Dermabond</option>
+                                <!-- <option class="wound-option" value="Dermabond">Dermabond</option> -->
                                 <option class="wound-option" value="Deep tension suture(s)">Deep tension suture(s)</option>
                                 <option class="wound-option" value="Other">Other</option>
                             </select>
@@ -216,7 +216,7 @@
                             <!-- <form action="">
                                 <input type="text" name="ward name" id="" class="scrollable-textbox">
                             </form> -->
-                            <textarea name="" value="" id="wound-assessment-text" cols="30" rows="10" class="scrollable-textbox" maxlength="250"></textarea>
+                            <textarea name="" value="" id="wound-assessment-text" cols="30" rows="10" class="scrollable-textbox" maxlength="200"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -238,9 +238,9 @@
                         <td>
                             <select name="" id="drain-sites-dropdown" class="large-dropdown">
                                 <option value="select">--select--</option>
-                                <option value="Dry and exposed with sutures removed.">Dry and exposed with sutures removed</option>
-                                <option id="drain-sites-dropdown-correct" value="Sutures (dark thread appearance) to be removed by your GP practice or district nurse.">Sutures (dark thread appearance) to be removed by your GP practice or district nurse</option> <!-- correct option -->
-                                <option value="Drain site sutures removed - some oozing.">Drain site sutures removed - some oozing</option>
+                                <option value="Dry and exposed with sutures removed">Dry and exposed with sutures removed</option>
+                                <option id="drain-sites-dropdown-correct" value="Drain site sutures (dark thread appearance) to be removed by your GP practice or district nurse">Drain site sutures (dark thread appearance) to be removed by your GP practice or district nurse</option> <!-- correct option -->
+                                <option value="Drain site sutures removed - some oozing">Drain site sutures removed - some oozing</option>
                             </select>
                         </td>
                     </tr>
@@ -325,10 +325,11 @@
                         </td>
                         <td>
                             <!-- <form action=""> -->
-                                <input type="checkbox" class="addit-resources" name="resources" id="" value="Hibiscrub Plus (antimicrobial wash) for morning shower.">Hibiscrub Plus (antimicrobial wash) for morning shower. <br>
+                                <input type="checkbox" class="addit-resources" name="resources" id="" value="Hibiscrub Plus (antimicrobial wash) for morning shower."> <label>Hibiscrub Plus (antimicrobial wash) for morning shower. </label> <br>
                                 <input type="checkbox" class="addit-resources" name="resources" id="" value="Chlorhexidine wipes (single use/disposable wipes); Please avoid using this on the wound. No need to rinse.">Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse. <br>
                                 <input type="checkbox" class="addit-resources" name="resources" id="" value="Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed.">Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed. <br>
-                                <input type="checkbox" class="addit-resources" name="resources" id="bhis-option" value="Additional surgical bra provided." onclick="checkBHIS()">Additional BHIS<sup>TM</sup> surgical bra provided. <br>
+                                <input type="checkbox" class="addit-resources" name="resources" id="bhis-option" onclick="checkBHIS()">Additional BHIS<sup>TM</sup> cardiac surgical bra provided. <br>
+                                <!-- value="Additional BHIS &#153; cardiac surgical bra provided." -->
                                 <!-- <input type="checkbox" name="" id="" value="Gauze pack(s) provided for under bra band.">Gauze pack(s) provided for under bra band. <br> -->
                                 <input type="checkbox" class="addit-resources" name="resources" id="" value="Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.">Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.
 
@@ -393,7 +394,7 @@
                             <select name="" id="consultant-dropdown" class="small-dropdown">
                                 <!-- <option value="select">--select--</option> -->
                                 <option value="Mr T Stark">Mr T Stark</option>
-                                <option value="Ms C Halsey">Ms C Halsey</option>
+                                <option value="Ms C Halsey" id="consultant-correct">Ms C Halsey</option>
                                 <option value="Mr A Johnson">Mr A Johnson</option>
                                 <option value="Ms M Keyes">Ms M Keyes</option>
                                 <option value="Mr E Buck">Mr E Buck</option>

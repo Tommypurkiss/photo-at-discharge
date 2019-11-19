@@ -39,6 +39,9 @@ function checkBHIS() {
     var bhisOption = document.getElementById('bhis-option')
 
     if(bhisOption.checked == true) {
+        // tm = "TM"
+        // bhisOption.value = "Additional BHIS" + tm.sup() + " cardiac surgical bra provided."
+        // &#153;
         alert("Please make sure this is correct, the surgical bra is for female patients only.")
         console.log(bhisOption)
 
@@ -86,7 +89,10 @@ function generatePDF() {
     {
         if (checkboxes[i].checked) 
         {
+            // vals += " " + checkboxes[i].value;
             vals += " " + checkboxes[i].value;
+
+            console.log("vals value?", vals)
         }
     }
     if (vals) vals = vals.substring(1);
@@ -145,6 +151,7 @@ function generatePDF() {
     console.log("scratch str", str.value)
 
 
+    var logo = document.getElementById('logo')
 
 
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
@@ -252,10 +259,13 @@ function generatePDF() {
         }
     }
 
-    else if (consultantName == "") {
-        alert("Please enter your name")
-    }
+    // else if (consultantName == "") {
+    //     alert("Please enter your name")
+    // }
 
+    else if (consultantName != document.getElementById('consultant-correct').value) {
+        alert("Please enter the correct consultant")
+    }
 
     else {
 
@@ -263,7 +273,9 @@ function generatePDF() {
 
         p1.innerHTML = dischargeDate + " " + microValue 
         + " " + normalSwellingText + " " + woundDropdown 
-        + " " + "Wound is closed using: " + woundClosureMaterialDropdown + " along the central incision." + " " + drainSitesDropdown + " " + removalDate
+        + " " + "Wound is closed using: " + woundClosureMaterialDropdown 
+        + " along the central incision." + " " + drainSitesDropdown + " " + "on: "
+        + removalDate
 
 
         woundTbComments.innerHTML = woundTextBox
@@ -274,10 +286,16 @@ function generatePDF() {
         // New Doc
         var options = {unit: 'px', format: 'a4'};
         var doc = new jsPDF(options);
+        doc.setFontSize(14);
+
+        doc.text('PHOTO AT DISCHARGE - CARDIAC (SURGICAL)', doc.internal.pageSize.getWidth() / 2, 60, null, null, 'center');
+
         doc.setFontSize(10);
 
         doc.text('Mr J Blogg XX-XXX', 20, 80);
         doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
+
+        doc.addImage(logo, 'JPEG', 330, 10, 100, 35.71);
 
         doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
 

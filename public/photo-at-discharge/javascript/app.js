@@ -103,6 +103,8 @@ function generatePDF() {
         //return true
     }
 
+    
+
 
     additionalResources = document.getElementById('additional-resources')
 
@@ -113,7 +115,19 @@ function generatePDF() {
     {
         if (checkboxes[i].checked) 
         {
-            vals += " " + checkboxes[i].value;
+            //var text= sel.options[sel.selectedIndex].text;
+
+            // vals += " " + checkboxes[i].value;
+
+            vals += " " + checkboxes[i].innerText;
+
+
+            //vals += " " + checkboxes.options[i.selectedIndex].text;
+
+            //var text= vals.options[vals.selectedIndex].text;
+
+            console.log("vals value?", vals)
+
         }
     }
     if (vals) vals = vals.substring(1);
@@ -123,6 +137,12 @@ function generatePDF() {
         console.log("vals != value",vals)
     }
 
+    // if (text) text = text.substring(1);
+
+    // else if (text == "") {
+    //     text = "No additional resources."
+    //     console.log("text != value",text)
+    // }
 
     drainSites = document.getElementById('drain-sites-dropdown-correct')
 
@@ -152,6 +172,7 @@ function generatePDF() {
     drainSitesDropdown = document.getElementById('drain-sites-dropdown').value
     console.log("drainSitesDropdown", drainSitesDropdown)
 
+    var logo = document.getElementById('logo')
 
 
     surgeonName = document.getElementById('doctor-name').value
@@ -219,13 +240,23 @@ function generatePDF() {
         consultant.innerHTML = consultantName
         additionalResources.innerHTML = vals
 
+        //additionalResources.innerHTML = text
+
+
         // New Doc
         var options = {unit: 'px', format: 'a4'};
         var doc = new jsPDF(options);
+        doc.setFontSize(14);
+
+        doc.text('PHOTO AT DISCHARGE - CARDIAC (SURGICAL)', doc.internal.pageSize.getWidth() / 2, 60, null, null, 'center');
+
         doc.setFontSize(10);
 
         doc.text('Mr J Blogg XX-XXX', 20, 80);
         doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
+
+        doc.addImage(logo, 'JPEG', 330, 10, 100, 35.71);
+
 
         doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
 

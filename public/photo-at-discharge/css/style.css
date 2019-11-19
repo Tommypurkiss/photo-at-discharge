@@ -84,7 +84,8 @@ nav {
 }
 
 nav .nav-logo {
-  float: left;
+  float: right;
+  margin-right: 14px;
 }
 
 nav .nav-logo img {
