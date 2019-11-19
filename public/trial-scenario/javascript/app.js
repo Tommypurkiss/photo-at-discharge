@@ -121,7 +121,7 @@ function generatePDF() {
     removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
     console.log("removal  Date", removalDate)
 
-
+    categoryDropdown = document.getElementById('category-dropdown').value
     
     normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
     console.log("normalSwellingText", normalSwellingText)
@@ -156,6 +156,10 @@ function generatePDF() {
 
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
         alert("Please enter a date of discharge")
+    }
+
+    else if(categoryDropdown != document.getElementById('category-cardiac-surgical-correct').value) {
+        alert("Please ensure you have chosen the correct category")
     }
 
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
