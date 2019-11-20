@@ -163,16 +163,17 @@ function generatePDF() {
 
 
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
-        alert("Please enter a date of discharge")
+        alert("Please enter a date of discharge.")
     }
 
     else if (wardOfDischarge != document.getElementById('juniper-ward-correct').value ) {
-        alert("Please ensure the ward chosen is correct")
+        alert("Mr Blogg is being discharged from Juniper Ward. Please ensure you've chosen the correct ward from the form.")
         return false
     }
 
     else if(categoryDropdown != document.getElementById('category-cardiac-surgical-correct').value) {
-        alert("Please ensure you have chosen the correct category")
+        alert("Mr Blogg has had cardiac surgery. Please ensure you have chosen the correct category.")
+        return false
     }
 
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
@@ -213,16 +214,16 @@ function generatePDF() {
 
 
     if (microValue != document.getElementById('micro-three').value) {
-        alert("Incorrect answer: please try again and choose the correct answer from the Micro for wound radio buttons")
+        alert("Mr Blogg has a sternal wound swab pending. Please ensure you have chosen the correct answer from the Micro for wound options.")
     }
 
     else if (drainSitesDropdown != document.getElementById('drain-sites-dropdown-correct').value) {
-        alert("Incorrect answer: please try again and choose the correct answer from the Drain sites dropdown menu")
+        alert("Mr Blogg will need his drain sutures removed. Please ensure you have chosen the correct Drain sites option.")
     }
 
     else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
         // removalDate != dischargeDate
-        alert("Please enter a removal date")
+        alert("Please enter a removal date.")
     }
 
     // else if (checkboxes.checked == true) {
@@ -251,7 +252,7 @@ function generatePDF() {
     }
 
     else if (consultantName != document.getElementById('consultant-correct').value) {
-        alert("Please enter the correct consultant")
+        alert("Ms C Halsey performed the surgery for Mr Blogg. Please enter the correct consultant.")
     }
 
     else {
