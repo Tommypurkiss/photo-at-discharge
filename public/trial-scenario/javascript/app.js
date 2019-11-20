@@ -1,13 +1,21 @@
 
 
-var today = new Date();
-var dd = String(today.getDate())
-var mm = String(today.getMonth() + 1) //January is 0!
-var yyyy = today.getFullYear();
+var todaysDate = new Date();
+var dd = String(todaysDate.getDate())
+var mm = String(todaysDate.getMonth() + 1) //January is 0!
+var yyyy = todaysDate.getFullYear();
 
-today = dd + '/' + mm + '/' + yyyy;
-console.log(today)
+todaysDate = dd + '/' + mm + '/' + yyyy;
+console.log("todays date is: ",todaysDate)
 
+
+var oneWeekRemovalDate = new Date();
+var rmD = String(oneWeekRemovalDate.getDate() + 7)
+var rmM = String(oneWeekRemovalDate.getMonth() + 1) //January is 0!
+var rmYYYY = oneWeekRemovalDate.getFullYear();
+
+oneWeekRemovalDate = rmD + '/' + rmM + '/' + rmYYYY;
+console.log("future removal date is: ", oneWeekRemovalDate)
 
 
 
@@ -116,7 +124,7 @@ function generatePDF() {
     var yyyy = dischargeDate.getFullYear();
 
     dischargeDate = dd + '/' + mm + '/' + yyyy;
-    console.log("start Date", dischargeDate)
+    console.log("Discharge Date is: ", dischargeDate)
 
     wardOfDischarge = document.getElementById('ward-options').value
 
@@ -126,8 +134,11 @@ function generatePDF() {
     var mm2 = String(removalDate.getMonth() + 1) //January is 0!
     var yyyy2 = removalDate.getFullYear();
 
+    
+
+
     removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
-    console.log("removal  Date", removalDate)
+    console.log("Removal  Date is: ", removalDate)
 
     categoryDropdown = document.getElementById('category-dropdown').value
     
@@ -164,6 +175,10 @@ function generatePDF() {
 
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
         alert("Please enter a date of discharge.")
+    }
+
+    else if (dischargeDate != todaysDate) {
+        alert("The date of discharge should be todays date. Please enter a correct date of discharge.")
     }
 
     else if (wardOfDischarge != document.getElementById('juniper-ward-correct').value ) {
@@ -224,6 +239,11 @@ function generatePDF() {
     else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
         // removalDate != dischargeDate
         alert("Please enter a removal date.")
+    }
+
+    else if (removalDate != oneWeekRemovalDate) {
+        // removalDate != dischargeDate
+        alert("The removal date should be a week from the discharge date. Please enter a correct removal date.")
     }
 
     // else if (checkboxes.checked == true) {
