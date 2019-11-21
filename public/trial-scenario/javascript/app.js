@@ -1,5 +1,5 @@
 
-
+// Todays date
 var todaysDate = new Date();
 var dd = String(todaysDate.getDate())
 var mm = String(todaysDate.getMonth() + 1) //January is 0!
@@ -41,38 +41,19 @@ function woundPhotoCheck() {
 
 
 
-
+// this function just shows an alert if the bhisoption is chosen
 function checkBHIS() {
 
     var bhisOption = document.getElementById('bhis-option')
 
     if(bhisOption.checked == true) {
-        // tm = "TM"
-        // bhisOption.value = "Additional BHIS" + tm.sup() + " cardiac surgical bra provided."
-        // &#153;
         alert("Please make sure this is correct, the surgical bra is for female patients only.")
         console.log(bhisOption)
 
     }   else if (bhisOption.checked == false) {
         console.log(bhisOption)
-
     }
-    
-
 }
-
-
-// function isLetter(str) {
-//     return str.length === 1 && str.match(/[a-z]/i);
-//   }
-
-
-// function hasLowerCase(str) {
-//     if(str.toUpperCase() != str) {
-//         return true;
-//     }
-//     return false;
-// }
 
 
 // Generate the PDF
@@ -81,32 +62,22 @@ function generatePDF() {
     checkWoundImages() //function for checking wound images
     checkMicroForm() //function for checking micro wound radio options
 
-    
     woundTextBox = document.getElementById('wound-assessment-text').value
     p1 = document.getElementById('p1');
     woundTbComments = document.getElementById('wound-tb-comments')
     surgeon = document.getElementById('surgeon')
-
 
     additionalResources = document.getElementById('additional-resources')
 
     // For getting the values of the additional resources checkboxes
     var checkboxes = document.getElementsByName('resources');
     var vals = "";
-    for (var i=0, n=checkboxes.length;i<n;i++) 
-    {
-        if (checkboxes[i].checked) 
-        {
-            // vals += " " + checkboxes[i].value;
-            // vals += " " + checkboxes[i].value;
-            // else if (checkboxes.checked == true) {
-            //     alert("No additional resources should be checked at this time.")
-            // }
-
+    for (var i=0, n=checkboxes.length;i<n;i++) {
+        if (checkboxes[i].checked) {
             alert("No additional resources should be checked at this time.")
-            return false
-
             console.log("vals value?", vals)
+
+            return false
         }
     }
     if (vals) vals = vals.substring(1);
@@ -115,8 +86,6 @@ function generatePDF() {
         vals = "No additional resources."
         console.log("vals != value",vals)
     }
-
-
 
     var dischargeDate = new Date(document.getElementById('start-date').value);
     var dd = String(dischargeDate.getDate())
@@ -135,8 +104,6 @@ function generatePDF() {
     var yyyy2 = removalDate.getFullYear();
 
     
-
-
     removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
     console.log("Removal  Date is: ", removalDate)
 
@@ -161,18 +128,12 @@ function generatePDF() {
 
     console.log("wound tb", woundTextBox)
     var str = woundTextBox.includes("scratch", "scratches", "scratched", "scratching")
-    // str.length === [] && str.match(/[a-zA-Z]/i);
-    //str === str.length.match(/[a-zA-Z]/i);
-    //var str2 = ""
-
-
 
     console.log("scratch str", str.value)
 
-
     var logo = document.getElementById('logo')
 
-
+    // if, else if statements for validation on the form
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
         alert("Please enter a date of discharge.")
     }
@@ -192,7 +153,6 @@ function generatePDF() {
     }
 
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
-        //alert("Incorrect answer: please try again and choose the correct answer from the Wound dropdown menu")
         alert("Please indicate that the wound is dry and exposed on the day of discharge.")
         return false
     }
@@ -202,31 +162,21 @@ function generatePDF() {
         return false
     }
 
-
-
-
-    //this finally bloody works
     if (woundTextBox != "" && str == false){
-        // && str == false
         alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
         console.log("enter if 1 ", woundTextBox.value)
         return false
-
     }
-    else if (woundTextBox != "" && str == true) {
 
-    woundTextBox == woundTextBox
-    console.log("enter if 2 ", woundTextBox)
+    else if (woundTextBox != "" && str == true) {
+        woundTextBox == woundTextBox
+        console.log("enter if 2 ", woundTextBox)
     }
 
     else {
         woundTextBox = "No additional comments."
-        //alert("Are you sure you wish to continue without entering any additional comments in the wound text box")
         console.log("enter if 3 ", woundTextBox.value)
     }   
-
-
-
 
     if (microValue != document.getElementById('micro-three').value) {
         alert("Mr Blogg has a sternal wound swab pending. Please ensure you have chosen the correct answer from the Micro for wound options.")
@@ -237,21 +187,14 @@ function generatePDF() {
     }
 
     else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
-        // removalDate != dischargeDate
         alert("Please enter a removal date.")
     }
 
     else if (removalDate != oneWeekRemovalDate) {
-        // removalDate != dischargeDate
         alert("The removal date should be a week from the discharge date. Please enter a correct removal date.")
     }
 
-    // else if (checkboxes.checked == true) {
-    //     alert("No additional resources should be checked at this time.")
-    // }
-
     else if (checkedImg != document.getElementById('wound-photo-four-img')) {
-        //alert("Incorrect answer: please try again and choose the correct image")
         if (document.getElementById('wound-photo-one').checked == true) {
             photoValue = document.getElementById('wound-photo-one').value;
             alert(photoValue);
@@ -279,23 +222,22 @@ function generatePDF() {
         alert("Please enter a name in this field.")
     }
 
+    // This else is where the form is generated after all the statements above are correct
     else {
 
-
-
+        // This adds the selected options into p1 on the trial-scenario.html page pdf section
         p1.innerHTML = dischargeDate + " " + microValue 
         + " " + normalSwellingText + " " + woundDropdown 
         + " " + "Wound is closed using: " + woundClosureMaterialDropdown 
         + " along the central incision." + " " + drainSitesDropdown + " " + "on: "
         + removalDate
 
-
         woundTbComments.innerHTML = woundTextBox
-
         consultant.innerHTML = consultantName
         additionalResources.innerHTML = vals
 
-        // New Doc
+        // This is where the doc is started
+        // Creates a new doc
         var options = {unit: 'px', format: 'a4'};
         var doc = new jsPDF(options);
         doc.setFontSize(14);
@@ -331,15 +273,15 @@ function generatePDF() {
 // End PDF
 
 
-//works - TODO: might not be necessary 
-function checkDrName() {
+//works - TODO: might not be necessary - will keep commented for now
+// function checkDrName() {
 
-    let docTextbox = document.getElementById('doctor-name')
+//     let docTextbox = document.getElementById('doctor-name')
 
-    if ((docTextbox).value == "") {
-        alert('Please enter a doctors name')
-    }
-}
+//     if ((docTextbox).value == "") {
+//         alert('Please enter a doctors name')
+//     }
+// }
 
 function checkWoundImages() {
 
@@ -372,185 +314,3 @@ function checkMicroForm() {
         microValue = document.getElementById('micro-three').value
     }
 }
-
-
-
-// function getStartDate() {
-
-
-
-
-
-//     dischargeDate = document.getElementById('start-date').value.required
-//     // .required
-//     console.log("dischargeDate value: ", dischargeDate)
-
-//     if (dischargeDate === undefined) {
-//         alert("undefined")
-//     }
-//     else {
-//         let dischargeDateFinal == dischargeDate
-//     }
-
-
-// }
-
-
-
-
-
-
-
-
-
-/* SPARE CODE
-
-
-
-// !=
-// if(woundTextBox != "") {
-
-//     for (i = 0; i <= str.length; i++) {
-
-//         if(str.charAt(i) >= "a" && str.charAt(i) <= "z") {
-//             woundTextBox == str
-            
-//         }
-//         if (str.charAt(i) >= "A" && str.charAt(i) <= "Z") {
-//             woundTextBox == str
-//         }
-//         // else {
-//         //     // if(str == false)
-            
-//         //     alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
-//         //     return true
-//         // }
-//     }
-// }
-// else if(woundTextBox == ""){
-//     woundTextBox = "No additional comments."
-
-// }
-// else if(woundTextBox != "" && str == false) {
-//     // if(str == false)
-    
-//     alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
-//     return true
-// }
-
-
-function saveAndExit() {
-
-    // check wound assessment textbox for word scratch
-
-    // var woundAssessmentText = document.getElementById('#wound-assessment-text')
-
-    // woundAssessmentText.innerHTML() = "";
-    // //let scratchWord = "scratch"
-    // //var scratch = "";
-    // var scratchWord = woundAssessmentText.includes("scratch");
-
-    // document.getElementById('#wound-assessment-text').innerHTML = scratchWord;
-
-    // // if ()
-
-
-    //checkDrName(); //works
-
-    //checkWord()
-}
-
-
-function checkWord() {
-
-    //let scratchWord = "scratch"
-
-    // let woundAssessmentText = document.getElementById('wound-assessment-text')
-
-    // // woundAssessmentText == scratchWord.includes("scratch")
-
-    // // scratchWord.includes
-
-    // woundAssessmentText.includes("scratch")
-
-    // console.log(woundAssessmentText)
-
-
-    let str = "scratch"
-
-    let str2 = str.includes("scratch")
-
-    let textbox = document.getElementById("wound-assessment-text").innerHTML
-
-
-    if(textbox != str2) {
-        alert("change your answer")
-    } 
-
-    // document.getElementById("wound-assessment-text").innerHTML = str2
-
-
-    // Test code
-    // var str = "Hello world, welcome to the universe.";
-    // var n = str.includes("world");
-    // document.getElementById("wound-assessment-text").innerHTML = n;
-
-
-}
-
-
-
-
-    // generatePDF()
-    // Ward title
-    // var ward = document.getElementById('ward-options').value;
-    // doc.text(ward, 10, 20);
-
-    // NHS title logo
-    // doc.text('Royal Brompton & Harefield | NHS', 245, 30);
-
-    // TODO: sort out date format
-    // let day = dischargeDate.getDate()
-    // let month = dischargeDate.getMonth()
-    // let year = dischargeDate.getFullYear()
-
-
-    // let p1 = document.getElementById('p1');
-
-    // let dischargeDate = document.getElementById('start-date').value
-    // console.log("dischargeDate", dischargeDate)
-    
-    // let normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
-    // console.log("normalSwellingText", normalSwellingText)
-
-    // let woundDropdown = document.getElementById('wound-dropdown').value
-    // console.log("woundDropdown", woundDropdown)
-    // // let woundOption = document.getElementsByClassName('wound-option')
-    
-
-    // let drainSitesDropdown = document.getElementById('drain-sites-dropdown').value
-    // console.log("drainSitesDropdown", drainSitesDropdown)
-
-    // let removalDate = document.getElementById('end-date').value
-    // console.log("removalDate", removalDate)
-
-    // let legWoundsDropdown = document.getElementById('leg-wounds-dropdown').value
-    // console.log("legWoundsDropdown", legWoundsDropdown)
-
-    // if ((dischargeDate == "") || (woundDropdown.value == "select") ) {
-    //     alert("please enter the required fields")
-        
-        
-        
-    // } else {
-
-    //     p1.innerHTML = dischargeDate + " " + microValue 
-    //     + " " + normalSwellingText + " " + woundDropdown 
-    //     + " " + drainSitesDropdown + " " + removalDate
-    //     + " " + legWoundsDropdown + " " + removalDate
-
-    // }
-
-
-
-*/

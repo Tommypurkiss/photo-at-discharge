@@ -26,7 +26,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
     <script src="./public/trial-scenario/javascript/jquery.js"></script>
 
     <!-- JSPDF -->
@@ -40,12 +39,8 @@
 
     <nav>
         <div class="nav-logo">
-            <!-- <a href="">logo</a> -->
             <a href=""><img src="./public/assets/img/logo/BHISLOGO.jpg" alt="" id="logo"></a>
-
         </div>
-
-
     </nav>
 
     <div class="main-content-wrapper">
@@ -61,8 +56,6 @@
         </div>
         <div class="m-c-info-text">
             <p>
-                <!-- Note: This webpage contains content that is for demonstration. -->
-                <!-- For demonstration purposes only. -->
                 This is an excerpt of the Photo at Discharge database and does not show its full functionality. Intended for demonstration purposes only.
             </p>
             <p>
@@ -71,39 +64,21 @@
             <p>
                 Please use a browser such as <b> Chrome, Firefox or Safari </b> for best results with this practice exercise.
             </p>
-                
         </div>
 
         <div class="scenario-para">
             <h1>
                 Scenario: To create a Photo at Discharge (PaD)
             </h1>
-
             <p>
                 Today you are discharging Mr Joe Blogg from Juniper Ward. Mr Blogg has had cardiac surgery under Ms C Halsey. His wound is dry and exposed on the day of discharge with absorbable sutures. You have taken a series of photos so you can select the best picture.
                 Mr Blogg needs his drain sutures removed in 7 calendar days, and you should add a comment about the small scratches evident next to his surgical incision. He has a sternal wound swab pending.
                 Complete the form based on the information in this scenario. The database will automatically add details for Mr Blogg and advice. 
                 <br> Please click on Generate Form (blue link at the bottom of the page) once you are finished.
-
-                
             </p>               
         </div>
 
-        
-
-        <!-- <div class="trial-button-div">
-            <button id="trial-button" class="trial-button">
-            <a href="trial-scenario.html" target="_blank">Trial Scenario</a>
-            </button>   
-            Click here to test yourself
-        </div>
-
-        <div class="save-button-div">
-            <button id="save-button" class="save-button" onclick="saveAndExit()">Save & Exit</button>
-        </div> -->
-
-
-
+        <!-- Start of the table -->
         <div class="database-table">
             <div class="database-table-content">
                 <table>
@@ -121,15 +96,7 @@
                             Date of Discharge
                         </td>
                         <td>
-                            <!-- <form action="">
-                                    <input type="date" class="date-picker" id="start-date"  required />
-                                    <input type="submit" id="start-date-submit" value="Set Start Date">
-                            </form> -->
                             <input type="date" class="date-picker" id="start-date" value="" />
-                            <!-- <input type="submit" id="start-date-submit" value="Set Start Date" > -->
-
-
-                            
                         </td>
                     </tr>
                     <tr>
@@ -137,14 +104,12 @@
                             Ward of Discharge
                         </td>
                         <td>
-                            
                             <select name="" id="ward-options" class="small-dropdown">
                                 <option value="select">--select--</option>
                                 <option value="Maple">Maple</option>
                                 <option value="Cedar">Cedar</option>
                                 <option value="Juniper" id="juniper-ward-correct">Juniper</option> <!-- correct ward -->
                                 <option value="HDU">HDU</option>
-
                             </select>
                         </td>
                     </tr>
@@ -154,7 +119,6 @@
                         </td>
                         <td>
                             <select name="category" id="category-dropdown" class="small-dropdown">
-                                <!-- <option value="select">--select--</option> -->
                                 <option value="Cardiac (Surgical)" id="category-cardiac-surgical-correct">Cardiac (Surgical)</option>
                                 <option value="Paediatric (Cardiac)">Paediatric (Cardiac)</option>
                                 <option value="Thoracic (Surgical)">Thoracic (Surgical)</option>
@@ -163,7 +127,6 @@
                                 <option value="Cardiac (Transplant)">Cardiac (Transplant)</option>
                                 <option value="Thoracic (Transplant)">Thoracic (Transplant)</option>
                                 <option value="Other">Other</option>
-
                             </select>
                         </td>
                     </tr>
@@ -175,15 +138,9 @@
                             <select name="wound" id="wound-dropdown" class="large-dropdown">
                                 <option value="select">--select--</option>
                                 <option class="wound-option" id="wound-dropdown-correct" value="Wound dry and exposed on day of planned discharge.">Wound dry and exposed on day of planned discharge.</option>
-                                <!-- <option class="wound-option" value="Absorbable suture(s)">Absorbable suture(s)</option> -->
-                                <!-- <option class="wound-option" value="Surgical clips">Surgical clips</option>
-                                <option class="wound-option" value="Steri-strips">Steri-strips</option> -->
-                                <!-- <option class="wound-option" value="Non-absorbable sutures">Non-absorbable sutures</option> -->
                                 <option class="wound-option" value="Minimally invasive left-sided thoracotomy wound.">Minimally invasive left-sided thoracotomy wound.</option>
                                 <option class="wound-option" value="Minimally invasive right-sided thoracotomy wound.">Minimally invasive right-sided thoracotomy wound.</option>
                                 <option class="wound-option" value="Minimally invasive wound (shorter; central chest incision).">Minimally invasive wound (shorter; central chest incision).</option>
-                                <!-- <option class="wound-option" value="Dermabond">Dermabond</option>
-                                <option class="wound-option" value="Deep tension suture(s)">Deep tension suture(s)</option> -->
                                 <option class="wound-option" value="Other.">Other.</option>
                             </select>
                         </td>
@@ -197,33 +154,19 @@
                                 <option value="select">--select--</option>
                                 <option class="wound-option" value="Absorbable suture(s)" id="wound-closure-correct">Absorbable suture(s)</option>
                                 <option class="wound-option" value="Surgical clips">Surgical clips</option>
-                                <!-- <option class="wound-option" value="Steri-strips">Steri-strips</option> -->
                                 <option class="wound-option" value="Wound closure tapes (e.g. Steri-strips)">Wound closure tapes (e.g. Steri-strips)</option>
-
                                 <option class="wound-option" value="Non-absorbable sutures">Non-absorbable sutures</option>
-                                <!-- <option class="wound-option" value="Dermabond">Dermabond</option> -->
                                 <option class="wound-option" value="Deep tension suture(s)">Deep tension suture(s)</option>
                                 <option class="wound-option" value="Glue/tissue adhesive (e.g. Dermabond)">Glue/tissue adhesive (e.g. Dermabond)</option>
                                 <option class="wound-option" value="Other">Other</option>
                             </select>
                         </td>
                     </tr>
-                    <!-- <tr>
-                        <td>
-                            Removal date
-                        </td>
-                        <td>
-                            Date - include Calendar
-                        </td>
-                    </tr> -->
                     <tr>
                         <td>
                             Wound assessment
                         </td>
                         <td>
-                            <!-- <form action="">
-                                <input type="text" name="ward name" id="" class="scrollable-textbox">
-                            </form> -->
                             <textarea name="" value="" id="wound-assessment-text" cols="30" rows="10" class="scrollable-textbox" maxlength="200"></textarea>
                         </td>
                     </tr>
@@ -257,93 +200,18 @@
                             Removal date
                         </td>
                         <td>
-                            <!-- <form action=""> -->
-                                <input type="date" name="" class="date-picker" id="end-date" value="">
-                                <!-- <input type="submit" id="end-date-submit" value="Set End Date"> -->
-
-                            <!-- </form> -->
+                            <input type="date" name="" class="date-picker" id="end-date" value="">
                         </td>
                     </tr>
-                    <!-- <tr>
-                        <td>
-                            Drain sites TEXT
-                        </td>
-                        <td>
-                            <textarea name="" id="" cols="30" rows="10" class="scrollable-textbox"></textarea>
-                        </td>
-                    </tr> -->
-                    <!-- <tr>
-                        <td>
-                            Leg wounds
-                        </td>
-                        <td>
-                            <select name="" id="leg-wounds-dropdown" class="large-dropdown">
-                                <option value="select">--select--</option>
-                                <option value="Leg wound(s) dry and intact. Surgical clips to be removed by your GP practice or district nurse.">Leg wound(s) dry and intact. Surgical clips to be removed by your GP practice or district nurse.</option>
-                                <option value="Leg wound(s) are dry and intact. Clips were removed.">Leg wound(s) are dry and intact. Clips were removed.</option>
-                                <option value="Leg wound(s) are oozing and still healing. No signs of infection.">Leg wound(s) are oozing and still healing. No signs of infection.</option>
-                                <option value="Absorbable sutures at leg wound site. These do not need to be trimmed or removed.">Absorbable sutures at leg wound site. These do not need to be trimmed or removed.</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Leg wound assessment
-                        </td>
-                        <td>
-                            <textarea name="" id="" value="" cols="30" rows="10" class="scrollable-textbox"></textarea>
-                        </td>
-                    </tr> -->
-                    <!-- <tr>
-                        <td>
-                            Arm wounds (CABG)
-                        </td>
-                        <td>
-                            <select name="" id="" class="large-dropdown">
-                                <option value="">--select--</option>
-                                <option value="">No</option>
-                                <option value="">Radical (arm) wound(s) are dry and intact. Surgical clips to be removed by your GP practice or district nurse.</option>
-                                <option value="">Radial (arm) wound(s) are dry and intact. Clips were removed.</option>
-                                <option value="">Radial (arm) wound(s) are oozing and still healing. No signs of infection.</option>
-                                <option value="">Absorbable sutures at the arm wound site. These do not need to be trimmed or removed.</option>
-                            </select>
-                        </td>
-                    </tr> -->
-                    <!-- <tr>
-                        <td>
-                            Radial removal date
-                        </td>
-                        <td>
-
-                        </td>
-                    </tr> -->
-                    <!-- <tr>
-                        <td>
-                            Brompton Harefield infection score BHIS
-                        </td>
-                        <td>
-                            <form action="">
-                                <input type="text" value="" name="ward name" id="" class="small-textbox">
-                            </form>
-                        </td>
-                    </tr> -->
                     <tr>
                         <td>
                             Additional resources provided at discharge
                         </td>
                         <td>
-                            <!-- <form action=""> -->
-                                <!-- <input type="checkbox" class="addit-resources" name="resources" id="" value="Hibiscrub Plus (antimicrobial wash) for morning shower."> <label>Hibiscrub Plus (antimicrobial wash) for morning shower. </label> <br> -->
-                                <input type="checkbox" class="addit-resources" name="resources" id="" value="Hibiscrub(contains Chlorhexidine) antimicrobial wash provided. Please discontinue use after five days or if skin becomes irritated. The solution should be applied to damp skin and rinsed off after a minute."> Hibiscrub(contains Chlorhexidine) antimicrobial wash provided. Please discontinue use after five days or if skin becomes irritated. The solution should be applied to damp skin and rinsed off after a minute. <br>
-
-                                <input type="checkbox" class="addit-resources" name="resources" id="" value="Chlorhexidine wipes (single use/disposable wipes); Please avoid using this on the wound. No need to rinse.">Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse. <br>
-                                <input type="checkbox" class="addit-resources" name="resources" id="" value="Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed.">Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed. <br>
-                                <input type="checkbox" class="addit-resources" name="resources" id="bhis-option" onclick="checkBHIS()">Additional BHIS<sup>TM</sup> cardiac surgical bra provided. <br>
-                                <!-- value="Additional BHIS &#153; cardiac surgical bra provided." -->
-                                <!-- <input type="checkbox" name="" id="" value="Gauze pack(s) provided for under bra band.">Gauze pack(s) provided for under bra band. <br> -->
-                                <!-- <input type="checkbox" class="addit-resources" name="resources" id="" value="Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days.">Dermabond (glue sealant) applied to skin over the wound. Please do not wash the area or get it wet for seven (7) days following the surgery. After this time; you may begin to rinse the area gently so that the glue comes away over a number of days. -->
-
-                            <!-- </form> -->
+                            <input type="checkbox" class="addit-resources" name="resources" id="" value="Hibiscrub(contains Chlorhexidine) antimicrobial wash provided. Please discontinue use after five days or if skin becomes irritated. The solution should be applied to damp skin and rinsed off after a minute.">Hibiscrub(contains Chlorhexidine) antimicrobial wash provided. Please discontinue use after five days or if skin becomes irritated. The solution should be applied to damp skin and rinsed off after a minute. <br>
+                            <input type="checkbox" class="addit-resources" name="resources" id="" value="Chlorhexidine wipes (single use/disposable wipes); Please avoid using this on the wound. No need to rinse.">Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse. <br>
+                            <input type="checkbox" class="addit-resources" name="resources" id="" value="Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed.">Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed. <br>
+                            <input type="checkbox" class="addit-resources" name="resources" id="bhis-option" onclick="checkBHIS()">Additional BHIS<sup>TM</sup> cardiac surgical bra provided. <br>
                         </td>
                     </tr>
                     <tr>
@@ -351,16 +219,7 @@
                             Photo
                         </td>
                         <td>
-                            <!-- include option to upload photo here -->
-                            <!-- <input type="file" name="" id="">
-                            <br>
-                            <img id="wound-img" src="#" alt="your image will appear here once chosen    " height=200 width=100> -->
-
                             <form action="" class="wound-photo-form" id="wound-photo-form">
-                                <!-- <input type="radio" name="foo" id=""> <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (wrong angle).jpg" alt="">
-                                <input type="radio" name="foo" id=""> <img src="" alt="">
-
-                                <input type="radio" name="foo" id=""> <img src="" alt=""> -->
                                 <div class="row">
                                     <div class="wound-photo photo-one column">
                                         <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (wrong angle).jpg" alt="" height="300" width="200" id="wound-photo-one-img"> <br>
@@ -386,7 +245,6 @@
                                         <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (blurred).jpg" alt="" height="300" width="200" id="wound-photo-five-img"> <br>
                                         <input type="radio" name="foo" id="wound-photo-five" value="Incorrect - image is not as sharp as an alternative" onclick="woundPhotoCheck()"> 
                                     </div>
-
                                 </div>
                             </form>
                             <div class="wound-photo-answer" >
@@ -402,13 +260,11 @@
                         </td>
                         <td>
                             <select name="" id="consultant-dropdown" class="small-dropdown">
-                                <!-- <option value="select">--select--</option> -->
                                 <option value="Mr T Stark">Mr T Stark</option>
                                 <option value="Ms C Halsey" id="consultant-correct">Ms C Halsey</option>
                                 <option value="Mr A Johnson">Mr A Johnson</option>
                                 <option value="Ms M Keyes">Ms M Keyes</option>
                                 <option value="Mr E Buck">Mr E Buck</option>
-
                             </select>
                         </td>
                     </tr>
@@ -417,27 +273,20 @@
                             Staff providing PaD
                         </td>
                         <td>
-                            <!-- <form action=""> -->
-                                <input type="text" name="doctor name" id="doctor-name" class="small-textbox" value="" required>
-                                <!-- <a href="#" target="_blank" >Generate Letter</a> -->
-                                <!-- <p>
-                                    Ensure all fields are filled out and all options are chosen before generating the letter
-                                </p> -->
-                                <br>
-                                <a href="javascript:generatePDF()">Generate Form</a>
-                                <!-- /csp/brompton/cbd/photo/reports/PAD.csp -->
-                                <!-- <input type="button" id="create_pdf" value="Generate PDF" onclick="generatePDF()">   -->
-                                
-                            <!-- </form> -->
+                            <input type="text" name="doctor name" id="doctor-name" class="small-textbox" value="" required>
+                            <br>
+                            <a href="javascript:generatePDF()">Generate Form</a>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
+        <!-- ^ End of the table -->
+
         <div class="div-filler"></div>
 
-
         </div>
+        <!-- ^ End of main-content -->
 
 
         <!-- PDF SECTION -->
@@ -445,21 +294,15 @@
                 <div class="left-text" id="left-text">
                     <p id="p1" >
                         <i>
-                            <!-- 19/7/2015 no outstanding swabs at discharge. Normal swelling
-                            at the top of wound which will resolve over a few weeks. Sternal wound
-                            is clean and dry on the day of discharge. Drain sutures to be removed
-                            DD/MM/YY and clips to legs to be removed DD/MM/YY. -->
-
+                            <!-- Data entered in the form will be put in here once pdf generated -->
                         </i>
                     </p>
                     <p>
                         <b>Additional comments:</b>
-                        
                     </p>
                     <p id="wound-tb-comments">
-                        
+                        <!-- Wound assessment additional comments will go here once pdf is generated -->
                     </p>
-
                     <p>
                         <b>Advice to Mr Blogg</b>
                     </p>
@@ -501,18 +344,14 @@
                     </p>
                     <p id="p8">
                         <b>Additional Resources: </b>
-                        <!-- <span >
-
-                        </span> -->
                     </p>
                     <p id="additional-resources">
-
+                        <!-- Additional resources chosen from the checkbox would go in here once pdf has been generated -->
                     </p>
 
-                    
                 </div>
                 <div class="right-img">
-                        <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (perfect).jpg" alt="" height="300" width="200" id="wound-photo-four-img">
+                    <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (perfect).jpg" alt="" height="300" width="200" id="wound-photo-four-img">
                 </div>
 
                 <div class="bottom-text" id="bottom-text">
@@ -524,31 +363,26 @@
                             important.
                     </p>
                     <p>
-                            Please contact your GP or 
-                            <!-- Mr Surgeons'  -->
-                            <!-- <span id="surgeon">
-                                
-                            </span> -->
-                            <span id="consultant">
-
-                            </span>
-                            secretary (1234 123 4567) immediately if you think your
-                            wound might be infected. Treating an infection early helps stop it from becoming worse or lasting longer than
-                            it should. This information does not replace advice or assessment by your surgical team.  Colour copy of this
-                            information to the patient. Electronic copy on EPR.
+                        Please contact your GP or 
+                        <span id="consultant">
+                            <!-- The consultant chosen on the consultant dropdown will go here once generated form -->
+                        </span>
+                        secretary (1234 123 4567) immediately if you think your
+                        wound might be infected. Treating an infection early helps stop it from becoming worse or lasting longer than
+                        it should. This information does not replace advice or assessment by your surgical team.  Colour copy of this
+                        information to the patient. Electronic copy on EPR.
                     </p>
                 </div>
-
                 <div class="bottom-sign" id="bottom-sign">
                     <p>
                         Consent for photo .................................................................. (patient or guardian signature)
                     </p>
                 </div>
             </div>
-
-    </div>
-
+            <!-- ^ End of PDF Section -->
     
+        </div>
+        <!-- ^ End of main-content-wrapper -->
     
 </body>
 </html>
