@@ -87,6 +87,7 @@ function generatePDF() {
         console.log("vals != value",vals)
     }
 
+
     var dischargeDate = new Date(document.getElementById('start-date').value);
     var dd = String(dischargeDate.getDate())
     var mm = String(dischargeDate.getMonth() + 1) //January is 0!
@@ -126,16 +127,22 @@ function generatePDF() {
 
     consultantName = document.getElementById('consultant-dropdown').value
 
-    console.log("wound tb", woundTextBox)
-    var str = woundTextBox.includes("scratch", "scratches", "scratched", "scratching")
+
+    console.log("wound tb", woundTextBox.value)
+    //var str = woundTextBox.includes("scratch", "scratches", "scratched", "scratching")
+
+    var str = woundTextBox.indexOf("scratch", "scratches", "scratched", "scratching") !== -1
 
     console.log("scratch str", str.value)
 
+
     var logo = document.getElementById('logo')
 
+    // WORKING VALIDATION
     // if, else if statements for validation on the form
     if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
         alert("Please enter a date of discharge.")
+        
     }
 
     else if (dischargeDate != todaysDate) {
@@ -144,28 +151,33 @@ function generatePDF() {
 
     else if (wardOfDischarge != document.getElementById('juniper-ward-correct').value ) {
         alert("Mr Blogg is being discharged from Juniper Ward. Please ensure you've chosen the correct ward from the form.")
-        return false
+        //return false
+        return;
     }
 
     else if(categoryDropdown != document.getElementById('category-cardiac-surgical-correct').value) {
         alert("Mr Blogg has had cardiac surgery. Please ensure you have chosen the correct category.")
-        return false
+        //return false
+        return;
     }
 
     else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
         alert("Please indicate that the wound is dry and exposed on the day of discharge.")
-        return false
+        //return false
+        return;
     }
 
     else if (woundClosureMaterialDropdown != document.getElementById('wound-closure-correct').value) {
         alert("Please indicate what type of wound closure material is being used in this scenario.")
-        return false
+        //return false
+        return;
     }
 
     if (woundTextBox != "" && str == false){
         alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
         console.log("enter if 1 ", woundTextBox.value)
-        return false
+        //return false
+        return;
     }
 
     else if (woundTextBox != "" && str == true) {
@@ -177,6 +189,8 @@ function generatePDF() {
         woundTextBox = "No additional comments."
         console.log("enter if 3 ", woundTextBox.value)
     }   
+
+
 
     if (microValue != document.getElementById('micro-three').value) {
         alert("Mr Blogg has a sternal wound swab pending. Please ensure you have chosen the correct answer from the Micro for wound options.")
@@ -221,6 +235,7 @@ function generatePDF() {
     else if (surgeonName == "") {
         alert("Please enter a name in this field.")
     }
+    // END WORKING VALIDATION
 
     // This else is where the form is generated after all the statements above are correct
     else {
