@@ -275,6 +275,10 @@ function generatePDF() {
         alert("Ms C Halsey performed the surgery for Mr Blogg. Please enter the correct consultant.")
     }
 
+    else if (surgeonName == "") {
+        alert("Please enter a name in this field.")
+    }
+
     else {
 
 
