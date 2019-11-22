@@ -1,4 +1,6 @@
 
+
+
 // Todays date
 var todaysDate = new Date();
 var dd = String(todaysDate.getDate())
@@ -77,7 +79,9 @@ function generatePDF() {
             alert("No additional resources should be checked at this time.")
             console.log("vals value?", vals)
 
-            return false
+            // return false
+            return;
+
         }
     }
     if (vals) vals = vals.substring(1);
