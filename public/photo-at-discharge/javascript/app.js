@@ -107,11 +107,16 @@ function generatePDF() {
     // if both are fine then it will return false and continue
     else if (drainSitesDropdown == document.getElementById('drain-sites-dropdown-correct').value && removalDate == "NaN/NaN/NaN") {
         alert("Please enter a removal date")
-        return false
+        return;
     }
-    else if (removalDate === "undefined") {
-        removalDate == "No removal date entered."
-        console.log("remov date", removalDate.value)
+    else if (removalDate == "") {
+
+        // var rmDateString = removalDate.toString()
+        // rmDateString = "No removal date entered."
+
+        // removalDate == rmDateString
+        removalDate = "No removal date entered."
+        console.log("removal date", removalDate.value)
     }
 
     // This else is where the form is generated after all the statements above are correct
