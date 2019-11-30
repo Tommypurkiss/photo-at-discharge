@@ -260,7 +260,91 @@
                                 </select>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                Wound description 
+                            </td>
+                            <td>
+                                <form action="" id="wound-description-form" onclick="checkWoundDescPyrexiaCorrect()" >
+                                    <input type="radio" name="foo" value="" > Disolouration <br>
+                                    <input type="radio" name="foo" value="" > Red <br>
+                                    <input type="radio" name="foo" value="" > Radiating Heat <br>
+                                    <input type="radio" name="foo" value="" > Swollen <br>
+                                    <input type="radio" name="foo" value="" > Painful <br>
+                                    <input type="radio" name="foo" value="" > Dehiscence <br>
+                                    <input type="radio" name="foo" value="" > Sinus <br>
+                                    <input type="radio" name="foo" value="" > Slough <br>
+                                    <input type="radio" name="foo" value="" > Necrotic tissue <br>
+                                    <input type="radio" name="foo" value="" id="wound-description-pyrexia-correct"> Pyrexia (>38&deg;C) <br>
+                                    <input type="radio" name="foo" value="" > Eschar <br>
+                                    <input type="radio" name="foo" value="" > Odour <br>
+                                    <input type="radio" name="foo" value="" > Induration <br>
+                                    <input type="radio" name="foo" value="" > Sucking noise <br>
+                                    <input type="radio" name="foo" value="" > Clicking noise <br>
+                                    <input type="radio" name="foo" value="" > Not able to assess <br>
+                                    <input type="radio" name="foo" value="" > Other <br>
+                                </form> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Exudate
+                            </td>
+                            <td>
+                                <form action="" id="exudate-form">
+                                    <input type="radio" name="foo" value=""> No exudate <br>
+                                    <input type="radio" name="foo" value="" id="exudate-form-serous-correct"> Serous <br>
+                                    <input type="radio" name="foo" value=""> Haemoserous <br>
+                                    <input type="radio" name="foo" value=""> Bleeding <br>
+                                    <input type="radio" name="foo" value=""> Pus <br>
+                                </form>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th colspan="2" class="table-subheading">Sepsis Assessment</th>
+                        </tr>
+                        <tr class="hidden" id="possibly-sepsis-row">
+                            <td>
+                                Is this Possibly SEPSIS? And/or does the patient look sick? OR has NEWS (or similar) triggered?
+                            </td>
+                            <td>
+                                <select name="Possibly sepsis" id="possibly-sepsis-dropdown" class="small-dropdown">
+                                    <option value="select">--select--</option>
+                                    <option value="Yes">Yes</option> <!-- correct -->
+                                    <option value="No">No</option> <!-- correct -->
+                                    <option value="Unsure">Unsure</option>
+                                    <option value="Known / treatment">Known / treatment</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Is ONE Red Flag present?
+                            </td>
+                            <td>
+                                <form action="" id="red-flag-form" onclick="checkRedFlagFormAnswer()">
+                                    <input type="radio" name="foo" value=""> Responds only to voice or pain/unresponsive <br>
+                                    <input type="radio" name="foo" value=""> Systolic BP <=90mmHg (or drop >40 from normal) <br>
+                                    <input type="radio" name="foo" value=""> Heart rate >130 beats per minute <br>
+                                    <input type="radio" name="foo" value=""> Respiratory rate >25 per minute <br>
+                                    <input type="radio" name="foo" value=""> Need oxygen to keep SpO2 > 92% <br>
+                                    <input type="radio" name="foo" value=""> Non-blanching rash; mottled/ashen/cyanotic <br>
+                                    <input type="radio" name="foo" value=""> Not passed urine in the last 18 h/UO <0.5ml/kg/hr <br>
+                                    <input type="radio" name="foo" value=""> Lactate >2mmol/L <br>
+                                    <input type="radio" name="foo" value=""> Recent chemotherapy <br>
+                                    <input type="radio" name="foo" value="" id="red-flag-correct"> N/A or No Red flags present <br>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr class="hidden" id="red-flag-row">
+                            <td colspan="2"  style="text-align: center;">
+                                Red Flag sepsis! Start Sepsis 6 Pathway NOW TIME IS CRITICAL, IMMEDIATE ACTION IS REQUIRED
+                            </td>
+                        </tr>
+                        
                     </table>
+                    <div class="div-filler"></div>
                 </div>
             </div>
 

@@ -24,3 +24,33 @@ function checkWoundTypeCorrect() {
     }
 
 }
+
+function checkWoundDescPyrexiaCorrect() {
+
+    let woundDescPyrexiaCorrect = document.getElementById('wound-description-pyrexia-correct')
+    let possiblySepsisRow = document.getElementById('possibly-sepsis-row')
+
+    if(woundDescPyrexiaCorrect.checked == true) {
+        possiblySepsisRow.classList.add("display-table-row")
+    }
+    else if (woundDescPyrexiaCorrect.checked == false) {
+        possiblySepsisRow.classList.remove("display-table-row")
+    }
+
+}
+
+function checkRedFlagFormAnswer() {
+
+    let redFlagForm = document.getElementById('red-flag-form')
+    let redFlagCorrect = document.getElementById('red-flag-correct')
+    let redFlagRow = document.getElementById('red-flag-row')
+
+    if (redFlagCorrect.checked == false) {
+        redFlagRow.classList.add("display-table-row")
+    }
+    else if (redFlagCorrect.checked == true) {
+        redFlagRow.classList.remove("display-table-row")
+    }
+
+
+}
