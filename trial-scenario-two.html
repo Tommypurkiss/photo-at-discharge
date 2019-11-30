@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./public/trial-scenario-two/css/style.css">
+
+    <!-- GOOGLE FONTS  -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+
+    <!-- JQUERY UI CSS -->
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.7.0/bluebird.core.min.js"></script>
+
+    <!-- JAVASCRIPT -->
+    <!-- <script async defer src="./public/trial-scenario-two/javascript/app.js"></script> -->
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-1.7-development-only.js"></script>
+
+
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./public/trial-scenario-two/javascript/jquery.js"></script>
+
+    <!-- JSPDF -->
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+    
+    <title>Photo at Discharge - Trial Scenario Two</title>
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-logo">
+            <a href=""><img src="./public/assets/img/logo/BHISLOGO.jpg" alt="" id="logo"></a>
+        </div>
+    </nav>
+
+    <!-- Main content wrapper -->
+    <div class="main-content-wrapper">
+
+        <!-- Main content -->
+        <div class="main-content">
+
+            <div class="main-content-title">
+                <h1>
+                    Practice Database
+                </h1>
+                <h3>
+                    Trial Scenario Two
+                </h3>
+            </div>
+
+            <div class="m-c-info-text">
+                <p>
+                    This is an excerpt of the Photo at Discharge database and does not show its full functionality. Intended for demonstration purposes only.
+                </p>
+                <!-- <p>
+                    Photos used with kind permission from the patient.
+                </p> -->
+                <p>
+                    Please use a browser such as <b> Chrome, Firefox or Safari </b> for best results with this practice exercise.
+                </p>
+            </div>
+
+            <div class="scenario-para">
+                <h1>
+                    Scenario: To create a Photo at Discharge (PaD) < (name to be changed?)
+                </h1>
+                <p>
+                    Today you are the nurse on Maple ward caring for Mr Stark's patient, Mrs Francine Olay who is in bed 6. Mrs Olay is receiving Negative Pressure Wound Therapy (NPWT) for a Category III pressure ulcer on her sacrum.
+                    She already had the pressure ulcer when she was admitted to hospital and overall, the wound looks like it is improving with some slough and odour present.
+                </p>  
+                <p>
+                    After obtaining appropriate consent, you take a photograph of Mrs Olay's pressure ulcer. She has a temperature of 38&deg;C, but is otherwise well, with normal blood results and observations.
+                </p>
+                <p>
+                    Mrs Olay says she doesn't need a pain killer for changing the NPWT dressing. After cleaning the wound, you apply NPWT unit number 12345 at 125mmHg on intermittent therapy. Over the last 24 hours, the cannister has drained 110mls of serous exudate. The date of next wound review is in three days.
+                </p>
+                <!-- <br> Please click on Generate Form (blue link at the bottom of the page) once you are finished. -->
+            </div>
+
+            <!-- start of the database table -->
+            <div class="database-table">
+                <div class="database-table-content">
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                Photo at Discharge (PaD) < (name to be changed?)
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width: 25%; border: none;"></th>
+                            <th style="width: 75%; border: none;"></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Patient details: 
+                            </td>
+                            <td>
+                                Name: Mrs Francine Olay <br>
+                                NHS Number: 242 330 303 <br>
+                                DOB: 20/12/1969
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Name of consultant / responsible clinician
+                            </td>
+                            <td>
+                                <select name="" id="consultant-dropdown" class="small-dropdown">
+                                    <option value="Mr T Stark">Mr T Stark</option>
+                                    <option value="Ms C Halsey" id="consultant-correct">Ms C Halsey</option>
+                                    <option value="Mr A Johnson">Mr A Johnson</option>
+                                    <option value="Ms M Keyes">Ms M Keyes</option>
+                                    <option value="Mr E Buck">Mr E Buck</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Staff name and designation providing assessment
+                            </td>
+                            <td>
+                                <input type="text" name="doctor name" id="doctor-name" class="small-textbox" value="" required>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Ward of Discharge
+                            </td>
+                            <td>
+                                <select name="" id="ward-options" class="small-dropdown">
+                                    <option value="select">--select--</option>
+                                    <option value="Maple" id="maple-ward-correct">Maple</option> <!-- correct ward -->
+                                    <option value="Cedar">Cedar</option>
+                                    <option value="Juniper">Juniper</option>
+                                    <option value="HDU">HDU</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Bed number
+                            </td>
+                            <td>
+                                <input type="text" name="bed number" id="bed-number" class="small-textbox" value="">
+                                <!-- correct number is 6 -->
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th colspan="2" class="table-subheading">
+                                Wound Assessment
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Wound type
+                            </td>
+                            <td>
+                                <form action="" id="wound-type-form" onclick="checkWoundTypeCorrect()"> 
+                                    <input type="radio" name="foo" value="" > Burn or scald <br>
+                                    <input type="radio" name="foo" value=""> Cut or laceration <br>
+                                    <input type="radio" name="foo" value=""> Fungating wound <br>
+                                    <input type="radio" name="foo" value=""> Incontinence-associated dermatitis (IAD), moisture lesion <br>
+                                    <input type="radio" name="foo" value=""> Venous ulcer <br>
+                                    <input type="radio" name="foo" value=""> Miscellaneous Wound <br>
+                                    <input type="radio" name="foo" value="" id="wound-type-radio-correct"> Pressure ulcer <br>
+                                    <input type="radio" name="foo" value=""> Skin blister(s) <br>
+                                    <input type="radio" name="foo" value=""> Skin tear(s) <br>
+                                    <input type="radio" name="foo" value=""> Wound closure material record (removal or new) <br>
+                                    <input type="radio" name="foo" value=""> Drain site <br>
+                                    <input type="radio" name="foo" value=""> Rash <br>
+                                    <input type="radio" name="foo" value=""> Surgical wound <br>
+                                    <input type="radio" name="foo" value=""> Vascular access device site (cannula or line) <br>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr class="hidden" id="pressure-ulcer-row">
+                            <td>
+                                Pressure Ulcer Grade
+                            </td>
+                            <td>
+                                <select name="Pressure Ulcer Grade" id="pressure-ulcer-dropdown" class="small-dropdown">
+                                    <option value="select">--select--</option>
+                                    <option value="Stage I">Stage I</option>
+                                    <option value="Stage II">Stage II</option>
+                                    <option value="Stage III" id="pressure-ulcer-dropdown-correct">Stage III</option>
+                                    <option value="Stage IV">Stage IV</option>
+                                    <option value="Ungradable">Ungradable</option>
+                                    <option value="Suspected deep tissue injury">Suspected deep tissue injury</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="hidden" id="occurence-row">
+                            <td>
+                                Occurence
+                            </td>
+                            <td>
+                                <select name="Occurence" id="occurence-dropdown" class="small-dropdown">
+                                    <option value="select">--select--</option>
+                                    <option value="Admitted with" id="occurence-dropdown-correct">Admitted with</option>
+                                    <option value="Hosptial Acquired">Hosptial Acquired</option>
+                                    <option value="Home/Nursing Home onset">Home/Nursing Home onset</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Body location 
+                            </td>
+                            <td>
+                                <select name="Body Location" id="body-location-dropdown" class="small-dropdown">
+                                    <option value="select">--select--</option>
+                                    <option value="Abdomen">Abdomen</option>
+                                    <option value="Ankle">Ankle</option>
+                                    <option value="Arm">Arm</option>
+                                    <option value="Back">Back</option>
+                                    <option value="Back of head">Back of head</option>
+                                    <option value="Breast">Breast</option>
+                                    <option value="Buttock">Buttock</option>
+                                    <option value="Chest">Chest</option>
+                                    <option value="Ear">Ear</option>
+                                    <option value="Foot">Foot</option>
+                                    <option value="Elbow">Elbow</option>
+                                    <option value="Finger">Finger</option>
+                                    <option value="Forearm">Forearm</option>
+                                    <option value="Genitals">Genitals</option>
+                                    <option value="Groin">Groin</option>
+                                    <option value="Hand">Hand</option>
+                                    <option value="Head">Head</option>
+                                    <option value="Heel">Heel</option>
+                                    <option value="Hip">Hip</option>
+                                    <option value="Knee">Knee</option>
+                                    <option value="Leg">Leg</option>
+                                    <option value="Lip">Lip</option>
+                                    <option value="Lower Leg">Lower Leg</option>
+                                    <option value="Mouth">Mouth</option>
+                                    <option value="Nasal Bridge">Nasal Bridge</option>
+                                    <option value="Neck">Neck</option>
+                                    <option value="Occipital">Occipital</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Perineum">Perineum</option>
+                                    <option value="Sacrum" id="body-location-sacrum-correct">Sacrum</option>
+                                    <option value="Spine">Spine</option>
+                                    <option value="Thigh">Thigh</option>
+                                    <option value="Toe">Toe</option>
+                                    <option value="Under Bust">Under Bust</option>
+                                    <option value="Upper Arm">Upper Arm</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+        <!-- end main content -->
+        </div>
+
+    <!-- end main content wrapper -->
+    </div> 
+
+
+
+    <script async defer src="./public/trial-scenario-two/javascript/app.js"></script>
+</body>
+</html>

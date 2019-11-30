@@ -11,13 +11,22 @@ todaysDate = dd + '/' + mm + '/' + yyyy;
 console.log("todays date is: ",todaysDate)
 
 
-var oneWeekRemovalDate = new Date();
-var rmD = String(oneWeekRemovalDate.getDate() + 7)
-var rmM = String(oneWeekRemovalDate.getMonth() + 1) //January is 0!
-var rmYYYY = oneWeekRemovalDate.getFullYear();
+// var oneWeekRemovalDate = new Date();
+// var rmD = String(oneWeekRemovalDate.getDate() + 7)
+// var rmM = String(oneWeekRemovalDate.getMonth() + 1) //January is 0!
+// var rmYYYY = oneWeekRemovalDate.getFullYear();
 
-oneWeekRemovalDate = rmD + '/' + rmM + '/' + rmYYYY;
-console.log("future removal date is: ", oneWeekRemovalDate)
+// oneWeekRemovalDate = rmD + '/' + rmM + '/' + rmYYYY;
+// console.log("future removal date is: ", oneWeekRemovalDate)
+
+// week removal date
+
+let numWeeks = 1
+let oneWeekRemovalDate = new Date()
+oneWeekRemovalDate.setDate(oneWeekRemovalDate.getDate() + numWeeks * 7)
+let formattedOneWeekDate = oneWeekRemovalDate.getDate() + "/" + (oneWeekRemovalDate.getMonth() + 1) + "/" + oneWeekRemovalDate.getFullYear()
+
+    console.log("one week removal date: ", formattedOneWeekDate)
 
 
 
@@ -208,7 +217,7 @@ function generatePDF() {
         alert("Please enter a removal date.")
     }
 
-    else if (removalDate != oneWeekRemovalDate) {
+    else if (removalDate != formattedOneWeekDate) {
         alert("The removal date should be a week from the discharge date. Please enter a correct removal date.")
     }
 
