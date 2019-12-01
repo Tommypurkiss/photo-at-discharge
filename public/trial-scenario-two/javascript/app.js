@@ -61,7 +61,27 @@ function checkWoundDressingAnswer() {
         negativePressureRow.classList.remove("display-table-row")
         vacIdNumberRow.classList.remove("display-table-row")
         vacVolumeRow.classList.remove("display-table-row")
-
-
     }
+}
+
+
+
+
+
+function generatePDF() {
+    
+
+    // pdf validation
+
+    // if () { } else { }
+
+
+    // doc section
+    let options = {unit: 'px', format: 'a4'}
+    let doc = new jsPDF(options)
+    doc.setFontSize(14)
+
+    doc.text("test text", 20, 20)
+
+    doc.save('WoundCare1.pdf')
 }
