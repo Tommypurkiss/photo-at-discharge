@@ -1,28 +1,20 @@
 
-
-
-
-
 function checkWoundTypeCorrect() {
-
     // make pressure ulcer row appear when the correct wound type radio answer is chosen 
     let woundTypeRadioCorrect = document.getElementById('wound-type-radio-correct') 
     let pressureUlcerRow = document.getElementById('pressure-ulcer-row')
     let occurenceRow = document.getElementById('occurence-row')
 
-    
     if (woundTypeRadioCorrect.checked == true){
         pressureUlcerRow.classList.add("display-table-row")
         occurenceRow.classList.add("display-table-row")
         console.log("true")
-
     }
     else if (woundTypeRadioCorrect.checked == false) {
         pressureUlcerRow.classList.remove("display-table-row")
         occurenceRow.classList.remove("display-table-row")
         console.log("not true")
     }
-
 }
 
 function checkWoundDescPyrexiaCorrect() {
@@ -36,7 +28,6 @@ function checkWoundDescPyrexiaCorrect() {
     else if (woundDescPyrexiaCorrect.checked == false) {
         possiblySepsisRow.classList.remove("display-table-row")
     }
-
 }
 
 function checkRedFlagFormAnswer() {
@@ -51,6 +42,26 @@ function checkRedFlagFormAnswer() {
     else if (redFlagCorrect.checked == true) {
         redFlagRow.classList.remove("display-table-row")
     }
+}
 
 
+function checkWoundDressingAnswer() {
+    
+    let woundDressingCorrect = document.getElementById('wound-dressing-form-correct')
+    let negativePressureRow = document.getElementById('negative-pressure-row')
+    let vacIdNumberRow = document.getElementById('vac-id-number-row')
+    let vacVolumeRow = document.getElementById('vac-volume-row')
+
+    if (woundDressingCorrect.checked == true) {
+        negativePressureRow.classList.add("display-table-row")
+        vacIdNumberRow.classList.add("display-table-row")
+        vacVolumeRow.classList.add("display-table-row")
+    }
+    else if (woundDressingCorrect.checked == false) {
+        negativePressureRow.classList.remove("display-table-row")
+        vacIdNumberRow.classList.remove("display-table-row")
+        vacVolumeRow.classList.remove("display-table-row")
+
+
+    }
 }

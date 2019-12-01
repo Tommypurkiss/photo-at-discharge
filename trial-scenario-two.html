@@ -342,7 +342,177 @@
                                 Red Flag sepsis! Start Sepsis 6 Pathway NOW TIME IS CRITICAL, IMMEDIATE ACTION IS REQUIRED
                             </td>
                         </tr>
-                        
+                        <tr>
+                            <th colspan="2" class="table-subheading">Photos</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Enter photo here?
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2" class="table-subheading">Management</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Consent
+                            </td>
+                            <td>
+                                <form action="" id="management-consent-form">
+                                    <input type="radio" name="foo"> Witnessed verbal consent for photo obtained <br>
+                                    <input type="radio" name="foo"> Verbal consent for photo obtained <br>
+                                    <input type="radio" name="foo" id="management-consent-correct"> Written consent obtained and placed in medical records <br>
+                                    <input type="radio" name="foo"> Consent gained from parent or guardian <br>
+                                    <input type="radio" name="foo"> Consent not possible <br>
+                                    <input type="radio" name="foo"> Level 2 consent (photo for teaching purposes) <br>
+                                    <input type="radio" name="foo"> Level 3 consent (photo for publication) <br>
+                                    <input type="radio" name="foo"> Safeguarding - action taken <br>
+                                    <input type="radio" name="foo"> Chaperone offered - patient declined <br>
+                                    <input type="radio" name="foo"> Chaperone offered and present <br>
+                                    <input type="radio" name="foo"> Interpreter present <br>
+
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Analgesia
+                            </td>
+                            <td>
+                                <form action="" id="analgesia-form">
+                                    <input type="radio" name="foo"> No <br>
+                                    <input type="radio" name="foo"> Simple analgesia +/- adjuvant <br>
+                                    <input type="radio" name="foo"> Weak opioid <br>
+                                    <input type="radio" name="foo"> Weak opioid + non-opioid +/- adjuvant <br>
+                                    <input type="radio" name="foo"> Strong opioid <br>
+                                    <input type="radio" name="foo"> Strong opioid + non-opiod +/- adjuvant <br>
+                                    <input type="radio" name="foo" id="analgesia-form-correct"> Patient declined <br>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Wound cleansing
+                            </td>
+                            <td>
+                                <form action="" id="wound-cleansing-form">
+                                    <input type="radio" name="foo" id="wound-cleansing-form-correct"> Cleaned aseptically with normal saline <br>
+                                    <input type="radio" name="foo"> Cleaned aseptically with povidone iodine aqueous solution <br>
+                                    <input type="radio" name="foo"> Wound bed not cleaned <br>
+                                    <input type="radio" name="foo"> Patient showered with dressing off prior to wound care <br>
+                                    <input type="radio" name="foo"> Other
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Wound Dressing
+                            </td>
+                            <td>
+                                <form action="" id="wound-dressing-form" onclick="checkWoundDressingAnswer()">
+                                    <input type="radio" name="foo"> No dressing required <br>
+                                    <input type="radio" name="foo"> Gentle border <br>
+                                    <input type="radio" name="foo"> Film dressing <br>
+                                    <input type="radio" name="foo"> Absorbent dressing <br>
+                                    <input type="radio" name="foo"> Antimicrobial dressing <br>
+                                    <input type="radio" name="foo" id="wound-dressing-form-correct"> Negative pressure therapy dressing
+                                </form>
+                            </td>
+                        </tr>
+                        <tr class="hidden" id="negative-pressure-row">
+                            <td>
+                                Status for negative pressure therapy
+                            </td>
+                            <td>    
+                                <form action="" id="negative-pressure-form">
+                                    <input type="radio" name="foo"> New <br>
+                                    <input type="radio" name="foo" id="negative-pressure-form-correct"> Therapy continued <br>
+                                    <input type="radio" name="foo"> Removed
+                                </form>
+                            </td>
+                        </tr>
+                        <tr class="hidden" id="vac-id-number-row">
+                            <td>
+                                5.1 VAC ID/number
+                            </td>
+                            <td>
+                                <input type="text" name="vac id number" id="vac-id-number-textbox" class="small-textbox" value="">
+                                <!-- Correct answer 123456 ? -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                5.2 Mode and intensity of VAC. DEFAULT
+                            </td>
+                            <td>
+                                125 /continuous
+                            </td>
+                        </tr>
+                        <tr class="hidden" id="vac-volume-row">
+                            <td>
+                                Alphanumeric
+                            </td>
+                            <td>
+                                <input type="text" name="alphanumeric" id="vac-volume-textbox" class="small-textbox" value=""> mls
+                                <!-- correct answer is 11 mls -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Referrals / escalation
+                            </td>
+                            <td>
+                                <form action="" id="referrals-form">
+                                    <input type="radio" name="foo"> Medic informed <br>
+                                    <input type="radio" name="foo" id="referrals-form-correct"> Referral to Tissue Viability Team <br>
+                                    <input type="radio" name="foo"> Referral to Pain Team <br>
+                                    <input type="radio" name="foo"> Referral to Dietician
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Date of wound sample
+                            </td>
+                            <td>
+                                <input type="date" class="date-picker" id="start-date" value=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Microbiology result
+                            </td>
+                            <td>
+                                <select name="" id="microbiology-dropdown" class="large-dropdown">
+                                    <option value="select">--select--</option>
+                                    <optgroup label="Code | Description"  >
+                                    <!-- <option value="" >
+                                        <li>
+                                            Code | 
+                                        </li>
+                                        <li>
+                                            Description
+                                        </li>
+                                    </option> -->
+                                    <option value="">
+                                        <li>
+
+                                        </li>
+                                        <li>
+
+                                        </li>
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Date of next planned review
+                            </td>
+                            <td>
+                                <input type="date" name="" class="date-picker" id="end-date" value="">
+                            </td>
+                        </tr>
                     </table>
                     <div class="div-filler"></div>
                 </div>
