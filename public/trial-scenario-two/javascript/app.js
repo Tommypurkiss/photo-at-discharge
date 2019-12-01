@@ -1,4 +1,7 @@
 
+let logo = document.getElementById('logo')
+
+
 function checkWoundTypeCorrect() {
     // make pressure ulcer row appear when the correct wound type radio answer is chosen 
     let woundTypeRadioCorrect = document.getElementById('wound-type-radio-correct') 
@@ -80,7 +83,12 @@ function generatePDF() {
     let options = {unit: 'px', format: 'a4'}
     let doc = new jsPDF(options)
     doc.setFontSize(14)
+    doc.text('WOUNDCARE1', doc.internal.pageSize.getWidth() / 2, 60, null, null, 'center');
 
+
+    doc.addImage(logo, 'JPEG', 330, 10, 100, 35.71);
+
+    doc.setFontSize(10)
     doc.text("test text", 20, 20)
 
     doc.save('WoundCare1.pdf')
