@@ -1,6 +1,15 @@
 
+let todaysDate = new Date()
+let day = String(todaysDate.getDate())
+let month = String(todaysDate.getMonth() + 1)
+let year = String(todaysDate.getFullYear())
+todaysDate = day + "/" + month + "/" + year
+console.log("todays date is: ", todaysDate)
+document.getElementById('todays-date').innerHTML = "Todays date: " + todaysDate
+
 let logo = document.getElementById('logo')
 
+let demoImg = document.getElementById('demo-img')
 
 function checkWoundTypeCorrect() {
     // make pressure ulcer row appear when the correct wound type radio answer is chosen 
@@ -20,22 +29,31 @@ function checkWoundTypeCorrect() {
     }
 }
 
-function checkWoundDescPyrexiaCorrect() {
+function checkWoundDescCorrect() {
 
     let woundDescPyrexiaCorrect = document.getElementById('wound-description-pyrexia-correct')
+    let woundDescSloughCorrect = document.getElementById('wound-description-slough-correct')
+    let woundDescOdourCorrect = document.getElementById('wound-description-odour-correct')
+
     let possiblySepsisRow = document.getElementById('possibly-sepsis-row')
+    let sepsisRedFlagRow = document.getElementById('sepsis-red-flag-row')
+
+    let sepsisSubheading = document.getElementById('sepsis-subheading')
 
     if(woundDescPyrexiaCorrect.checked == true) {
         possiblySepsisRow.classList.add("display-table-row")
+        sepsisSubheading.classList.add("display-table-heading")
+        sepsisRedFlagRow.classList.add("display-table-row")
     }
     else if (woundDescPyrexiaCorrect.checked == false) {
         possiblySepsisRow.classList.remove("display-table-row")
+        sepsisSubheading.classList.remove("display-table-heading")
+        sepsisRedFlagRow.classList.remove("display-table-row")
     }
 }
 
 function checkRedFlagFormAnswer() {
 
-    let redFlagForm = document.getElementById('red-flag-form')
     let redFlagCorrect = document.getElementById('red-flag-correct')
     let redFlagRow = document.getElementById('red-flag-row')
 
@@ -90,6 +108,9 @@ function generatePDF() {
 
     doc.setFontSize(10)
     doc.text("test text", 20, 20)
+
+    doc.addImage(demoImg, 'JPEG', 280, 100, 150, 300);
+
 
     doc.save('WoundCare1.pdf')
 }

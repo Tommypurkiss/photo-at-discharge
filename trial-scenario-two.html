@@ -76,7 +76,7 @@
                 </h1>
                 <p>
                     Today you are the nurse on Maple ward caring for Mr Stark's patient, Mrs Francine Olay who is in bed 6. Mrs Olay is receiving Negative Pressure Wound Therapy (NPWT) for a Category III pressure ulcer on her sacrum.
-                    She already had the pressure ulcer when she was admitted to hospital and overall, the wound looks like it is improving with some slough and odour present.
+                    She already had the pressure ulcer when she was admitted to hospital and overall, the wound looks like it is improving with some slough and odour present. The swab result from yesterday show it is culture positive for Escherichia coli.
                 </p>  
                 <p>
                     After obtaining appropriate consent, you take a photograph of Mrs Olay's pressure ulcer. She has a temperature of 38&deg;C, but is otherwise well, with normal blood results and observations.
@@ -107,7 +107,8 @@
                             <td>
                                 Name: Mrs Francine Olay <br>
                                 NHS Number: 242 330 303 <br>
-                                DOB: 20/12/1969
+                                DOB: 20/12/1969 <br>
+                                <span id="todays-date"></span>
                             </td>
                         </tr>
                         <tr>
@@ -265,24 +266,24 @@
                                 Wound description 
                             </td>
                             <td>
-                                <form action="" id="wound-description-form" onclick="checkWoundDescPyrexiaCorrect()" >
-                                    <input type="radio" name="foo" value="Disolouration" > Disolouration <br>
-                                    <input type="radio" name="foo" value="Red" > Red <br>
-                                    <input type="radio" name="foo" value="Radiating Heat" > Radiating Heat <br>
-                                    <input type="radio" name="foo" value="Swollen" > Swollen <br>
-                                    <input type="radio" name="foo" value="Painful" > Painful <br>
-                                    <input type="radio" name="foo" value="Dehiscence" > Dehiscence <br>
-                                    <input type="radio" name="foo" value="Sinus" > Sinus <br>
-                                    <input type="radio" name="foo" value="Slough" > Slough <br>
-                                    <input type="radio" name="foo" value="Necrotic tissue" > Necrotic tissue <br>
-                                    <input type="radio" name="foo" value="Pyrexia (>38&deg;C)" id="wound-description-pyrexia-correct"> Pyrexia (>38&deg;C) <br>
-                                    <input type="radio" name="foo" value="Eschar" > Eschar <br>
-                                    <input type="radio" name="foo" value="Odour" > Odour <br>
-                                    <input type="radio" name="foo" value="Induration" > Induration <br>
-                                    <input type="radio" name="foo" value="Sucking noise" > Sucking noise <br>
-                                    <input type="radio" name="foo" value="Clicking noise" > Clicking noise <br>
-                                    <input type="radio" name="foo" value="Not able to assess" > Not able to assess <br>
-                                    <input type="radio" name="foo" value="Other" > Other <br>
+                                <form action="" id="wound-description-form" onclick="checkWoundDescCorrect()" >
+                                    <input type="checkbox" name="foo" value="Disolouration" > Disolouration <br>
+                                    <input type="checkbox" name="foo" value="Red" > Red <br>
+                                    <input type="checkbox" name="foo" value="Radiating Heat" > Radiating Heat <br>
+                                    <input type="checkbox" name="foo" value="Swollen" > Swollen <br>
+                                    <input type="checkbox" name="foo" value="Painful" > Painful <br>
+                                    <input type="checkbox" name="foo" value="Dehiscence" > Dehiscence <br>
+                                    <input type="checkbox" name="foo" value="Sinus" > Sinus <br>
+                                    <input type="checkbox" name="foo" value="Slough" id="wound-description-slough-correct"> Slough <br>
+                                    <input type="checkbox" name="foo" value="Necrotic tissue" > Necrotic tissue <br>
+                                    <input type="checkbox" name="foo" value="Pyrexia (>38&deg;C)" id="wound-description-pyrexia-correct"> Pyrexia (>38&deg;C) <br>
+                                    <input type="checkbox" name="foo" value="Eschar" > Eschar <br>
+                                    <input type="checkbox" name="foo" value="Odour"  id="wound-description-odour-correct"> Odour <br>
+                                    <input type="checkbox" name="foo" value="Induration" > Induration <br>
+                                    <input type="checkbox" name="foo" value="Sucking noise" > Sucking noise <br>
+                                    <input type="checkbox" name="foo" value="Clicking noise" > Clicking noise <br>
+                                    <input type="checkbox" name="foo" value="Not able to assess" > Not able to assess <br>
+                                    <input type="checkbox" name="foo" value="Other" > Other <br>
                                 </form> 
                             </td>
                         </tr>
@@ -302,7 +303,7 @@
                         </tr>
 
                         <tr>
-                            <th colspan="2" class="table-subheading">Sepsis Assessment</th>
+                            <th colspan="2" class="table-subheading hidden" id="sepsis-subheading">Sepsis Assessment</th>
                         </tr>
                         <tr class="hidden" id="possibly-sepsis-row">
                             <td>
@@ -318,7 +319,7 @@
                                 </select>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="hidden" id="sepsis-red-flag-row">
                             <td>
                                 Is ONE Red Flag present?
                             </td>
@@ -333,7 +334,7 @@
                                     <input type="radio" name="foo" value="Not passed urine in the last 18 h/UO"> Not passed urine in the last 18 h/UO <0.5ml/kg/hr <br>
                                     <input type="radio" name="foo" value="Lactate >2mmol/L"> Lactate >2mmol/L <br>
                                     <input type="radio" name="foo" value="Recent chemotherapy"> Recent chemotherapy <br>
-                                    <input type="radio" name="foo" value="N/A or No Red flags present" id="red-flag-correct"> N/A or No Red flags present <br>
+                                    <input type="radio" name="foo" value="N/A or No Red flags present" id="red-flag-correct"> No Red flags present <br>
                                 </form>
                             </td>
                         </tr>
@@ -348,6 +349,7 @@
                         <tr>
                             <td colspan="2">
                                 Enter photo here?
+                                <img src="./public/assets/img/demo/custom.jpg" id="demo-img" alt="" srcset="" class="hidden">
                             </td>
                         </tr>
                         <tr>
@@ -457,7 +459,7 @@
                                 <!-- correct answer is 11 mls -->
                             </td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>
                                 Referrals / escalation
                             </td>
@@ -469,7 +471,7 @@
                                     <input type="radio" name="foo" value="Referral to Dietician"> Referral to Dietician
                                 </form>
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td>
                                 Date of wound sample

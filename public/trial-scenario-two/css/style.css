@@ -52,6 +52,10 @@ nav .nav-logo img {
   display: table-row;
 }
 
+.main-content-wrapper .display-table-heading {
+  display: table-cell;
+}
+
 .main-content-wrapper .div-filler {
   height: 80px;
   width: 100%;
