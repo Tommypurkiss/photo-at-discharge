@@ -117,8 +117,8 @@
                             </td>
                             <td>
                                 <select name="" id="consultant-dropdown" class="small-dropdown">
-                                    <option value="Mr T Stark">Mr T Stark</option>
-                                    <option value="Ms C Halsey" id="consultant-correct">Ms C Halsey</option>
+                                    <option value="Mr T Stark" id="consultant-correct">Mr T Stark</option>
+                                    <option value="Ms C Halsey">Ms C Halsey</option>
                                     <option value="Mr A Johnson">Mr A Johnson</option>
                                     <option value="Ms M Keyes">Ms M Keyes</option>
                                     <option value="Mr E Buck">Mr E Buck</option>
@@ -153,7 +153,7 @@
                                 Bed number
                             </td>
                             <td>
-                                <input type="text" name="bed number" id="bed-number" class="small-textbox" value="">
+                                <input type="number" name="bed number" id="bed-number" class="small-textbox" value="">
                                 <!-- correct number is 6 -->
                             </td>
                         </tr>
@@ -192,7 +192,7 @@
                             </td>
                             <td>
                                 <select name="Pressure Ulcer Grade" id="pressure-ulcer-dropdown" class="small-dropdown">
-                                    <option value="select">--select--</option>
+                                    <!-- <option value="select">--select--</option> -->
                                     <option value="Stage I">Stage I</option>
                                     <option value="Stage II">Stage II</option>
                                     <option value="Stage III" id="pressure-ulcer-dropdown-correct">Stage III</option>
@@ -208,7 +208,7 @@
                             </td>
                             <td>
                                 <select name="Occurence" id="occurence-dropdown" class="small-dropdown">
-                                    <option value="select">--select--</option>
+                                    <!-- <option value="select">--select--</option> -->
                                     <option value="Admitted with" id="occurence-dropdown-correct">Admitted with</option>
                                     <option value="Hosptial Acquired">Hosptial Acquired</option>
                                     <option value="Home/Nursing Home onset">Home/Nursing Home onset</option>
@@ -222,7 +222,7 @@
                             </td>
                             <td>
                                 <select name="Body Location" id="body-location-dropdown" class="small-dropdown">
-                                    <option value="select">--select--</option>
+                                    <!-- <option value="select">--select--</option> -->
                                     <option value="Abdomen">Abdomen</option>
                                     <option value="Ankle">Ankle</option>
                                     <option value="Arm">Arm</option>
@@ -267,23 +267,23 @@
                             </td>
                             <td>
                                 <form action="" id="wound-description-form" onclick="checkWoundDescCorrect()" >
-                                    <input type="checkbox" name="foo" value="Disolouration" > Disolouration <br>
-                                    <input type="checkbox" name="foo" value="Red" > Red <br>
-                                    <input type="checkbox" name="foo" value="Radiating Heat" > Radiating Heat <br>
-                                    <input type="checkbox" name="foo" value="Swollen" > Swollen <br>
-                                    <input type="checkbox" name="foo" value="Painful" > Painful <br>
-                                    <input type="checkbox" name="foo" value="Dehiscence" > Dehiscence <br>
-                                    <input type="checkbox" name="foo" value="Sinus" > Sinus <br>
-                                    <input type="checkbox" name="foo" value="Slough" id="wound-description-slough-correct"> Slough <br>
-                                    <input type="checkbox" name="foo" value="Necrotic tissue" > Necrotic tissue <br>
-                                    <input type="checkbox" name="foo" value="Pyrexia (>38&deg;C)" id="wound-description-pyrexia-correct"> Pyrexia (>38&deg;C) <br>
-                                    <input type="checkbox" name="foo" value="Eschar" > Eschar <br>
-                                    <input type="checkbox" name="foo" value="Odour"  id="wound-description-odour-correct"> Odour <br>
-                                    <input type="checkbox" name="foo" value="Induration" > Induration <br>
-                                    <input type="checkbox" name="foo" value="Sucking noise" > Sucking noise <br>
-                                    <input type="checkbox" name="foo" value="Clicking noise" > Clicking noise <br>
-                                    <input type="checkbox" name="foo" value="Not able to assess" > Not able to assess <br>
-                                    <input type="checkbox" name="foo" value="Other" > Other <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Disolouration" > Disolouration <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Red" > Red <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Radiating Heat" > Radiating Heat <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Swollen" > Swollen <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Painful" > Painful <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Dehiscence" > Dehiscence <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Sinus" > Sinus <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Slough" id="wound-description-slough-correct"> Slough <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Necrotic tissue" > Necrotic tissue <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Pyrexia (>38&deg;C)" id="wound-description-pyrexia-correct"> Pyrexia (>38&deg;C) <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Eschar" > Eschar <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Odour"  id="wound-description-odour-correct"> Odour <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Induration" > Induration <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Sucking noise" > Sucking noise <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Clicking noise" > Clicking noise <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Not able to assess" > Not able to assess <br>
+                                    <input type="checkbox" name="wound-checkbox" value="Other" > Other <br>
                                 </form> 
                             </td>
                         </tr>
@@ -907,8 +907,42 @@
         </div>
         <!-- ^ end main content -->
     
+
+    <!-- hidden pdf -->
+    <div class="hidden-pdf hidden" style="padding: 0px; font-size: 14px!important;">
+
+        <div class="pdf-wound-assessment" id="pdf-wound-assessment" >
+            <p >
+                <b>Wound Assessment</b>
+            </p>
+            <p>
+                Wound type: <span id="pdf-wound-type-answer"></span>
+            </p>
+            <!-- if pressure ulcer chosen -->
+            <p class="hidden" id="pdf-p-pressure-ulcer">
+                Pressure Ulcer Grade: <span id="pdf-pressure-ulcer-grade-answer"></span>
+            </p>
+            <p class="hidden" id="pdf-p-occurence">
+                Occurence: <span id="pdf-occurence-answer"></span>
+            </p>
+            <p>
+                Body Location: <span id="pdf-body-location-answer"></span>
+            </p>
+            <p>
+                Wound Description: <span id="pdf-wound-description-answer"></span>
+            </p>
+            <p>
+                Exudate: <span id="pdf-exudate-answer"></span>
+            </p>
+        </div>
+
+    </div>
+    <!-- end hidden pdf -->
+
     </div> 
     <!-- ^ end main content wrapper -->
+
+    
 
 
     <script async defer src="./public/trial-scenario-two/javascript/app.js"></script>

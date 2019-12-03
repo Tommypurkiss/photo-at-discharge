@@ -48,6 +48,10 @@ nav .nav-logo img {
   display: none;
 }
 
+.main-content-wrapper .display-block {
+  display: block;
+}
+
 .main-content-wrapper .display-table-row {
   display: table-row;
 }
