@@ -79,10 +79,10 @@
                     She already had the pressure ulcer when she was admitted to hospital and overall, the wound looks like it is improving with some slough and odour present. The swab result from yesterday show it is culture positive for Escherichia coli.
                 </p>  
                 <p>
-                    After obtaining appropriate consent, you take a photograph of Mrs Olay's pressure ulcer. She has a temperature of 38&deg;C, but is otherwise well, with normal blood results and observations.
+                    After obtaining appropriate written consent, you take a photograph of Mrs Olay's pressure ulcer. She has a temperature of 38&deg;C, but is otherwise well, with normal blood results and observations, and no further red flags present.
                 </p>
                 <p>
-                    Mrs Olay says she doesn't need a pain killer for changing the NPWT dressing. After cleaning the wound, you apply NPWT unit number 12345 at 125mmHg on intermittent therapy. Over the last 24 hours, the cannister has drained 110mls of serous exudate. The date of next wound review is in three days.
+                    Mrs Olay says she doesn't need a pain killer for changing the NPWT dressing. After cleaning the wound with normal saline, you apply NPWT unit number 12345 at 125mmHg on intermittent therapy. Over the last 24 hours, the cannister has drained 11mls of serous exudate. The date of next wound review is in three days.
                 </p>
                 <!-- <br> Please click on Generate Form (blue link at the bottom of the page) once you are finished. -->
             </div>
@@ -310,13 +310,20 @@
                                 Is this Possibly SEPSIS? And/or does the patient look sick? OR has NEWS (or similar) triggered?
                             </td>
                             <td>
-                                <select name="Possibly sepsis" id="possibly-sepsis-dropdown" class="small-dropdown">
+                                <!-- <select name="Possibly sepsis" id="possibly-sepsis-dropdown" class="small-dropdown" >
                                     <option value="select">--select--</option>
-                                    <option value="Yes">Yes</option> <!-- correct -->
-                                    <option value="No">No</option> <!-- correct -->
+                                    <option value="Yes" id="sepsis-yes">Yes</option>
+                                    <option value="No" id="sepsis-no">No</option> 
                                     <option value="Unsure">Unsure</option>
                                     <option value="Known / treatment">Known / treatment</option>
-                                </select>
+                                </select> -->
+                                <form action="" id="possibly-sepsis-form" onclick="checkPossiblySepsis()">
+                                    <input type="radio" name="possep" id="possibly-sepsis-yes" value="Yes"> Yes <br>
+                                    <input type="radio" name="possep" id="possibly-sepsis-no" value="No"> No <br>
+                                    <input type="radio" name="possep" id="possibly-sepsis-unsure" value="Unsure"> Unsure <br>
+                                    <input type="radio" name="possep" id="possibly-sepsis-treatment" value="Known / treatment"> Known / treatment 
+
+                                </form>
                             </td>
                         </tr>
                         <tr class="hidden" id="sepsis-red-flag-row">
@@ -325,16 +332,16 @@
                             </td>
                             <td>
                                 <form action="" id="red-flag-form" onclick="checkRedFlagFormAnswer()">
-                                    <input type="radio" name="foo" value="Responds only to voice or pain/unresponsive"> Responds only to voice or pain/unresponsive <br>
-                                    <input type="radio" name="foo" value="Systolic BP <=90mmHg (or drop >40 from normal)"> Systolic BP <=90mmHg (or drop >40 from normal) <br>
-                                    <input type="radio" name="foo" value="Heart rate >130 beats per minute"> Heart rate >130 beats per minute <br>
-                                    <input type="radio" name="foo" value="Respiratory rate >25 per minute"> Respiratory rate >25 per minute <br>
-                                    <input type="radio" name="foo" value="Need oxygen to keep SpO2 > 92%"> Need oxygen to keep SpO2 > 92% <br>
-                                    <input type="radio" name="foo" value="Non-blanching rash; mottled/ashen/cyanotic"> Non-blanching rash; mottled/ashen/cyanotic <br>
-                                    <input type="radio" name="foo" value="Not passed urine in the last 18 h/UO"> Not passed urine in the last 18 h/UO <0.5ml/kg/hr <br>
-                                    <input type="radio" name="foo" value="Lactate >2mmol/L"> Lactate >2mmol/L <br>
-                                    <input type="radio" name="foo" value="Recent chemotherapy"> Recent chemotherapy <br>
-                                    <input type="radio" name="foo" value="N/A or No Red flags present" id="red-flag-correct"> No Red flags present <br>
+                                    <input type="radio" name="sepred" value="Responds only to voice or pain/unresponsive"> Responds only to voice or pain/unresponsive <br>
+                                    <input type="radio" name="sepred" value="Systolic BP <=90mmHg (or drop >40 from normal)"> Systolic BP <=90mmHg (or drop >40 from normal) <br>
+                                    <input type="radio" name="sepred" value="Heart rate >130 beats per minute"> Heart rate >130 beats per minute <br>
+                                    <input type="radio" name="sepred" value="Respiratory rate >25 per minute"> Respiratory rate >25 per minute <br>
+                                    <input type="radio" name="sepred" value="Need oxygen to keep SpO2 > 92%"> Need oxygen to keep SpO2 > 92% <br>
+                                    <input type="radio" name="sepred" value="Non-blanching rash; mottled/ashen/cyanotic"> Non-blanching rash; mottled/ashen/cyanotic <br>
+                                    <input type="radio" name="sepred" value="Not passed urine in the last 18 h/UO"> Not passed urine in the last 18 h/UO <0.5ml/kg/hr <br>
+                                    <input type="radio" name="sepred" value="Lactate >2mmol/L"> Lactate >2mmol/L <br>
+                                    <input type="radio" name="sepred" value="Recent chemotherapy"> Recent chemotherapy <br>
+                                    <input type="radio" name="sepred" value="N/A or No Red flags present" id="red-flag-correct"> No Red flags present <br>
                                 </form>
                             </td>
                         </tr>
@@ -348,7 +355,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                Enter photo here?
+                                Photo Section
                                 <img src="./public/assets/img/demo/custom.jpg" id="demo-img" alt="" srcset="" class="hidden">
                             </td>
                         </tr>
@@ -442,7 +449,7 @@
                                 <!-- Correct answer 123456 ? -->
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="hidden" id="vac-intensity-row">
                             <td>
                                 5.2 Mode and intensity of VAC. DEFAULT
                             </td>
@@ -477,7 +484,7 @@
                                 Date of wound sample
                             </td>
                             <td>
-                                <input type="date" class="date-picker" id="start-date" value=""/>
+                                <input type="date" class="date-picker" id="wound-sample-date" value=""/>
                             </td>
                         </tr>
                         <tr>
@@ -891,7 +898,7 @@
                                 Date of next planned review
                             </td>
                             <td>
-                                <input type="date" name="" class="date-picker" id="end-date" value="">
+                                <input type="date" name="" class="date-picker" id="next-review-date" value="">
                             </td>
                         </tr>
                     </table>
@@ -935,6 +942,66 @@
                 Exudate: <span id="pdf-exudate-answer"></span>
             </p>
         </div>
+        <div class="pdf-sepsis" id="pdf-sepsis">
+            <p>
+                <b>Sepsis</b>
+
+            </p>
+            <p>
+                Is this Possibly SEPSIS? And/or does the patient look sick? OR has NEWS 
+                (or similar) triggered? <span id="pdf-possibly-sepsis-answer"></span>
+            </p>
+            <p class="hidden" id="p-pdf-red-flag">
+                    <span id="pdf-red-flag-answer"></span>
+                <!-- Is a red flag present? <span id="pdf-red-flag-answer"></span> -->
+            </p>
+
+        </div>
+        <div class="pdf-management" id="pdf-management">
+            <p>
+                <b>Management</b>
+            </p>
+            <p>
+                Consent: <span id="pdf-management-consent-answer"></span>
+            </p>
+            <p>
+                Analgesia: <span id="pdf-management-analgesia-answer"></span>
+            </p>
+            <p>
+                Wound cleansing: <span id="pdf-management-wound-cleansing-answer"></span>
+            </p>
+            <p>
+                Wound dressing: <span id="pdf-management-wound-dressing-answer"></span>
+            </p>
+            <p>
+                Status for NPT: <span id="pdf-management-status-npt-answer"></span>
+            </p>
+            <p>
+                VAC ID/Number: <span id="pdf-management-vac-id-answer"></span>
+            </p>
+            <p>
+                Mode and intensity of VAC: 125 /continuous <span id="pdf-management-vac-mode-answer"></span>
+            </p>
+            <p>
+                VAC volume from previous 24hr: <span id="pdf-management-vac-vol-answer"></span> mls
+            </p>
+            <p>
+                Date of wound sample: <span id="pdf-management-wound-sample-date-answer"></span>
+            </p>
+            <p>
+                Microbiology result: <span id="pdf-management-microbiology-answer"></span>
+            </p>
+            <p>
+                Date of next planned review: <span id="pdf-management-next-review-date-answer"></span>
+            </p>
+            <br>
+            <p>
+                Negative Pressure Therapy - Local Procedure
+            </p>
+
+
+        </div>
+
 
     </div>
     <!-- end hidden pdf -->

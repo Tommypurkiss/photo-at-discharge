@@ -8,6 +8,27 @@ todaysDate = day + "/" + month + "/" + year
 console.log("todays date is: ", todaysDate)
 document.getElementById('todays-date').innerHTML = "Todays date: " + todaysDate
 
+
+
+
+
+
+// yesterdays date 
+let yesterdaysDate = new Date()
+yesterdaysDate = ((day) - 1) + "/" + month + "/" + year
+console.log("yesterdays date is: ",yesterdaysDate)
+
+
+
+// date planned next review
+let threeDays = 1
+let nextReviewDateTime = new Date()
+nextReviewDateTime.setDate(nextReviewDateTime.getDate() + threeDays * 3)
+let nextReviewDateFormatted = nextReviewDateTime.getDate() + "/" + (nextReviewDateTime.getMonth() + 1) + "/" + nextReviewDateTime.getFullYear()
+console.log("3 days time removal date: ", nextReviewDateFormatted)
+
+
+
 // Images 
 let logo = document.getElementById('logo')
 let demoImg = document.getElementById('demo-img')
@@ -68,7 +89,7 @@ function checkWoundDescCorrect() {
     if(woundDescPyrexiaCorrect.checked == true) {
         possiblySepsisRow.classList.add("display-table-row")
         sepsisSubheading.classList.add("display-table-heading")
-        sepsisRedFlagRow.classList.add("display-table-row")
+        //sepsisRedFlagRow.classList.add("display-table-row")
     }
     else if (woundDescPyrexiaCorrect.checked == false) {
         possiblySepsisRow.classList.remove("display-table-row")
@@ -77,6 +98,51 @@ function checkWoundDescCorrect() {
         redFlagRow.classList.remove("display-table-row")
     }
 }
+
+
+let possiblySepsisForm = document.getElementById('possibly-sepsis-form')
+
+function checkPossiblySepsis() {
+    
+    if (document.getElementById('possibly-sepsis-yes').checked == true) {
+        sepsisRedFlagRow.classList.add("display-table-row")
+        
+    }
+    else if (document.getElementById('possibly-sepsis-no').checked == true) {
+        //document.querySelector('input[name="sepred"]:checked').checked == false;
+        sepsisRedFlagRow.classList.remove("display-table-row")
+        //document.getElementById('red-flag-form').checked == false
+        // sepsisRedFlagValue = document.querySelector('input[name="sepred"]:checked').checked == false;
+
+    }
+    else if (document.getElementById('possibly-sepsis-unsure').checked == true) {
+        sepsisRedFlagRow.classList.add("display-table-row")
+    }
+    else if (document.getElementById('possibly-sepsis-treatment').checked == true) {
+        //document.querySelector('input[name="sepred"]:checked').checked == false;
+        sepsisRedFlagRow.classList.remove("display-table-row")
+        // sepsisRedFlagValue = document.querySelector('input[name="sepred"]:checked').checked == false;
+
+        //document.getElementById('red-flag-form').checked == false
+    }
+}
+
+//let possiblySepsisForm = document.getElementById('possibly-sepsis-form').value
+
+// let posSepForm = document.getElementsByName('possep');
+
+
+// for (var i = 0, length = posSepForm.length; i < length; i++)
+// {
+//  if (posSepForm[i].checked)
+//  {
+//   // do whatever you want with the checked radio
+//   alert(posSepForm[i].value);
+
+//   // only one radio can be logically checked, don't check the rest
+//   break;
+//  }
+// }
 
 
 
@@ -98,6 +164,7 @@ function checkRedFlagFormAnswer() {
 let woundDressingCorrect = document.getElementById('wound-dressing-form-correct')
 let negativePressureRow = document.getElementById('negative-pressure-row')
 let vacIdNumberRow = document.getElementById('vac-id-number-row')
+let vacIntensityRow = document.getElementById('vac-intensity-row')
 let vacVolumeRow = document.getElementById('vac-volume-row')
 
 function checkWoundDressingAnswer() {
@@ -105,11 +172,13 @@ function checkWoundDressingAnswer() {
     if (woundDressingCorrect.checked == true) {
         negativePressureRow.classList.add("display-table-row")
         vacIdNumberRow.classList.add("display-table-row")
+        vacIntensityRow.classList.add("display-table-row")
         vacVolumeRow.classList.add("display-table-row")
     }
     else if (woundDressingCorrect.checked == false) {
         negativePressureRow.classList.remove("display-table-row")
         vacIdNumberRow.classList.remove("display-table-row")
+        vacIntensityRow.classList.remove("display-table-row")
         vacVolumeRow.classList.remove("display-table-row")
     }
 }
@@ -118,14 +187,48 @@ function checkWoundDressingAnswer() {
 
 
 let exudateFormRadioCorrect = document.getElementById('exudate-form-serous-correct')
-
 function setExudateValue() {
     if (exudateFormRadioCorrect.checked == true) {
         exudateFormRadioCorrectValue = exudateFormRadioCorrect.value
     }
 }
 
+let managementConsentCorrect = document.getElementById('management-consent-correct')
+function setConsentValue() {
+    if(managementConsentCorrect.checked == true) {
+        managementConsentCorrectValue = managementConsentCorrect.value
+    }
+}
 
+let analgesiaFormCorrect = document.getElementById('analgesia-form-correct')
+function setAnalgesiaCorrect() {
+    if(analgesiaFormCorrect.checked == true) {
+        analgesiaFormCorrectValue = analgesiaFormCorrect.value
+    }
+}
+
+let woundCleansingFormCorrect = document.getElementById('wound-cleansing-form-correct')
+function setWoundCleansingCorrect() {
+    if(woundCleansingFormCorrect.checked == true) {
+        woundCleansingFormCorrectValue = woundCleansingFormCorrect.value
+    }
+}
+
+
+let woundDressingFormCorrect = document.getElementById("wound-dressing-form-correct")
+function setWoundDressingCorrect() {
+    if(woundDressingFormCorrect.checked == true) {
+        woundDressingFormCorrectValue = woundDressingFormCorrect.value
+    }
+}
+
+
+let negativePressureFormCorrect = document.getElementById('negative-pressure-form-correct')
+function setNegativePressureFormCorrect() {
+    if(negativePressureFormCorrect.checked == true) {
+        negativePressureFormCorrectValue = negativePressureFormCorrect.value
+    }
+}
 
 
 
@@ -135,6 +238,32 @@ function generatePDF() {
     // functions
     setWoundTypeValue()
     setExudateValue()
+    setConsentValue()
+    setAnalgesiaCorrect()
+    setWoundCleansingCorrect()
+    setWoundDressingCorrect()
+    setNegativePressureFormCorrect()
+    checkPossiblySepsis()
+
+
+    // date wound sample
+    let woundSampleDate = new Date(document.getElementById('wound-sample-date').value)
+    let dd = String(woundSampleDate.getDate())
+    let mm = String(woundSampleDate.getMonth() + 1) //January is 0!
+    let yyyy = woundSampleDate.getFullYear();
+    woundSampleDate = dd + '/' + mm + '/' + yyyy;
+    console.log("wound sample date is: ", woundSampleDate)
+
+    // next review date
+
+    let nextReviewDate = new Date(document.getElementById('next-review-date').value);
+    let dd2 = String(nextReviewDate.getDate())
+    let mm2 = String(nextReviewDate.getMonth() + 1) //January is 0!
+    let yyyy2 = nextReviewDate.getFullYear();
+    
+    nextReviewDate = dd2 + '/' + mm2 + '/' + yyyy2;
+    console.log("Removal  Date is: ", nextReviewDate)
+
 
     // vars  
 
@@ -173,60 +302,40 @@ function generatePDF() {
     let woundDescriptionCheckboxCorrect = woundDescriptionCheckboxSlough && woundDescriptionCheckboxPyrexia && woundDescriptionCheckboxOdour
 
 
-    // if (woundDescriptionCheckbox.checked == woundDescriptionCheckboxCorrect) {
-    //     woundDescriptionCheckboxValue == woundDescriptionCheckboxCorrect.value
-    // }
-
-
     for (var i=0, n=woundDescriptionCheckbox.length;i<n;i++) {
         if (woundDescriptionCheckbox[i].checked) {
-            // alert("No additional resources should be checked at this time.")
 
-            woundDescriptionCheckboxValue += ","+ woundDescriptionCheckbox[i].value;
+            woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
             console.log("vals value?", woundDescriptionCheckboxValue)
 
-            // // return false
-            // return;
         }
-
-        // if ((woundDescriptionCheckboxSlough && woundDescriptionCheckboxPyrexia && woundDescriptionCheckboxOdour).checked) {
-        //     // alert("No additional resources should be checked at this time.")
-
-        //     woundDescriptionCheckboxValue += ","+ woundDescriptionCheckboxSlough && woundDescriptionCheckboxPyrexia && woundDescriptionCheckboxOdour.value;
-        //     console.log("vals value?", woundDescriptionCheckboxValue)
-
-        //     // // return false
-        //     // return;
-        // }
-
-
-    //     if (woundDescriptionCheckbox[i].checked == woundDescriptionCheckboxCorrect) {
-    //         // alert("No additional resources should be checked at this time.")
-
-    //         woundDescriptionCheckboxValue +=  woundDescriptionCheckboxCorrect.value;
-    //         console.log("vals value?", woundDescriptionCheckboxValue)
-
-    //         // // return false
-    //         // return;
-    //     }
 
     }
     if (woundDescriptionCheckboxValue) woundDescriptionCheckboxValue = woundDescriptionCheckboxValue.substring(1);
-
-    // else if (woundDescriptionCheckboxValue == "") {
-    //     //woundDescriptionCheckboxValue = "No additional resources."
-    //     alert("check the correct wound description options")
-        
-    //     console.log("vals != value",woundDescriptionCheckboxValue)
-    // }
 
 
     
     //let exudateFormRadio = document.getElementById('exudate-form')
 
+    let vacIdNumberTextbox = document.getElementById('vac-id-number-textbox').value
 
+    let vacVolumeTextbox = document.getElementById('vac-volume-textbox').value
+    
+    let microbiologyDropdown = document.getElementById('microbiology-dropdown').value
+    
 
+    let possiblySepsisValue = document.querySelector('input[name="possep"]:checked').value;
+    console.log("possiblySepsisValue is:", possiblySepsisValue.value)    
+    if (possiblySepsisValue == null) {
+        console.log("not checked")
+        //document.getElementById('p-pdf-red-flag').classList.add("hidden")
+    }
+    // if (possiblySepsisValue == "No") {
+    //     document.getElementById('p-pdf-red-flag').classList.add("hidden")
+    // }
 
+    sepsisRedFlagValue = document.querySelector('input[name="sepred"]:checked').value;
+    
     // pdf wound assessment
     let pdfWoundAssessment = document.getElementById('pdf-wound-assessment')
     console.log("pdf wound assessment value is: ", pdfWoundAssessment)
@@ -251,6 +360,60 @@ function generatePDF() {
     console.log("pdf exudate answer is: ", pdfExudateAnswer)
     // pdf wound assessment end
 
+    // sepsis
+
+    let pdfPossiblySepsisAnswer = document.getElementById('pdf-possibly-sepsis-answer')
+    let pdfRedFlagAnswer = document.getElementById('pdf-red-flag-answer')
+    
+    // sepsis end
+
+    // pdf management
+    let pdfManagement = document.getElementById('pdf-management')
+    console.log("pdfManagement: ", pdfManagement)
+
+    // pdf management consent answer
+    let pdfManagementConsentAnswer = document.getElementById('pdf-management-consent-answer')
+    console.log("pdf management consent answer is: ", pdfManagementConsentAnswer)
+
+    // pdf management analgesia answer
+    let pdfManagementAnalgesiaAnswer = document.getElementById('pdf-management-analgesia-answer')
+    console.log("pdf management analgesia answer is: ", pdfManagementAnalgesiaAnswer)
+
+    // pdf management wound cleansing answer
+    let pdfManagementWoundCleansingAnswer = document.getElementById('pdf-management-wound-cleansing-answer')
+    console.log("pdf management wound cleansing answer is: ", pdfManagementWoundCleansingAnswer)
+
+    // pdf management wound dressing answer
+    let pdfManagementWoundDressingAnswer = document.getElementById('pdf-management-wound-dressing-answer')
+    console.log("pdf management wound dressing answer is: ", pdfManagementWoundDressingAnswer)
+
+    // pdf management status npt answer
+    let pdfManagementStatusNptAnswer = document.getElementById('pdf-management-status-npt-answer')
+    console.log("pdf management status npt answer is: ", pdfManagementStatusNptAnswer)
+
+    // pdf management vac id answer
+    let pdfManagementVacIdAnswer = document.getElementById('pdf-management-vac-id-answer')
+    console.log("pdf management vac id answer is: ", pdfManagementVacIdAnswer)
+
+    // pdf management vac mode answer
+    let pdfManagementVacModeAnswer = document.getElementById('pdf-management-vac-mode-answer')
+    console.log("pdf management vac mode answer is: ", pdfManagementVacModeAnswer)
+
+    // pdf management vac vol answer
+    let pdfManagementVacVolAnswer = document.getElementById('pdf-management-vac-vol-answer')
+    console.log("pdf management vac vol answer is: ", pdfManagementVacVolAnswer)
+
+    // pdf management wound sample date answer 
+    let pdfManagementWoundSampleDateAnswer = document.getElementById('pdf-management-wound-sample-date-answer')
+    console.log("pdf management wound sample date answer is: ", pdfManagementWoundSampleDateAnswer)
+
+    // pdf management microbiology answer
+    let pdfManagementMicrobiologyAnswer = document.getElementById('pdf-management-microbiology-answer')
+    console.log("pdf management microbiology answer is: ", pdfManagementMicrobiologyAnswer)
+
+    // pdf management next review date answer
+    let pdfManagementNextReviewDateAnswer = document.getElementById('pdf-management-next-review-date-answer')
+    console.log("pdf management next review date answer is: ", pdfManagementNextReviewDateAnswer)
 
 
 
@@ -284,9 +447,6 @@ function generatePDF() {
         alert("Mrs Olay Ulcer is located on her Sacrum, please make sure you have selected the correct option")
     }
     
-    // else if (pdfWoundDescriptionAnswer != ) {
-
-    // }
 
     else if (woundDescriptionCheckboxValue == "") {
         //woundDescriptionCheckboxValue = "No additional resources."
@@ -294,11 +454,59 @@ function generatePDF() {
         
         console.log("vals != value",woundDescriptionCheckboxValue)
     }
+    // end wound assessment details 
 
+    // sepsis details
+
+    
+
+    // end sepsis details
+
+    // management details
     else if (exudateFormRadioCorrect.checked == false) {
-        alert("The cannister has drained 110mls of serous exudate, please make sure you have selected the correct option  ")
+        alert("The cannister has drained 110mls of serous exudate, please make sure you have selected the correct option")
+    }
+    else if (managementConsentCorrect.checked == false) {
+        alert("The appropriate consent given is written, please make sure you have chosen the correct option")
+    }
+    else if (analgesiaFormCorrect.checked == false) {
+        alert("Mrs Olay declined pain killers for the NPWT dressing change, please make sure you have chosen the correct option")
+    }
+    else if (woundCleansingFormCorrect.checked == false) {
+        alert("The wound has been cleaned with normal saline, please make sure you have chosen the correct option")
+    }
+    else if (woundDressingFormCorrect.checked == false) {
+        alert("The wound dressing is negative pressure wound therapy (NPWT) dressing, please make sure you have chosen the correct option")
+    }
+    else if (negativePressureFormCorrect.checked == false) {
+        alert("Therapy is continued, please make sure you have chosent he correct option")
+    }
+    else if (vacIdNumberTextbox != "12345") {
+        alert("The correct NPWT unit number is 12345, please enter the correct VAC ID/Number")
+    }
+    else if (vacVolumeTextbox != "11") {
+        alert("The correct amount is 11mls, please enter the correct amount")
     }
 
+    else if (woundSampleDate == "" || woundSampleDate == "NaN/NaN/NaN") {
+        alert("Please enter the wound sample date.")
+        
+    }
+    else if (woundSampleDate != yesterdaysDate) {
+        alert("The date of the wound sample was yesterday, please make sure you have entered the correct date")
+    }
+    else if (microbiologyDropdown != document.getElementById('microbiology-dropdown-ecoli-correct').value) {
+        alert("The swab test result showed positive for Escherichia coli, please make sure you have chosen the correct option")
+    }
+    else if (nextReviewDate == "" || nextReviewDate == "NaN/NaN/NaN") {
+        alert("Please enter the next review date.")
+    }
+    else if (nextReviewDate != nextReviewDateFormatted) {
+        alert("The date of for the next review is in 3 days time, please make sure you have entered the correct date")
+    }
+
+
+    // end management details 
 
     // PDF VALIDATION ENDS HERE
 
@@ -306,16 +514,33 @@ function generatePDF() {
     else { // creates pdf if all answers are accepted okay
 
         // html pdf section answers
-
+        // wound assessment 
         pdfWoundTypeAnswer.innerHTML = woundTypeRadioCorrectValue
-        console.log("pdfwoundtypeanswer", pdfWoundTypeAnswer)
-
         pdfPressureUlcerGradeAnswer.innerHTML = pressureUlcerDropdown
         pdfOccurenceAnswer.innerHTML = occurenceDropdown
         pdfBodyLocationAnswer.innerHTML = bodyLocationDropdown
         pdfWoundDescriptionAnswer.innerHTML = woundDescriptionCheckboxValue
         pdfExudateAnswer.innerHTML = exudateFormRadioCorrectValue
 
+
+        // pedf sepsis
+        // pdfPossiblySepsisAnswer.innerHTML = sepsisRadioValue
+        // pdfRedFlagAnswer.innerHTML = document.querySelector('input[name="possep"]:checked').value;
+        pdfPossiblySepsisAnswer.innerHTML = possiblySepsisValue
+        pdfRedFlagAnswer.innerHTML = "Is a red flag present? " + sepsisRedFlagValue
+        
+        
+        // management 
+        pdfManagementConsentAnswer.innerHTML = managementConsentCorrectValue
+        pdfManagementAnalgesiaAnswer.innerHTML = analgesiaFormCorrectValue
+        pdfManagementWoundCleansingAnswer.innerHTML = woundCleansingFormCorrectValue
+        pdfManagementWoundDressingAnswer.innerHTML = woundDressingFormCorrectValue
+        pdfManagementStatusNptAnswer.innerHTML = negativePressureFormCorrectValue
+        pdfManagementVacIdAnswer.innerHTML = vacIdNumberTextbox
+        pdfManagementVacVolAnswer.innerHTML = vacVolumeTextbox
+        pdfManagementWoundSampleDateAnswer.innerHTML = woundSampleDate
+        pdfManagementMicrobiologyAnswer.innerHTML = microbiologyDropdown
+        pdfManagementNextReviewDateAnswer.innerHTML = nextReviewDate
         // html pdf section answers ends here
 
 
@@ -344,6 +569,14 @@ function generatePDF() {
             'width' : 250,
         })
 
+        doc.fromHTML($('#pdf-sepsis').get(0), 20, 275, {
+            'width' : 250
+        })
+
+        doc.fromHTML($('#pdf-management').get(0), 20, 350, {
+            'width' : 250,
+        })
+
         doc.addImage(demoImg, 'JPEG', 280, 80, 150, 300); // demo side image to be changed
 
         doc.save('WoundCare1.pdf') //save the pdf
@@ -351,33 +584,6 @@ function generatePDF() {
 
     }
 
-    // // doc section
-    // let options = {unit: 'px', format: 'a4'}
-    // let doc = new jsPDF(options)
-
-    // doc.addImage(logo, 'JPEG', 330, 10, 100, 35.71); // logo
-
-    // doc.setFontSize(14) // set title font size
-    // doc.text('WOUND TYPE - BODY LOCATION', doc.internal.pageSize.getWidth() / 2, 60, null, null, 'center') //title
-    
-    // doc.setFontSize(10) // set normal font size
-    
-    // // patient details text
-    // doc.text("Name: Mrs Francine Olay", 20, 80)
-    // doc.text("NHS Number: 242 330 303", 20, 90)
-    // doc.text("DOB: 20/12/1969", 20, 100)
-    // doc.text("Today's date: " + todaysDate, 20, 110)
-
-    // doc.text("Responsible clinician: " + clinicianValue, 20, 130)
-    // doc.text("Current Ward and Bed Number: " + wardValue + " | " + bedNumber, 20, 140)
-
-    // doc.fromHTML($('#pdf-wound-assessment').get(0), 20, 150, {
-    //     'width' : 250,
-    // })
-
-    // doc.addImage(demoImg, 'JPEG', 280, 80, 150, 300); // demo side image to be changed
-
-    // doc.save('WoundCare1.pdf') //save the pdf
 
 
 }
