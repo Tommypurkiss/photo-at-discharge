@@ -99,7 +99,7 @@ function checkWoundDescCorrect() {
     }
 }
 
-
+// let sepsisRedFlagValue = ""
 let possiblySepsisForm = document.getElementById('possibly-sepsis-form')
 
 function checkPossiblySepsis() {
@@ -108,41 +108,32 @@ function checkPossiblySepsis() {
         sepsisRedFlagRow.classList.add("display-table-row")
         
     }
-    else if (document.getElementById('possibly-sepsis-no').checked == true) {
+    if (document.getElementById('possibly-sepsis-no').checked == true) {
         //document.querySelector('input[name="sepred"]:checked').checked == false;
+
         sepsisRedFlagRow.classList.remove("display-table-row")
+        redFlagRow.classList.remove("display-table-row")
+        //sepsisRedFlagValue == sepsisRedFlagValue.value
+
+
         //document.getElementById('red-flag-form').checked == false
         // sepsisRedFlagValue = document.querySelector('input[name="sepred"]:checked').checked == false;
-
     }
-    else if (document.getElementById('possibly-sepsis-unsure').checked == true) {
+    if (document.getElementById('possibly-sepsis-unsure').checked == true) {
         sepsisRedFlagRow.classList.add("display-table-row")
     }
-    else if (document.getElementById('possibly-sepsis-treatment').checked == true) {
+    if (document.getElementById('possibly-sepsis-treatment').checked == true) {
         //document.querySelector('input[name="sepred"]:checked').checked == false;
         sepsisRedFlagRow.classList.remove("display-table-row")
+        redFlagRow.classList.remove("display-table-row")
+
         // sepsisRedFlagValue = document.querySelector('input[name="sepred"]:checked').checked == false;
 
         //document.getElementById('red-flag-form').checked == false
     }
 }
 
-//let possiblySepsisForm = document.getElementById('possibly-sepsis-form').value
 
-// let posSepForm = document.getElementsByName('possep');
-
-
-// for (var i = 0, length = posSepForm.length; i < length; i++)
-// {
-//  if (posSepForm[i].checked)
-//  {
-//   // do whatever you want with the checked radio
-//   alert(posSepForm[i].value);
-
-//   // only one radio can be logically checked, don't check the rest
-//   break;
-//  }
-// }
 
 
 
@@ -153,9 +144,14 @@ function checkRedFlagFormAnswer() {
 
     if (redFlagCorrect.checked == false) {
         redFlagRow.classList.add("display-table-row")
+        //sepsisRedFlagValue = document.querySelector('input[name="sepred"]:checked').value;
+
+
     }
     else if (redFlagCorrect.checked == true) {
         redFlagRow.classList.remove("display-table-row")
+        //sepsisRedFlagValue = document.querySelector('input[name="sepred"]:checked').value;
+
     }
 }
 
@@ -324,18 +320,63 @@ function generatePDF() {
     let microbiologyDropdown = document.getElementById('microbiology-dropdown').value
     
 
+    let possiblySepsisNo = document.getElementById('possibly-sepsis-no')
+    let possibSepsisTreatment = document.getElementById('possibly-sepsis-treatment')
+    let possiblySepsisYes = document.getElementById('possibly-sepsis-yes')
+    let possiblySepsisUnsure = document.getElementById('possibly-sepsis-unsure')
+
+    if ((possiblySepsisNo || possibSepsisTreatment).checked == true) {
+    // if ((possiblySepsisNo && possibSepsisTreatment).checked == true) {
+
+        sepsisRedFlagValue = ""
+    }
+
+    else if ((possiblySepsisYes || possiblySepsisUnsure).checked == true) {
+        // else if ((possiblySepsisYes && possiblySepsisUnsure).checked == true) {
+
+        // sepsisRedFlagValue = document.querySelector('input[name="sepred"]').value
+
+
+        sepsisRedFlagValue = "checked value is: " + document.querySelector('input[name="sepred"]:checked').value
+
+        // if (sepsisRedFlagValue) {
+        //     sepsisRedFlagValue = "checked value is: " //works sometimes somewhow
+        // } 
+    }
+    
+
+
     let possiblySepsisValue = document.querySelector('input[name="possep"]:checked').value;
     console.log("possiblySepsisValue is:", possiblySepsisValue.value)    
     if (possiblySepsisValue == null) {
         console.log("not checked")
         //document.getElementById('p-pdf-red-flag').classList.add("hidden")
     }
-    // if (possiblySepsisValue == "No") {
-    //     document.getElementById('p-pdf-red-flag').classList.add("hidden")
-    // }
 
-    sepsisRedFlagValue = document.querySelector('input[name="sepred"]:checked').value;
     
+    
+    //sepsisRedFlagValue = document.querySelector('input[name="sepred"]')
+    // if (sepsisRedFlagValue.checked == false) {
+    //     sepsisRedFlagValue = "not clicked"
+    // } // kinda works
+    // else if (sepsisRedFlagValue.checked == true) {
+    //     sepsisRedFlagValue == sepsisRedFlagValue.value
+    // }
+    
+
+    
+    
+//    sepsisRedFlagValue = document.querySelector('input[name="sepred"]').value
+
+//     if (sepsisRedFlagValue) {
+//         sepsisRedFlagValue = "checked value is: "
+//     } // kinda works
+//     else  if (sepsisRedFlagValue.checked == false) {
+//         sepsisRedFlagValue = "not clicked"
+//     }
+
+
+
     // pdf wound assessment
     let pdfWoundAssessment = document.getElementById('pdf-wound-assessment')
     console.log("pdf wound assessment value is: ", pdfWoundAssessment)
@@ -415,7 +456,7 @@ function generatePDF() {
     let pdfManagementNextReviewDateAnswer = document.getElementById('pdf-management-next-review-date-answer')
     console.log("pdf management next review date answer is: ", pdfManagementNextReviewDateAnswer)
 
-
+    let redFlagForm = document.getElementById('red-flag-form')
 
 
     // PDF VALIDATION STARTS HERE
@@ -457,7 +498,11 @@ function generatePDF() {
     // end wound assessment details 
 
     // sepsis details
-
+    // else if (document.getElementsByClassName('red-flag-option').checked == false) {
+    //     console.log("No red flag option chosen" )
+    //     sepsisRedFlagValue = ""
+    //     //sepsisRedFlagValue == redFlagForm.value
+    // }
     
 
     // end sepsis details
@@ -527,8 +572,19 @@ function generatePDF() {
         // pdfPossiblySepsisAnswer.innerHTML = sepsisRadioValue
         // pdfRedFlagAnswer.innerHTML = document.querySelector('input[name="possep"]:checked').value;
         pdfPossiblySepsisAnswer.innerHTML = possiblySepsisValue
-        pdfRedFlagAnswer.innerHTML = "Is a red flag present? " + sepsisRedFlagValue
+        pdfRedFlagAnswer.innerHTML = sepsisRedFlagValue // "Is a red flag present? " + 
         
+        /*
+        
+        if yes unsure 
+        innerhtml = value
+        
+        if no treatment
+        innher httml = vallue ""
+
+        */
+
+
         
         // management 
         pdfManagementConsentAnswer.innerHTML = managementConsentCorrectValue
