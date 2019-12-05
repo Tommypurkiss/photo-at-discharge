@@ -75,14 +75,14 @@
                     Scenario: WoundCare1
                 </h1>
                 <p>
-                    Today you are the nurse on Maple ward caring for Mr Stark's patient, Mrs Francine Olay who is in bed 6. Mrs Olay is receiving Negative Pressure Wound Therapy (NPWT) for a Category III pressure ulcer on her sacrum.
+                    Today you are the nurse on Maple ward caring for Mr Stark's patient, Mrs Francine Olay who is in bed 6. Mrs Olay is receiving Vacuum Assisted Closure (VAC) Therapy  for a Category III pressure ulcer on her sacrum.
                     She already had the pressure ulcer when she was admitted to hospital and overall, the wound looks like it is improving with some slough and odour present. The swab result from yesterday show it is culture positive for Escherichia coli.
                 </p>  
                 <p>
                     After obtaining appropriate written consent, you take a photograph of Mrs Olay's pressure ulcer. She has a temperature of 38&deg;C, but is otherwise well, with normal blood results and observations, and no further red flags present.
                 </p>
                 <p>
-                    Mrs Olay says she doesn't need a pain killer for changing the NPWT dressing. After cleaning the wound with normal saline, you apply NPWT unit number 12345 at 125mmHg on intermittent therapy. Over the last 24 hours, the cannister has drained 11mls of serous exudate. The date of next wound review is in three days.
+                    Mrs Olay says she doesn't need a pain killer for changing the VACT dressing. After cleaning the wound with normal saline, you apply VACT unit number 12345 at 125mmHg on intermittent therapy. Over the last 24 hours, the cannister has drained 110mls of serous exudate. The date of next wound review is in three days.
                 </p>
                 <!-- <br> Please click on Generate Form (blue link at the bottom of the page) once you are finished. -->
             </div>
@@ -136,7 +136,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Ward of Discharge
+                                Ward of discharge
                             </td>
                             <td>
                                 <select name="" id="ward-options" class="small-dropdown">
@@ -341,7 +341,7 @@
                                     <input type="radio" name="sepred" class="red-flag-option" value="Not passed urine in the last 18 h/UO"> Not passed urine in the last 18 h/UO <0.5ml/kg/hr <br>
                                     <input type="radio" name="sepred" class="red-flag-option" value="Lactate >2mmol/L"> Lactate >2mmol/L <br>
                                     <input type="radio" name="sepred" class="red-flag-option" value="Recent chemotherapy"> Recent chemotherapy <br>
-                                    <input type="radio" name="sepred" class="red-flag-option" value="No Red flags present" id="red-flag-correct"> No Red flags present <br>
+                                    <input type="radio" name="sepred" class="red-flag-option" value="No Red Flag(s) present" id="red-flag-correct"> No Red Flag(s) present <br>
                                 </form>
                             </td>
                         </tr>
@@ -424,7 +424,9 @@
                                     <input type="radio" name="foo" value="Film dressing"> Film dressing <br>
                                     <input type="radio" name="foo" value="Absorbent dressing"> Absorbent dressing <br>
                                     <input type="radio" name="foo" value="Antimicrobial dressing"> Antimicrobial dressing <br>
-                                    <input type="radio" name="foo" value="Negative pressure therapy dressing" id="wound-dressing-form-correct"> Negative pressure therapy dressing
+                                    <!-- <input type="radio" name="foo" value="Negative pressure therapy dressing" > Negative pressure therapy dressing <br> -->
+                                    <input type="radio" name="foo" value="Topical negative pressure therapy (TNPT) dressing"> Topical negative pressure therapy (TNPT) dressing <br>
+                                    <input type="radio" name="foo" value="Vacuum Assisted Closure (VAC) dressing" id="wound-dressing-form-correct"> Vacuum Assisted Closure (VAC) dressing
                                 </form>
                             </td>
                         </tr>
@@ -442,7 +444,7 @@
                         </tr>
                         <tr class="hidden" id="vac-id-number-row">
                             <td>
-                                5.1 VAC ID/number
+                                VAC ID/number
                             </td>
                             <td>
                                 <input type="text" name="vac id number" id="vac-id-number-textbox" class="small-textbox" value="">
@@ -451,7 +453,7 @@
                         </tr>
                         <tr class="hidden" id="vac-intensity-row">
                             <td>
-                                5.2 Mode and intensity of VAC. DEFAULT
+                                Mode and intensity of VAC. DEFAULT
                             </td>
                             <td>
                                 125 /continuous
@@ -459,11 +461,11 @@
                         </tr>
                         <tr class="hidden" id="vac-volume-row">
                             <td>
-                                Alphanumeric
+                                Drainage
                             </td>
                             <td>
                                 <input type="text" name="alphanumeric" id="vac-volume-textbox" class="small-textbox" value=""> mls
-                                <!-- correct answer is 11 mls -->
+                                <!-- correct answer is 110 mls -->
                             </td>
                         </tr>
                         <!-- <tr>

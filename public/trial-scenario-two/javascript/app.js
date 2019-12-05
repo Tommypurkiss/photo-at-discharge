@@ -6,7 +6,7 @@ let month = String(todaysDate.getMonth() + 1)
 let year = String(todaysDate.getFullYear())
 todaysDate = day + "/" + month + "/" + year
 console.log("todays date is: ", todaysDate)
-document.getElementById('todays-date').innerHTML = "Todays date: " + todaysDate
+document.getElementById('todays-date').innerHTML = "Today's date: " + todaysDate
 
 
 
@@ -291,23 +291,69 @@ function generatePDF() {
 
     //wound description checkbox
     let woundDescriptionCheckbox = document.getElementsByName('wound-checkbox')
+    // let woundDescriptionCheckbox =  document.getElementById("wound-description-form")
     let woundDescriptionCheckboxValue = ""
+    //let woundDescriptionCheckboxValue
+
     let woundDescriptionCheckboxSlough = document.getElementById('wound-description-slough-correct')
     let woundDescriptionCheckboxPyrexia = document.getElementById('wound-description-pyrexia-correct')
     let woundDescriptionCheckboxOdour = document.getElementById('wound-description-odour-correct')
     let woundDescriptionCheckboxCorrect = woundDescriptionCheckboxSlough && woundDescriptionCheckboxPyrexia && woundDescriptionCheckboxOdour
 
 
-    for (var i=0, n=woundDescriptionCheckbox.length;i<n;i++) {
+    for (var i=0, n=woundDescriptionCheckbox.length; i<n; i++) {
         if (woundDescriptionCheckbox[i].checked) {
 
             woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
-            console.log("vals value?", woundDescriptionCheckboxValue)
+            console.log("wound desc checkbox checked value", woundDescriptionCheckboxValue)
 
         }
 
     }
     if (woundDescriptionCheckboxValue) woundDescriptionCheckboxValue = woundDescriptionCheckboxValue.substring(1);
+
+
+
+
+
+
+
+
+
+        // if (woundDescriptionCheckboxCorrect.checked === false) {
+
+        //     alert("check the correct wound description options")
+        //     console.log("wound desc value != ", woundDescriptionCheckboxValue)
+
+        //     return
+        // }
+        // else if (woundDescriptionCheckboxCorrect.checked === true) {
+        //     // woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
+        //     woundDescriptionCheckboxValue += ", " + woundDescriptionCheckboxCorrect.value
+        //     console.log("wound desc value", woundDescriptionCheckboxValue)
+        // }
+
+        
+
+
+
+
+    // else if (woundDescriptionCheckbox != woundDescriptionCheckboxCorrect) {
+    //     //woundDescriptionCheckboxValue = "No additional resources."
+    //     alert("check the correct wound description options")
+        
+    //     console.log("wound desc checkbox not checked value",woundDescriptionCheckboxValue)
+    // }
+
+
+
+
+    // else if (woundDescriptionCheckbox.checked != woundDescriptionCheckboxCorrect) {
+    //     //woundDescriptionCheckboxValue = "No additional resources."
+    //     alert("check the correct wound description options")
+        
+    //     console.log("wound desc checkbox not checked value",woundDescriptionCheckboxValue)
+    // }
 
 
     
@@ -324,56 +370,32 @@ function generatePDF() {
     let possibSepsisTreatment = document.getElementById('possibly-sepsis-treatment')
     let possiblySepsisYes = document.getElementById('possibly-sepsis-yes')
     let possiblySepsisUnsure = document.getElementById('possibly-sepsis-unsure')
-
-    if ((possiblySepsisNo || possibSepsisTreatment).checked == true) {
-    // if ((possiblySepsisNo && possibSepsisTreatment).checked == true) {
-
-        sepsisRedFlagValue = ""
-    }
-
-    else if ((possiblySepsisYes || possiblySepsisUnsure).checked == true) {
-        // else if ((possiblySepsisYes && possiblySepsisUnsure).checked == true) {
-
-        // sepsisRedFlagValue = document.querySelector('input[name="sepred"]').value
+    let allPossiblySepsisOptions = possiblySepsisNo && possibSepsisTreatment && possiblySepsisYes && possiblySepsisUnsure
 
 
-        sepsisRedFlagValue = "checked value is: " + document.querySelector('input[name="sepred"]:checked').value
-
-        // if (sepsisRedFlagValue) {
-        //     sepsisRedFlagValue = "checked value is: " //works sometimes somewhow
-        // } 
-    }
+    // if (possiblySepsisNo.checked == true) {
     
-
-
-    let possiblySepsisValue = document.querySelector('input[name="possep"]:checked').value;
-    console.log("possiblySepsisValue is:", possiblySepsisValue.value)    
-    if (possiblySepsisValue == null) {
-        console.log("not checked")
-        //document.getElementById('p-pdf-red-flag').classList.add("hidden")
-    }
-
-    
-    
-    //sepsisRedFlagValue = document.querySelector('input[name="sepred"]')
-    // if (sepsisRedFlagValue.checked == false) {
-    //     sepsisRedFlagValue = "not clicked"
-    // } // kinda works
-    // else if (sepsisRedFlagValue.checked == true) {
-    //     sepsisRedFlagValue == sepsisRedFlagValue.value
+    //         sepsisRedFlagValue = ""
     // }
-    
+    // else if (possibSepsisTreatment.checked == true) {
+    //     alert("Incorrect option please try another option")
+    //     return
+    // }
 
     
+    // else if (possiblySepsisYes.checked == true) {
     
-//    sepsisRedFlagValue = document.querySelector('input[name="sepred"]').value
+    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+    // }
+        
+    // else if (possiblySepsisUnsure.checked == true) {
+    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
 
-//     if (sepsisRedFlagValue) {
-//         sepsisRedFlagValue = "checked value is: "
-//     } // kinda works
-//     else  if (sepsisRedFlagValue.checked == false) {
-//         sepsisRedFlagValue = "not clicked"
-//     }
+    // }
+
+
+
+
 
 
 
@@ -489,21 +511,133 @@ function generatePDF() {
     }
     
 
-    else if (woundDescriptionCheckboxValue == "") {
-        //woundDescriptionCheckboxValue = "No additional resources."
-        alert("check the correct wound description options")
+
+
+    // let woundDescriptionCheckbox = document.getElementsByName('wound-checkbox')
+    // let woundDescriptionCheckboxValue = ""
+    // let woundDescriptionCheckboxSlough = document.getElementById('wound-description-slough-correct')
+    // let woundDescriptionCheckboxPyrexia = document.getElementById('wound-description-pyrexia-correct')
+    // let woundDescriptionCheckboxOdour = document.getElementById('wound-description-odour-correct')
+    // let woundDescriptionCheckboxCorrect = woundDescriptionCheckboxSlough && woundDescriptionCheckboxPyrexia && woundDescriptionCheckboxOdour
+
+
+
+    //  TODO: FIX THIS
+    // This works
+
+
+    // else if (woundDescriptionCheckbox == woundDescriptionCheckboxCorrect) {
+    //     console.log("correct pls", woundDescriptionCheckboxValue)
+    //             alert("correct wound description options")
+    // }
+
+
+    // else if (woundDescriptionCheckbox.checked != woundDescriptionCheckboxCorrect) {
+    //     //woundDescriptionCheckboxValue = "No additional resources."
+    //     alert("check the correct wound description options")
         
-        console.log("vals != value",woundDescriptionCheckboxValue)
-    }
+    //     console.log("wound desc checkbox not checked value",woundDescriptionCheckboxValue)
+    // }
+    // else if (woundDescriptionCheckbox.checked == woundDescriptionCheckboxCorrect) {
+    //     woundDescriptionCheckboxValue == woundDescriptionCheckbox.checked
+    // }
+
+
+    // else if (woundDescriptionCheckboxValue != woundDescriptionCheckboxCorrect) {
+    //     //woundDescriptionCheckboxValue = "No additional resources."
+    //     alert("check the correct wound description options")
+        
+    //     console.log("wound desc checkbox not checked value",woundDescriptionCheckboxValue)
+    // }
+
+    
+
+
+    // else if (woundDescriptionCheckbox.checked == woundDescriptionCheckboxCorrect) {
+    //     woundDescriptionCheckboxValue += woundDescriptionCheckbox.values 
+    // }
+
+
+
+
+
+    // for (var i=0, n=woundDescriptionCheckbox.length; i<n; i++) {
+    //     if (woundDescriptionCheckbox[i].checked) {
+
+    //         woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
+    //         console.log("vals value?", woundDescriptionCheckboxValue)
+
+    //     }
+
+        // if (woundDescriptionCheckbox[i].checked == false) {
+
+        //     //alert("Please check options from the wound description")
+        //     //woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
+        //     console.log("vals value?", woundDescriptionCheckboxValue)
+        //     return
+        // }
+
+
+        // if (woundDescriptionCheckbox[i].checked == woundDescriptionCheckboxCorrect) {
+
+        //     woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
+
+        //     //alert("Please choose the correct wound description answers  ")
+        //     //woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
+        //     console.log("vals value?", woundDescriptionCheckboxValue)
+
+        // }
+        // else {
+        //     //alert("Please choose the correct wound description answers  ")
+
+        // }
+
+
+    // }
+    // if (woundDescriptionCheckboxValue) woundDescriptionCheckboxValue = woundDescriptionCheckboxValue.substring(1);
+
+    // else if (allPossiblySepsisOptions.checked == false) {
+    //     alert("Please check if possibly sepsis")
+
+    // }
+
+
+
+
     // end wound assessment details 
 
+
     // sepsis details
-    // else if (document.getElementsByClassName('red-flag-option').checked == false) {
-    //     console.log("No red flag option chosen" )
+
+
+
+
+    // else if (possiblySepsisNo.checked == true) {
     //     sepsisRedFlagValue = ""
-    //     //sepsisRedFlagValue == redFlagForm.value
     // }
-    
+    // else if (possibSepsisTreatment.checked == true) {
+    //     alert("Incorrect option please try another option")
+    //     return
+    // }
+
+    // else if (possiblySepsisYes.checked == true) {
+    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+    // }
+        
+    // else if (possiblySepsisUnsure.checked == true) {
+    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+    // }
+
+
+
+
+    // else if(redFlagForm.checked == false) {
+    //     alert("Please check any Red Flag(s) option")
+    // }
+    // else if(redFlagForm.checked) {
+    //     possiblySepsisValue = document.querySelector('input[name="possep"]:checked').value;
+    // }
+
 
     // end sepsis details
 
@@ -515,22 +649,22 @@ function generatePDF() {
         alert("The appropriate consent given is written, please make sure you have chosen the correct option")
     }
     else if (analgesiaFormCorrect.checked == false) {
-        alert("Mrs Olay declined pain killers for the NPWT dressing change, please make sure you have chosen the correct option")
+        alert("Mrs Olay declined pain killers for the VAC dressing change, please make sure you have chosen the correct option")
     }
     else if (woundCleansingFormCorrect.checked == false) {
         alert("The wound has been cleaned with normal saline, please make sure you have chosen the correct option")
     }
     else if (woundDressingFormCorrect.checked == false) {
-        alert("The wound dressing is negative pressure wound therapy (NPWT) dressing, please make sure you have chosen the correct option")
+        alert("The wound dressing is vacuum assisted closure (VAC) dressing, please make sure you have chosen the correct option")
     }
     else if (negativePressureFormCorrect.checked == false) {
         alert("Therapy is continued, please make sure you have chosent he correct option")
     }
     else if (vacIdNumberTextbox != "12345") {
-        alert("The correct NPWT unit number is 12345, please enter the correct VAC ID/Number")
+        alert("The correct unit number is 12345, please enter the correct VAC ID/Number")
     }
-    else if (vacVolumeTextbox != "11") {
-        alert("The correct amount is 11mls, please enter the correct amount")
+    else if (vacVolumeTextbox != "110") {
+        alert("The correct amount is 110mls, please enter the correct amount")
     }
 
     else if (woundSampleDate == "" || woundSampleDate == "NaN/NaN/NaN") {
@@ -571,8 +705,8 @@ function generatePDF() {
         // pedf sepsis
         // pdfPossiblySepsisAnswer.innerHTML = sepsisRadioValue
         // pdfRedFlagAnswer.innerHTML = document.querySelector('input[name="possep"]:checked').value;
-        pdfPossiblySepsisAnswer.innerHTML = possiblySepsisValue
-        pdfRedFlagAnswer.innerHTML = sepsisRedFlagValue // "Is a red flag present? " + 
+        // pdfPossiblySepsisAnswer.innerHTML = possiblySepsisValue // this should be equal to yes/ no/ unsure/ treatment
+        // pdfRedFlagAnswer.innerHTML = sepsisRedFlagValue // "Is a red flag present? " + 
         
         /*
         
