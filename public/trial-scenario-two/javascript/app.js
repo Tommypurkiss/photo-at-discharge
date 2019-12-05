@@ -80,6 +80,7 @@ function setWoundTypeValue() {
 let woundDescPyrexiaCorrect = document.getElementById('wound-description-pyrexia-correct')
 let woundDescSloughCorrect = document.getElementById('wound-description-slough-correct')
 let woundDescOdourCorrect = document.getElementById('wound-description-odour-correct')
+let woundDescAllCorrect = woundDescPyrexiaCorrect && woundDescSloughCorrect && woundDescOdourCorrect
 let possiblySepsisRow = document.getElementById('possibly-sepsis-row')
 let sepsisRedFlagRow = document.getElementById('sepsis-red-flag-row')
 let sepsisSubheading = document.getElementById('sepsis-subheading')
@@ -280,8 +281,9 @@ function generatePDF() {
     console.log("wound type form value is: ", woundTypeForm)
 
 
-    //pressure ulcer dropdown
-    let pressureUlcerDropdown = document.getElementById('pressure-ulcer-dropdown').value
+    //pressure ulcer form
+    let pressureUlcerForm = document.getElementById('pressure-ulcer-form').value
+    console.log("pressure ulcer form value is: ", pressureUlcerForm)
 
     // occurence dropdown
     let occurenceDropdown = document.getElementById('occurence-dropdown').value
@@ -289,73 +291,16 @@ function generatePDF() {
     //body location
     let bodyLocationDropdown = document.getElementById('body-location-dropdown').value
 
-    //wound description checkbox
-    let woundDescriptionCheckbox = document.getElementsByName('wound-checkbox')
-    // let woundDescriptionCheckbox =  document.getElementById("wound-description-form")
-    let woundDescriptionCheckboxValue = ""
-    //let woundDescriptionCheckboxValue
 
-    let woundDescriptionCheckboxSlough = document.getElementById('wound-description-slough-correct')
-    let woundDescriptionCheckboxPyrexia = document.getElementById('wound-description-pyrexia-correct')
-    let woundDescriptionCheckboxOdour = document.getElementById('wound-description-odour-correct')
-    let woundDescriptionCheckboxCorrect = woundDescriptionCheckboxSlough && woundDescriptionCheckboxPyrexia && woundDescriptionCheckboxOdour
+    // Value version
+    let woundDescriptionCheckboxSloughValue = document.getElementById('wound-description-slough-correct').value
+    let woundDescriptionCheckboxPyrexiaValue = document.getElementById('wound-description-pyrexia-correct').value
+    let woundDescriptionCheckboxOdourValue = document.getElementById('wound-description-odour-correct').value
+    let woundDescriptionCheckboxCorrectValue = woundDescriptionCheckboxSloughValue + ", " + woundDescriptionCheckboxPyrexiaValue + ", " + woundDescriptionCheckboxOdourValue
+    // console.log("woundDescriptionCheckboxCorrect value is: ", woundDescriptionCheckboxCorrect)
 
 
-    for (var i=0, n=woundDescriptionCheckbox.length; i<n; i++) {
-        if (woundDescriptionCheckbox[i].checked) {
-
-            woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
-            console.log("wound desc checkbox checked value", woundDescriptionCheckboxValue)
-
-        }
-
-    }
-    if (woundDescriptionCheckboxValue) woundDescriptionCheckboxValue = woundDescriptionCheckboxValue.substring(1);
-
-
-
-
-
-
-
-
-
-        // if (woundDescriptionCheckboxCorrect.checked === false) {
-
-        //     alert("check the correct wound description options")
-        //     console.log("wound desc value != ", woundDescriptionCheckboxValue)
-
-        //     return
-        // }
-        // else if (woundDescriptionCheckboxCorrect.checked === true) {
-        //     // woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
-        //     woundDescriptionCheckboxValue += ", " + woundDescriptionCheckboxCorrect.value
-        //     console.log("wound desc value", woundDescriptionCheckboxValue)
-        // }
-
-        
-
-
-
-
-    // else if (woundDescriptionCheckbox != woundDescriptionCheckboxCorrect) {
-    //     //woundDescriptionCheckboxValue = "No additional resources."
-    //     alert("check the correct wound description options")
-        
-    //     console.log("wound desc checkbox not checked value",woundDescriptionCheckboxValue)
-    // }
-
-
-
-
-    // else if (woundDescriptionCheckbox.checked != woundDescriptionCheckboxCorrect) {
-    //     //woundDescriptionCheckboxValue = "No additional resources."
-    //     alert("check the correct wound description options")
-        
-    //     console.log("wound desc checkbox not checked value",woundDescriptionCheckboxValue)
-    // }
-
-
+ 
     
     //let exudateFormRadio = document.getElementById('exudate-form')
 
@@ -401,26 +346,26 @@ function generatePDF() {
 
     // pdf wound assessment
     let pdfWoundAssessment = document.getElementById('pdf-wound-assessment')
-    console.log("pdf wound assessment value is: ", pdfWoundAssessment)
+    //console.log("pdf wound assessment value is: ", pdfWoundAssessment)
 
     // pdf wound type answer 
     let pdfWoundTypeAnswer = document.getElementById('pdf-wound-type-answer')
-    console.log("pdf wound type answer is: ", pdfWoundTypeAnswer)
+    //console.log("pdf wound type answer is: ", pdfWoundTypeAnswer)
 
     let pdfPressureUlcerGradeAnswer = document.getElementById('pdf-pressure-ulcer-grade-answer')
-    console.log("pdf pressure ulcer grade answer is: ", pdfPressureUlcerGradeAnswer)
+    //console.log("pdf pressure ulcer grade answer is: ", pdfPressureUlcerGradeAnswer)
 
     let pdfOccurenceAnswer = document.getElementById('pdf-occurence-answer')
-    console.log("pdf occurence answer is: ", pdfOccurenceAnswer)
+    //console.log("pdf occurence answer is: ", pdfOccurenceAnswer)
 
     let pdfBodyLocationAnswer = document.getElementById('pdf-body-location-answer')
-    console.log("pdf body location answer is: ", pdfBodyLocationAnswer)
+    //console.log("pdf body location answer is: ", pdfBodyLocationAnswer)
 
     let pdfWoundDescriptionAnswer = document.getElementById('pdf-wound-description-answer')
-    console.log("pdf wound description answer is: ", pdfWoundDescriptionAnswer)
+    //console.log("pdf wound description answer is: ", pdfWoundDescriptionAnswer)
 
     let pdfExudateAnswer = document.getElementById('pdf-exudate-answer')
-    console.log("pdf exudate answer is: ", pdfExudateAnswer)
+    //console.log("pdf exudate answer is: ", pdfExudateAnswer)
     // pdf wound assessment end
 
     // sepsis
@@ -432,51 +377,51 @@ function generatePDF() {
 
     // pdf management
     let pdfManagement = document.getElementById('pdf-management')
-    console.log("pdfManagement: ", pdfManagement)
+    //console.log("pdfManagement: ", pdfManagement)
 
     // pdf management consent answer
     let pdfManagementConsentAnswer = document.getElementById('pdf-management-consent-answer')
-    console.log("pdf management consent answer is: ", pdfManagementConsentAnswer)
+    //console.log("pdf management consent answer is: ", pdfManagementConsentAnswer)
 
     // pdf management analgesia answer
     let pdfManagementAnalgesiaAnswer = document.getElementById('pdf-management-analgesia-answer')
-    console.log("pdf management analgesia answer is: ", pdfManagementAnalgesiaAnswer)
+    //console.log("pdf management analgesia answer is: ", pdfManagementAnalgesiaAnswer)
 
     // pdf management wound cleansing answer
     let pdfManagementWoundCleansingAnswer = document.getElementById('pdf-management-wound-cleansing-answer')
-    console.log("pdf management wound cleansing answer is: ", pdfManagementWoundCleansingAnswer)
+    //console.log("pdf management wound cleansing answer is: ", pdfManagementWoundCleansingAnswer)
 
     // pdf management wound dressing answer
     let pdfManagementWoundDressingAnswer = document.getElementById('pdf-management-wound-dressing-answer')
-    console.log("pdf management wound dressing answer is: ", pdfManagementWoundDressingAnswer)
+    //console.log("pdf management wound dressing answer is: ", pdfManagementWoundDressingAnswer)
 
     // pdf management status npt answer
     let pdfManagementStatusNptAnswer = document.getElementById('pdf-management-status-npt-answer')
-    console.log("pdf management status npt answer is: ", pdfManagementStatusNptAnswer)
+    //console.log("pdf management status npt answer is: ", pdfManagementStatusNptAnswer)
 
     // pdf management vac id answer
     let pdfManagementVacIdAnswer = document.getElementById('pdf-management-vac-id-answer')
-    console.log("pdf management vac id answer is: ", pdfManagementVacIdAnswer)
+    //console.log("pdf management vac id answer is: ", pdfManagementVacIdAnswer)
 
     // pdf management vac mode answer
     let pdfManagementVacModeAnswer = document.getElementById('pdf-management-vac-mode-answer')
-    console.log("pdf management vac mode answer is: ", pdfManagementVacModeAnswer)
+    //console.log("pdf management vac mode answer is: ", pdfManagementVacModeAnswer)
 
     // pdf management vac vol answer
     let pdfManagementVacVolAnswer = document.getElementById('pdf-management-vac-vol-answer')
-    console.log("pdf management vac vol answer is: ", pdfManagementVacVolAnswer)
+    //console.log("pdf management vac vol answer is: ", pdfManagementVacVolAnswer)
 
     // pdf management wound sample date answer 
     let pdfManagementWoundSampleDateAnswer = document.getElementById('pdf-management-wound-sample-date-answer')
-    console.log("pdf management wound sample date answer is: ", pdfManagementWoundSampleDateAnswer)
+    //console.log("pdf management wound sample date answer is: ", pdfManagementWoundSampleDateAnswer)
 
     // pdf management microbiology answer
     let pdfManagementMicrobiologyAnswer = document.getElementById('pdf-management-microbiology-answer')
-    console.log("pdf management microbiology answer is: ", pdfManagementMicrobiologyAnswer)
+    //console.log("pdf management microbiology answer is: ", pdfManagementMicrobiologyAnswer)
 
     // pdf management next review date answer
     let pdfManagementNextReviewDateAnswer = document.getElementById('pdf-management-next-review-date-answer')
-    console.log("pdf management next review date answer is: ", pdfManagementNextReviewDateAnswer)
+    //console.log("pdf management next review date answer is: ", pdfManagementNextReviewDateAnswer)
 
     let redFlagForm = document.getElementById('red-flag-form')
 
@@ -499,7 +444,7 @@ function generatePDF() {
     else if (woundTypeRadioCorrect.checked == false) {
         alert("Mrs Olay is a patient for a Pressure Ulcer, please make sure you have chosen the correct wound type")
     }
-    else if (pressureUlcerDropdown != document.getElementById('pressure-ulcer-dropdown-correct').value) {
+    else if (pressureUlcerForm != document.getElementById('pressure-ulcer-dropdown-correct').value) {
         alert("Mrs Olay's Pressure Ulcer is a Grade III, please make sure you've selected the correct option")
     }
     else if (occurenceDropdown != document.getElementById('occurence-dropdown-correct').value) {
@@ -509,97 +454,10 @@ function generatePDF() {
     else if (bodyLocationDropdown != document.getElementById('body-location-sacrum-correct').value) {
         alert("Mrs Olay Ulcer is located on her Sacrum, please make sure you have selected the correct option")
     }
-    
 
-
-
-    // let woundDescriptionCheckbox = document.getElementsByName('wound-checkbox')
-    // let woundDescriptionCheckboxValue = ""
-    // let woundDescriptionCheckboxSlough = document.getElementById('wound-description-slough-correct')
-    // let woundDescriptionCheckboxPyrexia = document.getElementById('wound-description-pyrexia-correct')
-    // let woundDescriptionCheckboxOdour = document.getElementById('wound-description-odour-correct')
-    // let woundDescriptionCheckboxCorrect = woundDescriptionCheckboxSlough && woundDescriptionCheckboxPyrexia && woundDescriptionCheckboxOdour
-
-
-
-    //  TODO: FIX THIS
-    // This works
-
-
-    // else if (woundDescriptionCheckbox == woundDescriptionCheckboxCorrect) {
-    //     console.log("correct pls", woundDescriptionCheckboxValue)
-    //             alert("correct wound description options")
-    // }
-
-
-    // else if (woundDescriptionCheckbox.checked != woundDescriptionCheckboxCorrect) {
-    //     //woundDescriptionCheckboxValue = "No additional resources."
-    //     alert("check the correct wound description options")
-        
-    //     console.log("wound desc checkbox not checked value",woundDescriptionCheckboxValue)
-    // }
-    // else if (woundDescriptionCheckbox.checked == woundDescriptionCheckboxCorrect) {
-    //     woundDescriptionCheckboxValue == woundDescriptionCheckbox.checked
-    // }
-
-
-    // else if (woundDescriptionCheckboxValue != woundDescriptionCheckboxCorrect) {
-    //     //woundDescriptionCheckboxValue = "No additional resources."
-    //     alert("check the correct wound description options")
-        
-    //     console.log("wound desc checkbox not checked value",woundDescriptionCheckboxValue)
-    // }
-
-    
-
-
-    // else if (woundDescriptionCheckbox.checked == woundDescriptionCheckboxCorrect) {
-    //     woundDescriptionCheckboxValue += woundDescriptionCheckbox.values 
-    // }
-
-
-
-
-
-    // for (var i=0, n=woundDescriptionCheckbox.length; i<n; i++) {
-    //     if (woundDescriptionCheckbox[i].checked) {
-
-    //         woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
-    //         console.log("vals value?", woundDescriptionCheckboxValue)
-
-    //     }
-
-        // if (woundDescriptionCheckbox[i].checked == false) {
-
-        //     //alert("Please check options from the wound description")
-        //     //woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
-        //     console.log("vals value?", woundDescriptionCheckboxValue)
-        //     return
-        // }
-
-
-        // if (woundDescriptionCheckbox[i].checked == woundDescriptionCheckboxCorrect) {
-
-        //     woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
-
-        //     //alert("Please choose the correct wound description answers  ")
-        //     //woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
-        //     console.log("vals value?", woundDescriptionCheckboxValue)
-
-        // }
-        // else {
-        //     //alert("Please choose the correct wound description answers  ")
-
-        // }
-
-
-    // }
-    // if (woundDescriptionCheckboxValue) woundDescriptionCheckboxValue = woundDescriptionCheckboxValue.substring(1);
-
-    // else if (allPossiblySepsisOptions.checked == false) {
-    //     alert("Please check if possibly sepsis")
-
-    // }
+    else if (woundDescAllCorrect.checked == false) {
+        alert("please check the correct options")
+    }
 
 
 
@@ -695,14 +553,15 @@ function generatePDF() {
         // html pdf section answers
         // wound assessment 
         pdfWoundTypeAnswer.innerHTML = woundTypeRadioCorrectValue
-        pdfPressureUlcerGradeAnswer.innerHTML = pressureUlcerDropdown
+        pdfPressureUlcerGradeAnswer.innerHTML = pressureUlcerForm
         pdfOccurenceAnswer.innerHTML = occurenceDropdown
         pdfBodyLocationAnswer.innerHTML = bodyLocationDropdown
-        pdfWoundDescriptionAnswer.innerHTML = woundDescriptionCheckboxValue
+        pdfWoundDescriptionAnswer.innerHTML = woundDescriptionCheckboxCorrectValue
+
         pdfExudateAnswer.innerHTML = exudateFormRadioCorrectValue
 
 
-        // pedf sepsis
+        // pdf sepsis
         // pdfPossiblySepsisAnswer.innerHTML = sepsisRadioValue
         // pdfRedFlagAnswer.innerHTML = document.querySelector('input[name="possep"]:checked').value;
         // pdfPossiblySepsisAnswer.innerHTML = possiblySepsisValue // this should be equal to yes/ no/ unsure/ treatment
