@@ -103,14 +103,24 @@ function checkWoundDescCorrect() {
 // let sepsisRedFlagValue = ""
 let possiblySepsisForm = document.getElementById('possibly-sepsis-form')
 
+
+
+
+let possiblySepsisNo = document.getElementById('possibly-sepsis-no')
+let possibSepsisTreatment = document.getElementById('possibly-sepsis-treatment')
+let possiblySepsisYes = document.getElementById('possibly-sepsis-yes')
+let possiblySepsisUnsure = document.getElementById('possibly-sepsis-unsure')
+let allPossiblySepsisOptions = possiblySepsisNo && possibSepsisTreatment && possiblySepsisYes && possiblySepsisUnsure
+
+
 function checkPossiblySepsis() {
     
     if (document.getElementById('possibly-sepsis-yes').checked == true) {
         sepsisRedFlagRow.classList.add("display-table-row")
-        
+
+
     }
     if (document.getElementById('possibly-sepsis-no').checked == true) {
-        //document.querySelector('input[name="sepred"]:checked').checked == false;
 
         sepsisRedFlagRow.classList.remove("display-table-row")
         redFlagRow.classList.remove("display-table-row")
@@ -122,6 +132,7 @@ function checkPossiblySepsis() {
     }
     if (document.getElementById('possibly-sepsis-unsure').checked == true) {
         sepsisRedFlagRow.classList.add("display-table-row")
+
     }
     if (document.getElementById('possibly-sepsis-treatment').checked == true) {
         //document.querySelector('input[name="sepred"]:checked').checked == false;
@@ -230,6 +241,131 @@ function setNegativePressureFormCorrect() {
 
 
 
+
+// let possiblySepsisNo = document.getElementById('possibly-sepsis-no')
+// let possibSepsisTreatment = document.getElementById('possibly-sepsis-treatment')
+// let possiblySepsisYes = document.getElementById('possibly-sepsis-yes')
+// let possiblySepsisUnsure = document.getElementById('possibly-sepsis-unsure')
+// let allPossiblySepsisOptions = possiblySepsisNo && possibSepsisTreatment && possiblySepsisYes && possiblySepsisUnsure
+
+// function possiblySepsisFunc() {
+
+//     let possiblySepsisNo = document.getElementById('possibly-sepsis-no')
+//     let possibSepsisTreatment = document.getElementById('possibly-sepsis-treatment')
+//     let possiblySepsisYes = document.getElementById('possibly-sepsis-yes')
+//     let possiblySepsisUnsure = document.getElementById('possibly-sepsis-unsure')
+//     //let allPossiblySepsisOptions = possiblySepsisNo && possibSepsisTreatment && possiblySepsisYes && possiblySepsisUnsure
+
+//     let sepsisRadio = document.querySelector('input[name="possep"]:checked')
+//     let sepsisRadioValue = ""
+
+
+//     if (sepsisRadio == possiblySepsisNo.checked) {
+//         sepsisRadioValue == document.getElementById('possibly-sepsis-no').value
+//     }
+//     else if (sepsisRadio == possibSepsisTreatment.checked) {
+//         alert("please choose another option")
+//     }
+//     else if (sepsisRadio == possiblySepsisYes.checked) {
+//         sepsisRadioValue == document.getElementById('possibly-sepsis-yes').value
+//     }
+//     else if (sepsisRadio == possiblySepsisUnsure.checked) {
+//         sepsisRadioValue == document.getElementById('possibly-sepsis-unsure').value
+//     }
+
+//     // if (possibSepsisTreatment.checked) {
+//     //     alert("Incorrect option please try another option")
+//     //     return
+//     // }
+//     // else if (possiblySepsisNo.checked) {
+//     //     sepsisRadioValue = possiblySepsisNoValue
+//     // }
+// }
+
+
+
+function possiblySepsisFunc() {
+
+    if(document.getElementById('possibly-sepsis-no').checked == true) {
+        sepsisRadioValue = document.getElementById('possibly-sepsis-no').value
+
+        sepsisRedFlagValue = "" 
+
+    }
+    else if(document.getElementById('possibly-sepsis-yes').checked == true) {
+        sepsisRadioValue = document.getElementById('possibly-sepsis-yes').value
+
+        sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+
+    }
+    else if(document.getElementById('possibly-sepsis-unsure').checked == true) {
+        sepsisRadioValue = document.getElementById('possibly-sepsis-unsure').value    
+
+        sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+
+
+    }
+
+    
+
+}
+
+
+   // else if (possiblySepsisYes.checked == true) {
+    
+    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+    // }
+        
+    // else if (possiblySepsisUnsure.checked == true) {
+    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+
+    // }
+
+
+/* 
+
+
+        if(document.querySelector('input[name="sepred"]:checked')){
+            // alert("checked true ")
+        sepsisRedFlagValue = "N/A" 
+
+        } 
+if(document.querySelector('input[name="sepred"]:checked')){
+        alert("checked true ")
+        sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+
+        } 
+ if(document.querySelector('input[name="sepred"]:checked')){
+        alert("checked true ")
+        sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+
+        } 
+
+*/
+
+//let sepsisRedFlagValue = ""
+
+// function sepsisRedFlagFunc() {
+//     if(document.querySelector('input[name="sepred"]:checked')){
+//         // alert("checked true ")
+//     sepsisRedFlagValue = "N/A" 
+
+//     } 
+// else if(document.querySelector('input[name="sepred"]:checked')){
+//     alert("checked true ")
+//     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]').value
+
+//     } 
+// else if(document.querySelector('input[name="sepred"]:checked')){
+//     alert("checked true ")
+//     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]').value
+
+//     } 
+// }
+
+
+
+
 function generatePDF() {
     
     // functions
@@ -241,7 +377,7 @@ function generatePDF() {
     setWoundDressingCorrect()
     setNegativePressureFormCorrect()
     checkPossiblySepsis()
-
+    possiblySepsisFunc()
 
     // date wound sample
     let woundSampleDate = new Date(document.getElementById('wound-sample-date').value)
@@ -291,6 +427,18 @@ function generatePDF() {
     //body location
     let bodyLocationDropdown = document.getElementById('body-location-dropdown').value
 
+    //wound description checkbox
+    let woundDescriptionCheckbox = document.getElementsByName('wound-checkbox')
+    // let woundDescriptionCheckbox =  document.getElementById("wound-description-form")
+    let woundDescriptionCheckboxValue = ""
+    //let woundDescriptionCheckboxValue
+
+    // let woundDescriptionCheckboxSlough = document.getElementById('wound-description-slough-correct')
+    // let woundDescriptionCheckboxPyrexia = document.getElementById('wound-description-pyrexia-correct')
+    // let woundDescriptionCheckboxOdour = document.getElementById('wound-description-odour-correct')
+    // let woundDescriptionCheckboxCorrect = woundDescriptionCheckboxSlough && woundDescriptionCheckboxPyrexia && woundDescriptionCheckboxOdour
+    // console.log("woundDescriptionCheckboxCorrect value is: ", woundDescriptionCheckboxCorrect.value)
+
 
     // Value version
     let woundDescriptionCheckboxSloughValue = document.getElementById('wound-description-slough-correct').value
@@ -299,6 +447,34 @@ function generatePDF() {
     let woundDescriptionCheckboxCorrectValue = woundDescriptionCheckboxSloughValue + ", " + woundDescriptionCheckboxPyrexiaValue + ", " + woundDescriptionCheckboxOdourValue
     // console.log("woundDescriptionCheckboxCorrect value is: ", woundDescriptionCheckboxCorrect)
 
+    // Original works adds all check box values
+    // for (var i=0, n=woundDescriptionCheckbox.length; i<n; i++) {
+    //     if (woundDescriptionCheckbox[i].checked) {
+
+    //         woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
+    //         console.log("wound desc checkbox checked value", woundDescriptionCheckboxValue)
+
+    //     }
+
+    // }
+    // if (woundDescriptionCheckboxValue) woundDescriptionCheckboxValue = woundDescriptionCheckboxValue.substring(1);
+
+    // let testVal = ""
+    // var str = ""
+    // for (var i=0, n=woundDescriptionCheckbox.length; i<n; i++) {
+    //     if (woundDescriptionCheckbox[i].checked) {
+
+    //         // woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
+    //         // console.log("wound desc checkbox checked value", woundDescriptionCheckboxValue)
+
+    //         str += woundDescriptionCheckbox[i].value
+    //         console.log("str val: ", str)
+
+    //     }
+
+           
+    // }
+    // if (str) str = str.substring(1);
 
  
     
@@ -311,11 +487,11 @@ function generatePDF() {
     let microbiologyDropdown = document.getElementById('microbiology-dropdown').value
     
 
-    let possiblySepsisNo = document.getElementById('possibly-sepsis-no')
-    let possibSepsisTreatment = document.getElementById('possibly-sepsis-treatment')
-    let possiblySepsisYes = document.getElementById('possibly-sepsis-yes')
-    let possiblySepsisUnsure = document.getElementById('possibly-sepsis-unsure')
-    let allPossiblySepsisOptions = possiblySepsisNo && possibSepsisTreatment && possiblySepsisYes && possiblySepsisUnsure
+    let possiblySepsisNoValue = document.getElementById('possibly-sepsis-no').value
+    let possibSepsisTreatmentValue = document.getElementById('possibly-sepsis-treatment').value
+    let possiblySepsisYesValue = document.getElementById('possibly-sepsis-yes').value
+    let possiblySepsisUnsureValue = document.getElementById('possibly-sepsis-unsure').value
+    let allPossiblySepsisOptionsValue = possiblySepsisNoValue && possibSepsisTreatmentValue && possiblySepsisYesValue && possiblySepsisUnsureValue
 
 
     // if (possiblySepsisNo.checked == true) {
@@ -339,7 +515,13 @@ function generatePDF() {
     // }
 
 
+    // let sepsisRadio = document.querySelector('input[name="possep"]:checked')
+    // let sepsisRadioValue = ""
 
+    // console.log("sepsis Radio is: ", sepsisRadio)
+    // // if (sepsisRadio == possiblySepsisNo.checked) {
+    // //     sepsisRadioValue == document.getElementById('possibly-sepsis-no').value
+    // // }
 
 
 
@@ -425,6 +607,9 @@ function generatePDF() {
 
     let redFlagForm = document.getElementById('red-flag-form')
 
+    //let sepsisReadioValue = document.querySelector('input[name="possep"]:checked').value;
+
+
 
     // PDF VALIDATION STARTS HERE
 
@@ -454,11 +639,55 @@ function generatePDF() {
     else if (bodyLocationDropdown != document.getElementById('body-location-sacrum-correct').value) {
         alert("Mrs Olay Ulcer is located on her Sacrum, please make sure you have selected the correct option")
     }
+    
+
+    //  TODO: FIX THIS 
+    // This works
+
+    // else if (woundDescSloughCorrect.checked == false && woundDescPyrexiaCorrect.checked == false) {
+    //     alert("pick slough & pyrexia")
+    // }
+
+
+    
 
     else if (woundDescAllCorrect.checked == false) {
         alert("please check the correct options")
     }
+    
+    
+    else if (exudateFormRadioCorrect.checked == false) {
+        alert("The cannister has drained 110mls of serous exudate, please make sure you have selected the correct option")
+    }
+    
 
+
+    // else if (woundDescriptionCheckbox == woundDescriptionCheckboxCorrect) {
+    //     console.log("correct pls", woundDescriptionCheckboxValue)
+    //             alert("correct wound description options")
+    // }
+
+
+    // else if (woundDescriptionCheckbox.checked != woundDescriptionCheckboxCorrect) {
+    //     //woundDescriptionCheckboxValue = "No additional resources."
+    //     alert("check the correct wound description options")
+        
+    //     console.log("wound desc checkbox not checked value",woundDescriptionCheckboxValue)
+    // }
+    // else if (woundDescriptionCheckbox.checked == woundDescriptionCheckboxCorrect) {
+    //     woundDescriptionCheckboxValue == woundDescriptionCheckbox.checked
+    // }
+
+
+
+    // let possiblySepsisNoValue = document.getElementById('possibly-sepsis-no').value
+    // let possibSepsisTreatmentValue = document.getElementById('possibly-sepsis-treatment').value
+    // let possiblySepsisYesValue = document.getElementById('possibly-sepsis-yes').value
+    // let possiblySepsisUnsureValue = document.getElementById('possibly-sepsis-unsure').value
+    // let allPossiblySepsisOptionsValue = possiblySepsisNoValue && possibSepsisTreatmentValue && possiblySepsisYesValue && possiblySepsisUnsureValue
+
+
+    
 
 
 
@@ -466,6 +695,104 @@ function generatePDF() {
 
 
     // sepsis details
+
+
+    else if (possibSepsisTreatment.checked) {
+        alert("Incorrect option please try another option")
+        return
+    }
+
+
+
+    // else if (possiblySepsisNo.checked) {
+    //     sepsisRadioValue = possiblySepsisNoValue
+    // }
+    
+
+
+    // else if (possiblySepsisNo.checked) {
+    //     sepsisReadioValue = document.getElementById('possibly-sepsis-no').value
+    // }
+    // else if (possibSepsisTreatment.checked) {
+    //     alert("Incorrect option please try another option")
+    //     return
+    // }
+    
+
+    // else if (possiblySepsisYes.checked) {
+    //     sepsisReadioValue = document.getElementById('possibly-sepsis-yes').value
+    // }
+        
+    // else if (possiblySepsisUnsure.checked) {
+    //     sepsisReadioValue = document.getElementById('possibly-sepsis-unsure').value
+    // }
+
+
+    // else if (possiblySepsisNo.checked != document.getElementById('possibly-sepsis-no')) {
+    //     alert('no')
+    //     // sepsisReadioValue = document.getElementById('possibly-sepsis-no').value
+    // }
+    // else if (possibSepsisTreatment.checked) {
+    //     alert("Incorrect option please try another option")
+    //     return
+    // }
+    
+
+    // else if (possiblySepsisYes.checked != document.getElementById('possibly-sepsis-yes')) {
+    //     alert('yes')
+
+    //     //sepsisReadioValue = document.getElementById('possibly-sepsis-yes').value
+    // }
+        
+    // else if (possiblySepsisUnsure.checked != document.getElementById('possibly-sepsis-unsure')) {
+    //     alert('unsure')
+
+    //     // sepsisReadioValue = document.getElementById('possibly-sepsis-unsure').value
+    // }
+
+
+    // else if (possiblySepsisForm.checked == document.getElementById('possibly-sepsis-no')) {
+    //     alert('no')
+    //     // sepsisReadioValue = document.getElementById('possibly-sepsis-no').value
+    // }
+    // else if (possibSepsisTreatment.checked) {
+    //     alert("Incorrect option please try another option")
+    //     return
+    // }
+    // else if (possiblySepsisForm.checked == document.getElementById('possibly-sepsis-yes')) {
+    //     alert('yes')
+
+    //     //sepsisReadioValue = document.getElementById('possibly-sepsis-yes').value
+    // }    
+    // else if (possiblySepsisForm.checked == document.getElementById('possibly-sepsis-unsure')) {
+    //     alert('unsure')
+    //     // sepsisReadioValue = document.getElementById('possibly-sepsis-unsure').value
+    // }
+
+
+
+
+    // else if (possiblySepsisNo.checked == false) {
+    //     // sepsisReadioValue = document.querySelector('input[name="possep"]:checked').value;
+    //     alert("Please make sure you have chosen and option if possibly sepsis")
+    // }
+    // else if (possibSepsisTreatment.checked == true) {
+    //     alert("Incorrect option please try another option")
+    //     return
+    // }
+    
+
+    // else if (possiblySepsisYes.checked == false) {
+    //     // sepsisReadioValue = document.querySelector('input[name="possep"]:checked').value;
+    //     alert("Please make sure you have chosen and option if possibly sepsis")
+
+    // }
+        
+    // else if (possiblySepsisUnsure.checked == false) {
+    //     // sepsisReadioValue = document.querySelector('input[name="possep"]:checked').value;
+    //     alert("Please make sure you have chosen and option if possibly sepsis")
+
+    // }
 
 
 
@@ -493,16 +820,32 @@ function generatePDF() {
     //     alert("Please check any Red Flag(s) option")
     // }
     // else if(redFlagForm.checked) {
-    //     possiblySepsisValue = document.querySelector('input[name="possep"]:checked').value;
+    //     possiblySepsisValue = document.querySelector('input[name="sepred"]:checked').value
+    // }
+
+
+//    else if (possiblySepsisYes.checked == true) {
+    
+//         sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+//     }
+        
+//     else if (possiblySepsisUnsure.checked == true) {
+//         sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+
+//     }
+
+    // else if (document.querySelector('input[name="sepred"]:checked') == false){
+    //     alert("Please choose an option")   
+    // }
+    // else if (sepsisRedFlagValue === null){
+    //     alert("Please choose an option")   
     // }
 
 
     // end sepsis details
 
     // management details
-    else if (exudateFormRadioCorrect.checked == false) {
-        alert("The cannister has drained 110mls of serous exudate, please make sure you have selected the correct option")
-    }
+
     else if (managementConsentCorrect.checked == false) {
         alert("The appropriate consent given is written, please make sure you have chosen the correct option")
     }
@@ -557,15 +900,24 @@ function generatePDF() {
         pdfOccurenceAnswer.innerHTML = occurenceDropdown
         pdfBodyLocationAnswer.innerHTML = bodyLocationDropdown
         pdfWoundDescriptionAnswer.innerHTML = woundDescriptionCheckboxCorrectValue
+        //pdfWoundDescriptionAnswer.innerHTML = woundDescriptionCheckboxSloughValue + " " + woundDescriptionCheckboxPyrexiaValue
+        // + " " + woundDescriptionCheckboxPyrexia + " " + woundDescriptionCheckboxOdour
+
 
         pdfExudateAnswer.innerHTML = exudateFormRadioCorrectValue
 
 
         // pdf sepsis
-        // pdfPossiblySepsisAnswer.innerHTML = sepsisRadioValue
-        // pdfRedFlagAnswer.innerHTML = document.querySelector('input[name="possep"]:checked').value;
+        pdfPossiblySepsisAnswer.innerHTML = sepsisRadioValue
+
+
+
+        pdfRedFlagAnswer.innerHTML = sepsisRedFlagValue
+        
+        
+        
         // pdfPossiblySepsisAnswer.innerHTML = possiblySepsisValue // this should be equal to yes/ no/ unsure/ treatment
-        // pdfRedFlagAnswer.innerHTML = sepsisRedFlagValue // "Is a red flag present? " + 
+        //pdfRedFlagAnswer.innerHTML = sepsisRedFlagValue // "Is a red flag present? " + 
         
         /*
         
