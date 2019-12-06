@@ -60,7 +60,7 @@
 
             <div class="m-c-info-text">
                 <p>
-                    This is an excerpt of the Photo at Discharge database and does not show its full functionality. Intended for demonstration purposes only.
+                    This is an excerpt of the WoundCare1 database and does not show its full functionality. Intended for demonstration purposes only.
                 </p>
                 <!-- <p>
                     Photos used with kind permission from the patient.
@@ -75,14 +75,14 @@
                     Scenario: WoundCare1
                 </h1>
                 <p>
-                    Today you are the nurse on Maple ward caring for Mr Stark's patient, Mrs Francine Olay who is in bed 6. Mrs Olay is receiving Vacuum Assisted Closure (VAC) Therapy  for a Category III pressure ulcer on her sacrum.
-                    She already had the pressure ulcer when she was admitted to hospital and overall, the wound looks like it is improving with some slough and odour present. The swab result from yesterday show it is culture positive for Escherichia coli.
+                    Today you are the nurse on Maple ward caring for Mr Stark's patient, Mrs Francine Olay who is in bed 6. Mrs Olay is receiving Vacuum Assisted Closure (VAC) therapy  for a Category III pressure ulcer on her sacrum.
+                    She already had the pressure ulcer when she was admitted to hospital and overall, the wound looks like it is improving with some slough and odour present. The swab from yesterday shows it is culture positive for <i>Escherichia coli</i>.
                 </p>  
                 <p>
-                    After obtaining appropriate written consent, you take a photograph of Mrs Olay's pressure ulcer. She has a temperature of 38&deg;C, but is otherwise well, with normal blood results and observations, and no further red flags present.
+                    After obtaining appropriate written consent, you take a photograph of Mrs Olay's pressure ulcer. She has a temperature of 38&deg;C, but is otherwise well, with normal blood results and observations, and no Red Flags for sepsis present.
                 </p>
                 <p>
-                    Mrs Olay says she doesn't need a pain killer for changing the VACT dressing. After cleaning the wound with normal saline, you apply VACT unit number 12345 at 125mmHg on intermittent therapy. Over the last 24 hours, the cannister has drained 110mls of serous exudate. The date of next wound review is in three days.
+                    Mrs Olay says she doesn't need a pain killer for changing the VAC dressing. After cleaning the wound with normal saline, you apply VACT unit number 12345 at 125mmHg on intermittent therapy. Over the last 24 hours, the cannister has drained 110mls of serous exudate. The date of next wound review is in three days.
                 </p>
                 <!-- <br> Please click on Generate Form (blue link at the bottom of the page) once you are finished. -->
             </div>
@@ -338,7 +338,7 @@
                                     <input type="radio" name="sepred" class="red-flag-option" value="Respiratory rate >25 per minute"> Respiratory rate >25 per minute <br>
                                     <input type="radio" name="sepred" class="red-flag-option" value="Need oxygen to keep SpO2 > 92%"> Need oxygen to keep SpO2 > 92% <br>
                                     <input type="radio" name="sepred" class="red-flag-option" value="Non-blanching rash; mottled/ashen/cyanotic"> Non-blanching rash; mottled/ashen/cyanotic <br>
-                                    <input type="radio" name="sepred" class="red-flag-option" value="Not passed urine in the last 18 h/UO"> Not passed urine in the last 18 h/UO <0.5ml/kg/hr <br>
+                                    <input type="radio" name="sepred" class="red-flag-option" value="Not passed urine in the last 18 h/UO &lt;0.5ml/kg/hr"> Not passed urine in the last 18 h/UO &lt;0.5ml/kg/hr <br>
                                     <input type="radio" name="sepred" class="red-flag-option" value="Lactate >2mmol/L"> Lactate >2mmol/L <br>
                                     <input type="radio" name="sepred" class="red-flag-option" value="Recent chemotherapy"> Recent chemotherapy <br>
                                     <input type="radio" name="sepred" class="red-flag-option" value="No Red Flag(s) present" id="red-flag-correct"> No Red Flag(s) present <br>
@@ -354,11 +354,50 @@
                             <th colspan="2" class="table-subheading">Photos</th>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <!-- <td colspan="2">
                                 Photo Section
                                 <img src="./public/assets/img/demo/custom.jpg" id="demo-img" alt="" srcset="" class="hidden">
+                            </td> -->
+                            <td>
+                                Pressure ulcer photo
+                            </td>
+                            <td>
+                                    <form action="" class="wound-photo-form" id="wound-photo-form">
+                                            <div class="row">
+                                                <div class="wound-photo photo-one column">
+                                                    <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip.jpg" alt="" height="300" width="200" id="wound-photo-one-img"> <br>
+                                                    <input type="radio" name="radimg" id="wound-photo-one" value="Incorrect - one change text" onclick="woundPhotoCheck()" > 
+                                                </div>
+                                                
+                                                <div class="wound-photo photo-two column">
+                                                    <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-1.jpg" alt="" height="300" width="200" id="wound-photo-two-img"> <br>
+                                                    <input type="radio" name="radimg" id="wound-photo-two" value="Incorrect - two change text" onclick="woundPhotoCheck()"> 
+                                                </div>
+                
+                                                <div class="wound-photo photo-three column">
+                                                    <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-2.jpg" alt="" height="300" width="200" id="wound-photo-three-img"> <br>
+                                                    <input type="radio" name="radimg" id="wound-photo-three" value="Incorrect -  three change text" onclick="woundPhotoCheck()"> 
+                                                </div>
+                
+                                                <div class="wound-photo photo-four column">
+                                                    <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-3.jpg" alt="" height="300" width="200" id="wound-photo-four-img"> <br>
+                                                    <input type="radio" name="radimg" id="wound-photo-four" value="Incorrect - four change text" onclick="woundPhotoCheck()"> 
+                                                </div>
+                
+                                                <div class="wound-photo photo-five column">
+                                                    <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-correct.jpg" alt="" height="300" width="200" id="wound-photo-five-img"> <br>
+                                                    <input type="radio" name="radimg" id="wound-photo-five" value="Correct - five change text" onclick="woundPhotoCheck()"> 
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="wound-photo-answer" >
+                                            <p id="wound-photo-answer">
+                                                Choose an image
+                                            </p>
+                                        </div>
                             </td>
                         </tr>
+                        
                         <tr>
                             <th colspan="2" class="table-subheading">Management</th>
                         </tr>
@@ -453,7 +492,7 @@
                         </tr>
                         <tr class="hidden" id="vac-intensity-row">
                             <td>
-                                Mode and intensity of VAC. DEFAULT
+                                Mode and intensity of VAC DEFAULT FOR SCENARIO
                             </td>
                             <td>
                                 125 /continuous
@@ -946,7 +985,7 @@
         </div>
         <div class="pdf-sepsis" id="pdf-sepsis">
             <p>
-                <b>Sepsis</b>
+                <b>Sepsis Asessment</b>
 
             </p>
             <p>
@@ -1000,8 +1039,13 @@
             <p>
                 Negative Pressure Therapy - Local Procedure
             </p>
-
-
+        </div>
+        <div class="npt-message" id="npt-message-div">
+            <!-- <span id="npt-message-value"></span> -->
+            <p>
+                In accordance with the VAC care plan, aseptic non-touch technique (ANTT) was used. The adhesive drape was removed gently using adhesive removal wipes.
+                The surrounding skin of the wound was cleaned and dried. Thin strips were around wound edges and Mepitel was applied to wound bed to prevent foam from adhering.
+            </p>
         </div>
 
 

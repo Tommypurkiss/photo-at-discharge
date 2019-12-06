@@ -241,128 +241,64 @@ function setNegativePressureFormCorrect() {
 
 
 
-
-// let possiblySepsisNo = document.getElementById('possibly-sepsis-no')
-// let possibSepsisTreatment = document.getElementById('possibly-sepsis-treatment')
-// let possiblySepsisYes = document.getElementById('possibly-sepsis-yes')
-// let possiblySepsisUnsure = document.getElementById('possibly-sepsis-unsure')
-// let allPossiblySepsisOptions = possiblySepsisNo && possibSepsisTreatment && possiblySepsisYes && possiblySepsisUnsure
-
-// function possiblySepsisFunc() {
-
-//     let possiblySepsisNo = document.getElementById('possibly-sepsis-no')
-//     let possibSepsisTreatment = document.getElementById('possibly-sepsis-treatment')
-//     let possiblySepsisYes = document.getElementById('possibly-sepsis-yes')
-//     let possiblySepsisUnsure = document.getElementById('possibly-sepsis-unsure')
-//     //let allPossiblySepsisOptions = possiblySepsisNo && possibSepsisTreatment && possiblySepsisYes && possiblySepsisUnsure
-
-//     let sepsisRadio = document.querySelector('input[name="possep"]:checked')
-//     let sepsisRadioValue = ""
-
-
-//     if (sepsisRadio == possiblySepsisNo.checked) {
-//         sepsisRadioValue == document.getElementById('possibly-sepsis-no').value
-//     }
-//     else if (sepsisRadio == possibSepsisTreatment.checked) {
-//         alert("please choose another option")
-//     }
-//     else if (sepsisRadio == possiblySepsisYes.checked) {
-//         sepsisRadioValue == document.getElementById('possibly-sepsis-yes').value
-//     }
-//     else if (sepsisRadio == possiblySepsisUnsure.checked) {
-//         sepsisRadioValue == document.getElementById('possibly-sepsis-unsure').value
-//     }
-
-//     // if (possibSepsisTreatment.checked) {
-//     //     alert("Incorrect option please try another option")
-//     //     return
-//     // }
-//     // else if (possiblySepsisNo.checked) {
-//     //     sepsisRadioValue = possiblySepsisNoValue
-//     // }
-// }
-
-
-
+// works
 function possiblySepsisFunc() {
 
     if(document.getElementById('possibly-sepsis-no').checked == true) {
         sepsisRadioValue = document.getElementById('possibly-sepsis-no').value
 
         sepsisRedFlagValue = "" 
-
+        document.getElementById('red-flag-correct').checked == false
     }
     else if(document.getElementById('possibly-sepsis-yes').checked == true) {
         sepsisRadioValue = document.getElementById('possibly-sepsis-yes').value
 
-        sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
+        if (document.getElementById('red-flag-correct').checked == false) {
+            alert("There are no red flags for sepsis present, please choose the correct option")
+            return false
+        } 
+        // else {
+        //     sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
+        // }
+        sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
 
     }
     else if(document.getElementById('possibly-sepsis-unsure').checked == true) {
         sepsisRadioValue = document.getElementById('possibly-sepsis-unsure').value    
 
-        sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
-
+        if (document.getElementById('red-flag-correct').checked == false) {
+            alert("There are no red flags for sepsis present, please choose the correct option")
+            return false
+        } 
+        // else {
+        //     sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
+        // }
+        sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
 
     }
-
-    
-
+    return
 }
 
 
-   // else if (possiblySepsisYes.checked == true) {
-    
-    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
-    // }
-        
-    // else if (possiblySepsisUnsure.checked == true) {
-    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
 
-    // }
+function checkWoundImages() {
 
-
-/* 
-
-
-        if(document.querySelector('input[name="sepred"]:checked')){
-            // alert("checked true ")
-        sepsisRedFlagValue = "N/A" 
-
-        } 
-if(document.querySelector('input[name="sepred"]:checked')){
-        alert("checked true ")
-        sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
-
-        } 
- if(document.querySelector('input[name="sepred"]:checked')){
-        alert("checked true ")
-        sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
-
-        } 
-
-*/
-
-//let sepsisRedFlagValue = ""
-
-// function sepsisRedFlagFunc() {
-//     if(document.querySelector('input[name="sepred"]:checked')){
-//         // alert("checked true ")
-//     sepsisRedFlagValue = "N/A" 
-
-//     } 
-// else if(document.querySelector('input[name="sepred"]:checked')){
-//     alert("checked true ")
-//     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]').value
-
-//     } 
-// else if(document.querySelector('input[name="sepred"]:checked')){
-//     alert("checked true ")
-//     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]').value
-
-//     } 
-// }
-
+    if (document.getElementById('wound-photo-one').checked == true) {
+        checkedImg = document.getElementById('wound-photo-one-img');
+    } 
+    else if (document.getElementById('wound-photo-two').checked == true) {
+        checkedImg = document.getElementById('wound-photo-two-img');
+    } 
+    else if (document.getElementById('wound-photo-three').checked == true) {
+        checkedImg = document.getElementById('wound-photo-three-img');
+    }
+    else if (document.getElementById('wound-photo-four').checked == true) {
+        checkedImg = document.getElementById('wound-photo-four-img');
+    }
+    else if (document.getElementById('wound-photo-five').checked == true) {
+        checkedImg = document.getElementById('wound-photo-five-img');
+    }
+}
 
 
 
@@ -378,6 +314,7 @@ function generatePDF() {
     setNegativePressureFormCorrect()
     checkPossiblySepsis()
     possiblySepsisFunc()
+    checkWoundImages()
 
     // date wound sample
     let woundSampleDate = new Date(document.getElementById('wound-sample-date').value)
@@ -445,40 +382,9 @@ function generatePDF() {
     let woundDescriptionCheckboxPyrexiaValue = document.getElementById('wound-description-pyrexia-correct').value
     let woundDescriptionCheckboxOdourValue = document.getElementById('wound-description-odour-correct').value
     let woundDescriptionCheckboxCorrectValue = woundDescriptionCheckboxSloughValue + ", " + woundDescriptionCheckboxPyrexiaValue + ", " + woundDescriptionCheckboxOdourValue
-    // console.log("woundDescriptionCheckboxCorrect value is: ", woundDescriptionCheckboxCorrect)
 
-    // Original works adds all check box values
-    // for (var i=0, n=woundDescriptionCheckbox.length; i<n; i++) {
-    //     if (woundDescriptionCheckbox[i].checked) {
-
-    //         woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
-    //         console.log("wound desc checkbox checked value", woundDescriptionCheckboxValue)
-
-    //     }
-
-    // }
-    // if (woundDescriptionCheckboxValue) woundDescriptionCheckboxValue = woundDescriptionCheckboxValue.substring(1);
-
-    // let testVal = ""
-    // var str = ""
-    // for (var i=0, n=woundDescriptionCheckbox.length; i<n; i++) {
-    //     if (woundDescriptionCheckbox[i].checked) {
-
-    //         // woundDescriptionCheckboxValue += ", "+ woundDescriptionCheckbox[i].value;
-    //         // console.log("wound desc checkbox checked value", woundDescriptionCheckboxValue)
-
-    //         str += woundDescriptionCheckbox[i].value
-    //         console.log("str val: ", str)
-
-    //     }
-
-           
-    // }
-    // if (str) str = str.substring(1);
 
  
-    
-    //let exudateFormRadio = document.getElementById('exudate-form')
 
     let vacIdNumberTextbox = document.getElementById('vac-id-number-textbox').value
 
@@ -652,7 +558,7 @@ function generatePDF() {
     
 
     else if (woundDescAllCorrect.checked == false) {
-        alert("please check the correct options")
+        alert("Please ensure you have selected the three correct options")
     }
     
     
@@ -661,30 +567,6 @@ function generatePDF() {
     }
     
 
-
-    // else if (woundDescriptionCheckbox == woundDescriptionCheckboxCorrect) {
-    //     console.log("correct pls", woundDescriptionCheckboxValue)
-    //             alert("correct wound description options")
-    // }
-
-
-    // else if (woundDescriptionCheckbox.checked != woundDescriptionCheckboxCorrect) {
-    //     //woundDescriptionCheckboxValue = "No additional resources."
-    //     alert("check the correct wound description options")
-        
-    //     console.log("wound desc checkbox not checked value",woundDescriptionCheckboxValue)
-    // }
-    // else if (woundDescriptionCheckbox.checked == woundDescriptionCheckboxCorrect) {
-    //     woundDescriptionCheckboxValue == woundDescriptionCheckbox.checked
-    // }
-
-
-
-    // let possiblySepsisNoValue = document.getElementById('possibly-sepsis-no').value
-    // let possibSepsisTreatmentValue = document.getElementById('possibly-sepsis-treatment').value
-    // let possiblySepsisYesValue = document.getElementById('possibly-sepsis-yes').value
-    // let possiblySepsisUnsureValue = document.getElementById('possibly-sepsis-unsure').value
-    // let allPossiblySepsisOptionsValue = possiblySepsisNoValue && possibSepsisTreatmentValue && possiblySepsisYesValue && possiblySepsisUnsureValue
 
 
     
@@ -697,152 +579,126 @@ function generatePDF() {
     // sepsis details
 
 
+ 
+
+
+    // else if(document.getElementById('possibly-sepsis-no').checked == true) {
+    //     sepsisRadioValue = document.getElementById('possibly-sepsis-no').value
+
+    //     sepsisRedFlagValue = "" 
+    //     document.getElementById('red-flag-correct').checked == false
+    // }
+
+    // else if(document.getElementById('possibly-sepsis-yes').checked == true) {
+    //     sepsisRadioValue = document.getElementById('possibly-sepsis-yes').value
+
+    //     if (document.getElementById('red-flag-correct').checked == false) {
+    //         alert("There are no red flags for sepsis present, please choose the correct option")
+    //         return
+    //     } 
+    //     // else {
+    //     //     sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
+    //     // }
+    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
+
+    // }
+
+    // else if(document.getElementById('possibly-sepsis-unsure').checked == true) {
+    //     sepsisRadioValue = document.getElementById('possibly-sepsis-unsure').value    
+
+    //     if (document.getElementById('red-flag-correct').checked == false) {
+    //         alert("There are no red flags for sepsis present, please choose the correct option")
+    //         return
+    //     } 
+    //     // else {
+    //     //     sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
+    //     // }
+    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
+
+    // }
+
+    // else if (possibSepsisTreatment.checked) {
+    //     alert("Known/ Treatment is incorrect, please choose the correct option")
+    //     return
+    // }
+
+
+
+
+
+// if form checked then all the if statements
+
+
+
+
+// somewhat works
+    // else if(document.getElementById('possibly-sepsis-no').checked == false) {
+    //     alert("Please choose an option if posisbly sepsis")
+        
+
+    //     if(document.getElementById('possibly-sepsis-no').checked == true) {
+    //             sepsisRadioValue = document.getElementById('possibly-sepsis-no').value
+    //             sepsisRedFlagValue = "" 
+    //             document.getElementById('red-flag-correct').checked == false
+    //         }
+    //     return
+    // }
+    
+
+
+
+    // else if (document.getElementsByName('possep'))
+    else if(document.querySelector('input[name="possep"]:checked') == null) {
+        alert("Please choose an option if possibly sepsis")
+    }
+
+
+
+
+
+
     else if (possibSepsisTreatment.checked) {
-        alert("Incorrect option please try another option")
+        alert("Known/ Treatment is incorrect, please choose the correct option")
         return
     }
 
 
 
-    // else if (possiblySepsisNo.checked) {
-    //     sepsisRadioValue = possiblySepsisNoValue
-    // }
-    
-
-
-    // else if (possiblySepsisNo.checked) {
-    //     sepsisReadioValue = document.getElementById('possibly-sepsis-no').value
-    // }
-    // else if (possibSepsisTreatment.checked) {
-    //     alert("Incorrect option please try another option")
-    //     return
-    // }
-    
-
-    // else if (possiblySepsisYes.checked) {
-    //     sepsisReadioValue = document.getElementById('possibly-sepsis-yes').value
-    // }
-        
-    // else if (possiblySepsisUnsure.checked) {
-    //     sepsisReadioValue = document.getElementById('possibly-sepsis-unsure').value
-    // }
-
-
-    // else if (possiblySepsisNo.checked != document.getElementById('possibly-sepsis-no')) {
-    //     alert('no')
-    //     // sepsisReadioValue = document.getElementById('possibly-sepsis-no').value
-    // }
-    // else if (possibSepsisTreatment.checked) {
-    //     alert("Incorrect option please try another option")
-    //     return
-    // }
-    
-
-    // else if (possiblySepsisYes.checked != document.getElementById('possibly-sepsis-yes')) {
-    //     alert('yes')
-
-    //     //sepsisReadioValue = document.getElementById('possibly-sepsis-yes').value
-    // }
-        
-    // else if (possiblySepsisUnsure.checked != document.getElementById('possibly-sepsis-unsure')) {
-    //     alert('unsure')
-
-    //     // sepsisReadioValue = document.getElementById('possibly-sepsis-unsure').value
-    // }
-
-
-    // else if (possiblySepsisForm.checked == document.getElementById('possibly-sepsis-no')) {
-    //     alert('no')
-    //     // sepsisReadioValue = document.getElementById('possibly-sepsis-no').value
-    // }
-    // else if (possibSepsisTreatment.checked) {
-    //     alert("Incorrect option please try another option")
-    //     return
-    // }
-    // else if (possiblySepsisForm.checked == document.getElementById('possibly-sepsis-yes')) {
-    //     alert('yes')
-
-    //     //sepsisReadioValue = document.getElementById('possibly-sepsis-yes').value
-    // }    
-    // else if (possiblySepsisForm.checked == document.getElementById('possibly-sepsis-unsure')) {
-    //     alert('unsure')
-    //     // sepsisReadioValue = document.getElementById('possibly-sepsis-unsure').value
-    // }
-
-
-
-
-    // else if (possiblySepsisNo.checked == false) {
-    //     // sepsisReadioValue = document.querySelector('input[name="possep"]:checked').value;
-    //     alert("Please make sure you have chosen and option if possibly sepsis")
-    // }
-    // else if (possibSepsisTreatment.checked == true) {
-    //     alert("Incorrect option please try another option")
-    //     return
-    // }
-    
-
-    // else if (possiblySepsisYes.checked == false) {
-    //     // sepsisReadioValue = document.querySelector('input[name="possep"]:checked').value;
-    //     alert("Please make sure you have chosen and option if possibly sepsis")
-
-    // }
-        
-    // else if (possiblySepsisUnsure.checked == false) {
-    //     // sepsisReadioValue = document.querySelector('input[name="possep"]:checked').value;
-    //     alert("Please make sure you have chosen and option if possibly sepsis")
-
-    // }
-
-
-
-
-    // else if (possiblySepsisNo.checked == true) {
-    //     sepsisRedFlagValue = ""
-    // }
-    // else if (possibSepsisTreatment.checked == true) {
-    //     alert("Incorrect option please try another option")
-    //     return
-    // }
-
-    // else if (possiblySepsisYes.checked == true) {
-    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
-    // }
-        
-    // else if (possiblySepsisUnsure.checked == true) {
-    //     sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
-    // }
-
-
-
-
-    // else if(redFlagForm.checked == false) {
-    //     alert("Please check any Red Flag(s) option")
-    // }
-    // else if(redFlagForm.checked) {
-    //     possiblySepsisValue = document.querySelector('input[name="sepred"]:checked').value
-    // }
-
-
-//    else if (possiblySepsisYes.checked == true) {
-    
-//         sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
-//     }
-        
-//     else if (possiblySepsisUnsure.checked == true) {
-//         sepsisRedFlagValue = "Red Flag option selected is: " + document.querySelector('input[name="sepred"]:checked').value
-
-//     }
-
-    // else if (document.querySelector('input[name="sepred"]:checked') == false){
-    //     alert("Please choose an option")   
-    // }
-    // else if (sepsisRedFlagValue === null){
-    //     alert("Please choose an option")   
-    // }
-
 
     // end sepsis details
+
+
+    // photo    
+
+    else if(document.querySelector('input[name="radimg"]:checked') == null) {
+        alert("Please choose an image")
+    }
+
+    else if (checkedImg != document.getElementById('wound-photo-five-img')) {
+        if (document.getElementById('wound-photo-one').checked == true) {
+            photoValue = document.getElementById('wound-photo-one').value;
+            alert(photoValue);
+        } 
+        else if (document.getElementById('wound-photo-two').checked == true) {
+            photoValue = document.getElementById('wound-photo-two').value;
+            alert(photoValue);
+        } 
+        else if (document.getElementById('wound-photo-three').checked == true) {
+            photoValue = document.getElementById('wound-photo-three').value;
+            alert(photoValue);
+        }
+
+        else if (document.getElementById('wound-photo-four').checked == true) {
+            photoValue = document.getElementById('wound-photo-five').value;
+            alert(photoValue);
+        }
+    }
+
+
+    // end photo
+
+
+
 
     // management details
 
@@ -953,8 +809,11 @@ function generatePDF() {
         doc.addImage(logo, 'JPEG', 330, 10, 100, 35.71); // logo
 
         doc.setFontSize(14) // set title font size
-        doc.text('WOUND TYPE - BODY LOCATION', doc.internal.pageSize.getWidth() / 2, 60, null, null, 'center') //title
-        
+        // doc.text('WOUND TYPE - BODY LOCATION', doc.internal.pageSize.getWidth() / 2, 60, null, null, 'center') //title
+        doc.text(woundTypeRadioCorrectValue + " - " + bodyLocationDropdown, doc.internal.pageSize.getWidth() / 2, 60, null, null, 'center') //title
+
+
+
         doc.setFontSize(10) // set normal font size
         
         // patient details text
@@ -974,11 +833,17 @@ function generatePDF() {
             'width' : 250
         })
 
-        doc.fromHTML($('#pdf-management').get(0), 20, 350, {
+        doc.fromHTML($('#pdf-management').get(0), 20, 345, {
             'width' : 250,
         })
+        doc.fromHTML($('#npt-message-div').get(0), 20, 570, {
+            'width' : 400,
+        })
 
-        doc.addImage(demoImg, 'JPEG', 280, 80, 150, 300); // demo side image to be changed
+
+        //doc.addImage(demoImg, 'JPEG', 280, 80, 150, 300); // demo side image to be changed
+        doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+
 
         doc.save('WoundCare1.pdf') //save the pdf
 
