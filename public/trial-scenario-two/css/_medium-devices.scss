@@ -72,11 +72,19 @@
                         .wound-photo-form {
 
                             .row {
+                                
 
                                 .column {
 
                                     flex: 50% !important;
                                     max-width: 50% !important;
+                                    //border: 1px solid black;
+
+                                    img {
+                                        padding: 4px;
+                                        height: auto;
+                                        max-width: 100%;
+                                    }
                                 }
                             }
                         }
@@ -87,6 +95,67 @@
     }
 }
 
+
+
+
+// @media screen and (max-width: 1400px) {
+
+
+//     .main-content-wrapper {
+
+//         .main-content {
+
+//             .database-table {
+
+//                 .database-table-content {
+
+//                     table {
+
+//                         padding: 0px !important;
+
+//                         .wound-photo-form {
+
+//                             .row {
+
+                                
+
+//                                 .column {
+
+//                                     flex: 50% !important;
+//                                     max-width: 50% !important;
+//                                     border: 1px solid black;
+
+                                    
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// .wound-photo-form {
+
+                            
+
+//     .row {
+//         // flex-flow: column wrap;
+//         // margin: 0 auto;
+
+//         .column {
+
+//             flex: 100% !important;
+//             max-width: 100% !important;
+        
+//             // .wound-photo {
+
+                
+//             // }
+//         }
+//     }
+// }
 
 @media screen and (max-width: 1024px) {
 

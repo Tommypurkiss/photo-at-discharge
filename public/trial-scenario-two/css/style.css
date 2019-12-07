@@ -8,6 +8,11 @@
             flex: 50% !important;
     max-width: 50% !important;
   }
+  .main-content-wrapper .main-content .database-table .database-table-content table .wound-photo-form .row .column img {
+    padding: 4px;
+    height: auto;
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -111,6 +116,11 @@ nav .nav-logo img {
 .main-content-wrapper .div-filler {
   height: 80px;
   width: 100%;
+}
+
+.main-content-wrapper .responsive {
+  width: 100%;
+  height: auto;
 }
 
 .main-content-wrapper .main-content {

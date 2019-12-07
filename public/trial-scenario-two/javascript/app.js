@@ -842,7 +842,12 @@ function generatePDF() {
 
 
         //doc.addImage(demoImg, 'JPEG', 280, 80, 150, 300); // demo side image to be changed
-        doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+        // doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+        // doc.addImage(checkedImg, 'JPEG', 250, 80, 300, 150);
+        // doc.addImage(checkedImg, 'JPEG', 220, 80, 250, 200);
+        doc.addImage(checkedImg, 'JPEG', 210, 80, 230, 180);
+
+
 
 
         doc.save('WoundCare1.pdf') //save the pdf

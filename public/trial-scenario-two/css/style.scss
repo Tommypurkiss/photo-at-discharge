@@ -67,6 +67,10 @@ nav {
         height: 80px;
         width: 100%;
     }
+    .responsive {
+        width: 100%;
+        height: auto;
+    }
 
     .main-content {
         width: 90%;
@@ -210,6 +214,9 @@ nav {
 
                     .row {
 
+                        img {
+
+                        }
                         // display: flex;
                         // justify-content: center;
                         //display: -ms-flexbox; /* IE10 */
