@@ -69,7 +69,7 @@
                     Please use a browser such as <b> Chrome, Firefox or Safari </b> for best results with this practice exercise.
                 </p>
             </div>
-
+            <!-- <button id="font-button" class="font-button" style="border: 1px solid black; border-radius: 10px;" onclick="toggleContentFont()">Font</button> -->
             <div class="scenario-para">
                 <h1>
                     Scenario: WoundCare1
@@ -130,7 +130,7 @@
                                 Staff name and designation providing assessment
                             </td>
                             <td>
-                                <input type="text" name="doctor name" id="doctor-name" class="small-textbox" value="" required>
+                                <input type="text" name="doctor name" id="staff-name" class="small-textbox" value="">
                                 
                             </td>
                         </tr>
@@ -193,12 +193,20 @@
                             <td>
                                 <select name="Pressure Ulcer Grade" id="pressure-ulcer-form" class="small-dropdown">
                                     <!-- <option value="select">--select--</option> -->
-                                    <option value="Stage I">Stage I</option>
+                                    <!-- <option value="Stage I">Stage I</option>
                                     <option value="Stage II">Stage II</option>
                                     <option value="Stage III" id="pressure-ulcer-dropdown-correct">Stage III</option>
                                     <option value="Stage IV">Stage IV</option>
                                     <option value="Ungradable">Ungradable</option>
-                                    <option value="Suspected deep tissue injury">Suspected deep tissue injury</option>
+                                    <option value="Suspected deep tissue injury">Suspected deep tissue injury</option> -->
+                                    <option value="Category 1">Category 1</option>
+                                    <option value="Category 2">Category 2</option>
+                                    <option value="Category 3" id="pressure-ulcer-dropdown-correct">Category 3</option>
+                                    <option value="Category 4">Category 4</option>
+                                    <option value="Unstageable">Unstageable</option>
+                                    <option value="DTI (Deep Tissue Injury)">DTI (Deep Tissue Injury)</option>
+                                    <option value="MDRPU (Medical device related pressure ulcer)">MDRPU (Medical device related pressure ulcer)</option>
+                                    <option value="MASD (Moisture associated skin damage)">MASD (Moisture associated skin damage)</option>
                                 </select>
                             </td>
                         </tr>
@@ -1076,7 +1084,23 @@
                 The surrounding skin of the wound was cleaned and dried. Thin strips were around wound edges and Mepitel was applied to wound bed to prevent foam from adhering.
             </p>
         </div>
-
+        <div class="bottom-details" id="bottom-details">
+            <p>
+                <b>Staff name: </b> <span id="b-d-staff-name-answer"></span> 
+            </p>
+            <p>
+                <b>Ward: </b> <span id="b-d-ward-answer"></span>
+            </p>
+            <p>
+                Working towards no avoidable hospital required aquired pressure ulcers
+            </p>
+            <p>
+                Name of hospital/center
+            </p>
+            <p>
+                <b>Number: </b> 01234567876 (Bleep XXXXX, Ext XXXXX)
+            </p>
+        </div>
 
     </div>
     <!-- end hidden pdf -->

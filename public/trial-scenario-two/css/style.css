@@ -123,6 +123,10 @@ nav .nav-logo img {
   height: auto;
 }
 
+.main-content-wrapper .toggleFont p {
+  font-size: 24 !important;
+}
+
 .main-content-wrapper .main-content {
   width: 90%;
   margin: 0 auto;
@@ -242,5 +246,10 @@ nav .nav-logo img {
 .main-content-wrapper .main-content .database-table .database-table-content table .wound-photo-answer {
   height: 50px;
   text-align: center;
+}
+
+.main-content-wrapper .hidden-pdf p {
+  margin-top: 0.6em;
+  margin-bottom: 0em;
 }
 /*# sourceMappingURL=style.css.map */

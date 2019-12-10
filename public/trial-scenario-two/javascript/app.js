@@ -339,24 +339,27 @@ function generatePDF() {
 
     // Name of consultant / responsible clinician 
     let clinicianValue = document.getElementById('consultant-dropdown').value
-    console.log("clinician value is: ", clinicianValue)
+    // console.log("clinician value is: ", clinicianValue)
+
+    let staffNameValue = document.getElementById('staff-name').value
+    
 
     // Current ward chosen
     let wardValue = document.getElementById('ward-options').value
-    console.log("ward value is: ", wardValue)
+    // console.log("ward value is: ", wardValue)
 
     // Current bed number set
     let bedNumber = document.getElementById('bed-number').value
-    console.log("bed number value is: ", bedNumber)
+    // console.log("bed number value is: ", bedNumber)
 
     //  Wound type form 
     let woundTypeForm = document.getElementById('wound-type-form').value
-    console.log("wound type form value is: ", woundTypeForm)
+    // console.log("wound type form value is: ", woundTypeForm)
 
 
     //pressure ulcer form
     let pressureUlcerForm = document.getElementById('pressure-ulcer-form').value
-    console.log("pressure ulcer form value is: ", pressureUlcerForm)
+    // console.log("pressure ulcer form value is: ", pressureUlcerForm)
 
     // occurence dropdown
     let occurenceDropdown = document.getElementById('occurence-dropdown').value
@@ -511,6 +514,9 @@ function generatePDF() {
     let pdfManagementNextReviewDateAnswer = document.getElementById('pdf-management-next-review-date-answer')
     //console.log("pdf management next review date answer is: ", pdfManagementNextReviewDateAnswer)
 
+    let pdfStaffNameAnswer = document.getElementById('b-d-staff-name-answer')
+    let pdfBDWardAnswer = document.getElementById('b-d-ward-answer')
+
     let redFlagForm = document.getElementById('red-flag-form')
 
     //let sepsisReadioValue = document.querySelector('input[name="possep"]:checked').value;
@@ -523,6 +529,12 @@ function generatePDF() {
     if (clinicianValue != document.getElementById("consultant-correct").value) {
         alert("You are caring for M T Stark's patient, please make sure you have chosen the correct Responsible clinician")
     }
+    else if (staffNameValue == "") {
+        alert("Please enter a staff name")
+    }
+    // else if (staffNameValue != "") {
+    //     staffNameValue == staffNameValue
+    // }
     else if (wardValue != document.getElementById('maple-ward-correct').value) {
         alert("The ward you are caring for Mrs Olay on is Maple, please make sure you have chosen the correct Ward")
     }
@@ -762,28 +774,14 @@ function generatePDF() {
 
         pdfExudateAnswer.innerHTML = exudateFormRadioCorrectValue
 
-
         // pdf sepsis
         pdfPossiblySepsisAnswer.innerHTML = sepsisRadioValue
-
-
-
         pdfRedFlagAnswer.innerHTML = sepsisRedFlagValue
-        
-        
         
         // pdfPossiblySepsisAnswer.innerHTML = possiblySepsisValue // this should be equal to yes/ no/ unsure/ treatment
         //pdfRedFlagAnswer.innerHTML = sepsisRedFlagValue // "Is a red flag present? " + 
         
-        /*
-        
-        if yes unsure 
-        innerhtml = value
-        
-        if no treatment
-        innher httml = vallue ""
 
-        */
 
 
         
@@ -798,6 +796,10 @@ function generatePDF() {
         pdfManagementWoundSampleDateAnswer.innerHTML = woundSampleDate
         pdfManagementMicrobiologyAnswer.innerHTML = microbiologyDropdown
         pdfManagementNextReviewDateAnswer.innerHTML = nextReviewDate
+
+        // details
+        pdfStaffNameAnswer.innerHTML = staffNameValue
+        pdfBDWardAnswer.innerHTML = wardValue
         // html pdf section answers ends here
 
 
@@ -829,14 +831,16 @@ function generatePDF() {
             'width' : 250,
         })
 
-        doc.fromHTML($('#pdf-sepsis').get(0), 20, 275, {
+        doc.fromHTML($('#pdf-sepsis').get(0), 20, 265, {
             'width' : 250
         })
-
-        doc.fromHTML($('#pdf-management').get(0), 20, 345, {
+        doc.fromHTML($('#pdf-management').get(0), 20, 330, {
             'width' : 250,
         })
-        doc.fromHTML($('#npt-message-div').get(0), 20, 570, {
+        doc.fromHTML($('#npt-message-div').get(0), 20, 515, {
+            'width' : 400,
+        })
+        doc.fromHTML($('#bottom-details').get(0), 20, 550, {
             'width' : 400,
         })
 
@@ -858,3 +862,10 @@ function generatePDF() {
 
 
 }
+
+
+
+// function toggleContentFont() {
+//     document.getElementById('main-content').classList.add('toggle-font')
+
+// }

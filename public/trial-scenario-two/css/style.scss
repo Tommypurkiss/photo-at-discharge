@@ -72,6 +72,13 @@ nav {
         height: auto;
     }
 
+    // .toggleFont {
+        
+    //     p {
+    //         font-size: 24!important;
+    //     }
+    // }
+
     .main-content {
         width: 90%;
         margin: 0 auto;
@@ -214,9 +221,9 @@ nav {
 
                     .row {
 
-                        img {
+                        // img {
 
-                        }
+                        // }
                         // display: flex;
                         // justify-content: center;
                         //display: -ms-flexbox; /* IE10 */
@@ -267,4 +274,8 @@ nav {
         }    
     }
 
+    .hidden-pdf {
+        p {  margin-top: 0.6em; margin-bottom: 0em; }
+
+    }
 }
