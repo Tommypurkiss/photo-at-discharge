@@ -21,30 +21,51 @@ body {
     margin: 0;
     width: 100%;
     font-family: $main-font;
-    background-color: $backgroundColour;
+    // background-color: $backgroundColour;
+    background-color: white;
 }
 
-nav {
+// nav {
 
-    padding: 8px;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background-color: $navBackgroundColour;
+//     padding: 8px;
+//     width: 100%;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: 1;
+//     background-color: $navBackgroundColour;
 
-    // Nav Logo
-    .nav-logo { 
-        float: right;
-        margin-right: 14px;
+//     // Nav Logo
+//     .nav-logo { 
+//         float: right;
+//         margin-right: 14px;
         
-        img {
-            width: 140px;
-            height: auto;
-        }
-    }
-}
+//         img {
+//             width: 140px;
+//             height: auto;
+//         }
+//     }
+// }
+.pink-bar {
+    height: 60px;
+    width: 100%;
+  
+    z-index: 1;
+    background-color: #E73C6A;
+  }
+  
+  
+  
+  .logo {
+    padding-top: 10px;
+    float: right;
+    margin-right: 14px;
+  }
+  
+  .logo img {
+    width: 140px;
+    height: auto;
+  }
 
 .main-content-wrapper {
     //border: $blackBorder;
@@ -197,23 +218,22 @@ nav {
                     }
                     // end table classes
 
-                    // tr {
-                    //     td {
-                    //         #microbiology-dropdown {
-                    //             optgroup {
-                    //                 option {
-
-                                        
-                    //                         li {
-                    //                         border: 1px solid black;
-                    //                         padding: 20px;
-                    //                     }
-                    //                 }
-                    //             }
-                    //         }
-                    //     }
-                    // }
-                    
+                    #wound-assessment-heading-row {
+                        background-color: black!important;
+                        color: white;
+                    }
+                    #sepsis-subheading {
+                        background-color: black!important;
+                        color: white; 
+                    }
+                    #photos-heading-row {
+                        background-color: black!important;
+                        color: white; 
+                    }
+                    #management-heading-row {
+                        background-color: black!important;
+                        color: white; 
+                    }
 
                     .wound-photo-form {
 

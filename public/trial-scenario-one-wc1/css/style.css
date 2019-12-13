@@ -69,25 +69,23 @@ body {
   margin: 0;
   width: 100%;
   font-family: "Roboto Condensed", sans-serif;
-  background-color: #dddddd;
+  background-color: white;
 }
 
-nav {
-  padding: 8px;
+.pink-bar {
+  height: 60px;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
   z-index: 1;
   background-color: #E73C6A;
 }
 
-nav .nav-logo {
+.logo {
+  padding-top: 10px;
   float: right;
   margin-right: 14px;
 }
 
-nav .nav-logo img {
+.logo img {
   width: 140px;
   height: auto;
 }
@@ -121,10 +119,6 @@ nav .nav-logo img {
 .main-content-wrapper .responsive {
   width: 100%;
   height: auto;
-}
-
-.main-content-wrapper .toggleFont p {
-  font-size: 24 !important;
 }
 
 .main-content-wrapper .main-content {
@@ -220,6 +214,26 @@ nav .nav-logo img {
 
 .main-content-wrapper .main-content .database-table .database-table-content table .table-subheading {
   font-size: 24px;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table #wound-assessment-heading-row {
+  background-color: black !important;
+  color: white;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table #sepsis-subheading {
+  background-color: black !important;
+  color: white;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table #photos-heading-row {
+  background-color: black !important;
+  color: white;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table #management-heading-row {
+  background-color: black !important;
+  color: white;
 }
 
 .main-content-wrapper .main-content .database-table .database-table-content table .wound-photo-form .row {

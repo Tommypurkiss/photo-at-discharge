@@ -80,7 +80,9 @@ function setWoundTypeValue() {
 let woundDescPyrexiaCorrect = document.getElementById('wound-description-pyrexia-correct')
 let woundDescSloughCorrect = document.getElementById('wound-description-slough-correct')
 let woundDescOdourCorrect = document.getElementById('wound-description-odour-correct')
-let woundDescAllCorrect = woundDescPyrexiaCorrect && woundDescSloughCorrect && woundDescOdourCorrect
+// let woundDescAllCorrect = woundDescPyrexiaCorrect && woundDescSloughCorrect && woundDescOdourCorrect
+let woundDescAllCorrect = woundDescPyrexiaCorrect && woundDescOdourCorrect
+
 let possiblySepsisRow = document.getElementById('possibly-sepsis-row')
 let sepsisRedFlagRow = document.getElementById('sepsis-red-flag-row')
 let sepsisSubheading = document.getElementById('sepsis-subheading')
@@ -254,7 +256,9 @@ function possiblySepsisFunc() {
         sepsisRadioValue = document.getElementById('possibly-sepsis-yes').value
 
         if (document.getElementById('red-flag-correct').checked == false) {
-            alert("There are no red flags for sepsis present, please choose the correct option")
+            // alert("There are no red flags for sepsis present, please choose the correct option")
+            alert("THERE ARE NO RED FLAGS FOR SEPSIS PRESENT, PLEASE CHOOSE THE CORRECT OPTION")
+
             return false
         } 
         // else {
@@ -267,7 +271,9 @@ function possiblySepsisFunc() {
         sepsisRadioValue = document.getElementById('possibly-sepsis-unsure').value    
 
         if (document.getElementById('red-flag-correct').checked == false) {
-            alert("There are no red flags for sepsis present, please choose the correct option")
+            // alert("There are no red flags for sepsis present, please choose the correct option")
+            alert("THERE ARE NO RED FLAGS FOR SEPSIS PRESENT, PLEASE CHOOSE THE CORRECT OPTION")
+
             return false
         } 
         // else {
@@ -283,10 +289,10 @@ function possiblySepsisFunc() {
 
 function checkWoundImages() {
 
-    if (document.getElementById('wound-photo-one').checked == true) {
-        checkedImg = document.getElementById('wound-photo-one-img');
-    } 
-    else if (document.getElementById('wound-photo-two').checked == true) {
+    // if (document.getElementById('wound-photo-one').checked == true) {
+    //     checkedImg = document.getElementById('wound-photo-one-img');
+    // } 
+    if (document.getElementById('wound-photo-two').checked == true) {
         checkedImg = document.getElementById('wound-photo-two-img');
     } 
     else if (document.getElementById('wound-photo-three').checked == true) {
@@ -384,7 +390,8 @@ function generatePDF() {
     let woundDescriptionCheckboxSloughValue = document.getElementById('wound-description-slough-correct').value
     let woundDescriptionCheckboxPyrexiaValue = document.getElementById('wound-description-pyrexia-correct').value
     let woundDescriptionCheckboxOdourValue = document.getElementById('wound-description-odour-correct').value
-    let woundDescriptionCheckboxCorrectValue = woundDescriptionCheckboxSloughValue + ", " + woundDescriptionCheckboxPyrexiaValue + ", " + woundDescriptionCheckboxOdourValue
+    // let woundDescriptionCheckboxCorrectValue = woundDescriptionCheckboxSloughValue + ", " + woundDescriptionCheckboxPyrexiaValue + ", " + woundDescriptionCheckboxOdourValue
+    let woundDescriptionCheckboxCorrectValue = woundDescriptionCheckboxPyrexiaValue + ", " + woundDescriptionCheckboxOdourValue
 
 
  
@@ -527,35 +534,51 @@ function generatePDF() {
 
     // patient and ward details
     if (clinicianValue != document.getElementById("consultant-correct").value) {
-        alert("You are caring for M T Stark's patient, please make sure you have chosen the correct Responsible clinician")
+        // alert("You are caring for Mr T Stark's patient, please make sure you have chosen the correct Responsible clinician")
+        alert("YOU ARE CARING FOR MR T STARK'S PATIENT, PLEASE MAKE SURE YOU HAVE CHOSEN THE CORRECT RESPONSIBLE CLINICIAN")
+
     }
     else if (staffNameValue == "") {
-        alert("Please enter a staff name")
+        // alert("Please enter a staff name")
+        alert("PLEASE ENTER A STAFF NAME")
+
     }
     // else if (staffNameValue != "") {
     //     staffNameValue == staffNameValue
     // }
     else if (wardValue != document.getElementById('maple-ward-correct').value) {
-        alert("The ward you are caring for Mrs Olay on is Maple, please make sure you have chosen the correct Ward")
+        // alert("The ward you are caring for Mrs Olay on is Maple, please make sure you have chosen the correct Ward")
+        alert("THE WARD YOU ARE CARING FOR MRS OLAY ON IS MAPLE, PLEASE MAKE SURE YOU HAVE CHOSEN THE CORRECT WARD")
+
     }
     else if (bedNumber != "6") {
-        alert("Mrs Olay is in bed 6, please make sure you have entered the correct Bed Number")
+        // alert("Mrs Olay is in bed 6, please make sure you have entered the correct Bed Number")
+        alert("MRS OLAY IS IN BED 6, PLEASE MAKE SURE YOU HAVE ENTERED THE CORRECT BED NUMBER")
+
     }
 
     // wound assessment details
 
     else if (woundTypeRadioCorrect.checked == false) {
-        alert("Mrs Olay is a patient for a Pressure Ulcer, please make sure you have chosen the correct wound type")
+        // alert("Mrs Olay is a patient for a Pressure Ulcer, please make sure you have chosen the correct wound type")
+        alert("MRS OLAY IS A PATIENT FOR A PRESSURE ULCER, PLEASE MAKE SURE YOU HAVE CHOSEN THE CPRRECT WOUND TYPE")
+
     }
     else if (pressureUlcerForm != document.getElementById('pressure-ulcer-dropdown-correct').value) {
-        alert("Mrs Olay's Pressure Ulcer is a Grade III, please make sure you've selected the correct option")
+        // alert("Mrs Olay's Pressure Ulcer is a Grade III, please make sure you've selected the correct option")
+        alert("MRS OLAY'S PRESSURE ULCER IS A GRADE 3, PLEASE MAKE SURE YOU HAVE SELECTED THE CORRECT OPTION")
+
     }
     else if (occurenceDropdown != document.getElementById('occurence-dropdown-correct').value) {
-        alert("Mrs Olay was admitted with, please make sure you've selected the correct option")
+        // alert("Mrs Olay was admitted with, please make sure you've selected the correct option")
+        alert("MRS OLAY WAS ADMTTED WITH, PLEASE MAKE SURE YOU HAVE SELECTED THE CORRECT OPTION")
+
     }
 
     else if (bodyLocationDropdown != document.getElementById('body-location-sacrum-correct').value) {
-        alert("Mrs Olay Ulcer is located on her Sacrum, please make sure you have selected the correct option")
+        // alert("Mrs Olay Ulcer is located on her Sacrum, please make sure you have selected the correct option")
+        alert("MRS OLAY'S ULCER IS LOCATED ON HER SACRUM, PLEASE MAKE SURE YOU HAVE SELECTED THE CORRECT OPTION")
+
     }
     
 
@@ -570,12 +593,18 @@ function generatePDF() {
     
 
     else if (woundDescAllCorrect.checked == false) {
-        alert("Please ensure you have selected the three correct options")
+        // alert("Please ensure you have selected the three correct options")
+        // alert("Please ensure you have selected the two correct options")
+        alert("PLEASE MAKE SURE YOU HAVE SELECTED THE CORRECT WOUND DESCRIPTION OPTIONS")
+
+
     }
     
     
     else if (exudateFormRadioCorrect.checked == false) {
-        alert("The cannister has drained 110mls of serous exudate, please make sure you have selected the correct option")
+        // alert("The cannister has drained 110mls of serous exudate, please make sure you have selected the correct option")
+        alert("THE CANNISTER HAS DRAINED 110mls OF SEROUS EXUDATE, PLEASE MAKE SURE YOU HAVE SELECTED THE CORRECT OPTION")
+
     }
     
 
@@ -661,7 +690,9 @@ function generatePDF() {
 
     // else if (document.getElementsByName('possep'))
     else if(document.querySelector('input[name="possep"]:checked') == null) {
-        alert("Please choose an option if possibly sepsis")
+        // alert("Please choose an option if possibly sepsis")
+        alert("PLEASE CHOOSE AN OPTION IF POSSIBLY SEPSIS?")
+
     }
 
 
@@ -670,7 +701,9 @@ function generatePDF() {
 
 
     else if (possibSepsisTreatment.checked) {
-        alert("Known/ Treatment is incorrect, please choose the correct option")
+        // alert("Known/ Treatment is incorrect, please choose the correct option")
+        alert("KNOWN/TREATMENT IS INCORRECT, PLEASE CHOOSE THE CORRECT OPTION")
+
         return
     }
 
@@ -683,7 +716,9 @@ function generatePDF() {
     // photo    
 
     else if(document.querySelector('input[name="radimg"]:checked') == null) {
-        alert("Please choose an image")
+        // alert("Please choose an image")
+        alert("PLEASE CHOOSE AN IMAGE")
+
     }
 
     else if (checkedImg != document.getElementById('wound-photo-five-img')) {
@@ -715,42 +750,65 @@ function generatePDF() {
     // management details
 
     else if (managementConsentCorrect.checked == false) {
-        alert("The appropriate consent given is written, please make sure you have chosen the correct option")
+        // alert("The appropriate consent given is written, please make sure you have chosen the correct option")
+        alert("THE APPROPRIATE CONSENT GIVEN IS WRITTEN, PLEASE MAKE SURE YOU HAVE CHOSEN THE CORRECT OPTION")
+
     }
     else if (analgesiaFormCorrect.checked == false) {
-        alert("Mrs Olay declined pain killers for the VAC dressing change, please make sure you have chosen the correct option")
+        // alert("Mrs Olay declined pain killers for the VAC dressing change, please make sure you have chosen the correct option")
+        alert("MRS OLAY DECLINED PAIN KILLERS FOR THE VAC DRESSING CHANGE, PLEASE MAKE SURE YOU HAVE CHOSEN THE CORRECT OPTION")
+
     }
     else if (woundCleansingFormCorrect.checked == false) {
-        alert("The wound has been cleaned with normal saline, please make sure you have chosen the correct option")
+        // alert("The wound has been cleaned with normal saline, please make sure you have chosen the correct option")
+        alert("THE WOUND HAS BEEN CLEANED WITH NORMAL SALINE, PLEASE MAKE SURE YOU HAVE CHOSEN THE CORRECT OPTION")
+
     }
     else if (woundDressingFormCorrect.checked == false) {
-        alert("The wound dressing is vacuum assisted closure (VAC) dressing, please make sure you have chosen the correct option")
+        // alert("The wound dressing is vacuum assisted closure (VAC) dressing, please make sure you have chosen the correct option")
+        alert("THE WOUND DRESSING IS VACUUM ASSISTED CLOSURE (VAC) DRESSING, PLEASE MAKE SURE YOU HAVE CHOSEN THE CORRECT OPTION")
+
     }
     else if (negativePressureFormCorrect.checked == false) {
-        alert("Therapy is continued, please make sure you have chosent he correct option")
+        // alert("Therapy is continued, please make sure you have chosent he correct option")
+        alert("THERAPY IS CONTINUED, PLEASE MAKE SURE YOU HAVE CHOSEN THE CORRECT OPTION")
+
     }
     else if (vacIdNumberTextbox != "12345") {
-        alert("The correct unit number is 12345, please enter the correct VAC ID/Number")
+        // alert("The correct unit number is 12345, please enter the correct VAC ID/Number")
+        alert("THE CORRECT UNIT NUMBER IS 12345, PLEASE ENTER THE CORRECT VAC ID/NUMBER")
+
     }
     else if (vacVolumeTextbox != "110") {
-        alert("The correct amount is 110mls, please enter the correct amount")
+        // alert("The correct amount is 110mls, please enter the correct amount")
+        alert("THE CORRECT AMOUNT IS 110mls, PLEASE ENTER THE CORRECT AMOUNT")
+
     }
 
     else if (woundSampleDate == "" || woundSampleDate == "NaN/NaN/NaN") {
-        alert("Please enter the wound sample date.")
-        
+        // alert("Please enter the wound sample date.")
+        alert("PLEASE ENTER THE WOUND SAMPLE DATE")
+
     }
     else if (woundSampleDate != yesterdaysDate) {
-        alert("The date of the wound sample was yesterday, please make sure you have entered the correct date")
+        // alert("The date of the wound sample was yesterday, please make sure you have entered the correct date")
+        alert("THE DATE OF THE WOUND SAMPLE WAS YESTERDAY, PLEASE MAKE SURE YOU HAVE ENETERED THE CORRCET DATE")
+
     }
     else if (microbiologyDropdown != document.getElementById('microbiology-dropdown-ecoli-correct').value) {
-        alert("The swab test result showed positive for Escherichia coli, please make sure you have chosen the correct option")
+        // alert("The swab test result showed positive for Escherichia coli, please make sure you have chosen the correct option")
+        alert("THE SWAB TEST RESULT SHOWED POSITIVE FOR ESCHERICHIA COLI, PLEASE MAKE SURE YOU HAVE CHOSEN THE CORRECT OPTION")
+
     }
     else if (nextReviewDate == "" || nextReviewDate == "NaN/NaN/NaN") {
-        alert("Please enter the next review date.")
+        // alert("Please enter the next review date.")
+        alert("PLEASE ENTER THE NEXT REVIEW DATE")
+
     }
     else if (nextReviewDate != nextReviewDateFormatted) {
-        alert("The date of for the next review is in 3 days time, please make sure you have entered the correct date")
+        // alert("The date of for the next review is in 3 days time, please make sure you have entered the correct date")
+        alert("THE DATE FOR THE NEXT REVIEW IS IN 3 DAYS TIME, PLEASE MAKE SURE YOU HAVE ENTERED THE CORRECT DATE")
+
     }
 
 
@@ -855,6 +913,7 @@ function generatePDF() {
 
 
         doc.save('WoundCare1.pdf') //save the pdf
+        window.scrollTo(0,0);
 
 
     }

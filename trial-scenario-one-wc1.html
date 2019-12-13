@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="./public/trial-scenario-two/css/style.css">
+    <link rel="stylesheet" href="./public/trial-scenario-one-wc1/css/style.css">
 
     <!-- GOOGLE FONTS  -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
@@ -26,22 +26,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="./public/trial-scenario-two/javascript/jquery.js"></script>
+    <script src="./public/trial-scenario-one-wc1/javascript/jquery.js"></script>
 
     <!-- JSPDF -->
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 
     
-    <title>Trial Scenario Two</title>
+    <title>Trial Scenario One WC1</title>
 </head>
 <body>
     
-    <nav>
+    <!-- <nav>
         <div class="nav-logo">
             <a href=""><img src="./public/assets/img/logo/BHISLOGO.jpg" alt="" id="logo"></a>
         </div>
-    </nav>
+    </nav> -->
+
+    <div class="pink-bar">
+
+    </div>
+
+    <div class="logo">
+        <a href=""><img src="https://static.wixstatic.com/media/f787f1_2e30cefcdd5d4230a9d64c09321e39ee~mv2.jpg/v1/fill/w_3254,h_1182/BHISLOGO.jpg" alt="" id="logo"></a>
+    </div>
 
     <!-- Main content wrapper -->
     <div class="main-content-wrapper">
@@ -54,7 +62,7 @@
                     Practice Database
                 </h1>
                 <h3>
-                    Trial Scenario Two
+                    Trial Scenario One
                 </h3>
             </div>
 
@@ -76,13 +84,13 @@
                 </h1>
                 <p>
                     Today you are the nurse on Maple ward caring for Mr Stark's patient, Mrs Francine Olay who is in bed 6. Mrs Olay is receiving Vacuum Assisted Closure (VAC) therapy  for a Category III pressure ulcer on her sacrum.
-                    She already had the pressure ulcer when she was admitted to hospital and overall, the wound looks like it is improving with some slough and odour present. The swab from yesterday shows it is culture positive for <i>Escherichia coli</i>.
+                    She already had the pressure ulcer when she was admitted to hospital and overall, the wound looks like it is improving with some odour present. The swab from yesterday shows it is culture positive for <i>Escherichia coli</i>.
                 </p>  
                 <p>
                     After obtaining appropriate written consent, you take a photograph of Mrs Olay's pressure ulcer. She has a temperature of 38&deg;C, but is otherwise well, with normal blood results and observations, and no Red Flags for sepsis present.
                 </p>
                 <p>
-                    Mrs Olay says she doesn't need a pain killer for changing the VAC dressing. After cleaning the wound with normal saline, you apply VACT unit number 12345 at 125mmHg on intermittent therapy. Over the last 24 hours, the cannister has drained 110mls of serous exudate. The date of next wound review is in three days.
+                    Mrs Olay says she doesn't need a pain killer for changing the VAC dressing. After cleaning the wound with normal saline, you apply VAC unit number 12345 at 125mmHg on intermittent therapy. Over the last 24 hours, the cannister has drained 110mls of serous exudate. The date of next wound review is in three days.
                 </p>
                 <!-- <br> Please click on Generate Form (blue link at the bottom of the page) once you are finished. -->
             </div>
@@ -158,9 +166,9 @@
                             </td>
                         </tr>
 
-                        <tr>
+                        <tr id="wound-assessment-heading-row">
                             <th colspan="2" class="table-subheading">
-                                Wound Assessment
+                                WOUND ASSESSMENT
                             </th>
                         </tr>
                         <tr>
@@ -269,7 +277,7 @@
                                 </select>
                             </td>
                         </tr>
-                        <tr>
+                        <tr id="wound-desc-row">
                             <td>
                                 Wound description 
                             </td>
@@ -311,7 +319,7 @@
                         </tr>
 
                         <tr>
-                            <th colspan="2" class="table-subheading hidden" id="sepsis-subheading">Sepsis Assessment</th>
+                            <th colspan="2" class="table-subheading hidden" id="sepsis-subheading">SEPSIS ASSESSMENT</th>
                         </tr>
                         <tr class="hidden" id="possibly-sepsis-row">
                             <td>
@@ -359,7 +367,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th colspan="2" class="table-subheading">Photos</th>
+                            <th colspan="2" class="table-subheading" id="photos-heading-row">PHOTOS</th>
                         </tr>
                         <tr>
                             <!-- <td colspan="2">
@@ -371,58 +379,52 @@
                             </td>
                             <td>
                                     <form action="" class="wound-photo-form" id="wound-photo-form">
-                                            <!-- <div class="row">
-                                                <div class="wound-photo photo-one column">
-                                                    <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip.jpg" alt="" height="300" width="200" id="wound-photo-one-img"> <br>
-                                                    <input type="radio" name="radimg" id="wound-photo-one" value="Incorrect - one change text" onclick="woundPhotoCheck()" > 
-                                                </div>
-                                                
-                                                <div class="wound-photo photo-two column">
-                                                    <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-1.jpg" alt="" height="300" width="200" id="wound-photo-two-img"> <br>
-                                                    <input type="radio" name="radimg" id="wound-photo-two" value="Incorrect - two change text" onclick="woundPhotoCheck()"> 
-                                                </div>
-                
-                                                <div class="wound-photo photo-three column">
-                                                    <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-2.jpg" alt="" height="300" width="200" id="wound-photo-three-img"> <br>
-                                                    <input type="radio" name="radimg" id="wound-photo-three" value="Incorrect -  three change text" onclick="woundPhotoCheck()"> 
-                                                </div>
-                
-                                                <div class="wound-photo photo-four column">
-                                                    <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-3.jpg" alt="" height="300" width="200" id="wound-photo-four-img"> <br>
-                                                    <input type="radio" name="radimg" id="wound-photo-four" value="Incorrect - four change text" onclick="woundPhotoCheck()"> 
-                                                </div>
-                
-                                                <div class="wound-photo photo-five column">
-                                                    <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-correct.jpg" alt="" height="300" width="200" id="wound-photo-five-img"> <br>
-                                                    <input type="radio" name="radimg" id="wound-photo-five" value="Correct - five change text" onclick="woundPhotoCheck()"> 
-                                                </div>
-                                            </div> -->
-
-
+                                    
                                             <div class="row">
-                                                <div class="wound-photo photo-one column">
+                                                <!-- <div class="wound-photo photo-one column">
                                                     <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip.jpg" alt="" height="300" width="400" id="wound-photo-one-img"> <br>
                                                     <input type="radio" name="radimg" id="wound-photo-one" value="Incorrect - one change text" onclick="woundPhotoCheck()" > 
-                                                </div>
+                                                </div> -->
                                                 
-                                                <div class="wound-photo photo-two column">
+                                                <!-- <div class="wound-photo photo-two column">
                                                     <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-1.jpg" alt="" height="300" width="400" id="wound-photo-two-img"> <br>
-                                                    <input type="radio" name="radimg" id="wound-photo-two" value="Incorrect - two change text" onclick="woundPhotoCheck()"> 
+                                                    <input type="radio" name="radimg" id="wound-photo-two" value="Incorrect - Image is too close" onclick="woundPhotoCheck()"> 
                                                 </div>
                 
                                                 <div class="wound-photo photo-three column">
                                                     <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-2.jpg" alt="" height="300" width="400" id="wound-photo-three-img"> <br>
-                                                    <input type="radio" name="radimg" id="wound-photo-three" value="Incorrect -  three change text" onclick="woundPhotoCheck()"> 
+                                                    <input type="radio" name="radimg" id="wound-photo-three" value="Incorrect -  Image is too bright" onclick="woundPhotoCheck()"> 
                                                 </div>
                 
                                                 <div class="wound-photo photo-four column">
                                                     <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-3.jpg" alt="" height="300" width="400" id="wound-photo-four-img"> <br>
-                                                    <input type="radio" name="radimg" id="wound-photo-four" value="Incorrect - four change text" onclick="woundPhotoCheck()"> 
+                                                    <input type="radio" name="radimg" id="wound-photo-four" value="Incorrect - Image is blurry" onclick="woundPhotoCheck()"> 
                                                 </div>
                 
                                                 <div class="wound-photo photo-five column">
                                                     <img src="./public/assets/img/trial-scenario-two-imgs/pressure_ulcer_on_hip-correct.jpg" alt="" height="300" width="400" id="wound-photo-five-img"> <br>
-                                                    <input type="radio" name="radimg" id="wound-photo-five" value="Correct - five change text" onclick="woundPhotoCheck()"> 
+                                                    <input type="radio" name="radimg" id="wound-photo-five" value="Correct - Perfect image" onclick="woundPhotoCheck()"> 
+                                                </div> -->
+
+
+                                                <div class="wound-photo photo-two column">
+                                                    <img src="https://static.wixstatic.com/media/f787f1_0e0eae5dda9b45da97b29936e8387802~mv2.jpg/v1/fill/w_291,h_187/pressure_ulcer_on_hip-1.jpg" alt="" height="300" width="400" id="wound-photo-two-img"> <br>
+                                                    <input type="radio" name="radimg" id="wound-photo-two" value="Incorrect - Image is too close" onclick="woundPhotoCheck()">
+                                                </div>
+
+                                                <div class="wound-photo photo-three column">
+                                                    <img src="https://static.wixstatic.com/media/f787f1_28a89a5dff0547d8838ff05a16fd43e2~mv2.jpg/v1/fill/w_560,h_410/pressure_ulcer_on_hip-2.jpg" alt="" height="300" width="400" id="wound-photo-three-img"> <br>
+                                                    <input type="radio" name="radimg" id="wound-photo-three" value="Incorrect -  Image is too bright" onclick="woundPhotoCheck()">
+                                                </div>
+
+                                                <div class="wound-photo photo-four column">
+                                                    <img src="https://static.wixstatic.com/media/f787f1_5a4a60db007241aba49049f4aabf248f~mv2.jpg/v1/fill/w_560,h_410/pressure_ulcer_on_hip-3.jpg" alt="" height="300" width="400" id="wound-photo-four-img"> <br>
+                                                    <input type="radio" name="radimg" id="wound-photo-four" value="Incorrect - Image is blurry" onclick="woundPhotoCheck()">
+                                                </div>
+
+                                                <div class="wound-photo photo-five column">
+                                                    <img src="https://static.wixstatic.com/media/f787f1_9d50189865e0430abbf37f74a9c46625~mv2.jpg/v1/fill/w_560,h_410/pressure_ulcer_on_hip-correct.jpg" alt="" height="300" width="400" id="wound-photo-five-img"> <br>
+                                                    <input type="radio" name="radimg" id="wound-photo-five" value="Correct - Perfect image" onclick="woundPhotoCheck()">
                                                 </div>
                                             </div>
 
@@ -436,7 +438,7 @@
                         </tr>
                         
                         <tr>
-                            <th colspan="2" class="table-subheading">Management</th>
+                            <th colspan="2" class="table-subheading" id="management-heading-row">MANAGEMENT</th>
                         </tr>
                         <tr>
                             <td>
@@ -1111,6 +1113,6 @@
     
 
 
-    <script async defer src="./public/trial-scenario-two/javascript/app.js"></script>
+    <script async defer src="./public/trial-scenario-one-wc1/javascript/app.js"></script>
 </body>
 </html>
