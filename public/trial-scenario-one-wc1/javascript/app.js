@@ -913,7 +913,7 @@ function generatePDF() {
 
 
         doc.save('WoundCare1.pdf') //save the pdf
-        window.scrollTo(0,0);
+        // window.scrollTo(0,0);
 
 
     }
