@@ -1,0 +1,1055 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="./public/trial-scenario/css/style.css"> -->
+    <style>
+    @media screen and (max-width: 1600px) {
+  .main-content-wrapper .main-content .database-table .database-table-content table {
+    padding: 0px !important;
+  }
+  .main-content-wrapper .main-content .database-table .database-table-content table .wound-photo-form .row .column {
+    -webkit-box-flex: 50% !important;
+        -ms-flex: 50% !important;
+            flex: 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-content-wrapper .main-content {
+    width: 95% !important;
+  }
+  .main-content-wrapper .main-content .database-table .database-table-content table th {
+    font-size: 24px !important;
+    padding: 0px;
+  }
+  .main-content-wrapper .main-content .database-table .database-table-content table td {
+    padding: 0px;
+  }
+  .main-content-wrapper .main-content .database-table .database-table-content table .wound-photo-form .row .column {
+    -webkit-box-flex: 100% !important;
+        -ms-flex: 100% !important;
+            flex: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .main-content-wrapper .main-content {
+    width: 100% !important;
+  }
+  .main-content-wrapper .main-content .database-table .database-table-content table {
+    width: 100% !important;
+  }
+  .main-content-wrapper .main-content .database-table .database-table-content table th {
+    font-size: 20px !important;
+    padding: 0px !important;
+  }
+  .main-content-wrapper .main-content .database-table .database-table-content table td {
+    padding: 0px !important;
+    font-size: 14px;
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: "Roboto Condensed", sans-serif;
+  /* background-color: #dddddd; */
+  background-color: white;
+
+}
+
+/* nav {
+  padding: 8px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #E73C6A;
+}
+
+nav .nav-logo {
+  float: right;
+  margin-right: 14px;
+}
+
+nav .nav-logo img {
+  width: 140px;
+  height: auto;
+} */
+
+.pink-bar {
+  height: 60px;
+  width: 100%;
+
+  z-index: 1;
+  background-color: #E73C6A;
+}
+
+.content-title {
+        /* padding-top: 10px; */
+        float: left;
+        margin-left: 14px;
+    }
+
+
+.logo {
+  padding-top: 10px;
+  float: right;
+  margin-right: 14px;
+}
+
+.logo img {
+  width: 140px;
+  height: auto;
+}
+
+.main-content-wrapper {
+  position: absolute;
+  width: 100%;
+}
+
+.main-content-wrapper .hidden {
+  display: none;
+}
+
+.main-content-wrapper .main-content {
+  width: 98%;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.main-content-wrapper .main-content .main-content-title {
+  padding: 100px 0px 0px;
+}
+
+.main-content-wrapper .main-content .m-c-info-text {
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.main-content-wrapper .main-content .m-c-info-text #intro {
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.main-content-wrapper .main-content .save-button-div {
+  padding: 20px 0px;
+}
+
+.main-content-wrapper .main-content .save-button-div .save-button {
+  padding: 5px 30px;
+}
+
+.main-content-wrapper .main-content .trial-button-div {
+  padding: 20px 0px;
+}
+
+.main-content-wrapper .main-content .trial-button-div .trial-button {
+  padding: 5px 30px;
+}
+
+.main-content-wrapper .main-content .trial-button-div .trial-button a {
+  text-decoration: none;
+  color: black;
+}
+
+.main-content-wrapper .main-content .scenario-para {
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 18px;
+}
+
+.main-content-wrapper .main-content .div-filler {
+  height: 80px;
+  width: 100%;
+}
+
+.main-content-wrapper .main-content .database-table {
+  width: 100%;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content {
+  padding: 0px;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table, .main-content-wrapper .main-content .database-table .database-table-content th, .main-content-wrapper .main-content .database-table .database-table-content tr, .main-content-wrapper .main-content .database-table .database-table-content td {
+  border: 1px solid black;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .form-bg-c {
+  background-color: #bbbbbb;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .small-textbox {
+  width: 100%;
+  max-width: 250px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #bbbbbb;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .large-textbox {
+  width: 100%;
+  max-width: 700px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #bbbbbb;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .scrollable-textbox {
+  height: 80px;
+  max-width: 700px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: auto;
+  background-color: #bbbbbb;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .small-dropdown {
+  width: 100%;
+  max-width: 250px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #bbbbbb;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .large-dropdown {
+  width: 100%;
+  max-width: 700px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #bbbbbb;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .form-bg-colour {
+  background-color: #bbbbbb;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .wound-photo-form .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .wound-photo-form .row .column {
+  -webkit-box-flex: 25%;
+      -ms-flex: 25%;
+          flex: 25%;
+  max-width: 20%;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .wound-photo-form .row .wound-photo {
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table .wound-photo-answer {
+  height: 50px;
+  text-align: center;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table tr th {
+  font-size: 32px;
+  padding: 8px;
+}
+
+.main-content-wrapper .main-content .database-table .database-table-content table tr td {
+  padding: 8px;
+}
+
+.pdf {
+  height: 800px;
+  margin: 0px auto;
+}
+
+.pdf .left-text {
+  float: left;
+  width: 48%;
+}
+
+.pdf .right-img {
+  float: right;
+  width: 48%;
+}
+/*# sourceMappingURL=style.css.map */
+    </style>
+
+    <!-- GOOGLE FONTS  -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+    <!-- JQUERY UI CSS -->
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.7.0/bluebird.core.min.js"></script>
+
+    <!-- JAVASCRIPT -->
+    <!-- <script async defer src="./public/trial-scenario/javascript/app.js"></script> -->
+    <script>
+
+
+
+// Todays date
+var todaysDate = new Date();
+var dd = String(todaysDate.getDate())
+var mm = String(todaysDate.getMonth() + 1) //January is 0!
+var yyyy = todaysDate.getFullYear();
+
+todaysDate = dd + '/' + mm + '/' + yyyy;
+console.log("todays date is: ",todaysDate)
+
+
+let numWeeks = 1;
+let oneWeekRemovalDate = new Date();
+oneWeekRemovalDate.setDate(oneWeekRemovalDate.getDate() + numWeeks * 7);
+let formattedOneWeekDate = oneWeekRemovalDate.getDate() + "/" + (oneWeekRemovalDate.getMonth() + 1) + "/" + oneWeekRemovalDate.getFullYear()
+
+
+
+console.log("future removal date is: ", formattedOneWeekDate)
+
+
+
+// checking which photo is chosen for displaying correct answer - important
+function woundPhotoCheck() {
+
+    if (document.getElementById('wound-photo-one').checked == true) {
+        photoValue = document.getElementById('wound-photo-one').value;
+    }
+    else if (document.getElementById('wound-photo-two').checked == true) {
+        photoValue = document.getElementById('wound-photo-two').value;
+    }
+    else if (document.getElementById('wound-photo-three').checked == true) {
+        photoValue = document.getElementById('wound-photo-three').value;
+    }
+    else if (document.getElementById('wound-photo-four').checked == true) {
+        photoValue = document.getElementById('wound-photo-four').value;
+    }
+    else if (document.getElementById('wound-photo-five').checked == true) {
+        photoValue = document.getElementById('wound-photo-five').value;
+    }
+}
+
+
+
+// this function just shows an alert if the bhisoption is chosen
+function checkBHIS() {
+
+    var bhisOption = document.getElementById('bhis-option')
+
+    if(bhisOption.checked == true) {
+        alert("Please make sure this is correct, the surgical bra is for female patients only.")
+        console.log(bhisOption)
+
+    }   else if (bhisOption.checked == false) {
+        console.log(bhisOption)
+    }
+}
+
+
+// Generate the PDF
+function generatePDF() {
+
+    checkWoundImages() //function for checking wound images
+    checkMicroForm() //function for checking micro wound radio options
+
+    woundTextBox = document.getElementById('wound-assessment-text').value
+    p1 = document.getElementById('p1');
+    woundTbComments = document.getElementById('wound-tb-comments')
+    surgeon = document.getElementById('surgeon')
+
+    additionalResources = document.getElementById('additional-resources')
+
+    // For getting the values of the additional resources checkboxes
+    var checkboxes = document.getElementsByName('resources');
+    var vals = "";
+    for (var i=0, n=checkboxes.length;i<n;i++) {
+        if (checkboxes[i].checked) {
+            alert("No additional resources should be checked at this time.")
+            console.log("vals value?", vals)
+
+            // return false
+            return;
+
+        }
+    }
+    if (vals) vals = vals.substring(1);
+
+    else if (vals == "") {
+        vals = "No additional resources."
+        console.log("vals != value",vals)
+    }
+
+
+    var dischargeDate = new Date(document.getElementById('start-date').value);
+    var dd = String(dischargeDate.getDate())
+    var mm = String(dischargeDate.getMonth() + 1) //January is 0!
+    var yyyy = dischargeDate.getFullYear();
+
+    dischargeDate = dd + '/' + mm + '/' + yyyy;
+    console.log("Discharge Date is: ", dischargeDate)
+
+    wardOfDischarge = document.getElementById('ward-options').value
+
+
+    var removalDate = new Date(document.getElementById('end-date').value);
+    var dd2 = String(removalDate.getDate())
+    var mm2 = String(removalDate.getMonth() + 1) //January is 0!
+    var yyyy2 = removalDate.getFullYear();
+
+
+    removalDate = dd2 + '/' + mm2 + '/' + yyyy2;
+    console.log("Removal  Date is: ", removalDate)
+
+    categoryDropdown = document.getElementById('category-dropdown').value
+
+    normalSwellingText = "Normal swelling at the top of the wound which will resolve over a few weeks."
+    console.log("normalSwellingText", normalSwellingText)
+
+    woundDropdown = document.getElementById('wound-dropdown').value
+    console.log("woundDropdown", woundDropdown)
+
+    woundClosureMaterialDropdown = document.getElementById('wound-closure-material-dropdown').value
+    console.log("woundClosureMaterialDropdown", woundClosureMaterialDropdown)
+
+    drainSitesDropdown = document.getElementById('drain-sites-dropdown').value
+    console.log("drainSitesDropdown", drainSitesDropdown)
+
+    surgeonName = document.getElementById('doctor-name').value
+    console.log("surgeon name", surgeonName)
+
+    consultantName = document.getElementById('consultant-dropdown').value
+
+
+    console.log("wound tb", woundTextBox.value)
+    //var str = woundTextBox.includes("scratch", "scratches", "scratched", "scratching")
+
+    var str = woundTextBox.indexOf("scratch", "scratches", "scratched", "scratching") !== -1
+
+    console.log("scratch str", str.value)
+
+
+    var logo = document.getElementById('logo')
+
+    // WORKING VALIDATION
+    // if, else if statements for validation on the form
+    if (dischargeDate == "" || dischargeDate == "NaN/NaN/NaN") {
+        alert("Please enter a date of discharge.")
+
+    }
+
+    else if (dischargeDate != todaysDate) {
+        alert("The date of discharge should be todays date. Please enter a correct date of discharge.")
+    }
+
+    else if (wardOfDischarge != document.getElementById('juniper-ward-correct').value ) {
+        alert("Mr Blogg is being discharged from Juniper Ward. Please ensure you've chosen the correct ward from the form.")
+        //return false
+        return;
+    }
+
+    else if(categoryDropdown != document.getElementById('category-cardiac-surgical-correct').value) {
+        alert("Mr Blogg has had cardiac surgery. Please ensure you have chosen the correct category.")
+        //return false
+        return;
+    }
+
+    else if (woundDropdown != document.getElementById('wound-dropdown-correct').value) {
+        alert("Please indicate that the wound is dry and exposed on the day of discharge.")
+        //return false
+        return;
+    }
+
+    else if (woundClosureMaterialDropdown != document.getElementById('wound-closure-correct').value) {
+        alert("Please indicate what type of wound closure material is being used in this scenario.")
+        //return false
+        return;
+    }
+
+    if (woundTextBox != "" && str == false){
+        alert('You must include a small comment about scratches present on the wound. Please ensure all spelling is correct.')
+        console.log("enter if 1 ", woundTextBox.value)
+        //return false
+        return;
+    }
+
+    else if (woundTextBox != "" && str == true) {
+        woundTextBox == woundTextBox
+        console.log("enter if 2 ", woundTextBox)
+    }
+
+    else {
+        woundTextBox = "No additional comments."
+        console.log("enter if 3 ", woundTextBox.value)
+    }
+
+
+
+    if (microValue != document.getElementById('micro-three').value) {
+        alert("Mr Blogg has a sternal wound swab pending. Please ensure you have chosen the correct answer from the Micro for wound options.")
+    }
+
+    else if (drainSitesDropdown != document.getElementById('drain-sites-dropdown-correct').value) {
+        alert("Mr Blogg will need his drain sutures removed. Please ensure you have chosen the correct Drain sites option.")
+    }
+
+    else if (removalDate == "" || removalDate == "NaN/NaN/NaN") {
+        alert("Please enter a removal date.")
+    }
+
+    else if (removalDate != formattedOneWeekDate) {
+        alert("The removal date should be 7 calendar days from the discharge date. Please enter a correct removal date.")
+    }
+
+    else if (checkedImg != document.getElementById('wound-photo-four-img')) {
+        if (document.getElementById('wound-photo-one').checked == true) {
+            photoValue = document.getElementById('wound-photo-one').value;
+            alert(photoValue);
+        }
+        else if (document.getElementById('wound-photo-two').checked == true) {
+            photoValue = document.getElementById('wound-photo-two').value;
+            alert(photoValue);
+        }
+        else if (document.getElementById('wound-photo-three').checked == true) {
+            photoValue = document.getElementById('wound-photo-three').value;
+            alert(photoValue);
+        }
+
+        else if (document.getElementById('wound-photo-five').checked == true) {
+            photoValue = document.getElementById('wound-photo-five').value;
+            alert(photoValue);
+        }
+    }
+
+    else if (consultantName != document.getElementById('consultant-correct').value) {
+        alert("Ms C Halsey performed the surgery for Mr Blogg. Please enter the correct consultant.")
+    }
+
+    else if (surgeonName == "") {
+        alert("Please enter a name in this field.")
+    }
+    // END WORKING VALIDATION
+
+    // This else is where the form is generated after all the statements above are correct
+    else {
+
+        // This adds the selected options into p1 on the trial-scenario.html page pdf section
+        p1.innerHTML = dischargeDate + " " + microValue
+        + " " + normalSwellingText + " " + woundDropdown
+        + " " + "Wound is closed using: " + woundClosureMaterialDropdown
+        + " along the central incision." + " " + drainSitesDropdown + " " + "on: "
+        + removalDate
+
+        woundTbComments.innerHTML = woundTextBox
+        consultant.innerHTML = consultantName
+        additionalResources.innerHTML = vals
+
+        // This is where the doc is started
+        // Creates a new doc
+        var options = {unit: 'px', format: 'a4'};
+        var doc = new jsPDF(options);
+        doc.setFontSize(14);
+
+        doc.text('PHOTO AT DISCHARGE - CARDIAC (SURGICAL)', doc.internal.pageSize.getWidth() / 2, 60, null, null, 'center');
+
+        doc.setFontSize(10);
+
+        doc.text('Mr J Blogg XX-XXX', 20, 80);
+        doc.text('NHS NUMBER XXX XXX XXX', 20, 90);
+
+        doc.addImage(logo, 'JPEG', 330, 10, 100, 35.71);
+
+        doc.addImage(checkedImg, 'JPEG', 280, 100, 150, 300);
+
+        doc.fromHTML($('#left-text').get(0), 20, 92, {
+            'width': 250,
+        });
+
+        doc.fromHTML($('#bottom-text').get(0), 20, 520, {
+            'width': 400,
+        });
+
+        doc.fromHTML($('#bottom-sign').get(0), 20, 595, {
+            'width': 400,
+        });
+
+        // Save pdf
+        doc.save('Photo-at-Discharge.pdf');
+    }
+
+}
+// End PDF
+
+
+//works - TODO: might not be necessary - will keep commented for now
+// function checkDrName() {
+
+//     let docTextbox = document.getElementById('doctor-name')
+
+//     if ((docTextbox).value == "") {
+//         alert('Please enter a doctors name')
+//     }
+// }
+
+function checkWoundImages() {
+
+    if (document.getElementById('wound-photo-one').checked == true) {
+        checkedImg = document.getElementById('wound-photo-one-img');
+    }
+    else if (document.getElementById('wound-photo-two').checked == true) {
+        checkedImg = document.getElementById('wound-photo-two-img');
+    }
+    else if (document.getElementById('wound-photo-three').checked == true) {
+        checkedImg = document.getElementById('wound-photo-three-img');
+    }
+    else if (document.getElementById('wound-photo-four').checked == true) {
+        checkedImg = document.getElementById('wound-photo-four-img');
+    }
+    else if (document.getElementById('wound-photo-five').checked == true) {
+        checkedImg = document.getElementById('wound-photo-five-img');
+    }
+}
+
+function checkMicroForm() {
+
+    if (document.getElementById('micro-one').checked == true) {
+        microValue = document.getElementById('micro-one').value
+    }
+    else if (document.getElementById('micro-two').checked == true) {
+        microValue = document.getElementById('micro-two').value
+    }
+    else if (document.getElementById('micro-three').checked == true) {
+        microValue = document.getElementById('micro-three').value
+    }
+}
+    </script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-1.7-development-only.js"></script>
+
+
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- <script src="./public/trial-scenario/javascript/jquery.js"></script> -->
+    <script>
+    // DATE PICKER COMPATIBILITY FOR SAFARI AND IE
+$(document).ready(function(){
+
+if ( $('.date-picker').prop('type') != 'date' ) {
+    $('.date-picker').datepicker();
+}
+});
+
+    </script>
+
+    <!-- JSPDF -->
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+
+    <title>Photo at Discharge - Trial Scenario Two</title>
+</head>
+<body>
+
+    <!-- <nav>
+        <div class="nav-logo">
+            <a href=""><img src="https://static.wixstatic.com/media/f787f1_2e30cefcdd5d4230a9d64c09321e39ee~mv2.jpg/v1/fill/w_3254,h_1182/BHISLOGO.jpg" alt="" id="logo"></a>
+        </div>
+    </nav> -->
+    <div class="pink-bar">
+
+    </div>
+    <div class="logo-header">
+        <div class="content-title">
+            <h1>
+                Practice Database
+            </h1>
+        </div>
+        <div class="logo">
+            <a href=""><img src="https://static.wixstatic.com/media/f787f1_2e30cefcdd5d4230a9d64c09321e39ee~mv2.jpg/v1/fill/w_3254,h_1182/BHISLOGO.jpg" alt="" id="logo"></a>
+        </div>
+    </div>
+
+
+    <!-- <div class="logo">
+        <a href=""><img src="https://static.wixstatic.com/media/f787f1_2e30cefcdd5d4230a9d64c09321e39ee~mv2.jpg/v1/fill/w_3254,h_1182/BHISLOGO.jpg" alt="" id="logo"></a>
+    </div> -->
+
+    <div class="main-content-wrapper">
+
+        <div class="main-content">
+        <div class="main-content-title">
+            <!-- <h1>
+                Practice Database
+            </h1> -->
+            <h3>
+                Trial Scenario Two
+            </h3>
+        </div>
+        <div class="m-c-info-text">
+            <p>
+                This is an excerpt of the Photo at Discharge database and does not show its full functionality. Intended for demonstration purposes only.
+            </p>
+            <p>
+                Photos used with kind permission from the patient.
+            </p>
+            <p>
+                Please use a browser such as <b> Chrome, Firefox or Safari </b> for best results with this practice exercise.
+            </p>
+        </div>
+
+        <div class="scenario-para">
+            <h1>
+                Scenario: To create a Photo at Discharge (PaD)
+            </h1>
+            <p>
+                Today you are discharging Mr Joe Blogg from Juniper Ward. Mr Blogg has had cardiac surgery under Ms C Halsey. His wound is dry and exposed on the day of discharge with absorbable sutures. You have taken a series of photos so you can select the best picture.
+                Mr Blogg needs his drain sutures removed in 7 calendar days, and you should add a comment about the small scratches evident next to his surgical incision. He has a sternal wound swab pending.
+                Complete the form based on the information in this scenario. The database will automatically add details for Mr Blogg and advice.
+                <br> Please click on Generate Form (blue link at the bottom of the page) once you are finished.
+            </p>
+        </div>
+
+        <!-- Start of the table -->
+        <div class="database-table">
+            <div class="database-table-content">
+                <table>
+                    <tr>
+                        <th colspan="2">
+                            Photo at Discharge (PaD)
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="width: 25%; border: none;"></th>
+                        <th style="width: 75%; border: none;"></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Date of Discharge
+                        </td>
+                        <td>
+                            <input type="date" class="date-picker" id="start-date" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ward of Discharge
+                        </td>
+                        <td>
+                            <select name="" id="ward-options" class="small-dropdown">
+                                <option value="select">--select--</option>
+                                <option value="Maple">Maple</option>
+                                <option value="Cedar">Cedar</option>
+                                <option value="Juniper" id="juniper-ward-correct">Juniper</option> <!-- correct ward -->
+                                <option value="HDU">HDU</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Category
+                        </td>
+                        <td>
+                            <select name="category" id="category-dropdown" class="small-dropdown">
+                                <option value="Cardiac (Surgical)" id="category-cardiac-surgical-correct">Cardiac (Surgical)</option>
+                                <option value="Paediatric (Cardiac)">Paediatric (Cardiac)</option>
+                                <option value="Thoracic (Surgical)">Thoracic (Surgical)</option>
+                                <option value="Drain management only">Drain management only</option>
+                                <option value="Cardiac (Invasive cardiology)">Cardiac (Invasive cardiology)</option>
+                                <option value="Cardiac (Transplant)">Cardiac (Transplant)</option>
+                                <option value="Thoracic (Transplant)">Thoracic (Transplant)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Wound
+                        </td>
+                        <td>
+                            <select name="wound" id="wound-dropdown" class="large-dropdown">
+                                <option value="select">--select--</option>
+                                <option class="wound-option" id="wound-dropdown-correct" value="Wound dry and exposed on day of planned discharge.">Wound dry and exposed on day of planned discharge.</option>
+                                <option class="wound-option" value="Minimally invasive left-sided thoracotomy wound.">Minimally invasive left-sided thoracotomy wound.</option>
+                                <option class="wound-option" value="Minimally invasive right-sided thoracotomy wound.">Minimally invasive right-sided thoracotomy wound.</option>
+                                <option class="wound-option" value="Minimally invasive wound (shorter; central chest incision).">Minimally invasive wound (shorter; central chest incision).</option>
+                                <option class="wound-option" value="Other.">Other.</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Wound closure material
+                        </td>
+                        <td>
+                            <select name="wound closure material" id="wound-closure-material-dropdown" class="large-dropdown">
+                                <option value="select">--select--</option>
+                                <option class="wound-option" value="Absorbable suture(s)" id="wound-closure-correct">Absorbable suture(s)</option>
+                                <option class="wound-option" value="Surgical clips">Surgical clips</option>
+                                <option class="wound-option" value="Wound closure tapes (e.g. Steri-strips)">Wound closure tapes (e.g. Steri-strips)</option>
+                                <option class="wound-option" value="Non-absorbable sutures">Non-absorbable sutures</option>
+                                <option class="wound-option" value="Deep tension suture(s)">Deep tension suture(s)</option>
+                                <option class="wound-option" value="Glue/tissue adhesive (e.g. Dermabond)">Glue/tissue adhesive (e.g. Dermabond)</option>
+                                <option class="wound-option" value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Wound assessment
+                        </td>
+                        <td>
+                            <textarea name="" value="" id="wound-assessment-text" cols="30" rows="10" class="scrollable-textbox" maxlength="200"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Micro for wound
+                        </td>
+                        <td>
+                            <form action="" id="micro-form">
+                                <input type="radio" name="foo" id="micro-one" value="There are no outstanding swabs." >There are no outstanding swabs <br>
+                                <input type="radio" name="foo" id="micro-two" value="Antibiotics are prescribed to cover the wound swab results.">Antibiotics are prescribed to cover the wound swab results <br>
+                                <input type="radio" name="foo" id="micro-three" value="There are pending wound swabs. We will follow up these results and will inform your GP to action if necessary.">There are pending wound swabs. We will follow up these results and will inform your GP to action if necessary <!-- correct answer -->
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Drain sites
+                        </td>
+                        <td>
+                            <select name="" id="drain-sites-dropdown" class="large-dropdown">
+                                <option value="select">--select--</option>
+                                <option value="Dry and exposed with sutures removed">Dry and exposed with sutures removed</option>
+                                <option id="drain-sites-dropdown-correct" value="Drain site sutures (dark thread appearance) to be removed by your GP practice or district nurse">Drain site sutures (dark thread appearance) to be removed by your GP practice or district nurse</option> <!-- correct option -->
+                                <option value="Drain site sutures removed - some oozing">Drain site sutures removed - some oozing</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Removal date
+                        </td>
+                        <td>
+                            <input type="date" name="" class="date-picker" id="end-date" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Additional resources provided at discharge
+                        </td>
+                        <td>
+                            <input type="checkbox" class="addit-resources" name="resources" id="" value="Hibiscrub(contains Chlorhexidine) antimicrobial wash provided. Please discontinue use after five days or if skin becomes irritated. The solution should be applied to damp skin and rinsed off after a minute.">Hibiscrub(contains Chlorhexidine) antimicrobial wash provided. Please discontinue use after five days or if skin becomes irritated. The solution should be applied to damp skin and rinsed off after a minute. <br>
+                            <input type="checkbox" class="addit-resources" name="resources" id="" value="Chlorhexidine wipes (single use/disposable wipes); Please avoid using this on the wound. No need to rinse.">Chlorhexidine wipes (single use/disposable wipes); please use this in the evening for the &#39;freshen up&#39;. No need to rinse. <br>
+                            <input type="checkbox" class="addit-resources" name="resources" id="" value="Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed.">Advised to use body lotion to prevent skin drying out. Please DO NOT apply any products directly to wound bed. <br>
+                            <input type="checkbox" class="addit-resources" name="resources" id="bhis-option" onclick="checkBHIS()">Additional BHIS<sup>TM</sup> cardiac surgical bra provided. <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Photo
+                        </td>
+                        <td>
+                            <form action="" class="wound-photo-form" id="wound-photo-form">
+                                <div class="row">
+                                    <div class="wound-photo photo-one column">
+                                        <img src="https://static.wixstatic.com/media/f787f1_33b1b43793674a8dab4ad4ef24a4ecea~mv2.jpg/v1/fill/w_427,h_792/Img%20one%20(wrong%20angle).jpg" alt="" height="300" width="200" id="wound-photo-one-img"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-one" value="Incorrect - wrong angle" onclick="woundPhotoCheck()" >
+                                    </div>
+
+                                    <div class="wound-photo photo-two column">
+                                        <img src="https://static.wixstatic.com/media/f787f1_1b80564bf7e74c63b3f3063030668ab4~mv2_d_3864_5152_s_4_2.jpg/v1/fill/w_3864,h_5152/Img%20three%20(too%20close).JPG.jpg" alt="" height="300" width="200" id="wound-photo-two-img"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-two" value="Incorrect - too close" onclick="woundPhotoCheck()">
+                                    </div>
+
+                                    <div class="wound-photo photo-three column">
+                                        <img src="https://static.wixstatic.com/media/f787f1_aff12c6c66da4c4098ecb1333b5038e0~mv2_d_3864_5152_s_4_2.jpg/v1/fill/w_3864,h_5152/Img%20four%20(shadow).JPG.jpg" alt="" height="300" width="200" id="wound-photo-three-img"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-three" value="Incorrect - shadow present on image" onclick="woundPhotoCheck()">
+                                    </div>
+
+                                    <div class="wound-photo photo-four column">
+                                        <img src="https://static.wixstatic.com/media/f787f1_2bde1644a5df49528d50fc0020419628~mv2_d_3041_4753_s_4_2.jpg/v1/fill/w_3041,h_4753/Img%20two%20(perfect).jpg" alt="" height="300" width="200" id="wound-photo-four-img"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-four" value="Correct - this is the perfect image" onclick="woundPhotoCheck()">
+                                    </div>
+
+                                    <div class="wound-photo photo-five column">
+                                        <img src="https://static.wixstatic.com/media/f787f1_363e9b4fb9b24bd8a8335321f97feacc~mv2.jpg/v1/fill/w_492,h_739/Img%20five%20(blurred).jpg" alt="" height="300" width="200" id="wound-photo-five-img"> <br>
+                                        <input type="radio" name="foo" id="wound-photo-five" value="Incorrect - image is not as sharp as an alternative" onclick="woundPhotoCheck()">
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="wound-photo-answer" >
+                                <p id="wound-photo-answer">
+                                    Choose an image
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Responsible consultant
+                        </td>
+                        <td>
+                            <select name="" id="consultant-dropdown" class="small-dropdown">
+                                <option value="Mr T Stark">Mr T Stark</option>
+                                <option value="Ms C Halsey" id="consultant-correct">Ms C Halsey</option>
+                                <option value="Mr A Johnson">Mr A Johnson</option>
+                                <option value="Ms M Keyes">Ms M Keyes</option>
+                                <option value="Mr E Buck">Mr E Buck</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Staff providing PaD
+                        </td>
+                        <td>
+                            <input type="text" name="doctor name" id="doctor-name" class="small-textbox" value="" required>
+                            <br>
+                            <a href="javascript:generatePDF()">Generate Form</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- ^ End of the table -->
+
+
+        </div>
+        <!-- ^ End of main-content -->
+
+
+        <!-- PDF SECTION -->
+        <div class="pdf hidden" id="pdf" style="padding: 0px; font-size: 12px;" >
+                <div class="left-text" id="left-text">
+                    <p id="p1" >
+                        <i>
+                            <!-- Data entered in the form will be put in here once pdf generated -->
+                        </i>
+                    </p>
+                    <p>
+                        <b>Additional comments:</b>
+                    </p>
+                    <p id="wound-tb-comments">
+                        <!-- Wound assessment additional comments will go here once pdf is generated -->
+                    </p>
+                    <p>
+                        <b>Advice to Mr Blogg</b>
+                    </p>
+                    <p id="p2">
+                            *Full, daily shower with liquid soap. Water and liquid soap is fine to
+                            roll over wound bed, but avoid very hot water and/or soaking the wound
+                            and do not rub wound (there is a bit of dried blood/scab, which will
+                            come away over time). Pat the sternal wound dry with clean towel
+                            gently first, then dry rest of body. If present, incision(s) on the leg are
+                            also surgical wounds and need to be treated in the same manner, using a
+                            separate towel to dry.
+                    </p>
+                    <p id="p3">
+                            *Support your wound when coughing and if possible, turn your head so
+                            that coughing directly over the wound is avoided.
+                    </p>
+                    <p id="p4">
+                            *The bottom of the wound is particularly vulnerable. Good posture and
+                            regularly standing will reduce pressure on the area.
+                    </p>
+                    <p id="p5">
+                            *Protect the sternal wound with careful movement; when possible
+                            please sleep on your back, avoid over-reaching/stretching and use your arms for balance when moving to
+                            standing position, rather than pushing /supporting weight.
+                    </p>
+                    <p id="p6">
+                            *Wash hands frequently and avoid touching the wound. A healing
+                            wound may be itchy (especially if there is hair regrowth) but avoid urge
+                            to scratch. Regular hand washing will reduce the risk of infection
+                    </p>
+                    <p id="p7">
+                        <b>
+                            PLEASE USE THIS PHOTO TO MONITOR for any signs of
+                            infection,  including  new  or  increasing  heat,  redness,  pain  or
+                            swelling around the wound or any gaping or fluid leaking from the
+                            wound. Sternal 'clicking' or high temperature should also  be
+                            reported.
+                        </b>
+                    </p>
+                    <p id="p8">
+                        <b>Additional Resources: </b>
+                    </p>
+                    <p id="additional-resources">
+                        <!-- Additional resources chosen from the checkbox would go in here once pdf has been generated -->
+                    </p>
+
+                </div>
+                <div class="right-img">
+                    <img src="./public/assets/img/wound-imgs/Mr M. Abbass 4074554 (perfect).jpg" alt="" height="300" width="200" id="wound-photo-four-img">
+                </div>
+
+                <div class="bottom-text" id="bottom-text">
+                    <p>
+                            If you receive treatment for a wound problem and the wound does not
+                            start to show clear improvement after one week, please contact your hospital surgical team because you may
+                            need antibiotics given in another way (i.e.  intravenously) and/or wound revision. Cardiac surgery is
+                            considered 'implant surgery and for this reason, referral back to the surgical team in a timely manner is very
+                            important.
+                    </p>
+                    <p>
+                        Please contact your GP or
+                        <span id="consultant">
+                            <!-- The consultant chosen on the consultant dropdown will go here once generated form -->
+                        </span>
+                        secretary (1234 123 4567) immediately if you think your
+                        wound might be infected. Treating an infection early helps stop it from becoming worse or lasting longer than
+                        it should. This information does not replace advice or assessment by your surgical team.  Colour copy of this
+                        information to the patient. Electronic copy on EPR.
+                    </p>
+                </div>
+                <div class="bottom-sign" id="bottom-sign">
+                    <p>
+                        Consent for photo .................................................................. (patient or guardian signature)
+                    </p>
+                </div>
+            </div>
+            <!-- ^ End of PDF Section -->
+
+        </div>
+        <!-- ^ End of main-content-wrapper -->
+
+</body>
+</html>
