@@ -312,7 +312,7 @@
 $(document).ready(function(){
 
   if ( $('.date-picker').prop('type') != 'date' ) {
-      $('.date-picker').datepicker();
+      $('.date-picker').datepicker({ dateFormat: 'dd-mm-yy' });
   }
 });
     </script>
@@ -417,7 +417,7 @@ $(document).ready(function(){
                             <td>
                                 Name: Mrs Francine Olay <br>
                                 NHS Number: 242 330 303 <br>
-                                DOB: 20/12/1969 <br>
+                                DOB: 20 Dec 1969 <br>
                                 <span id="todays-date"></span>
                             </td>
                         </tr>
@@ -1427,9 +1427,17 @@ let month = String(todaysDate.getMonth() + 1)
 let year = String(todaysDate.getFullYear())
 todaysDate = day + "/" + month + "/" + year
 console.log("todays date is: ", todaysDate)
-document.getElementById('todays-date').innerHTML = "Today's date: " + todaysDate
+//document.getElementById('todays-date').innerHTML = "Today's date: " + todaysDate
 
 
+//date test
+let dateValue = Date();
+let mmm = dateValue.substring(4,7);
+let ddd = dateValue.substring(8,10);
+let yyy = dateValue.substring(11,15);
+let todaysDateFormatted = ddd + " " + mmm + " " + yyy;
+console.log("todaysDateFormatted: ",todaysDateFormatted)
+document.getElementById('todays-date').innerHTML = "Today's date: " + todaysDateFormatted
 
 
 
@@ -1439,6 +1447,10 @@ let yesterdaysDate = new Date()
 yesterdaysDate = ((day) - 1) + "/" + month + "/" + year
 console.log("yesterdays date is: ",yesterdaysDate)
 
+// yesterdays date format
+let yesterdaysDateFormat = new Date()
+yesterdaysDateFormat = ((ddd) - 1) + " " + mmm + " " + yyy
+console.log("yesterdays date format is: ",yesterdaysDateFormat)
 
 
 // date planned next review
@@ -1448,7 +1460,8 @@ nextReviewDateTime.setDate(nextReviewDateTime.getDate() + threeDays * 3)
 let nextReviewDateFormatted = nextReviewDateTime.getDate() + "/" + (nextReviewDateTime.getMonth() + 1) + "/" + nextReviewDateTime.getFullYear()
 console.log("3 days time removal date: ", nextReviewDateFormatted)
 
-
+let nextReviewDateFormat = nextReviewDateTime.getDate() + " " + (mmm) + " " + nextReviewDateTime.getFullYear()
+console.log("3 days time removal date format: ", nextReviewDateFormat)
 
 // Images
 let logo = document.getElementById('logo')
@@ -1751,15 +1764,25 @@ function generatePDF() {
   woundSampleDate = dd + '/' + mm + '/' + yyyy;
   console.log("wound sample date is: ", woundSampleDate)
 
-  // next review date
 
+
+  // next review date
   let nextReviewDate = new Date(document.getElementById('next-review-date').value);
   let dd2 = String(nextReviewDate.getDate())
   let mm2 = String(nextReviewDate.getMonth() + 1) //January is 0!
   let yyyy2 = nextReviewDate.getFullYear();
-
   nextReviewDate = dd2 + '/' + mm2 + '/' + yyyy2;
   console.log("Removal  Date is: ", nextReviewDate)
+
+
+    // let dateValue = Date();
+    // let mmm = dateValue.substring(4,7);
+    // let ddd = dateValue.substring(8,10);
+    // let yyy = dateValue.substring(11,15);
+    // let todaysDateFormatted = ddd + " " + mmm + " " + yyy;
+    // console.log("todaysDateFormatted: ",todaysDateFormatted)
+
+
 
 
   // vars
@@ -2033,92 +2056,12 @@ function generatePDF() {
 
 
 
-
-
-  // end wound assessment details
-
-
-  // sepsis details
-
-
-
-
-
-  // else if(document.getElementById('possibly-sepsis-no').checked == true) {
-  //     sepsisRadioValue = document.getElementById('possibly-sepsis-no').value
-
-  //     sepsisRedFlagValue = ""
-  //     document.getElementById('red-flag-correct').checked == false
-  // }
-
-  // else if(document.getElementById('possibly-sepsis-yes').checked == true) {
-  //     sepsisRadioValue = document.getElementById('possibly-sepsis-yes').value
-
-  //     if (document.getElementById('red-flag-correct').checked == false) {
-  //         alert("There are no red flags for sepsis present, please choose the correct option")
-  //         return
-  //     }
-  //     // else {
-  //     //     sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
-  //     // }
-  //     sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
-
-  // }
-
-  // else if(document.getElementById('possibly-sepsis-unsure').checked == true) {
-  //     sepsisRadioValue = document.getElementById('possibly-sepsis-unsure').value
-
-  //     if (document.getElementById('red-flag-correct').checked == false) {
-  //         alert("There are no red flags for sepsis present, please choose the correct option")
-  //         return
-  //     }
-  //     // else {
-  //     //     sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
-  //     // }
-  //     sepsisRedFlagValue = "Red Flag option selected is: " + document.getElementById('red-flag-correct').value
-
-  // }
-
-  // else if (possibSepsisTreatment.checked) {
-  //     alert("Known/ Treatment is incorrect, please choose the correct option")
-  //     return
-  // }
-
-
-
-
-
-// if form checked then all the if statements
-
-
-
-
-// somewhat works
-  // else if(document.getElementById('possibly-sepsis-no').checked == false) {
-  //     alert("Please choose an option if posisbly sepsis")
-
-
-  //     if(document.getElementById('possibly-sepsis-no').checked == true) {
-  //             sepsisRadioValue = document.getElementById('possibly-sepsis-no').value
-  //             sepsisRedFlagValue = ""
-  //             document.getElementById('red-flag-correct').checked == false
-  //         }
-  //     return
-  // }
-
-
-
-
   // else if (document.getElementsByName('possep'))
   else if(document.querySelector('input[name="possep"]:checked') == null) {
       // alert("Please choose an option if possibly sepsis")
       alert("PLEASE CHOOSE AN OPTION IF POSSIBLY SEPSIS?")
 
   }
-
-
-
-
 
 
   else if (possibSepsisTreatment.checked) {
@@ -2272,9 +2215,14 @@ function generatePDF() {
       pdfManagementStatusNptAnswer.innerHTML = negativePressureFormCorrectValue
       pdfManagementVacIdAnswer.innerHTML = vacIdNumberTextbox
       pdfManagementVacVolAnswer.innerHTML = vacVolumeTextbox
-      pdfManagementWoundSampleDateAnswer.innerHTML = woundSampleDate
+    //   pdfManagementWoundSampleDateAnswer.innerHTML = woundSampleDate
+    pdfManagementWoundSampleDateAnswer.innerHTML = yesterdaysDateFormat
       pdfManagementMicrobiologyAnswer.innerHTML = microbiologyDropdown
-      pdfManagementNextReviewDateAnswer.innerHTML = nextReviewDate
+    //   pdfManagementNextReviewDateAnswer.innerHTML = nextReviewDate
+    pdfManagementNextReviewDateAnswer.innerHTML = nextReviewDateFormat
+      
+      
+      
 
       // details
       pdfStaffNameAnswer.innerHTML = staffNameValue
@@ -2300,8 +2248,10 @@ function generatePDF() {
       // patient details text
       doc.text("Name: Mrs Francine Olay", 20, 80)
       doc.text("NHS Number: 242 330 303", 20, 90)
-      doc.text("DOB: 20/12/1969", 20, 100)
-      doc.text("Today's date: " + todaysDate, 20, 110)
+    //   doc.text("DOB: 20/12/1969", 20, 100) // 20 Dec 1969
+      doc.text("DOB: 20 Dec 1969", 20, 100) // 20 Dec 1969
+
+      doc.text("Today's date: " + todaysDateFormatted, 20, 110)
 
       doc.text("Responsible clinician: " + clinicianValue, 20, 130)
       doc.text("Current Ward and Bed Number: " + wardValue + " | " + bedNumber, 20, 140)

@@ -339,11 +339,19 @@ let numWeeks = 1;
 let oneWeekRemovalDate = new Date();
 oneWeekRemovalDate.setDate(oneWeekRemovalDate.getDate() + numWeeks * 7);
 let formattedOneWeekDate = oneWeekRemovalDate.getDate() + "/" + (oneWeekRemovalDate.getMonth() + 1) + "/" + oneWeekRemovalDate.getFullYear()
-
-
-
 console.log("future removal date is: ", formattedOneWeekDate)
 
+
+//date test
+    let dateValue = Date();
+    let mmm = dateValue.substring(4,7);
+    let ddd = dateValue.substring(8,10);
+    let yyy = dateValue.substring(11,15);
+    let todaysDateFormatted = ddd + " " + mmm + " " + yyy;
+    console.log("todaysDateFormatted: ",todaysDateFormatted)
+
+    let futureRemovalDateFormat = oneWeekRemovalDate.getDate() + " " + mmm + " " + yyy
+    console.log("futureRemovalDateFormat: ",futureRemovalDateFormat)
 
 
 // checking which photo is chosen for displaying correct answer - important
@@ -417,6 +425,8 @@ function generatePDF() {
     }
 
 
+    
+
     var dischargeDate = new Date(document.getElementById('start-date').value);
     var dd = String(dischargeDate.getDate())
     var mm = String(dischargeDate.getMonth() + 1) //January is 0!
@@ -424,6 +434,8 @@ function generatePDF() {
 
     dischargeDate = dd + '/' + mm + '/' + yyyy;
     console.log("Discharge Date is: ", dischargeDate)
+
+
 
     wardOfDischarge = document.getElementById('ward-options').value
 
@@ -570,11 +582,19 @@ function generatePDF() {
     else {
 
         // This adds the selected options into p1 on the trial-scenario.html page pdf section
-        p1.innerHTML = dischargeDate + " " + microValue
+        // p1.innerHTML = dischargeDate + " " + microValue
+        // + " " + normalSwellingText + " " + woundDropdown
+        // + " " + "Wound is closed using: " + woundClosureMaterialDropdown
+        // + " along the central incision." + " " + drainSitesDropdown + " " + "on: "
+        // + removalDate
+        p1.innerHTML = todaysDateFormatted + " " + microValue
         + " " + normalSwellingText + " " + woundDropdown
         + " " + "Wound is closed using: " + woundClosureMaterialDropdown
         + " along the central incision." + " " + drainSitesDropdown + " " + "on: "
-        + removalDate
+        + futureRemovalDateFormat
+
+        
+
 
         woundTbComments.innerHTML = woundTextBox
         consultant.innerHTML = consultantName
@@ -672,7 +692,7 @@ function checkMicroForm() {
 $(document).ready(function(){
 
 if ( $('.date-picker').prop('type') != 'date' ) {
-    $('.date-picker').datepicker();
+    $('.date-picker').datepicker({ dateFormat: 'dd-mm-yy' });
 }
 });
 
