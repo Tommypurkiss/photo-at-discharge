@@ -621,9 +621,9 @@ $(document).ready(function(){
                         </tr>
 
                         <tr>
-                            <th colspan="2" class="table-subheading hidden" id="sepsis-subheading">SEPSIS ASSESSMENT</th>
+                            <th colspan="2" class="table-subheading" id="sepsis-subheading">SEPSIS ASSESSMENT</th>
                         </tr>
-                        <tr class="hidden" id="possibly-sepsis-row">
+                        <tr id="possibly-sepsis-row">
                             <td>
                                 Is this Possibly SEPSIS? And/or does the patient look sick? OR has NEWS (or similar) triggered?
                             </td>
@@ -644,7 +644,7 @@ $(document).ready(function(){
                                 </form>
                             </td>
                         </tr>
-                        <tr class="hidden" id="sepsis-red-flag-row">
+                        <tr  id="sepsis-red-flag-row">
                             <td>
                                 Is ONE Red Flag present?
                             </td>
@@ -1501,6 +1501,9 @@ function checkWoundTypeCorrect() {
 
 
 
+
+
+
 // this sets the value of the wound type checked value
 function setWoundTypeValue() {
 
@@ -1524,23 +1527,29 @@ let sepsisSubheading = document.getElementById('sepsis-subheading')
 function checkWoundDescCorrect() {
 
   if(woundDescPyrexiaCorrect.checked == true) {
-      possiblySepsisRow.classList.add("display-table-row")
-      sepsisSubheading.classList.add("display-table-heading")
+      //possiblySepsisRow.classList.add("display-table-row")
+      //sepsisSubheading.classList.add("display-table-heading")
       //sepsisRedFlagRow.classList.add("display-table-row")
   }
   else if (woundDescPyrexiaCorrect.checked == false) {
-      possiblySepsisRow.classList.remove("display-table-row")
-      sepsisSubheading.classList.remove("display-table-heading")
-      sepsisRedFlagRow.classList.remove("display-table-row")
+      //possiblySepsisRow.classList.remove("display-table-row")
+      //sepsisSubheading.classList.remove("display-table-heading")
+      //sepsisRedFlagRow.classList.remove("display-table-row")
       redFlagRow.classList.remove("display-table-row")
   }
 }
 
-// let sepsisRedFlagValue = ""
 let possiblySepsisForm = document.getElementById('possibly-sepsis-form')
 
 
 
+let radios = document.getElementsByName('sepred')
+
+for (let i=0, iLen=radios.length; i<iLen; i++) {
+
+radios[i].disabled = true
+
+} 
 
 let possiblySepsisNo = document.getElementById('possibly-sepsis-no')
 let possibSepsisTreatment = document.getElementById('possibly-sepsis-treatment')
@@ -1554,35 +1563,51 @@ function checkPossiblySepsis() {
   if (document.getElementById('possibly-sepsis-yes').checked == true) {
       sepsisRedFlagRow.classList.add("display-table-row")
 
+      for (let i=0, iLen=radios.length; i<iLen; i++) {
+
+        radios[i].disabled = false
+
+        } 
 
   }
   if (document.getElementById('possibly-sepsis-no').checked == true) {
 
-      sepsisRedFlagRow.classList.remove("display-table-row")
+      //sepsisRedFlagRow.classList.remove("display-table-row")
       redFlagRow.classList.remove("display-table-row")
       //sepsisRedFlagValue == sepsisRedFlagValue.value
+
+      for (let i=0, iLen=radios.length; i<iLen; i++) {
+
+        radios[i].disabled = true
+        radios[i].checked = false
+        } 
 
 
       //document.getElementById('red-flag-form').checked == false
       // sepsisRedFlagValue = document.querySelector('input[name="sepred"]:checked').checked == false;
   }
   if (document.getElementById('possibly-sepsis-unsure').checked == true) {
-      sepsisRedFlagRow.classList.add("display-table-row")
+      //sepsisRedFlagRow.classList.add("display-table-row")
+      for (let i=0, iLen=radios.length; i<iLen; i++) {
 
+        radios[i].disabled = false
+
+        } 
   }
   if (document.getElementById('possibly-sepsis-treatment').checked == true) {
       //document.querySelector('input[name="sepred"]:checked').checked == false;
-      sepsisRedFlagRow.classList.remove("display-table-row")
+      //sepsisRedFlagRow.classList.remove("display-table-row")
       redFlagRow.classList.remove("display-table-row")
+      for (let i=0, iLen=radios.length; i<iLen; i++) {
 
+        radios[i].disabled = true
+        radios[i].checked = false
+        } 
       // sepsisRedFlagValue = document.querySelector('input[name="sepred"]:checked').checked == false;
 
       //document.getElementById('red-flag-form').checked == false
   }
 }
-
-
-
 
 
 let redFlagCorrect = document.getElementById('red-flag-correct')
